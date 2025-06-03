@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Services from "@/components/Services";
 import About from "@/components/About";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
         <WhyChooseUs />
         <Services />
         <About />
+        <FAQ />
         <Contact />
       </main>
 
@@ -36,21 +38,25 @@ const Index = () => {
                 </div>
               </div>
               <p className="text-slate-300 mb-4 max-w-md">
-                Commercial debt recovery done differently. We use a blend of
-                high-tech and tenacity to ensure we collect your debt.
+                Leading commercial debt recovery UK specialists. No win no fee
+                debt collection services across London, Manchester, Birmingham,
+                Glasgow, and Edinburgh.
               </p>
               <p className="text-blue-400 font-semibold">
-                If we can't collect it, nobody can.
+                Recovery experts for hire UK - If we can't collect it, nobody
+                can.
               </p>
             </div>
 
             <div>
               <h4 className="text-white font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-slate-300 text-sm">
-                <li>Commercial Debt Collection</li>
-                <li>Accounts Receivable Management</li>
-                <li>Court Claims & Legal Action</li>
-                <li>Insolvency Services</li>
+                <li>Commercial B2B Debt Collection</li>
+                <li>Construction & Engineering Recovery</li>
+                <li>International Debt Recovery</li>
+                <li>Independent Schools Collections</li>
+                <li>Food & Drink Sector Recovery</li>
+                <li>Oil & Gas Debt Collection</li>
               </ul>
             </div>
 
@@ -58,6 +64,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-slate-300 text-sm">
                 <p>Liverpool, UK</p>
+                <p>London | Manchester | Birmingham</p>
                 <p>info@ascollections.co.uk</p>
                 <p>24/7 Emergency Line Available</p>
               </div>
@@ -66,8 +73,9 @@ const Index = () => {
 
           <div className="border-t border-slate-700 mt-8 pt-8 text-center">
             <p className="text-slate-400 text-sm">
-              © 2024 A.S. Collections. All rights reserved. | Authorised and
-              regulated for debt collection services.
+              © 2025 A.S. Collections. All rights reserved. | Authorised and
+              regulated for commercial debt recovery UK. FCA/CSA/CICM
+              accredited.
             </p>
           </div>
         </div>

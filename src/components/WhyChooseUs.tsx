@@ -4,45 +4,45 @@ import { Clock, Headphones, Gift, Shield, Zap, Target } from "lucide-react";
 const WhyChooseUs = () => {
   const features = [
     {
-      icon: Clock,
-      title: "Faster Recovery Times",
+      icon: Gift,
+      title: "No Win No Fee Debt Collection UK",
       description:
-        "We collect debts in a fraction of the time compared to the rest. Our streamlined process gets results quickly.",
+        "Risk-free commercial debt recovery with no upfront fee debt recovery UK. Only pay when we successfully collect your debt.",
       color: "from-blue-500 to-blue-600",
     },
     {
-      icon: Headphones,
-      title: "24/7 Support",
+      icon: Target,
+      title: "80%+ Recovery Success Rate",
       description:
-        "Round-the-clock support via phone, chat, and email. We're always here when you need us.",
+        "Proven track record with 80%+ success rate across all UK commercial debt recovery cases. Best commercial debt collection UK 2025.",
       color: "from-green-500 to-green-600",
     },
     {
-      icon: Gift,
-      title: "Free Consultation",
+      icon: Shield,
+      title: "FCA/CSA/CICM Accredited",
       description:
-        "No obligation, completely free initial consultation to assess your debt recovery needs.",
+        "Fully accredited debt collection agency UK with FCA, CSA, and CICM certifications. Ethical practices that preserve client relationships.",
       color: "from-purple-500 to-purple-600",
     },
     {
-      icon: Shield,
-      title: "Ethical Standards",
+      icon: Clock,
+      title: "Recover Debts Fast - 7-14 Days",
       description:
-        "We protect your customer relationships with ethical practices that maintain your business reputation.",
+        "Typically recover commercial debts within 7-14 days. Zero cost debt recovery UK with faster results than traditional agencies.",
       color: "from-orange-500 to-orange-600",
     },
     {
-      icon: Zap,
-      title: "High-Tech Solutions",
+      icon: Headphones,
+      title: "Professional Client Preservation",
       description:
-        "Cutting-edge technology combined with proven strategies for maximum debt recovery efficiency.",
+        "Maintain valuable business relationships whilst recovering debts. Ethical approach protects your reputation across London, Manchester, Birmingham.",
       color: "from-cyan-500 to-cyan-600",
     },
     {
-      icon: Target,
-      title: "Proven Results",
+      icon: Zap,
+      title: "UK Debt Recovery Specialist",
       description:
-        "Track record of success with 98% recovery rate. If we can't collect it, nobody can.",
+        "Recovery expert for hire UK with tailored solutions and dispute resolution. Commercial debt recovery experts UK with cutting-edge technology.",
       color: "from-red-500 to-red-600",
     },
   ];

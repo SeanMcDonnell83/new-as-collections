@@ -62,12 +62,13 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-slate-900 mb-6">
-            About A.S. Collections
+            Our Expertise - UK Debt Recovery Specialist
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            We take the complexity away from debt recovery by heavily investing
-            in technology and delivering bespoke approaches with innovative
-            solutions.
+            Recovery expert for hire UK with decades of experience in commercial
+            debt recovery. We take the complexity away from debt recovery by
+            heavily investing in technology and delivering bespoke approaches
+            with innovative solutions across the UK.
           </p>
         </motion.div>
 

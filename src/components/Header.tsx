@@ -26,13 +26,24 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">AS</span>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 relative">
+                  <svg viewBox="0 0 400 300" className="w-full h-full">
+                    {/* Dark navy blue triangle */}
+                    <path
+                      d="M50 250 L200 50 L350 250 L200 200 Z"
+                      fill="#1e293b"
+                    />
+                    {/* Bright blue arrow/swoosh */}
+                    <path
+                      d="M80 200 L320 120 L340 140 L300 160 L280 180 L100 220 Z"
+                      fill="#3b82f6"
+                    />
+                  </svg>
                 </div>
                 <div>
                   <div className="text-slate-800 font-bold text-lg leading-tight">
-                    A.S. Collections
+                    AS COLLECTIONS
                   </div>
                   <div className="text-slate-600 text-xs uppercase tracking-wide">
                     Commercial Debt Recovery

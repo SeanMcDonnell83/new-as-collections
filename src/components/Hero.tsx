@@ -28,19 +28,23 @@ const Hero = () => {
               {/* Tagline */}
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                UK's Leading Commercial Debt Recovery
+                No Win No Fee Commercial Debt Recovery UK 2025
               </div>
 
               {/* Main Headline */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                Commercial Debt Recovery{" "}
-                <span className="text-blue-600">Done Differently</span>
+                Hire a Recovery Expert in 2025 UK{" "}
+                <span className="text-blue-600">
+                  No Upfront Fee Debt Recovery
+                </span>
               </h1>
 
               {/* Subtext */}
               <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl">
-                We use a blend of high-tech and tenacity to ensure we collect
-                your debt. If we can't collect it, nobody can.
+                Best commercial debt collection UK 2025 specialists. Risk-free
+                commercial debt recovery with zero cost debt recovery UK
+                guarantee. We use cutting-edge technology and proven expertise
+                to recover unpaid invoice recovery UK wide.
               </p>
 
               {/* Key Benefits */}
@@ -48,25 +52,25 @@ const Hero = () => {
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span className="text-slate-700 font-medium">
-                    Faster Recovery Times
+                    Recover debts fast - typically 7-14 days
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span className="text-slate-700 font-medium">
-                    24/7 Support Available
+                    80%+ success rate across UK
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span className="text-slate-700 font-medium">
-                    Free Initial Consultation
+                    FCA/CSA/CICM accredited
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span className="text-slate-700 font-medium">
-                    Ethical Standards
+                    No win no fee guarantee
                   </span>
                 </div>
               </div>
@@ -79,7 +83,7 @@ const Hero = () => {
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-200 transform hover:scale-105"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  Talk to an Expert
+                  Speak to a Recovery Expert
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button
@@ -89,7 +93,7 @@ const Hero = () => {
                   className="border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold px-8 py-4 text-lg transition-all duration-200"
                 >
                   <BookOpen className="w-5 h-5 mr-2" />
-                  Learn More
+                  Free Consultation
                 </Button>
               </div>
             </motion.div>

@@ -13,53 +13,53 @@ const Services = () => {
   const services = [
     {
       icon: FileText,
-      title: "Commercial Debt Collection",
+      title: "Commercial B2B Debt Collection",
       description:
-        "Professional recovery of outstanding commercial debts with a focus on maintaining business relationships while achieving results.",
+        "Professional business debt collection services UK wide, specialising in Construction, Food & Drink, Oil & Gas industries. Maintain client relationships whilst achieving results.",
       features: [
-        "B2B debt recovery",
+        "Construction industry debt recovery",
+        "Food & Drink sector collections",
+        "Engineering debt solutions",
         "Trade creditor services",
-        "Late payment solutions",
-        "Relationship preservation",
       ],
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: Calculator,
-      title: "Accounts Receivable Management",
+      title: "International Debt Recovery",
       description:
-        "Comprehensive management of your accounts receivable to improve cash flow and reduce outstanding debt levels.",
+        "Cross-border commercial debt recovery UK specialists with global reach. Expertise in international business debt collection services.",
       features: [
-        "Credit control outsourcing",
-        "Invoice management",
-        "Payment tracking",
-        "Cash flow optimization",
+        "Shipping & Logistics debt recovery",
+        "International trade debts",
+        "Multi-currency collections",
+        "Global enforcement network",
       ],
       color: "from-green-500 to-green-600",
     },
     {
       icon: Gavel,
-      title: "Court Claims & Legal Action",
+      title: "Debtor Tracing & Legal Action",
       description:
-        "When necessary, we pursue legal remedies to recover debts, handling all court proceedings and enforcement actions.",
+        "Advanced debtor tracing combined with court claims and legal enforcement. County court claims to High Court enforcement.",
       features: [
+        "Professional debtor tracing",
         "County court claims",
-        "High court enforcement",
+        "High Court enforcement",
         "Statutory demands",
-        "Bankruptcy proceedings",
       ],
       color: "from-purple-500 to-purple-600",
     },
     {
       icon: AlertTriangle,
-      title: "Insolvency Services",
+      title: "Credit Control & Insolvency",
       description:
-        "Specialized handling of insolvency cases to maximize recovery rates when debtors face financial difficulties.",
+        "Complete credit control outsourcing for Independent Schools, Recruitment agencies. Specialist insolvency services and CVA negotiations.",
       features: [
-        "Administration claims",
-        "Liquidation proceedings",
+        "Independent Schools debt recovery",
+        "Recruitment sector collections",
+        "Insolvency proceedings",
         "CVA negotiations",
-        "Asset recovery",
       ],
       color: "from-orange-500 to-orange-600",
     },
@@ -83,12 +83,13 @@ const Services = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-slate-900 mb-6">
-            Our Services
+            Business Debt Collection Services UK
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Comprehensive debt recovery solutions tailored to your business
-            needs. From initial collection to legal enforcement, we handle it
-            all.
+            Comprehensive commercial debt recovery UK solutions across London,
+            Manchester, Birmingham, Glasgow, and Edinburgh. From initial unpaid
+            invoice recovery UK to legal enforcement, our debt collection agency
+            UK handles it all.
           </p>
         </motion.div>
 
