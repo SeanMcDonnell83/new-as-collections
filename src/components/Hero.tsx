@@ -133,7 +133,7 @@ const Hero = () => {
                   <div className="pt-4 border-t border-slate-200">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-slate-800 mb-1">
-                        £2.5M+
+                        £250k+
                       </div>
                       <div className="text-sm text-slate-500">
                         Recovered This Month
