@@ -43,10 +43,11 @@ const Hero = () => {
               <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed max-w-2xl font-sans font-light">
                 UK's leading commercial debt recovery specialists.
                 <span className="font-semibold text-slate-800">
-                  {" "}
+                  <br />
                   Zero upfront costs, maximum results.
                 </span>
               </p>
+
               {/* Key Benefits */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center">
@@ -110,13 +111,12 @@ const Hero = () => {
               <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-slate-200">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-              <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed max-w-2xl font-sans font-light">
-                UK's leading commercial debt recovery specialists.
-                <span className="font-semibold text-slate-800">
-                  <br />
-                  Zero upfront costs, maximum results.
-                </span>
-              </p>
+                    <div className="text-sm text-slate-500">Success Rate</div>
+                    <div className="text-2xl font-bold text-green-600">98%</div>
+                  </div>
+                  <div className="w-full bg-slate-200 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full w-[98%]"></div>
+                  </div>
 
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-slate-500">
