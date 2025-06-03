@@ -35,7 +35,7 @@ const Header = () => {
           <img
             loading="lazy"
             srcSet="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F32667e870701409683085b86dbeed2c5"
-            className="aspect-[2.34] object-cover object-center w-full ml-[51px] min-h-[20px] min-w-[20px] overflow-hidden max-w-[170px]"
+            className="aspect-[2.34] object-cover object-center w-full m-[0_auto_0_51px] min-h-[20px] min-w-[20px] overflow-hidden max-w-[170px]"
             alt="AS Collections Logo"
           />
           {/* Desktop Navigation */}

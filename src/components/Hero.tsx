@@ -35,10 +35,11 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
                 Hire a Recovery Expert in 2025 UK{" "}
                 <span className="text-blue-600">
+                  <br />
+                  <br />
                   No Upfront Fee Debt Recovery
                 </span>
               </h1>
-
               {/* Subtext */}
               <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl">
                 Best commercial debt collection UK 2025 specialists. Risk-free
