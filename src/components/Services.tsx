@@ -82,10 +82,10 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">
+          <h2 className="text-4xl font-bold text-slate-900 mb-6 font-serif">
             Business Debt Collection Services UK
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-sans font-light">
             Comprehensive commercial debt recovery UK solutions across London,
             Manchester, Birmingham, Glasgow, and Edinburgh. From initial unpaid
             invoice recovery UK to legal enforcement, our debt collection agency

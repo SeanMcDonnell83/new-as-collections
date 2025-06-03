@@ -57,10 +57,10 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">
+          <h2 className="text-4xl font-bold text-slate-900 mb-6 font-serif">
             Why Choose A.S. Collections?
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-sans font-light">
             We're not just another debt collection agency. We're your strategic
             partner in recovering what's rightfully yours, faster and more
             efficiently than anyone else.

@@ -26,28 +26,27 @@ const Hero = () => {
               transition={{ duration: 0.8 }}
             >
               {/* Tagline */}
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-8 font-sans">
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                No Win No Fee Commercial Debt Recovery UK 2025
+                No Win, No Fee · UK Wide Coverage
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                Hire a Recovery Expert in 2025 UK{" "}
-                <span className="text-blue-600">
-                  <br />
-                  <br />
-                  No Upfront Fee Debt Recovery
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[0.9] mb-8 font-serif">
+                Debt Recovery
+                <span className="block text-blue-600 font-sans font-extrabold tracking-tight">
+                  Done Right
                 </span>
               </h1>
-              {/* Subtext */}
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl">
-                Best commercial debt collection UK 2025 specialists. Risk-free
-                commercial debt recovery with zero cost debt recovery UK
-                guarantee. We use cutting-edge technology and proven expertise
-                to recover unpaid invoice recovery UK wide.
-              </p>
 
+              {/* Subtext */}
+              <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed max-w-2xl font-sans font-light">
+                UK's leading commercial debt recovery specialists.
+                <span className="font-semibold text-slate-800">
+                  {" "}
+                  Zero upfront costs, maximum results.
+                </span>
+              </p>
               {/* Key Benefits */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center">
@@ -81,20 +80,20 @@ const Hero = () => {
                 <Button
                   onClick={() => scrollToSection("contact")}
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-200 transform hover:scale-105"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-sans font-semibold px-10 py-5 text-lg transition-all duration-200 transform hover:scale-105 rounded-xl shadow-lg"
                 >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Speak to a Recovery Expert
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <Phone className="w-5 h-5 mr-3" />
+                  Get Started Today
+                  <ArrowRight className="w-5 h-5 ml-3" />
                 </Button>
                 <Button
                   onClick={() => scrollToSection("about")}
                   variant="outline"
                   size="lg"
-                  className="border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold px-8 py-4 text-lg transition-all duration-200"
+                  className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-sans font-semibold px-10 py-5 text-lg transition-all duration-200 rounded-xl"
                 >
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Free Consultation
+                  <BookOpen className="w-5 h-5 mr-3" />
+                  Learn More
                 </Button>
               </div>
             </motion.div>

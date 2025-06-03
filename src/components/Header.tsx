@@ -22,7 +22,7 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-21">
+        <div className="flex justify-between items-center h-21 mb-[9px]">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -35,7 +35,7 @@ const Header = () => {
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F2e4607f765394e439f0cc9d25ab3ef79"
-            className="aspect-[2.34] object-cover object-center w-full m-[0_auto_0_51px] min-h-[28px] min-w-[20px] overflow-hidden max-w-[185px]"
+            className="aspect-[2.34] object-cover object-center w-full m-[0_auto_0_51px] min-h-[28px] min-w-[20px] overflow-hidden max-w-[196px]"
             alt="AS Collections Logo"
           />
 

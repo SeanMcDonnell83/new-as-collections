@@ -67,10 +67,10 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">
+          <h2 className="text-4xl font-bold text-slate-900 mb-6 font-serif">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-sans font-light">
             Common questions about our no win no fee debt collection UK services
             and commercial debt recovery process.
           </p>
