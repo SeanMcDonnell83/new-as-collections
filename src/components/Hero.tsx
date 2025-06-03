@@ -70,7 +70,7 @@ const Hero = () => {
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span className="text-slate-700 font-medium">
-                    No win no fee guarantee
+                    No win no fee guarantee*
                   </span>
                 </div>
               </div>
@@ -110,12 +110,13 @@ const Hero = () => {
               <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-slate-200">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <div className="text-sm text-slate-500">Success Rate</div>
-                    <div className="text-2xl font-bold text-green-600">98%</div>
-                  </div>
-                  <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full w-[98%]"></div>
-                  </div>
+              <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed max-w-2xl font-sans font-light">
+                UK's leading commercial debt recovery specialists.
+                <span className="font-semibold text-slate-800">
+                  <br />
+                  Zero upfront costs, maximum results.
+                </span>
+              </p>
 
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-slate-500">
