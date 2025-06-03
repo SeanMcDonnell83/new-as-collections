@@ -65,7 +65,7 @@ const Hero = () => {
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span className="text-slate-700 font-medium">
-                    Accredited for your peace of mind
+                    Accredited for peace of mind
                   </span>
                 </div>
                 <div className="flex items-center">
