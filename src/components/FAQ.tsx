@@ -29,11 +29,7 @@ const FAQ = () => {
       answer:
         "We specialise in various industries including Construction, Food & Drink, Oil & Gas, Engineering, Independent Schools, Recruitment, and Shipping/Logistics sectors across the UK.",
     },
-    {
-      question: "Are you FCA regulated and accredited?",
-      answer:
-        "Yes, we are fully accredited with FCA, CSA, and CICM certifications. We maintain the highest professional standards in commercial debt recovery UK services.",
-    },
+
     {
       question: "Will debt collection damage my client relationships?",
       answer:

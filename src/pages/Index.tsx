@@ -66,7 +66,6 @@ const Index = () => {
                 <p>Liverpool, UK</p>
                 <p>London | Manchester | Birmingham</p>
                 <p>info@ascollections.co.uk</p>
-                <p>24/7 Emergency Line Available</p>
               </div>
             </div>
           </div>

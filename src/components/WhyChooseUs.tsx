@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
       icon: Shield,
       title: "FCA/CSA/CICM Accredited",
       description:
-        "Fully accredited debt collection agency UK with FCA, CSA, and CICM certifications. Ethical practices that preserve client relationships.",
+        "Fully accredited debt collection agency UK. Ethical practices that preserve client relationships.",
       color: "from-purple-500 to-purple-600",
     },
     {

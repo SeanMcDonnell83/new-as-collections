@@ -117,7 +117,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["0151 XXX XXXX", "Available 24/7"],
+      details: ["0151 329 0946", "Available 24/7"],
       action: "Call Now",
     },
     {
@@ -130,13 +130,7 @@ const Contact = () => {
       icon: MapPin,
       title: "Office",
       details: ["Liverpool, UK", "In-person consultations available"],
-      action: "Get Directions",
-    },
-    {
-      icon: MessageCircle,
-      title: "Live Chat",
-      details: ["Instant support", "Monday - Friday, 9am - 6pm"],
-      action: "Start Chat",
+      action: "",
     },
   ];
 
@@ -191,9 +185,11 @@ const Contact = () => {
                             {detail}
                           </p>
                         ))}
-                        <button className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors mt-1">
-                          {info.action}
-                        </button>
+                        {info.action && (
+                          <button className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors mt-1">
+                            {info.action}
+                          </button>
+                        )}
                       </div>
                     </div>
                   );
@@ -208,11 +204,7 @@ const Contact = () => {
                 <div className="space-y-1 text-sm text-slate-600">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Emergency Line</span>
-                    <span>24/7</span>
+                    <span>9:00 AM - 5:00 PM</span>
                   </div>
                 </div>
               </div>
