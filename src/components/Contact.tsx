@@ -91,7 +91,44 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Create email body
+      // Create form data for file upload
+      const formData = new FormData();
+      formData.append("firstName", data.firstName);
+      formData.append("lastName", data.lastName);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone);
+      formData.append("company", data.company);
+      formData.append("debtAmount", data.debtAmount || "");
+      formData.append("message", data.message);
+      formData.append("subject", `New Debt Enquiry - ${data.company}`);
+
+      // Add uploaded files
+      uploadedFiles.forEach((file, index) => {
+        formData.append(`file_${index}`, file);
+      });
+
+      // Send to backend API
+      const response = await fetch("/api/submit-contact-form", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      const result = await response.json();
+
+      toast({
+        title: "Enquiry submitted successfully!",
+        description:
+          "Thank you for contacting A.S. Collections. We'll be in touch within 2 hours.",
+      });
+
+      reset();
+      setUploadedFiles([]);
+    } catch (error) {
+      // Fallback to email client if API fails
       const emailBody = `
 New Debt Enquiry from ${data.firstName} ${data.lastName}
 
@@ -103,29 +140,25 @@ Debt Amount: £${data.debtAmount || "Not specified"}
 Message:
 ${data.message}
 
-${uploadedFiles.length > 0 ? `Files attached: ${uploadedFiles.map((f) => f.name).join(", ")}` : "No files attached"}
+${uploadedFiles.length > 0 ? `Files to be attached separately: ${uploadedFiles.map((f) => f.name).join(", ")}` : "No files attached"}
+
+This enquiry was submitted via the AS Collections website contact form.
       `.trim();
 
-      // Create mailto link
-      const mailtoLink = `mailto:info@ascollections.co.uk?subject=New Debt Enquiry - ${data.company}&body=${encodeURIComponent(emailBody)}`;
+      const emailSubject = `New Debt Enquiry - ${data.company}`;
+      const mailtoLink = `mailto:info@ascollections.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-      // Open email client
       window.location.href = mailtoLink;
 
       toast({
-        title: "Email client opened!",
+        title: "Email client opened",
         description:
-          "Thank you for contacting A.S. Collections. Your email client should now be open with the enquiry details.",
+          "Please send the email from your client and attach any documents separately.",
+        variant: "destructive",
       });
 
       reset();
       setUploadedFiles([]);
-    } catch (error) {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or call us directly at 0151 329 0946.",
-        variant: "destructive",
-      });
     } finally {
       setIsSubmitting(false);
     }
