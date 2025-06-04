@@ -135,61 +135,6 @@ const Hero = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="text-sm text-slate-500">Average Recovery Time</div>
-                    <div className="text-2xl font-bold text-blue-600">14 Days</div>
-                  </div>
-                  <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full w-[85%]"></div>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-200">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-slate-800 mb-1">
-                        £{(Math.floor(Date.now() / 100000) % 100 + 250).toLocaleString()}k+
-                      </div>
-                      <div className="text-sm text-slate-500">
-                        Recovered This Month
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-green-500 rounded-full opacity-20 animate-pulse animation-delay-1000"></div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Debt Calculator Modal */}
-      <DebtCalculator
-        isOpen={isCalculatorOpen}
-        onClose={() => setIsCalculatorOpen(false)}
-      />
-            </motion.div>
-          </div>
-
-          {/* Right side - Visual Element */}
-          <div className="lg:col-span-5 mt-12 lg:mt-0">
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-slate-200">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-slate-500">Success Rate</div>
-                    <div className="text-2xl font-bold text-green-600">98%</div>
-                  </div>
-                  <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full w-[98%]"></div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
                     <div className="text-sm text-slate-500">
                       Average Recovery Time
                     </div>
@@ -226,6 +171,12 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Debt Calculator Modal */}
+      <DebtCalculator
+        isOpen={isCalculatorOpen}
+        onClose={() => setIsCalculatorOpen(false)}
+      />
     </section>
   );
 };
