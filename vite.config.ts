@@ -3,8 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: '/', // 👈 required for correct asset paths in production
+export default defineConfig({
+  base: "/", // Important: this ensures assets load correctly at root
   server: {
     host: "::",
     port: 8080,
@@ -15,4 +15,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+});
