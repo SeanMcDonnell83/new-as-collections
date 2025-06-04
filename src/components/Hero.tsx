@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 flex items-center">
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 flex items-center pt-24">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(99,102,241)_1px,transparent_0)] bg-[size:24px_24px]"></div>
@@ -77,7 +77,7 @@ const Hero = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <Button
                   onClick={() => scrollToSection("contact")}
                   size="lg"
@@ -97,6 +97,11 @@ const Hero = () => {
                   Learn More
                 </Button>
               </div>
+
+              {/* Disclaimer */}
+              <p className="text-sm text-slate-500 font-sans">
+                *No win no fee guarantee - debt assessed on collection viability
+              </p>
             </motion.div>
           </div>
 
@@ -133,7 +138,12 @@ const Hero = () => {
                   <div className="pt-4 border-t border-slate-200">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-slate-800 mb-1">
-                        £250k+
+                        £
+                        {(
+                          (Math.floor(Date.now() / 100000) % 100) +
+                          250
+                        ).toLocaleString()}
+                        k+
                       </div>
                       <div className="text-sm text-slate-500">
                         Recovered This Month

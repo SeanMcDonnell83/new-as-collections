@@ -91,13 +91,31 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Create email body
+      const emailBody = `
+New Debt Enquiry from ${data.firstName} ${data.lastName}
+
+Company: ${data.company}
+Phone: ${data.phone}
+Email: ${data.email}
+Debt Amount: £${data.debtAmount || "Not specified"}
+
+Message:
+${data.message}
+
+${uploadedFiles.length > 0 ? `Files attached: ${uploadedFiles.map((f) => f.name).join(", ")}` : "No files attached"}
+      `.trim();
+
+      // Create mailto link
+      const mailtoLink = `mailto:info@ascollections.co.uk?subject=New Debt Enquiry - ${data.company}&body=${encodeURIComponent(emailBody)}`;
+
+      // Open email client
+      window.location.href = mailtoLink;
 
       toast({
-        title: "Consultation request sent!",
+        title: "Email client opened!",
         description:
-          "Thank you for contacting A.S. Collections. We'll be in touch within 24 hours.",
+          "Thank you for contacting A.S. Collections. Your email client should now be open with the enquiry details.",
       });
 
       reset();
@@ -105,7 +123,7 @@ const Contact = () => {
     } catch (error) {
       toast({
         title: "Something went wrong",
-        description: "Please try again or call us directly.",
+        description: "Please try again or call us directly at 0151 329 0946.",
         variant: "destructive",
       });
     } finally {
@@ -119,18 +137,21 @@ const Contact = () => {
       title: "Phone",
       details: ["0151 329 0946", "Available 24/7"],
       action: "Call Now",
+      link: "tel:+441513290946",
     },
     {
       icon: Mail,
       title: "Email",
       details: ["info@ascollections.co.uk", "Response within 2 hours"],
       action: "Send Email",
+      link: "mailto:info@ascollections.co.uk",
     },
     {
       icon: MapPin,
       title: "Office",
       details: ["Liverpool, UK", "In-person consultations available"],
       action: "",
+      link: "",
     },
   ];
 
@@ -186,9 +207,12 @@ const Contact = () => {
                           </p>
                         ))}
                         {info.action && (
-                          <button className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors mt-1">
+                          <a
+                            href={info.link}
+                            className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors mt-1 inline-block"
+                          >
                             {info.action}
-                          </button>
+                          </a>
                         )}
                       </div>
                     </div>

@@ -121,7 +121,7 @@ const WhyChooseUs = () => {
               <div className="text-blue-100">Support Available</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-white mb-2">£10M+</div>
+              <div className="text-4xl font-bold text-white mb-2">£3.2M+</div>
               <div className="text-blue-100">Recovered This Year</div>
             </div>
           </div>
