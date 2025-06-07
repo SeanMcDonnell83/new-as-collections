@@ -41,90 +41,14 @@ const Contact = () => {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(event.target.files || []);
-    const validFiles = files.filter((file) => {
-      const validTypes = [
-        "application/pdf",
-        "application/msword",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      ];
-      const maxSize = 10 * 1024 * 1024; // 10MB
-
-      if (!validTypes.includes(file.type)) {
-        toast({
-          title: "Invalid file type",
-          description: `${file.name} is not a valid file type. Please upload PDF or DOC files only.`,
-          variant: "destructive",
-        });
-        return false;
-      }
-
-      if (file.size > maxSize) {
-        toast({
-          title: "File too large",
-          description: `${file.name} is too large. Please upload files smaller than 10MB.`,
-          variant: "destructive",
-        });
-        return false;
-      }
-
-      return true;
-    });
-
-    setUploadedFiles((prev) => [...prev, ...validFiles]);
-  };
-
-  const removeFile = (index: number) => {
-    setUploadedFiles((prev) => prev.filter((_, i) => i !== index));
-  };
-
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
 
     try {
-      // Create form data for file upload
-      const formData = new FormData();
-      formData.append("firstName", data.firstName);
-      formData.append("lastName", data.lastName);
-      formData.append("email", data.email);
-      formData.append("phone", data.phone);
-      formData.append("company", data.company);
-      formData.append("debtAmount", data.debtAmount || "");
-      formData.append("message", data.message);
-      formData.append("subject", `New Debt Enquiry - ${data.company}`);
-      formData.append("fileCount", uploadedFiles.length.toString());
-
-      // Add uploaded files
-      uploadedFiles.forEach((file, index) => {
-        formData.append(`file_${index}`, file);
-      });
-
-      // Send to our API endpoint
-      const response = await fetch("/api/contact-form", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Enquiry submitted successfully!",
-          description:
-            "Thank you for contacting A.S. Collections. We'll be in touch within 2 hours.",
-        });
-
-        reset();
-        setUploadedFiles([]);
-      } else {
-        throw new Error("API submission failed");
-      }
-    } catch (error) {
-      // Direct server-side email sending (mock implementation)
-      try {
-        const emailData = {
-          to: "info@ascollections.co.uk",
-          subject: `New Debt Enquiry - ${data.company}`,
-          body: `
+      const emailData = {
+        to: "info@ascollections.co.uk",
+        subject: `New Debt Enquiry - ${data.company}`,
+        body: `
 New Debt Enquiry from ${data.firstName} ${data.lastName}
 
 Company: ${data.company}
@@ -135,39 +59,29 @@ Debt Amount: £${data.debtAmount || "Not specified"}
 Message:
 ${data.message}
 
-Files attached: ${uploadedFiles.length}
-${uploadedFiles.map((f) => `- ${f.name} (${(f.size / 1024).toFixed(1)}KB)`).join("\n")}
-
 Submitted: ${new Date().toLocaleString("en-GB")}
-          `,
-          files: uploadedFiles.map((f) => ({
-            name: f.name,
-            size: f.size,
-            type: f.type,
-          })),
-        };
+        `,
+      };
 
-        // Mock server-side processing
-        console.log("Email data prepared:", emailData);
+      // Mock server-side processing
+      console.log("Email data prepared:", emailData);
 
-        // Simulate successful sending
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Simulate successful sending
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        toast({
-          title: "Enquiry submitted successfully!",
-          description:
-            "Thank you for contacting A.S. Collections. We'll be in touch within 2 hours.",
-        });
+      toast({
+        title: "Enquiry submitted successfully!",
+        description:
+          "Thank you for contacting A.S. Collections. We'll be in touch within 2 hours.",
+      });
 
-        reset();
-        setUploadedFiles([]);
-      } catch (fallbackError) {
-        toast({
-          title: "Submission failed",
-          description: "Please try again or call us directly at 0151 329 0946.",
-          variant: "destructive",
-        });
-      }
+      reset();
+    } catch (error) {
+      toast({
+        title: "Submission failed",
+        description: "Please try again or call us directly at 0151 329 0946.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -198,22 +112,20 @@ Submitted: ${new Date().toLocaleString("en-GB")}
   ];
 
   return (
-    <section id="contact" className="py-20 bg-slate-50">
+    <section id="contact" className={`py-20 ${themeClasses.bg.secondary}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6 font-serif">
+        <motion.div {...animationProps} className="text-center mb-16">
+          <h2
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+          >
             Get Your Free No Win No Fee Consultation
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-sans font-light">
+          <p
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}
+          >
             No obligation, completely free consultation to assess your unpaid
-            invoice recovery UK needs. Upload your invoices and let us show you
-            how our commercial debt recovery UK specialists can help.
+            invoice recovery UK needs. Let us show you how our commercial debt
+            recovery UK specialists can help.
           </p>
         </motion.div>
 
@@ -226,8 +138,12 @@ Submitted: ${new Date().toLocaleString("en-GB")}
             transition={{ duration: 0.6 }}
             className="lg:col-span-1"
           >
-            <div className="bg-white rounded-2xl border border-slate-200 p-8 h-fit">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8">
+            <div
+              className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8 h-fit`}
+            >
+              <h3
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-noto-serif`}
+              >
                 Contact Information
               </h3>
 
@@ -236,22 +152,31 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   const IconComponent = info.icon;
                   return (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <IconComponent className="w-6 h-6 text-blue-600" />
+                      <div
+                        className={`w-12 h-12 ${themeClasses.bg.accent} rounded-lg flex items-center justify-center flex-shrink-0`}
+                      >
+                        <IconComponent
+                          className={`w-6 h-6 ${themeClasses.text.accent}`}
+                        />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-slate-900 mb-1">
+                        <h4
+                          className={`font-semibold ${themeClasses.text.primary} mb-1 font-noto-sans`}
+                        >
                           {info.title}
                         </h4>
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-slate-600 text-sm">
+                          <p
+                            key={idx}
+                            className={`${themeClasses.text.secondary} text-sm font-noto-sans`}
+                          >
                             {detail}
                           </p>
                         ))}
                         {info.action && (
                           <a
                             href={info.link}
-                            className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors mt-1 inline-block"
+                            className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors mt-1 inline-block font-noto-sans`}
                           >
                             {info.action}
                           </a>
@@ -262,12 +187,20 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                 })}
               </div>
 
-              <div className="mt-8 pt-8 border-t border-slate-200">
-                <div className="flex items-center space-x-2 text-slate-600 mb-4">
+              <div
+                className={`mt-8 pt-8 ${themeClasses.border.primary} border-t`}
+              >
+                <div
+                  className={`flex items-center space-x-2 ${themeClasses.text.secondary} mb-4`}
+                >
                   <Clock className="w-4 h-4" />
-                  <span className="text-sm font-medium">Business Hours</span>
+                  <span className="text-sm font-medium font-noto-sans">
+                    Business Hours
+                  </span>
                 </div>
-                <div className="space-y-1 text-sm text-slate-600">
+                <div
+                  className={`space-y-1 text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                >
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
                     <span>9:00 AM - 5:00 PM</span>
@@ -275,8 +208,10 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                 </div>
               </div>
 
-              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                <p className="text-blue-800 text-sm font-medium text-center">
+              <div className={`mt-6 p-4 ${themeClasses.bg.accent} rounded-lg`}>
+                <p
+                  className={`${themeClasses.text.accent} text-sm font-medium text-center font-noto-sans`}
+                >
                   "You might not need us now, but there will come a time you
                   will."
                 </p>
@@ -292,8 +227,12 @@ Submitted: ${new Date().toLocaleString("en-GB")}
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="bg-white rounded-2xl border border-slate-200 p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8">
+            <div
+              className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8`}
+            >
+              <h3
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-noto-serif`}
+              >
                 Request Your Free Consultation
               </h3>
 
@@ -309,28 +248,38 @@ Submitted: ${new Date().toLocaleString("en-GB")}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label htmlFor="firstName">First Name *</Label>
+                    <Label
+                      htmlFor="firstName"
+                      className={`${themeClasses.text.primary} font-noto-sans`}
+                    >
+                      First Name *
+                    </Label>
                     <Input
                       id="firstName"
                       {...register("firstName")}
-                      className="mt-1"
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.firstName && (
-                      <p className="text-red-600 text-sm mt-1">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.firstName.message}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <Label htmlFor="lastName">Last Name *</Label>
+                    <Label
+                      htmlFor="lastName"
+                      className={`${themeClasses.text.primary} font-noto-sans`}
+                    >
+                      Last Name *
+                    </Label>
                     <Input
                       id="lastName"
                       {...register("lastName")}
-                      className="mt-1"
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.lastName && (
-                      <p className="text-red-600 text-sm mt-1">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.lastName.message}
                       </p>
                     )}
@@ -339,30 +288,40 @@ Submitted: ${new Date().toLocaleString("en-GB")}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label htmlFor="email">Email Address *</Label>
+                    <Label
+                      htmlFor="email"
+                      className={`${themeClasses.text.primary} font-noto-sans`}
+                    >
+                      Email Address *
+                    </Label>
                     <Input
                       id="email"
                       type="email"
                       {...register("email")}
-                      className="mt-1"
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.email && (
-                      <p className="text-red-600 text-sm mt-1">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.email.message}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <Label htmlFor="phone">Phone Number *</Label>
+                    <Label
+                      htmlFor="phone"
+                      className={`${themeClasses.text.primary} font-noto-sans`}
+                    >
+                      Phone Number *
+                    </Label>
                     <Input
                       id="phone"
                       type="tel"
                       {...register("phone")}
-                      className="mt-1"
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.phone && (
-                      <p className="text-red-600 text-sm mt-1">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.phone.message}
                       </p>
                     )}
@@ -371,34 +330,45 @@ Submitted: ${new Date().toLocaleString("en-GB")}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label htmlFor="company">Company Name *</Label>
+                    <Label
+                      htmlFor="company"
+                      className={`${themeClasses.text.primary} font-noto-sans`}
+                    >
+                      Company Name *
+                    </Label>
                     <Input
                       id="company"
                       {...register("company")}
-                      className="mt-1"
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.company && (
-                      <p className="text-red-600 text-sm mt-1">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.company.message}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <Label htmlFor="debtAmount">
+                    <Label
+                      htmlFor="debtAmount"
+                      className={`${themeClasses.text.primary} font-noto-sans`}
+                    >
                       Approximate Debt Amount (£)
                     </Label>
                     <Input
                       id="debtAmount"
                       {...register("debtAmount")}
                       placeholder="e.g., 5,000"
-                      className="mt-1"
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="message">
+                  <Label
+                    htmlFor="message"
+                    className={`${themeClasses.text.primary} font-noto-sans`}
+                  >
                     Tell us about your situation *
                   </Label>
                   <Textarea
@@ -406,81 +376,19 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                     {...register("message")}
                     rows={4}
                     placeholder="Please provide details about the debt, debtor, and any previous collection attempts..."
-                    className="mt-1"
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                   />
                   {errors.message && (
-                    <p className="text-red-600 text-sm mt-1">
+                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                       {errors.message.message}
                     </p>
                   )}
                 </div>
 
-                {/* File Upload */}
-                <div>
-                  <Label htmlFor="files">Upload Documents (Optional)</Label>
-                  <div className="mt-1">
-                    <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
-                      <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
-                      <p className="text-slate-600 mb-2">
-                        Upload invoices, contracts, or other relevant documents
-                      </p>
-                      <p className="text-sm text-slate-500 mb-4">
-                        PDF, DOC, DOCX up to 10MB each
-                      </p>
-                      <input
-                        type="file"
-                        multiple
-                        accept=".pdf,.doc,.docx"
-                        onChange={handleFileUpload}
-                        className="hidden"
-                        id="file-upload"
-                      />
-                      <label htmlFor="file-upload">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          className="cursor-pointer"
-                        >
-                          Choose Files
-                        </Button>
-                      </label>
-                    </div>
-
-                    {/* Uploaded Files List */}
-                    {uploadedFiles.length > 0 && (
-                      <div className="mt-4 space-y-2">
-                        {uploadedFiles.map((file, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center justify-between bg-slate-50 rounded-lg p-3"
-                          >
-                            <div className="flex items-center space-x-3">
-                              <CheckCircle className="w-4 h-4 text-green-500" />
-                              <span className="text-sm text-slate-700">
-                                {file.name}
-                              </span>
-                              <span className="text-xs text-slate-500">
-                                ({(file.size / 1024 / 1024).toFixed(1)} MB)
-                              </span>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => removeFile(index)}
-                              className="text-slate-400 hover:text-red-500 transition-colors"
-                            >
-                              <X className="w-4 h-4" />
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 transition-colors duration-200"
+                  className={`w-full ${themeClasses.button.primary} font-semibold py-3 transition-colors duration-200 font-noto-sans`}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center">
@@ -495,11 +403,27 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   )}
                 </Button>
 
-                <p className="text-xs text-slate-500 text-center">
+                <p
+                  className={`text-xs ${themeClasses.text.muted} text-center font-noto-sans`}
+                >
                   By submitting this form, you agree to our privacy policy and
                   terms of service. We'll contact you within 24 hours to
                   schedule your free consultation.
                 </p>
+
+                {/* GDPR Notice */}
+                <div
+                  className={`mt-4 p-3 ${themeClasses.bg.secondary} rounded-lg`}
+                >
+                  <p
+                    className={`text-xs ${themeClasses.text.tertiary} font-noto-sans`}
+                  >
+                    <strong>GDPR Notice:</strong> Your personal data will be
+                    processed in accordance with our privacy policy. You have
+                    the right to access, rectify, or delete your data. Contact
+                    info@ascollections.co.uk for data protection enquiries.
+                  </p>
+                </div>
               </form>
             </div>
           </motion.div>
