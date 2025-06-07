@@ -7,6 +7,11 @@ import {
   Shield,
   TrendingUp,
 } from "lucide-react";
+import { themeClasses } from "@/contexts/ThemeContext";
+import {
+  useScrollAnimation,
+  useStaggeredScrollAnimation,
+} from "@/hooks/useScrollAnimation";
 
 const About = () => {
   const values = [
@@ -72,29 +77,30 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Paul Taylor Introduction */}
+        {/* Emilie Campbell Introduction */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="bg-slate-50 rounded-2xl p-8">
+          <motion.div {...useScrollAnimation({ delay: 0.2 })}>
+            <div className={`${themeClasses.bg.secondary} rounded-2xl p-8`}>
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
                   <User className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900">
-                    Paul Taylor
+                  <h3
+                    className={`text-2xl font-bold ${themeClasses.text.primary} font-noto-serif`}
+                  >
+                    Emilie Campbell
                   </h3>
-                  <p className="text-blue-600 font-semibold">
+                  <p
+                    className={`${themeClasses.text.accent} font-semibold font-noto-sans`}
+                  >
                     Managing Director
                   </p>
                 </div>
               </div>
-              <blockquote className="text-slate-700 text-lg italic leading-relaxed">
+              <blockquote
+                className={`${themeClasses.text.secondary} text-lg italic leading-relaxed font-noto-serif`}
+              >
                 "Our mission is simple: recover what's rightfully yours while
                 maintaining the relationships that matter to your business. We
                 achieve this through a perfect blend of cutting-edge technology
@@ -104,22 +110,26 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            {...useScrollAnimation({ delay: 0.4 })}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-slate-900">
+            <h3
+              className={`text-2xl font-bold ${themeClasses.text.primary} font-noto-serif`}
+            >
               Leadership with Vision
             </h3>
-            <p className="text-slate-600 leading-relaxed">
-              Under Paul Taylor's leadership, A.S. Collections has become the
-              UK's most trusted commercial debt recovery agency. With decades of
-              experience in financial services and debt recovery, Paul has built
-              a team and system that delivers unparalleled results.
+            <p
+              className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans`}
+            >
+              Under Emilie Campbell's leadership, A.S. Collections has become
+              the UK's most trusted commercial debt recovery agency. With
+              decades of experience in financial services and debt recovery,
+              Emilie has built a team and system that delivers unparalleled
+              results.
             </p>
-            <p className="text-slate-600 leading-relaxed">
+            <p
+              className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans`}
+            >
               Our approach focuses on taking complexity away from our clients by
               heavily investing in technology and delivering bespoke solutions.
               We understand that every business is unique, and our tailored
@@ -127,7 +137,6 @@ const About = () => {
             </p>
           </motion.div>
         </div>
-
         {/* Core Values */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

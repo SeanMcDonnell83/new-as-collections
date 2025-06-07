@@ -3,22 +3,14 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Send,
-  Upload,
-  X,
-  CheckCircle,
-  MessageCircle,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { themeClasses } from "@/contexts/ThemeContext";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -36,9 +28,9 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const animationProps = useScrollAnimation({ delay: 0.2 });
 
   const {
     register,

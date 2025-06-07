@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -21,6 +21,8 @@ const config: Config = {
       fontFamily: {
         sans: ["Noto Sans", "system-ui", "sans-serif"],
         serif: ["Noto Serif", "Georgia", "serif"],
+        "noto-sans": ["Noto Sans", "system-ui", "sans-serif"],
+        "noto-serif": ["Noto Serif", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
