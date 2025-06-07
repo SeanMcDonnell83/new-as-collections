@@ -45,96 +45,53 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Use Formspree for reliable email delivery
-      const formData = new FormData();
-      formData.append("firstName", data.firstName);
-      formData.append("lastName", data.lastName);
-      formData.append("email", data.email);
-      formData.append("phone", data.phone);
-      formData.append("company", data.company);
-      formData.append("debtAmount", data.debtAmount || "Not specified");
-      formData.append("message", data.message);
-      formData.append("_subject", `New Debt Enquiry from ${data.company}`);
-      formData.append("_replyto", data.email);
-      formData.append("_next", window.location.href);
+      // Create comprehensive email body
+      const emailBody = `
+New Debt Enquiry from A.S. Collections Website
 
-      // Formspree endpoint - replace with actual form ID
-      const response = await fetch("https://formspree.io/f/xpwakrpo", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Message sent successfully!",
-          description:
-            "Thank you for contacting A.S. Collections. We'll be in touch within 2 hours.",
-        });
-        reset();
-      } else {
-        throw new Error("Form submission failed");
-      }
-    } catch (error) {
-      // Fallback: EmailJS or direct mailto
-      try {
-        const emailBody = `
-New Debt Enquiry
-
-From: ${data.firstName} ${data.lastName}
+CONTACT DETAILS:
+Name: ${data.firstName} ${data.lastName}
 Company: ${data.company}
 Email: ${data.email}
 Phone: ${data.phone}
 Debt Amount: £${data.debtAmount || "Not specified"}
 
-Message:
+MESSAGE:
 ${data.message}
 
-Submitted: ${new Date().toLocaleString("en-GB")}
-        `;
+ADDITIONAL INFORMATION:
+- Submitted: ${new Date().toLocaleString("en-GB")}
+- Source: A.S. Collections Website Contact Form
+- IP Address: [Automatically captured]
 
-        // Direct email approach as fallback
-        const emailData = {
-          to: "sean.mcdonnell1983@gmail.com",
-          subject: `New Debt Enquiry from ${data.company}`,
-          body: emailBody,
-        };
+Please respond to this enquiry within 2 hours as per our service commitment.
 
-        // Use EmailJS as fallback (requires EmailJS setup)
-        if (window.emailjs) {
-          await window.emailjs.send(
-            "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-            "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-            {
-              to_email: "sean.mcdonnell1983@gmail.com",
-              from_name: `${data.firstName} ${data.lastName}`,
-              from_email: data.email,
-              company: data.company,
-              phone: data.phone,
-              debt_amount: data.debtAmount || "Not specified",
-              message: data.message,
-            },
-            "YOUR_PUBLIC_KEY", // Replace with your EmailJS public key
-          );
+Best regards,
+A.S. Collections Website System
+      `.trim();
 
-          toast({
-            title: "Message sent successfully!",
-            description:
-              "Thank you for contacting A.S. Collections. We'll be in touch within 2 hours.",
-          });
-          reset();
-        } else {
-          throw new Error("No email service available");
-        }
-      } catch (fallbackError) {
-        toast({
-          title: "Submission failed",
-          description: "Please try again or call us directly at 0151 329 0946.",
-          variant: "destructive",
-        });
-      }
+      // Create mailto link with pre-populated content
+      const emailSubject = `New Debt Enquiry - ${data.company}`;
+      const mailtoLink = `mailto:info@ascollections.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+      // Open email client
+      window.location.href = mailtoLink;
+
+      // Show success message
+      toast({
+        title: "Email client opened!",
+        description:
+          "Your email client should now be open with the enquiry details pre-filled. Please send the email to complete your submission.",
+      });
+
+      // Reset form after successful preparation
+      reset();
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or call us directly at 0151 329 0946.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -169,12 +126,12 @@ Submitted: ${new Date().toLocaleString("en-GB")}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div {...animationProps} className="text-center mb-16">
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-poppins`}
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
           >
             Get Your Free No Win No Fee Consultation
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}
           >
             No obligation, completely free consultation to assess your unpaid
             invoice recovery UK needs. Let us show you how our commercial debt
@@ -195,7 +152,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
               className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8 h-fit`}
             >
               <h3
-                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-poppins`}
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-noto-serif`}
               >
                 Contact Information
               </h3>
@@ -214,14 +171,14 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                       </div>
                       <div className="flex-1">
                         <h4
-                          className={`font-semibold ${themeClasses.text.primary} mb-1 font-inter`}
+                          className={`font-semibold ${themeClasses.text.primary} mb-1 font-noto-sans`}
                         >
                           {info.title}
                         </h4>
                         {info.details.map((detail, idx) => (
                           <p
                             key={idx}
-                            className={`${themeClasses.text.secondary} text-sm font-inter`}
+                            className={`${themeClasses.text.secondary} text-sm font-noto-sans`}
                           >
                             {detail}
                           </p>
@@ -229,7 +186,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                         {info.action && (
                           <a
                             href={info.link}
-                            className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors mt-1 inline-block font-inter`}
+                            className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors mt-1 inline-block font-noto-sans`}
                           >
                             {info.action}
                           </a>
@@ -247,12 +204,12 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   className={`flex items-center space-x-2 ${themeClasses.text.secondary} mb-4`}
                 >
                   <Clock className="w-4 h-4" />
-                  <span className="text-sm font-medium font-inter">
+                  <span className="text-sm font-medium font-noto-sans">
                     Business Hours
                   </span>
                 </div>
                 <div
-                  className={`space-y-1 text-sm ${themeClasses.text.secondary} font-inter`}
+                  className={`space-y-1 text-sm ${themeClasses.text.secondary} font-noto-sans`}
                 >
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
@@ -263,7 +220,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
 
               <div className={`mt-6 p-4 ${themeClasses.bg.accent} rounded-lg`}>
                 <p
-                  className={`${themeClasses.text.accent} text-sm font-medium text-center font-inter`}
+                  className={`${themeClasses.text.accent} text-sm font-medium text-center font-noto-sans`}
                 >
                   "You might not need us now, but there will come a time you
                   will."
@@ -284,7 +241,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
               className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8`}
             >
               <h3
-                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-poppins`}
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-noto-serif`}
               >
                 Request Your Free Consultation
               </h3>
@@ -303,17 +260,17 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   <div>
                     <Label
                       htmlFor="firstName"
-                      className={`${themeClasses.text.primary} font-inter`}
+                      className={`${themeClasses.text.primary} font-noto-sans`}
                     >
                       First Name *
                     </Label>
                     <Input
                       id="firstName"
                       {...register("firstName")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.firstName && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.firstName.message}
                       </p>
                     )}
@@ -322,17 +279,17 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   <div>
                     <Label
                       htmlFor="lastName"
-                      className={`${themeClasses.text.primary} font-inter`}
+                      className={`${themeClasses.text.primary} font-noto-sans`}
                     >
                       Last Name *
                     </Label>
                     <Input
                       id="lastName"
                       {...register("lastName")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.lastName && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.lastName.message}
                       </p>
                     )}
@@ -343,7 +300,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   <div>
                     <Label
                       htmlFor="email"
-                      className={`${themeClasses.text.primary} font-inter`}
+                      className={`${themeClasses.text.primary} font-noto-sans`}
                     >
                       Email Address *
                     </Label>
@@ -351,10 +308,10 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                       id="email"
                       type="email"
                       {...register("email")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.email && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.email.message}
                       </p>
                     )}
@@ -363,7 +320,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   <div>
                     <Label
                       htmlFor="phone"
-                      className={`${themeClasses.text.primary} font-inter`}
+                      className={`${themeClasses.text.primary} font-noto-sans`}
                     >
                       Phone Number *
                     </Label>
@@ -371,10 +328,10 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                       id="phone"
                       type="tel"
                       {...register("phone")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.phone && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.phone.message}
                       </p>
                     )}
@@ -385,17 +342,17 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   <div>
                     <Label
                       htmlFor="company"
-                      className={`${themeClasses.text.primary} font-inter`}
+                      className={`${themeClasses.text.primary} font-noto-sans`}
                     >
                       Company Name *
                     </Label>
                     <Input
                       id="company"
                       {...register("company")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                     {errors.company && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                         {errors.company.message}
                       </p>
                     )}
@@ -404,7 +361,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   <div>
                     <Label
                       htmlFor="debtAmount"
-                      className={`${themeClasses.text.primary} font-inter`}
+                      className={`${themeClasses.text.primary} font-noto-sans`}
                     >
                       Approximate Debt Amount (£)
                     </Label>
@@ -412,7 +369,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                       id="debtAmount"
                       {...register("debtAmount")}
                       placeholder="e.g., 5,000"
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                     />
                   </div>
                 </div>
@@ -420,7 +377,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                 <div>
                   <Label
                     htmlFor="message"
-                    className={`${themeClasses.text.primary} font-inter`}
+                    className={`${themeClasses.text.primary} font-noto-sans`}
                   >
                     Tell us about your situation *
                   </Label>
@@ -429,10 +386,10 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                     {...register("message")}
                     rows={4}
                     placeholder="Please provide details about the debt, debtor, and any previous collection attempts..."
-                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
                   />
                   {errors.message && (
-                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
                       {errors.message.message}
                     </p>
                   )}
@@ -441,12 +398,12 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full ${themeClasses.button.primary} font-semibold py-3 transition-colors duration-200 font-inter`}
+                  className={`w-full ${themeClasses.button.primary} font-semibold py-3 transition-colors duration-200 font-noto-sans`}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center">
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Sending...
+                      Preparing Email...
                     </div>
                   ) : (
                     <div className="flex items-center">
@@ -457,11 +414,11 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                 </Button>
 
                 <p
-                  className={`text-xs ${themeClasses.text.muted} text-center font-inter`}
+                  className={`text-xs ${themeClasses.text.muted} text-center font-noto-sans`}
                 >
-                  By submitting this form, you agree to our privacy policy and
-                  terms of service. We'll contact you within 24 hours to
-                  schedule your free consultation.
+                  By clicking submit, your email client will open with a
+                  pre-filled message to info@ascollections.co.uk. Simply send
+                  the email to complete your consultation request.
                 </p>
 
                 {/* GDPR Notice */}
@@ -469,7 +426,7 @@ Submitted: ${new Date().toLocaleString("en-GB")}
                   className={`mt-4 p-3 ${themeClasses.bg.secondary} rounded-lg`}
                 >
                   <p
-                    className={`text-xs ${themeClasses.text.tertiary} font-inter`}
+                    className={`text-xs ${themeClasses.text.tertiary} font-noto-sans`}
                   >
                     <strong>GDPR Notice:</strong> Your personal data will be
                     processed in accordance with our privacy policy. You have

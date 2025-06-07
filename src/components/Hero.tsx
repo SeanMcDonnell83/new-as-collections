@@ -31,10 +31,8 @@ const Hero = () => {
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
           <div className="lg:col-span-7">
             <motion.div {...animationProps}>
-              {/* Tagline */}
-              <div
-                className={`inline-flex items-center px-4 py-2 rounded-full ${themeClasses.bg.accent} ${themeClasses.text.accent} text-sm font-medium mb-8 font-noto-sans`}
-              >
+              {/* Tagline - updated background color */}
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-200 dark:bg-green-900 border border-green-300 dark:border-green-700 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8 font-noto-sans">
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                 No Win, No Fee · UK Wide Coverage
               </div>
@@ -77,7 +75,7 @@ const Hero = () => {
                   <span
                     className={`${themeClasses.text.secondary} font-medium font-noto-sans`}
                   >
-                    80%+ success rate across UK
+                    98%+ success rate across UK
                   </span>
                 </div>
                 <div className="flex items-center">
@@ -119,10 +117,12 @@ const Hero = () => {
                 <Button
                   onClick={() => scrollToSection("about")}
                   size="lg"
-                  className="border-2 border-neutral-800 dark:border-neutral-200 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-inter font-semibold px-8 py-5 text-lg transition-all duration-200 rounded-xl"
+                  className="border-2 border-neutral-800 dark:border-neutral-200 text-neutral-900 dark:text-neutral-100 bg-neutral-900 dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-neutral-200 font-noto-sans font-semibold px-8 py-5 text-lg transition-all duration-200 rounded-xl"
                 >
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Learn More
+                  <BookOpen className="w-5 h-5 mr-2 text-white dark:text-neutral-900" />
+                  <span className="text-white dark:text-neutral-900">
+                    Learn More
+                  </span>
                 </Button>
               </div>
 

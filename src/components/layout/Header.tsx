@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { useThemeSafe } from "@/hooks/useThemeSafe";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,33 +28,37 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 pt-4">
-          {/* Logo - flush left */}
+          {/* Logo - larger and clickable */}
           <div className="flex items-center">
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F2e4607f765394e439f0cc9d25ab3ef79?format=webp&width=400"
-              className="h-8 w-auto object-contain"
-              alt="AS Collections Logo"
-            />
+            <Link to="/" className="block">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F2e4607f765394e439f0cc9d25ab3ef79?format=webp&width=400"
+                className={`h-12 w-auto object-contain transition-all duration-200 hover:scale-105 ${
+                  theme === "dark" ? "filter brightness-0 invert" : ""
+                }`}
+                alt="AS Collections Logo"
+              />
+            </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 mr-auto ml-12">
+          {/* Desktop Navigation - centered */}
+          <nav className="hidden md:flex items-center space-x-8 mx-auto">
             <button
               onClick={() => scrollToSection("services")}
-              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} transition-colors duration-200 font-medium font-noto-sans`}
+              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} transition-colors duration-200 font-medium font-noto-sans`}
+              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} transition-colors duration-200 font-medium font-noto-sans`}
+              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
             >
               Contact
             </button>

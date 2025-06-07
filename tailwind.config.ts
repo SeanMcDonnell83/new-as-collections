@@ -19,10 +19,10 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        serif: ["Poppins", "system-ui", "sans-serif"],
-        inter: ["Inter", "system-ui", "sans-serif"],
-        poppins: ["Poppins", "system-ui", "sans-serif"],
+        sans: ["Noto Sans", "system-ui", "sans-serif"],
+        serif: ["Noto Serif", "Georgia", "serif"],
+        "noto-sans": ["Noto Sans", "system-ui", "sans-serif"],
+        "noto-serif": ["Noto Serif", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
