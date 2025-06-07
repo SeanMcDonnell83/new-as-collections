@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import DebtCalculator from "./DebtCalculator";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useThemeSafe } from "@/hooks/useThemeSafe";
 
 const Hero = () => {
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);

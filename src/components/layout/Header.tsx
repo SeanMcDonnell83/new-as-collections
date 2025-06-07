@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Menu, X, Phone, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useTheme, themeClasses } from "@/contexts/ThemeContext";
+import { themeClasses } from "@/contexts/ThemeContext";
+import { useThemeSafe } from "@/hooks/useThemeSafe";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useThemeSafe();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
