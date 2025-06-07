@@ -82,14 +82,28 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6 font-serif">
+          <h2
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+          >
             Business Debt Collection Services UK
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-sans font-light">
+          <p
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-4`}
+          >
             Comprehensive commercial debt recovery UK solutions across London,
             Manchester, Birmingham, Glasgow, and Edinburgh. From initial unpaid
             invoice recovery UK to legal enforcement, our debt collection agency
             UK handles it all.
+          </p>
+          <p
+            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans`}
+          >
+            Our professional debt collection services are fully compliant with
+            UK legislation and industry standards. We specialise in B2B debt
+            recovery, helping businesses across all sectors recover outstanding
+            invoices efficiently and ethically. With over 98% success rate and
+            average recovery times of just 14 days, we're the trusted choice for
+            businesses nationwide.
           </p>
         </motion.div>
 

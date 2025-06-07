@@ -18,14 +18,15 @@ const Footer = () => {
             <p className="text-neutral-300 mb-4 max-w-md font-noto-sans">
               Leading commercial debt recovery UK specialists. No win no fee
               debt collection services across London, Manchester, Birmingham,
-              Glasgow, and Edinburgh.
+              Glasgow, and Edinburgh. Professional B2B debt recovery with 98%
+              success rate and ethical approach.
             </p>
             <p className="text-blue-400 font-semibold mb-6 font-noto-sans">
               Recovery experts for hire UK - If we can't collect it, nobody can.
             </p>
 
             {/* External Links */}
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap space-x-4 mb-6">
               <a
                 href="https://www.fca.org.uk/"
                 target="_blank"
@@ -72,6 +73,8 @@ const Footer = () => {
               <div>Independent Schools Collections</div>
               <div>Food & Drink Sector Recovery</div>
               <div>Oil & Gas Debt Collection</div>
+              <div>Debtor Tracing Services</div>
+              <div>Legal Action & Enforcement</div>
             </div>
           </div>
 
@@ -81,12 +84,12 @@ const Footer = () => {
             </h4>
             <div className="space-y-2 text-neutral-300 text-sm font-noto-sans">
               <a
-                href="https://www.legislation.gov.uk/ukpga/1984/28/contents"
+                href="https://www.legislation.gov.uk/ukpga/1998/20/contents"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block hover:text-blue-400 transition-colors"
               >
-                Data Protection Act
+                Late Payment of Commercial Debts Act
               </a>
               <a
                 href="https://www.gov.uk/late-commercial-payments-interest-debt-recovery"
@@ -142,6 +145,9 @@ const Footer = () => {
           <p className="text-neutral-400 text-sm font-noto-sans">
             © 2025 A.S. Collections. All rights reserved. | Authorised and
             regulated for commercial debt recovery UK. FCA/CSA/CICM accredited.
+            <br />
+            Professional debt collection services across England, Scotland,
+            Wales and Northern Ireland.
           </p>
         </div>
       </div>
