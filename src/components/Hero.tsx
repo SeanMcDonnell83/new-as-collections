@@ -119,7 +119,7 @@ const Hero = () => {
                 <Button
                   onClick={() => scrollToSection("about")}
                   size="lg"
-                  className={`${themeClasses.button.outline} font-noto-sans font-semibold px-8 py-5 text-lg transition-all duration-200 rounded-xl`}
+                  className="border-2 border-neutral-800 dark:border-neutral-200 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-inter font-semibold px-8 py-5 text-lg transition-all duration-200 rounded-xl"
                 >
                   <BookOpen className="w-5 h-5 mr-2" />
                   Learn More

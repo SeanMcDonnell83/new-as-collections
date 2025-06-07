@@ -80,26 +80,28 @@ const About = () => {
         {/* Emilie Campbell Introduction */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <motion.div {...useScrollAnimation({ delay: 0.2 })}>
-            <div className={`${themeClasses.bg.secondary} rounded-2xl p-8`}>
+            <div
+              className={`${themeClasses.bg.primary} border-2 ${themeClasses.border.primary} rounded-2xl p-8 shadow-lg`}
+            >
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
                   <User className="w-8 h-8 text-white" />
                 </div>
                 <div>
                   <h3
-                    className={`text-2xl font-bold ${themeClasses.text.primary} font-noto-serif`}
+                    className={`text-2xl font-bold ${themeClasses.text.primary} font-poppins`}
                   >
                     Emilie Campbell
                   </h3>
                   <p
-                    className={`${themeClasses.text.accent} font-semibold font-noto-sans`}
+                    className={`${themeClasses.text.accent} font-semibold font-inter`}
                   >
                     Managing Director
                   </p>
                 </div>
               </div>
               <blockquote
-                className={`${themeClasses.text.secondary} text-lg italic leading-relaxed font-noto-serif`}
+                className={`${themeClasses.text.primary} text-lg italic leading-relaxed font-poppins border-l-4 border-blue-500 pl-4`}
               >
                 "Our mission is simple: recover what's rightfully yours while
                 maintaining the relationships that matter to your business. We
@@ -114,12 +116,12 @@ const About = () => {
             className="space-y-6"
           >
             <h3
-              className={`text-2xl font-bold ${themeClasses.text.primary} font-noto-serif`}
+              className={`text-2xl font-bold ${themeClasses.text.primary} font-poppins`}
             >
               Leadership with Vision
             </h3>
             <p
-              className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans`}
+              className={`${themeClasses.text.primary} leading-relaxed font-inter`}
             >
               Under Emilie Campbell's leadership, A.S. Collections has become
               the UK's most trusted commercial debt recovery agency. With
@@ -128,7 +130,7 @@ const About = () => {
               results.
             </p>
             <p
-              className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans`}
+              className={`${themeClasses.text.primary} leading-relaxed font-inter`}
             >
               Our approach focuses on taking complexity away from our clients by
               heavily investing in technology and delivering bespoke solutions.
