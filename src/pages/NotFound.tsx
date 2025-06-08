@@ -1,11 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Home, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { themeClasses } from "@/contexts/ThemeContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { useEffect, useState } from "react";
 
 const NotFound = () => {
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(10);
+
+  useEffect(() => {
+    // Auto redirect to homepage after 10 seconds
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          navigate("/", { replace: true });
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [navigate]);
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Header />
@@ -24,6 +42,11 @@ const NotFound = () => {
             </h1>
             <p className={`${themeClasses.text.secondary} mt-4 font-noto-sans`}>
               The page you're looking for doesn't exist or has been moved.
+            </p>
+            <p
+              className={`${themeClasses.text.tertiary} mt-2 font-noto-sans text-sm`}
+            >
+              Redirecting to homepage in {countdown} seconds...
             </p>
           </div>
 
