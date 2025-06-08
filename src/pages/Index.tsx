@@ -9,8 +9,6 @@ import LegalCompliance from "@/components/LegalCompliance";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
 
