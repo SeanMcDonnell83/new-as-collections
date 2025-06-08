@@ -74,7 +74,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-slate-50">
+    <section id="services" className={`py-20 ${themeClasses.bg.secondary}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -120,7 +120,9 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="group"
               >
-                <div className="bg-white rounded-xl border border-slate-200 p-8 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div
+                  className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-8 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
+                >
                   <div className="flex items-start space-x-4">
                     <div
                       className={`w-12 h-12 rounded-lg bg-gradient-to-r ${service.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
@@ -128,17 +130,21 @@ const Services = () => {
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-900 mb-3">
+                      <h3
+                        className={`text-xl font-bold ${themeClasses.text.primary} mb-3`}
+                      >
                         {service.title}
                       </h3>
-                      <p className="text-slate-600 mb-4 leading-relaxed">
+                      <p
+                        className={`${themeClasses.text.secondary} mb-4 leading-relaxed`}
+                      >
                         {service.description}
                       </p>
                       <ul className="space-y-2">
                         {service.features.map((feature, featureIndex) => (
                           <li
                             key={featureIndex}
-                            className="flex items-center text-slate-700"
+                            className={`flex items-center ${themeClasses.text.secondary}`}
                           >
                             <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                             <span className="text-sm">{feature}</span>
@@ -159,13 +165,15 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12"
+          className={`${themeClasses.bg.primary} rounded-2xl border ${themeClasses.border.primary} p-8 md:p-12`}
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-slate-900 mb-4">
+            <h3
+              className={`text-3xl font-bold ${themeClasses.text.primary} mb-4`}
+            >
               Our Recovery Process
             </h3>
-            <p className="text-lg text-slate-600">
+            <p className={`text-lg ${themeClasses.text.secondary}`}>
               A proven 4-step approach that maximizes recovery while preserving
               relationships
             </p>
@@ -200,10 +208,14 @@ const Services = () => {
                     {item.step}
                   </span>
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-2">
+                <h4
+                  className={`text-lg font-bold ${themeClasses.text.primary} mb-2`}
+                >
                   {item.title}
                 </h4>
-                <p className="text-slate-600 text-sm">{item.description}</p>
+                <p className={`${themeClasses.text.secondary} text-sm`}>
+                  {item.description}
+                </p>
                 {index < 3 && (
                   <ArrowRight className="hidden md:block absolute top-8 -right-4 w-6 h-6 text-blue-300" />
                 )}
