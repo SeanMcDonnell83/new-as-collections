@@ -8,6 +8,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { themeClasses } from "@/contexts/ThemeContext";
 
 const Services = () => {
   const services = [
