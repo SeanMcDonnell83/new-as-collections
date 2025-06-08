@@ -150,34 +150,14 @@ const About = () => {
                 relationships. Our comprehensive approach combines traditional
                 debt recovery methods with innovative digital solutions.
               </p>
-            </div>
-
-            {/* External Links for SEO */}
-            <div className="flex flex-wrap gap-4 mt-6">
-              <a
-                href="https://www.fca.org.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors font-noto-sans`}
+              <p
+                className={`${themeClasses.text.primary} leading-relaxed font-noto-sans text-lg`}
               >
-                Financial Conduct Authority
-              </a>
-              <a
-                href="https://www.cicm.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors font-noto-sans`}
-              >
-                CICM Accreditation
-              </a>
-              <a
-                href="https://www.csa-uk.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors font-noto-sans`}
-              >
-                Credit Services Association
-              </a>
+                Emilie's strategic vision has positioned A.S. Collections as a
+                forward-thinking debt recovery agency that combines proven
+                methodologies with cutting-edge technology to deliver superior
+                results for our clients across all industries and sectors.
+              </p>
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Scale, FileCheck, Award, ExternalLink } from "lucide-react";
+import { Shield, Scale, FileCheck, BookOpen, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -7,69 +7,69 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const LegalCompliance = () => {
   const { ref, animationProps } = useScrollAnimation();
 
-  const certifications = [
+  const standards = [
     {
       icon: Shield,
-      title: "FCA Authorised",
+      title: "GDPR Compliance",
       description:
-        "Fully authorised and regulated by the Financial Conduct Authority under the Consumer Credit Act 1974. Our FCA authorisation ensures we operate within strict regulatory guidelines for commercial debt recovery services.",
-      authority: "Financial Conduct Authority",
-      reference: "FCA Firm Reference Number: 789456",
-      link: "https://www.fca.org.uk",
+        "Full compliance with UK GDPR and Data Protection Act 2018 for all client and debtor data handling. We maintain strict data security protocols and privacy safeguards throughout the debt recovery process.",
+      authority: "Information Commissioner's Office",
+      reference: "UK GDPR Compliance Framework",
+      link: "https://ico.org.uk",
     },
     {
-      icon: Award,
-      title: "CICM Membership",
+      icon: BookOpen,
+      title: "Consumer Credit Act",
       description:
-        "Proud members of the Chartered Institute of Credit Management, the UK's leading professional body for credit and debt recovery professionals. Our membership demonstrates commitment to best practice standards.",
-      authority: "Chartered Institute of Credit Management",
-      reference: "CICM Professional Membership",
-      link: "https://www.cicm.com",
+        "Operating within the framework of the Consumer Credit Act 1974 for all debt collection activities. Our practices ensure fair treatment of debtors while maximizing recovery for creditors.",
+      authority: "UK Government Legislation",
+      reference: "Consumer Credit Act 1974",
+      link: "https://www.legislation.gov.uk",
     },
     {
       icon: Scale,
-      title: "CSA Compliance",
+      title: "Industry Best Practice",
       description:
-        "Fully compliant with Credit Services Association standards, the UK trade body representing the credit management and debt recovery industry. Our CSA membership ensures ethical debt collection practices.",
-      authority: "Credit Services Association",
-      reference: "CSA Member Organisation",
-      link: "https://www.csa-uk.com",
+        "Following industry best practices and ethical guidelines for commercial debt recovery. Our methods prioritize professional standards whilst achieving optimal results for clients.",
+      authority: "Debt Collection Industry Standards",
+      reference: "Professional Practice Guidelines",
+      link: "https://www.gov.uk",
     },
     {
       icon: FileCheck,
-      title: "Court Approved",
+      title: "Legal Documentation",
       description:
-        "Approved by HM Courts & Tribunals Service for legal debt recovery proceedings. Our solicitors are authorised to conduct litigation across all UK jurisdictions for commercial debt collection.",
-      authority: "HM Courts & Tribunals Service",
-      reference: "HMCTS Approved Process Server",
-      link: "https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service",
+        "Comprehensive legal documentation and proper procedures for all debt recovery actions. We ensure all activities are properly documented and legally compliant throughout the process.",
+      authority: "UK Legal Framework",
+      reference: "Debt Recovery Legal Requirements",
+      link: "https://www.gov.uk",
     },
   ];
 
   const legalServices = [
     {
-      title: "County Court Claims (CCJ)",
+      title: "Legal Letter Before Action",
       description:
-        "Expert County Court Judgment applications for commercial debts. We handle all aspects of CCJ proceedings from initial application through to enforcement, ensuring full compliance with Civil Procedure Rules.",
-      process: "7-14 days typical processing",
+        "Professionally drafted legal letters demanding payment before commencing court proceedings. Clear, compliant documentation that demonstrates serious intent whilst providing final opportunity for settlement.",
+      process: "7-14 days response period",
     },
     {
-      title: "High Court Enforcement",
+      title: "County Court Claims Support",
       description:
-        "High Court Writ of Control applications for debts over £600. Our certified High Court Enforcement Officers execute warrants nationwide with full legal authority for commercial debt recovery.",
-      process: "Same day enforcement available",
+        "Professional support for County Court Judgment applications for commercial debts. We assist with documentation, evidence preparation, and procedural guidance throughout the claims process.",
+      process: "Court fee and documentation support",
     },
     {
-      title: "Statutory Demands",
+      title: "Statutory Demand Preparation",
       description:
-        "Formal statutory demands under the Insolvency Act 1986. Professional preparation and service of statutory demands as the first step toward potential winding-up proceedings for unpaid commercial debts.",
-      process: "21-day demand period",
+        "Expert preparation of statutory demands under the Insolvency Act 1986. Professional documentation and service arrangements for formal demands as preliminary to insolvency proceedings.",
+      process: "21-day statutory period",
     },
     {
-      title: "Winding-Up Petitions",
+      title: "Legal Recovery Consultation",
       description:
-        "Court applications to wind up companies with unpaid debts exceeding £750. Full legal support through the winding-up process, from petition preparation to court hearings and asset recovery.",
-      process: "8-12 weeks court process",
+        "Professional consultation on legal options for debt recovery. Expert guidance on the most appropriate legal routes and procedural requirements for your specific circumstances.",
+      process: "Initial consultation available",
     },
   ];
 
@@ -85,26 +85,26 @@ const LegalCompliance = () => {
           <p
             className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-4`}
           >
-            Fully regulated commercial debt recovery services with complete
-            legal compliance across England, Scotland, Wales, and Northern
-            Ireland. Professional memberships and regulatory authorisations
-            ensuring ethical and effective debt collection practices.
+            Maintaining the highest professional standards in commercial debt
+            recovery across England, Scotland, Wales, and Northern Ireland. Full
+            compliance with UK legislation and industry best practices ensuring
+            ethical and effective debt collection services.
           </p>
           <p
             className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans`}
           >
-            Our debt collection agency maintains the highest professional
-            standards through comprehensive regulatory compliance, industry
-            memberships, and continuous professional development. We operate
-            within strict legal frameworks to protect both creditors and debtors
-            throughout the recovery process.
+            Our debt collection agency operates within strict legal frameworks
+            to protect both creditors and debtors throughout the recovery
+            process. We maintain comprehensive policies and procedures ensuring
+            all activities comply with current UK legislation and professional
+            standards.
           </p>
         </motion.div>
 
-        {/* Certifications Grid */}
+        {/* Standards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {certifications.map((cert, index) => {
-            const IconComponent = cert.icon;
+          {standards.map((standard, index) => {
+            const IconComponent = standard.icon;
             return (
               <motion.div
                 key={index}
@@ -122,30 +122,30 @@ const LegalCompliance = () => {
                     <h3
                       className={`text-xl font-bold ${themeClasses.text.primary} mb-3 font-noto-serif`}
                     >
-                      {cert.title}
+                      {standard.title}
                     </h3>
                     <p
                       className={`${themeClasses.text.secondary} mb-4 leading-relaxed font-noto-sans`}
                     >
-                      {cert.description}
+                      {standard.description}
                     </p>
                     <div
                       className={`text-sm ${themeClasses.text.tertiary} mb-2 font-noto-sans`}
                     >
-                      <strong>Authority:</strong> {cert.authority}
+                      <strong>Framework:</strong> {standard.authority}
                     </div>
                     <div
                       className={`text-sm ${themeClasses.text.tertiary} mb-4 font-noto-sans`}
                     >
-                      <strong>Reference:</strong> {cert.reference}
+                      <strong>Reference:</strong> {standard.reference}
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
                       className={`${themeClasses.button.outline} text-xs font-noto-sans`}
-                      onClick={() => window.open(cert.link, "_blank")}
+                      onClick={() => window.open(standard.link, "_blank")}
                     >
-                      Verify Credentials
+                      Learn More
                       <ExternalLink className="w-3 h-3 ml-2" />
                     </Button>
                   </div>
@@ -167,15 +167,15 @@ const LegalCompliance = () => {
             <h3
               className={`text-3xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}
             >
-              Legal Debt Recovery Services
+              Professional Debt Recovery Services
             </h3>
             <p
               className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans`}
             >
-              Comprehensive legal enforcement options for commercial debt
-              recovery across all UK jurisdictions. From County Court claims to
-              High Court enforcement, we provide full legal support for debt
-              collection.
+              Professional debt recovery services with legal support and
+              guidance throughout the process. From initial contact through to
+              legal documentation, we provide comprehensive support for
+              commercial debt collection.
             </p>
           </div>
 
@@ -221,14 +221,14 @@ const LegalCompliance = () => {
             <h3
               className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}
             >
-              Our Compliance Commitments
+              Our Professional Commitments
             </h3>
             <p
               className={`${themeClasses.text.secondary} font-noto-sans max-w-2xl mx-auto`}
             >
-              We operate under strict regulatory frameworks ensuring fair,
-              ethical, and effective commercial debt recovery services across
-              the United Kingdom.
+              We operate under comprehensive policies ensuring fair, ethical,
+              and effective commercial debt recovery services across the United
+              Kingdom.
             </p>
           </div>
 
@@ -242,19 +242,19 @@ const LegalCompliance = () => {
               <div
                 className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
               >
-                Regulatory Compliance
+                Legal Compliance
               </div>
             </div>
             <div className="text-center">
               <div
                 className={`text-2xl font-bold ${themeClasses.text.accent} mb-2 font-noto-serif`}
               >
-                24/7
+                GDPR
               </div>
               <div
                 className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
               >
-                Legal Support Available
+                Data Protection
               </div>
             </div>
             <div className="text-center">
@@ -266,7 +266,7 @@ const LegalCompliance = () => {
               <div
                 className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
               >
-                Legal Coverage
+                Professional Coverage
               </div>
             </div>
           </div>
@@ -276,10 +276,10 @@ const LegalCompliance = () => {
               className={`text-xs ${themeClasses.text.tertiary} font-noto-sans max-w-4xl mx-auto`}
             >
               All our debt recovery activities are conducted in accordance with
-              the Consumer Credit Act 1974, Data Protection Act 2018, GDPR
-              regulations, and industry best practice guidelines as set out by
-              the Credit Services Association and Chartered Institute of Credit
-              Management.
+              the Consumer Credit Act 1974, Data Protection Act 2018, UK GDPR
+              regulations, and professional industry standards for ethical debt
+              collection practices across England, Scotland, Wales, and Northern
+              Ireland.
             </p>
           </div>
         </motion.div>
