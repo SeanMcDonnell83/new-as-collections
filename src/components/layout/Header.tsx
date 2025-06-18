@@ -33,10 +33,12 @@ const Header = () => {
             <Link to="/" className="block">
               <img
                 loading="lazy"
-                src="/as-collections-logo.png"
-                className={`h-12 w-auto object-contain transition-all duration-200 hover:scale-105 ${
-                  theme === "dark" ? "filter brightness-0 invert" : ""
-                }`}
+                src={
+                  theme === "dark"
+                    ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-1-light.png"
+                    : "/AS-collections-Brand-Logos-Mono-1750-x-750-px-1-dark.png"
+                }
+                className="h-12 w-auto object-contain transition-all duration-200 hover:scale-105"
                 alt="AS Collections Logo"
               />
             </Link>

@@ -1,6 +1,8 @@
 import { themeClasses } from "@/contexts/ThemeContext";
+import { useThemeSafe } from "@/hooks/useThemeSafe";
 
 const Footer = () => {
+  const { theme } = useThemeSafe();
   return (
     <footer className="bg-neutral-900 dark:bg-neutral-950 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,10 +11,9 @@ const Footer = () => {
             <div className="mb-6">
               <img
                 loading="lazy"
-                src="/as-collections-logo.png"
+                src="/AS-collections-Brand-Logos-Mono-1750-x-750-px-1-light.png"
                 className="h-12 w-auto"
                 alt="AS Collections Logo"
-                style={{ filter: "brightness(0) invert(1)" }}
               />
             </div>
             <p className="text-neutral-300 mb-4 max-w-md font-noto-sans">
