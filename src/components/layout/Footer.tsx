@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="mb-6">
               <img
                 loading="lazy"
-                src="/as-collections-logo-light.png"
+                src="/AS-collections-Brand-Logos-Mono-1750-x-750-px-1-light.png"
                 className="h-12 w-auto"
                 alt="AS Collections Logo"
               />
