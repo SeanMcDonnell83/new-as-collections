@@ -33,7 +33,7 @@ const Header = () => {
             <Link to="/" className="block">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F2e4607f765394e439f0cc9d25ab3ef79?format=webp&width=400"
+                src="/as-collections-logo.png"
                 className={`h-12 w-auto object-contain transition-all duration-200 hover:scale-105 ${
                   theme === "dark" ? "filter brightness-0 invert" : ""
                 }`}

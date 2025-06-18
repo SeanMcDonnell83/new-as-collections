@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="mb-6">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F2e4607f765394e439f0cc9d25ab3ef79?format=webp&width=400"
+                src="/as-collections-logo.png"
                 className="h-12 w-auto"
                 alt="AS Collections Logo"
                 style={{ filter: "brightness(0) invert(1)" }}
@@ -143,11 +143,19 @@ const Footer = () => {
 
         <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
           <p className="text-neutral-400 text-sm font-noto-sans">
-            © 2025 A.S. Collections. All rights reserved. | Authorised and
-            regulated for commercial debt recovery UK. FCA/CSA/CICM accredited.
-            <br />
+            © {new Date().getFullYear()} OVAS NW. All rights reserved. |
             Professional debt collection services across England, Scotland,
             Wales and Northern Ireland.
+            <br />
+            Website created by{" "}
+            <a
+              href="https://kaizenweb.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              Kaizen
+            </a>
           </p>
         </div>
       </div>
