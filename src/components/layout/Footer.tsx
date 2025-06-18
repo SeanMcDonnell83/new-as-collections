@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="mb-6">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2Fe355316e8f3b4c4ea45050920a8f8224"
+                src="/as-collections-logo-light.png"
                 className="h-12 w-auto"
                 alt="AS Collections Logo"
               />

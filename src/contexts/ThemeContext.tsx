@@ -33,6 +33,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     // Apply theme to document
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
+
+    // Ensure dark mode is applied by default
+    if (!localStorage.getItem("theme")) {
+      document.documentElement.classList.add("dark");
+    }
   }, [theme]);
 
   const toggleTheme = () => {

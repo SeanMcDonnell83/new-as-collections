@@ -14,7 +14,7 @@ import { themeClasses } from "@/contexts/ThemeContext";
 
 const Index = () => {
   return (
-    <div className={`min-h-screen ${themeClasses.bg.primary}`}>
+    <div className={`min-h-screen ${themeClasses.bg.primary} dark`}>
       <Header />
       <main>
         <Hero />
