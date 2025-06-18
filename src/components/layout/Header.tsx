@@ -35,8 +35,8 @@ const Header = () => {
                 loading="lazy"
                 src={
                   theme === "dark"
-                    ? "/as-collections-logo-light.png"
-                    : "/as-collections-logo-dark.png"
+                    ? "/as-collections-logo-dark.png"
+                    : "/as-collections-logo-light.png"
                 }
                 className="h-12 w-auto object-contain transition-all duration-200 hover:scale-105"
                 alt="AS Collections Logo"
