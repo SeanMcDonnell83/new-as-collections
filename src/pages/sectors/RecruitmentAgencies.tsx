@@ -29,9 +29,9 @@ const RecruitmentAgencies = () => {
 
       <main>
         {/* Hero Section: The Network */}
-        <section className={`relative min-h-screen flex items-center pt-20 overflow-hidden ${themeClasses.bg.primary} ${themeClasses.text.primary}`}>
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900 text-white">
           {/* Abstract Network Animation Background */}
-          <div className="absolute inset-0 z-0 opacity-20 dark:opacity-30">
+          <div className="absolute inset-0 z-0 opacity-20">
             <svg className="w-full h-full">
               <pattern
                 id="grid"
@@ -39,7 +39,7 @@ const RecruitmentAgencies = () => {
                 height="50"
                 patternUnits="userSpaceOnUse"
               >
-                <circle cx="2" cy="2" r="1" fill="white" className="dark:fill-slate-700" />
+                <circle cx="2" cy="2" r="1" fill="white" />
               </pattern>
               <rect width="100%" height="100%" fill="url(#grid)" />
               {/* Connecting Lines Animation */}
