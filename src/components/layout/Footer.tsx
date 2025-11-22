@@ -167,13 +167,22 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* No Win No Fee Badge */}
-        <div className="bg-gradient-to-r from-red-600/10 to-orange-600/10 border border-red-600/30 rounded-xl p-6 mb-12">
+        {/* No Win No Fee CTA Section */}
+        <div className="bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-8 mb-16">
           <div className="text-center">
-            <div className="text-2xl font-manrope font-bold text-red-500 mb-2">No Win, No Fee</div>
-            <p className="text-slate-300 text-sm font-inter">
+            <div className="text-3xl font-manrope font-bold text-white mb-3">No Win, No Fee</div>
+            <p className="text-slate-300 text-base font-inter mb-6 max-w-2xl mx-auto">
               We only succeed when you succeed. Zero upfront costs, no hidden fees. You pay only when we recover your debt.
             </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-900 font-manrope font-bold text-sm rounded-full hover:bg-slate-100 transition-all duration-200"
+            >
+              Get Your Free Consultation
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
 
