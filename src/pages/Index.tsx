@@ -168,21 +168,22 @@ const Index = () => {
         <Testimonials />
 
         {/* Still Have Questions? CTA Section */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-20 ${themeClasses.bg.secondary}`}
+          className={`py-24 ${themeClasses.bg.secondary}`}
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
               Still Have Questions?
             </h2>
-            <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-noto-sans`}>
-              Get answers from our commercial debt recovery specialists. Free consultation with no obligation. 
-              Speak to our team today to discuss your specific debt recovery requirements and discover how we 
-              can help recover your outstanding invoices.
+            <p className={`text-lg ${themeClasses.text.secondary} mb-4 leading-relaxed font-inter`}>
+              Get answers from our commercial debt recovery specialists.
+            </p>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-8 leading-relaxed font-inter`}>
+              Free consultation with no obligation. Speak to our team today to discuss your specific debt recovery requirements and discover how we can help.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -199,13 +200,13 @@ const Index = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`${themeClasses.bg.primary} rounded-xl p-6 border ${themeClasses.border.primary}`}
+                    className={`${themeClasses.bg.primary} rounded-xl p-8 border ${themeClasses.border.primary} backdrop-blur-sm hover:shadow-lg transition-all duration-300`}
                   >
                     <IconComponent className={`w-8 h-8 ${themeClasses.text.accent} mx-auto mb-4`} />
-                    <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-noto-serif`}>
+                    <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-700`}>
                       {item.title}
                     </h3>
-                    <p className={`${themeClasses.text.secondary} font-noto-sans text-sm`}>
+                    <p className={`${themeClasses.text.secondary} font-inter text-sm leading-relaxed`}>
                       {item.desc}
                     </p>
                   </motion.div>
@@ -217,20 +218,20 @@ const Index = () => {
               <Button
                 onClick={scrollToContact}
                 size="lg"
-                className={`${themeClasses.button.primary} font-semibold px-8 py-4 transition-colors duration-200 font-noto-sans`}
+                className={`${themeClasses.button.primary} font-semibold px-8 py-4 transition-colors duration-200 font-inter`}
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Get Your Free Consultation
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <div className="flex flex-col text-center">
-                <a 
+                <a
                   href="tel:+441513290946"
-                  className={`text-2xl font-bold ${themeClasses.text.accent} hover:underline font-noto-serif`}
+                  className={`text-2xl font-bold ${themeClasses.text.accent} hover:underline font-montserrat font-800`}
                 >
                   0151 329 0946
                 </a>
-                <span className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}>
+                <span className={`text-sm ${themeClasses.text.secondary} font-inter`}>
                   Call now for immediate assistance
                 </span>
               </div>
