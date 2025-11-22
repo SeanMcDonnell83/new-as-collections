@@ -134,68 +134,6 @@ const ContactPage = () => {
           </div>
         </section>
 
-        {/* Contact Info Section */}
-        <section className="py-24 bg-slate-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8 mb-24">
-              {contactInfo.map((info, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <info.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                    {info.title}
-                  </h3>
-                  <p className="text-slate-600 font-semibold text-lg mb-1">
-                    {info.details[0]}
-                  </p>
-                  <p className="text-slate-500 text-sm">{info.sub}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-black text-slate-900 mb-4">
-                COVERAGE ACROSS THE UK
-              </h2>
-              <p className="text-lg text-slate-600 mb-12">
-                We serve all regions of the United Kingdom
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                {[
-                  "London",
-                  "Manchester",
-                  "Birmingham",
-                  "Liverpool",
-                  "Leeds",
-                  "Scotland",
-                  "Wales",
-                  "Northern Ireland",
-                ].map((city, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="flex items-center justify-center gap-2 text-slate-700 font-medium"
-                  >
-                    <span className="inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-                    {city}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ Section */}
         <section className="py-24 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
