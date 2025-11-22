@@ -20,13 +20,17 @@ const Industries = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Industry Specific Debt Recovery Services UK | A.S. Collections</title>
-        <meta 
-          name="description" 
-          content="Specialist debt recovery services for UK industries. Construction, food & drink, oil & gas, independent schools, recruitment agencies, shipping & logistics. Sector-specific expertise." 
+        <title>Debt Collection by Sector | Construction, Recruitment & More | A.S. Collections</title>
+        <meta
+          name="description"
+          content="Industry-specific debt recovery expertise across UK sectors. Construction, food & drink, oil & gas, recruitment, logistics, schools. Specialised collection services."
         />
-        <meta name="keywords" content="industry specific debt recovery, construction debt collection UK, food drink sector debt recovery, oil gas debt collection, school debt recovery, recruitment debt collection" />
+        <meta name="keywords" content="sector-specific debt recovery, construction debt collection, food drink debt recovery, recruitment debt collection, oil gas collections" />
         <link rel="canonical" href="https://ascollections.co.uk/industries" />
+        <meta property="og:title" content="Debt Collection by Sector | Construction, Recruitment & More | A.S. Collections" />
+        <meta property="og:description" content="Industry-specific debt recovery across UK sectors. Construction, food & drink, oil & gas, recruitment, logistics." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ascollections.co.uk/industries" />
       </Helmet>
       
       <Header />
