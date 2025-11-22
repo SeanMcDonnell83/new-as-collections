@@ -133,13 +133,17 @@ const WindingUpSearch = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Winding-Up Petition Search | Protect Your Business | A.S. Collections</title>
+        <title>Winding-Up Petition Search | Check Company Insolvency | A.S. Collections</title>
         <meta
           name="description"
-          content="Instantly check if your clients are facing winding-up petitions. Protect your business with our live winding-up search database covering UK companies."
+          content="Instantly check if your clients face winding-up petitions. Live UK company insolvency database. Protect your business with our free winding-up search tool."
         />
-        <meta name="keywords" content="winding-up search, winding-up petitions UK, company insolvency check, business risk assessment, credit check" />
+        <meta name="keywords" content="winding-up petition search, company insolvency check, UK winding-up database, credit check, business risk assessment" />
         <link rel="canonical" href="https://ascollections.co.uk/winding-up-check" />
+        <meta property="og:title" content="Winding-Up Petition Search | Check Company Insolvency | A.S. Collections" />
+        <meta property="og:description" content="Instantly check if your clients face winding-up petitions. Live UK company insolvency database." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ascollections.co.uk/winding-up-check" />
       </Helmet>
 
       <Header />
