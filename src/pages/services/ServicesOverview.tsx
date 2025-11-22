@@ -4,13 +4,7 @@ import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import {
-  Shield,
-  Globe,
-  Search,
-  AlertCircle,
-  ArrowRight,
-} from "lucide-react";
+import { Shield, Globe, Search, AlertCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -75,8 +69,8 @@ const ServicesOverview = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "name": "Our Recovery Services",
-            "description": "Comprehensive debt recovery solutions",
+            name: "Our Recovery Services",
+            description: "Comprehensive debt recovery solutions",
           })}
         </script>
       </Helmet>
@@ -94,7 +88,13 @@ const ServicesOverview = () => {
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient
+                  id="nodeGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
                   <stop offset="0%" stopColor="#3b82f6" />
                   <stop offset="100%" stopColor="#06b6d4" />
                 </linearGradient>
@@ -115,7 +115,9 @@ const ServicesOverview = () => {
                 </span>
               </h1>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto font-light">
-                Comprehensive debt recovery solutions tailored to your business. From commercial collections to international recovery and beyond.
+                Comprehensive debt recovery solutions tailored to your business.
+                From commercial collections to international recovery and
+                beyond.
               </p>
             </motion.div>
           </div>
@@ -134,7 +136,9 @@ const ServicesOverview = () => {
                 className="lg:col-span-2 lg:row-span-2"
               >
                 <Link to={services[0].href}>
-                  <div className={`h-full bg-gradient-to-br ${services[0].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                  <div
+                    className={`h-full bg-gradient-to-br ${services[0].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                  >
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-8">
@@ -171,14 +175,18 @@ const ServicesOverview = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <Link to={services[1].href}>
-                  <div className={`h-full bg-gradient-to-br ${services[1].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                  <div
+                    className={`h-full bg-gradient-to-br ${services[1].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                  >
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                           <Globe className="w-6 h-6 text-white" />
                         </div>
-                        <span className={`${services[1].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}>
+                        <span
+                          className={`${services[1].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}
+                        >
                           {services[1].badge}
                         </span>
                       </div>
@@ -204,14 +212,18 @@ const ServicesOverview = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Link to={services[2].href}>
-                  <div className={`h-full bg-gradient-to-br ${services[2].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                  <div
+                    className={`h-full bg-gradient-to-br ${services[2].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                  >
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                           <Search className="w-6 h-6 text-white" />
                         </div>
-                        <span className={`${services[2].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}>
+                        <span
+                          className={`${services[2].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}
+                        >
                           {services[2].badge}
                         </span>
                       </div>
@@ -238,7 +250,9 @@ const ServicesOverview = () => {
                 className="lg:col-span-2"
               >
                 <Link to={services[3].href}>
-                  <div className={`h-full bg-gradient-to-br ${services[3].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                  <div
+                    className={`h-full bg-gradient-to-br ${services[3].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                  >
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-6">
@@ -283,7 +297,8 @@ const ServicesOverview = () => {
               CHECK YOUR CLIENT LIST BEFORE YOU TRADE.
             </h2>
             <p className="text-lg text-slate-300 mb-10 font-medium">
-              Use our free Insolvency Radar to instantly identify debtors on the winding-up register.
+              Use our free Insolvency Radar to instantly identify debtors on the
+              winding-up register.
             </p>
             <Link to="/winding-up-check">
               <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold text-lg px-10 py-6 rounded-full transition-all shadow-2xl">

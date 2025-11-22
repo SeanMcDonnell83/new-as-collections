@@ -2,7 +2,16 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Layers, Zap, Globe, Briefcase, Monitor, Film, Car } from "lucide-react";
+import {
+  ArrowRight,
+  Layers,
+  Zap,
+  Globe,
+  Briefcase,
+  Monitor,
+  Film,
+  Car,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -28,9 +37,12 @@ const OtherIndustries = () => {
           {/* Dynamic Background Collage */}
           <div className="absolute inset-0 z-0 opacity-20">
             <div className="grid grid-cols-4 grid-rows-4 h-full w-full gap-1 transform -rotate-12 scale-125">
-               {Array.from({ length: 16 }).map((_, i) => (
-                 <div key={i} className={`bg-gradient-to-br ${i % 2 === 0 ? 'from-indigo-600 to-purple-600' : 'from-blue-600 to-cyan-600'} opacity-${(i % 5) * 20 + 20}`} />
-               ))}
+              {Array.from({ length: 16 }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`bg-gradient-to-br ${i % 2 === 0 ? "from-indigo-600 to-purple-600" : "from-blue-600 to-cyan-600"} opacity-${(i % 5) * 20 + 20}`}
+                />
+              ))}
             </div>
           </div>
 
@@ -53,8 +65,8 @@ const OtherIndustries = () => {
                   </span>
                 </h1>
                 <p className="text-xl text-slate-300 mb-8 max-w-lg font-medium">
-                  From Media & Tech to Automotive & Manufacturing. 
-                  If it's a B2B debt, we have the expertise to recover it.
+                  From Media & Tech to Automotive & Manufacturing. If it's a B2B
+                  debt, we have the expertise to recover it.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/contact">
@@ -63,7 +75,10 @@ const OtherIndustries = () => {
                     </Button>
                   </Link>
                   <Link to="/services/commercial-debt-recovery">
-                    <Button variant="outline" className="bg-transparent border-slate-500 text-white hover:bg-slate-800 font-bold text-lg px-8 py-6 rounded-lg">
+                    <Button
+                      variant="outline"
+                      className="bg-transparent border-slate-500 text-white hover:bg-slate-800 font-bold text-lg px-8 py-6 rounded-lg"
+                    >
                       Our Services
                     </Button>
                   </Link>
@@ -80,9 +95,17 @@ const OtherIndustries = () => {
               >
                 {[
                   { icon: Monitor, label: "Technology", color: "bg-blue-500" },
-                  { icon: Film, label: "Media & Creative", color: "bg-purple-500" },
+                  {
+                    icon: Film,
+                    label: "Media & Creative",
+                    color: "bg-purple-500",
+                  },
                   { icon: Car, label: "Automotive", color: "bg-red-500" },
-                  { icon: Briefcase, label: "Professional Services", color: "bg-emerald-500" }
+                  {
+                    icon: Briefcase,
+                    label: "Professional Services",
+                    color: "bg-emerald-500",
+                  },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -102,8 +125,12 @@ const OtherIndustries = () => {
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-black mb-4 text-slate-900">SPECIALIST EXPERTISE</h2>
-              <p className="text-xl text-slate-500">We understand the nuances of your industry.</p>
+              <h2 className="text-4xl font-black mb-4 text-slate-900">
+                SPECIALIST EXPERTISE
+              </h2>
+              <p className="text-xl text-slate-500">
+                We understand the nuances of your industry.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -111,18 +138,18 @@ const OtherIndustries = () => {
                 {
                   title: "Media & Creative",
                   desc: "Recovering unpaid invoices for agencies, freelancers, and production houses. We understand intellectual property leverage.",
-                  icon: Film
+                  icon: Film,
                 },
                 {
                   title: "Technology & SaaS",
                   desc: "Handling subscription defaults, software licensing disputes, and development contract arrears.",
-                  icon: Monitor
+                  icon: Monitor,
                 },
                 {
                   title: "Automotive & Transport",
                   desc: "From fleet leasing debts to garage repair invoices. We know the vehicle recovery laws.",
-                  icon: Car
-                }
+                  icon: Car,
+                },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -132,7 +159,9 @@ const OtherIndustries = () => {
                   <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <item.icon className="w-7 h-7 text-indigo-600" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">
+                    {item.title}
+                  </h3>
                   <p className="text-slate-600 leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
@@ -150,7 +179,9 @@ const OtherIndustries = () => {
                   <span className="text-indigo-400">RESOLVED.</span>
                 </h2>
                 <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                  Complex B2B disputes often hide behind "quality issues" or "contractual technicalities." We cut through the noise to get to the truth: the money is owed, and it needs to be paid.
+                  Complex B2B disputes often hide behind "quality issues" or
+                  "contractual technicalities." We cut through the noise to get
+                  to the truth: the money is owed, and it needs to be paid.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3">
@@ -172,7 +203,9 @@ const OtherIndustries = () => {
                 <div className="relative bg-slate-950 p-8 rounded-2xl border border-slate-800">
                   <h3 className="text-2xl font-bold mb-6">Our Approach</h3>
                   <p className="text-slate-400 mb-6">
-                    "We don't just send letters. We understand your business model and apply the right pressure points to secure payment."
+                    "We don't just send letters. We understand your business
+                    model and apply the right pressure points to secure
+                    payment."
                   </p>
                   <Link to="/services/commercial-debt-recovery">
                     <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4">
@@ -202,7 +235,10 @@ const OtherIndustries = () => {
                 </Button>
               </Link>
               <Link to="/winding-up-check">
-                <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-bold text-xl px-10 py-8 rounded-lg">
+                <Button
+                  variant="outline"
+                  className="bg-transparent border-white text-white hover:bg-white/10 font-bold text-xl px-10 py-8 rounded-lg"
+                >
                   Check Debtor Risk
                 </Button>
               </Link>

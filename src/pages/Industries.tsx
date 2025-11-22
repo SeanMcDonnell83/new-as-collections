@@ -5,7 +5,15 @@ import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Building2, Utensils, Zap, Briefcase, Ship, Layers } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  Utensils,
+  Zap,
+  Briefcase,
+  Ship,
+  Layers,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Industries = () => {
@@ -55,17 +63,32 @@ const Industries = () => {
   ];
 
   const additionalIndustries = [
-    "Manufacturing", "Technology", "Healthcare", "Professional Services",
-    "Retail & E-commerce", "Property & Real Estate", "Financial Services",
-    "Media & Entertainment", "Automotive", "Telecommunications",
-    "Agriculture", "Hospitality", "Legal Services", "Accountancy",
-    "Marketing & Advertising", "Pharmaceuticals", "Energy & Utilities"
+    "Manufacturing",
+    "Technology",
+    "Healthcare",
+    "Professional Services",
+    "Retail & E-commerce",
+    "Property & Real Estate",
+    "Financial Services",
+    "Media & Entertainment",
+    "Automotive",
+    "Telecommunications",
+    "Agriculture",
+    "Hospitality",
+    "Legal Services",
+    "Accountancy",
+    "Marketing & Advertising",
+    "Pharmaceuticals",
+    "Energy & Utilities",
   ];
 
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Debt Collection by Industry | Construction, Logistics & More | A.S. Collections</title>
+        <title>
+          Debt Collection by Industry | Construction, Logistics & More | A.S.
+          Collections
+        </title>
         <meta
           name="description"
           content="Industry-specialised debt recovery expertise across UK sectors. Construction, food & drink, oil & gas, recruitment, logistics, and more."
@@ -79,8 +102,8 @@ const Industries = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "name": "Industries We Serve",
-            "description": "Industry-specialised debt recovery",
+            name: "Industries We Serve",
+            description: "Industry-specialised debt recovery",
           })}
         </script>
       </Helmet>
@@ -112,7 +135,8 @@ const Industries = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-slate-300 max-w-4xl mx-auto font-light mb-4"
             >
-              Industry-specialised debt recovery expertise across all UK business sectors.
+              Industry-specialised debt recovery expertise across all UK
+              business sectors.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -120,7 +144,8 @@ const Industries = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-slate-400 max-w-4xl mx-auto font-medium"
             >
-              Our specialists understand your industry's unique challenges. We adapt proven methodologies to suit your requirements.
+              Our specialists understand your industry's unique challenges. We
+              adapt proven methodologies to suit your requirements.
             </motion.p>
           </div>
         </motion.section>
@@ -140,10 +165,14 @@ const Industries = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
                     <Link to={sector.href}>
-                      <div className={`relative h-72 rounded-3xl overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}>
+                      <div
+                        className={`relative h-72 rounded-3xl overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}
+                      >
                         {/* Background Gradient */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${sector.color} z-0`} />
-                        
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br ${sector.color} z-0`}
+                        />
+
                         {/* Dark Overlay */}
                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 z-10" />
 
@@ -157,7 +186,10 @@ const Industries = () => {
                             <motion.span
                               initial={{ opacity: 0 }}
                               whileInView={{ opacity: 1 }}
-                              transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                              transition={{
+                                duration: 0.6,
+                                delay: index * 0.1 + 0.3,
+                              }}
                               className="text-xs font-montserrat font-bold text-white/80 bg-white/20 px-3 py-1 rounded-full uppercase tracking-wider"
                             >
                               {sector.stat}
@@ -193,18 +225,27 @@ const Industries = () => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className={`text-4xl md:text-5xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}>
+              <h2
+                className={`text-4xl md:text-5xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}
+              >
                 DON'T SEE YOUR <br />
                 <span className="text-blue-600">INDUSTRY LISTED?</span>
               </h2>
-              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-medium`}>
-                Our commercial debt recovery expertise extends across all UK business sectors.
+              <p
+                className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-medium`}
+              >
+                Our commercial debt recovery expertise extends across all UK
+                business sectors.
               </p>
             </div>
 
             {/* Tag Cloud / Ticker of Additional Industries */}
-            <div className={`${themeClasses.bg.primary} rounded-3xl border ${themeClasses.border.primary} p-12 mb-12`}>
-              <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat text-center`}>
+            <div
+              className={`${themeClasses.bg.primary} rounded-3xl border ${themeClasses.border.primary} p-12 mb-12`}
+            >
+              <h3
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat text-center`}
+              >
                 Additional Sectors We Serve
               </h3>
               <div className="flex flex-wrap justify-center gap-3">
@@ -221,7 +262,7 @@ const Industries = () => {
                   </motion.span>
                 ))}
               </div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -229,12 +270,18 @@ const Industries = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="mt-12 text-center"
               >
-                <p className={`${themeClasses.text.secondary} mb-6 font-medium text-lg`}>
-                  If your industry isn't listed, we still have the expertise you need.
+                <p
+                  className={`${themeClasses.text.secondary} mb-6 font-medium text-lg`}
+                >
+                  If your industry isn't listed, we still have the expertise you
+                  need.
                 </p>
                 <Link to="/contact">
-                  <Button className={`${themeClasses.button.primary} font-montserrat font-bold text-lg px-10 py-4 rounded-full transition-all hover:shadow-xl`}>
-                    Discuss Your Industry Requirements <ArrowRight className="ml-2 w-5 h-5" />
+                  <Button
+                    className={`${themeClasses.button.primary} font-montserrat font-bold text-lg px-10 py-4 rounded-full transition-all hover:shadow-xl`}
+                  >
+                    Discuss Your Industry Requirements{" "}
+                    <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
               </motion.div>
@@ -245,15 +292,18 @@ const Industries = () => {
               {[
                 {
                   title: "Sector Knowledge",
-                  description: "Deep understanding of industry-specific challenges, payment terms, and business practices for more effective debt recovery.",
+                  description:
+                    "Deep understanding of industry-specific challenges, payment terms, and business practices for more effective debt recovery.",
                 },
                 {
                   title: "Relationship Preservation",
-                  description: "We understand the importance of maintaining client relationships within your industry and tailor our approach accordingly.",
+                  description:
+                    "We understand the importance of maintaining client relationships within your industry and tailor our approach accordingly.",
                 },
                 {
                   title: "Regulatory Compliance",
-                  description: "Full compliance with sector-specific regulations and professional standards ensures ethical and legal debt collection practices.",
+                  description:
+                    "Full compliance with sector-specific regulations and professional standards ensures ethical and legal debt collection practices.",
                 },
               ].map((benefit, index) => (
                 <motion.div
@@ -264,10 +314,14 @@ const Industries = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className={`${themeClasses.bg.primary} rounded-2xl border ${themeClasses.border.primary} p-8 text-center hover:shadow-lg transition-all duration-300`}
                 >
-                  <h4 className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat`}>
+                  <h4
+                    className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat`}
+                  >
                     {benefit.title}
                   </h4>
-                  <p className={`${themeClasses.text.secondary} leading-relaxed`}>
+                  <p
+                    className={`${themeClasses.text.secondary} leading-relaxed`}
+                  >
                     {benefit.description}
                   </p>
                 </motion.div>
@@ -289,7 +343,8 @@ const Industries = () => {
               CHECK YOUR CLIENT LIST BEFORE YOU TRADE.
             </h2>
             <p className="text-lg text-slate-300 mb-10 font-medium">
-              Use our free Insolvency Radar to instantly identify debtors on the winding-up register.
+              Use our free Insolvency Radar to instantly identify debtors on the
+              winding-up register.
             </p>
             <Link to="/winding-up-check">
               <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold text-lg px-10 py-6 rounded-full transition-all shadow-2xl">

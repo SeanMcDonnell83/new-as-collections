@@ -39,7 +39,9 @@ const ContactPage = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Contact Us | Free Debt Recovery Consultation | A.S. Collections</title>
+        <title>
+          Contact Us | Free Debt Recovery Consultation | A.S. Collections
+        </title>
         <meta
           name="description"
           content="Contact A.S. Collections for free no win no fee debt recovery consultation. Call 0151 329 0946. Liverpool-based, serving all UK."
@@ -48,16 +50,17 @@ const ContactPage = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "A.S. Collections",
-            "image": "https://ascollections.co.uk/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png",
-            "telephone": "0151 329 0946",
-            "email": "info@ascollections.co.uk",
-            "address": {
+            name: "A.S. Collections",
+            image:
+              "https://ascollections.co.uk/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png",
+            telephone: "0151 329 0946",
+            email: "info@ascollections.co.uk",
+            address: {
               "@type": "PostalAddress",
-              "addressLocality": "Liverpool",
-              "addressCountry": "UK"
+              addressLocality: "Liverpool",
+              addressCountry: "UK",
             },
-            "url": "https://ascollections.co.uk/contact"
+            url: "https://ascollections.co.uk/contact",
           })}
         </script>
       </Helmet>
@@ -65,14 +68,16 @@ const ContactPage = () => {
       <Header />
       <main>
         {/* Hero Section: The Concierge */}
-        <section className="relative pt-32 pb-20 bg-slate-900 overflow-hidden min-h-[600px] flex items-center" style={{
-          backgroundImage: 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}>
-          
+        <section
+          className="relative pt-32 pb-20 bg-slate-900 overflow-hidden min-h-[600px] flex items-center"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div className="grid lg:grid-cols-12 gap-8 items-start">
-              
               {/* Sidebar (Desktop) */}
               <div className="lg:col-span-4 space-y-6">
                 <motion.div
@@ -80,13 +85,17 @@ const ContactPage = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h1 className="text-5xl font-black text-white mb-2">GET IN TOUCH.</h1>
-                  <p className="text-slate-400 text-lg mb-8">We're ready to recover your money.</p>
-                  
+                  <h1 className="text-5xl font-black text-white mb-2">
+                    GET IN TOUCH.
+                  </h1>
+                  <p className="text-slate-400 text-lg mb-8">
+                    We're ready to recover your money.
+                  </p>
+
                   <div className="space-y-4">
                     {contactInfo.map((info, idx) => (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className="bg-slate-800/50 backdrop-blur-md border border-slate-700 p-4 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition-colors cursor-pointer"
                         onClick={() => info.action && window.open(info.action)}
                       >
@@ -95,7 +104,9 @@ const ContactPage = () => {
                         </div>
                         <div>
                           <p className="text-white font-bold">{info.title}</p>
-                          <p className="text-slate-300 text-sm">{info.details[0]}</p>
+                          <p className="text-slate-300 text-sm">
+                            {info.details[0]}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -104,11 +115,23 @@ const ContactPage = () => {
                   {/* Coverage Map List */}
                   <div className="mt-8 bg-slate-800/50 backdrop-blur-md border border-slate-700 p-6 rounded-xl">
                     <h3 className="text-white font-bold mb-4 flex items-center gap-2">
-                      <Globe className="w-4 h-4 text-blue-500" /> UK-Wide Coverage
+                      <Globe className="w-4 h-4 text-blue-500" /> UK-Wide
+                      Coverage
                     </h3>
                     <div className="space-y-2">
-                      {["London", "Manchester", "Birmingham", "Liverpool", "Leeds", "Scotland", "Wales"].map((city, i) => (
-                        <div key={i} className="flex items-center gap-3 text-sm text-slate-400">
+                      {[
+                        "London",
+                        "Manchester",
+                        "Birmingham",
+                        "Liverpool",
+                        "Leeds",
+                        "Scotland",
+                        "Wales",
+                      ].map((city, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-3 text-sm text-slate-400"
+                        >
                           <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -132,7 +155,6 @@ const ContactPage = () => {
                   <Contact />
                 </motion.div>
               </div>
-
             </div>
           </div>
         </section>
@@ -140,21 +162,42 @@ const ContactPage = () => {
         {/* FAQ Section */}
         <section className="py-24 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-black text-slate-900 mb-12 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-black text-slate-900 mb-12 text-center">
+              Frequently Asked Questions
+            </h2>
             <div className="space-y-4">
               {[
-                { q: "How much does it cost?", a: "We operate on a No Win, No Fee basis. If we don't recover your money, you don't pay us a penny for the collection service." },
-                { q: "How long does it take?", a: "Most debts are recovered within 14 days. However, complex cases may take longer. We keep you updated at every step." },
-                { q: "Can you recover debts from individuals?", a: "Yes, we recover both B2B (commercial) and B2C (consumer) debts, provided they are legally enforceable." },
-                { q: "Do you cover my area?", a: "Yes, we cover the entire UK including England, Scotland, Wales, and Northern Ireland, as well as international debts." }
+                {
+                  q: "How much does it cost?",
+                  a: "We operate on a No Win, No Fee basis. If we don't recover your money, you don't pay us a penny for the collection service.",
+                },
+                {
+                  q: "How long does it take?",
+                  a: "Most debts are recovered within 14 days. However, complex cases may take longer. We keep you updated at every step.",
+                },
+                {
+                  q: "Can you recover debts from individuals?",
+                  a: "Yes, we recover both B2B (commercial) and B2C (consumer) debts, provided they are legally enforceable.",
+                },
+                {
+                  q: "Do you cover my area?",
+                  a: "Yes, we cover the entire UK including England, Scotland, Wales, and Northern Ireland, as well as international debts.",
+                },
               ].map((item, idx) => (
-                <div key={idx} className="border border-slate-200 rounded-lg overflow-hidden">
+                <div
+                  key={idx}
+                  className="border border-slate-200 rounded-lg overflow-hidden"
+                >
                   <button
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                     className="w-full flex items-center justify-between p-6 bg-slate-50 hover:bg-slate-100 transition-colors text-left"
                   >
                     <span className="font-bold text-slate-900">{item.q}</span>
-                    {openFaq === idx ? <Minus className="w-5 h-5 text-blue-600" /> : <Plus className="w-5 h-5 text-slate-400" />}
+                    {openFaq === idx ? (
+                      <Minus className="w-5 h-5 text-blue-600" />
+                    ) : (
+                      <Plus className="w-5 h-5 text-slate-400" />
+                    )}
                   </button>
                   {openFaq === idx && (
                     <div className="p-6 bg-white text-slate-600 leading-relaxed border-t border-slate-200">

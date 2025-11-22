@@ -148,7 +148,9 @@ const Header = () => {
             className={`absolute inset-0 ${
               theme === "light" ? "bg-white/90" : "bg-slate-900/90"
             } backdrop-blur-xl border ${
-              theme === "light" ? "border-white/20 shadow-xl" : "border-slate-700/40 shadow-2xl"
+              theme === "light"
+                ? "border-white/20 shadow-xl"
+                : "border-slate-700/40 shadow-2xl"
             } rounded-full`}
           ></div>
 
@@ -242,7 +244,9 @@ const Header = () => {
                                     : "hover:bg-slate-800"
                                 }`}
                               >
-                                <div className={`w-5 h-5 mt-0.5 flex-shrink-0 ${service.color}`}>
+                                <div
+                                  className={`w-5 h-5 mt-0.5 flex-shrink-0 ${service.color}`}
+                                >
                                   <IconComponent className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
@@ -331,7 +335,9 @@ const Header = () => {
                                     : "hover:bg-slate-800 text-white"
                                 }`}
                               >
-                                <div className={`w-4 h-4 flex-shrink-0 ${sector.color}`}>
+                                <div
+                                  className={`w-4 h-4 flex-shrink-0 ${sector.color}`}
+                                >
                                   <IconComponent className="w-4 h-4" />
                                 </div>
                                 <p className="font-montserrat font-bold text-sm">
@@ -402,7 +408,9 @@ const Header = () => {
                                     : "hover:bg-slate-800"
                                 }`}
                               >
-                                <div className={`w-5 h-5 mt-0.5 flex-shrink-0 ${tool.color}`}>
+                                <div
+                                  className={`w-5 h-5 mt-0.5 flex-shrink-0 ${tool.color}`}
+                                >
                                   <IconComponent className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">

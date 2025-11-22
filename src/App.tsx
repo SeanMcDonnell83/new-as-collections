@@ -11,7 +11,9 @@ import Index from "./pages/Index";
 
 // Lazy Load Pages
 const AboutUs = lazy(() => import("./pages/AboutUs"));
-const CommercialDebtRecovery = lazy(() => import("./pages/CommercialDebtRecovery"));
+const CommercialDebtRecovery = lazy(
+  () => import("./pages/CommercialDebtRecovery"),
+);
 const Industries = lazy(() => import("./pages/Industries"));
 const Compliance = lazy(() => import("./pages/Compliance"));
 const ContactPage = lazy(() => import("./pages/Contact"));
@@ -21,19 +23,35 @@ const DebtCalculatorPage = lazy(() => import("./pages/DebtCalculator"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Service Pages
-const ServicesOverview = lazy(() => import("./pages/services/ServicesOverview"));
-const CommercialDebtRecoveryService = lazy(() => import("./pages/services/CommercialDebtRecoveryService"));
-const InternationalDebtRecovery = lazy(() => import("./pages/services/InternationalDebtRecovery"));
+const ServicesOverview = lazy(
+  () => import("./pages/services/ServicesOverview"),
+);
+const CommercialDebtRecoveryService = lazy(
+  () => import("./pages/services/CommercialDebtRecoveryService"),
+);
+const InternationalDebtRecovery = lazy(
+  () => import("./pages/services/InternationalDebtRecovery"),
+);
 const DebtorTracing = lazy(() => import("./pages/services/DebtorTracing"));
-const CreditControlInsolvency = lazy(() => import("./pages/services/CreditControlInsolvency"));
+const CreditControlInsolvency = lazy(
+  () => import("./pages/services/CreditControlInsolvency"),
+);
 
 // Sector Pages
-const ConstructionEngineering = lazy(() => import("./pages/sectors/ConstructionEngineering"));
-const FoodDrinkHospitality = lazy(() => import("./pages/sectors/FoodDrinkHospitality"));
+const ConstructionEngineering = lazy(
+  () => import("./pages/sectors/ConstructionEngineering"),
+);
+const FoodDrinkHospitality = lazy(
+  () => import("./pages/sectors/FoodDrinkHospitality"),
+);
 const OilGasEnergy = lazy(() => import("./pages/sectors/OilGasEnergy"));
 const OtherIndustries = lazy(() => import("./pages/sectors/OtherIndustries"));
-const RecruitmentAgencies = lazy(() => import("./pages/sectors/RecruitmentAgencies"));
-const ShippingLogistics = lazy(() => import("./pages/sectors/ShippingLogistics"));
+const RecruitmentAgencies = lazy(
+  () => import("./pages/sectors/RecruitmentAgencies"),
+);
+const ShippingLogistics = lazy(
+  () => import("./pages/sectors/ShippingLogistics"),
+);
 
 const queryClient = new QueryClient();
 
@@ -46,7 +64,13 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>}>
+            <Suspense
+              fallback={
+                <div className="min-h-screen flex items-center justify-center bg-slate-50">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                </div>
+              }
+            >
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about-us" element={<AboutUs />} />
@@ -59,7 +83,10 @@ const App = () => (
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/thank-you" element={<ThankYou />} />
                 <Route path="/winding-up-check" element={<WindingUpSearch />} />
-                <Route path="/debt-calculator" element={<DebtCalculatorPage />} />
+                <Route
+                  path="/debt-calculator"
+                  element={<DebtCalculatorPage />}
+                />
 
                 {/* Service Routes */}
                 <Route path="/services" element={<ServicesOverview />} />

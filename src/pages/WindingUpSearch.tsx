@@ -495,7 +495,9 @@ const WindingUpSearch = () => {
 
                   {/* Status Indicator */}
                   <div className="flex items-center justify-between mb-6 pb-6 border-b border-slate-200 dark:border-neutral-800">
-                    <span className={`text-sm font-montserrat font-700 uppercase tracking-wider ${themeClasses.text.primary}`}>
+                    <span
+                      className={`text-sm font-montserrat font-700 uppercase tracking-wider ${themeClasses.text.primary}`}
+                    >
                       Scan Status
                     </span>
                     <div className="flex items-center gap-2">
