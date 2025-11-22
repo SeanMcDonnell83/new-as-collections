@@ -74,12 +74,12 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div ref={ref} {...animationProps} className="text-center mb-16">
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
           >
             Client Success Stories & Reviews
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-4`}
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light mb-4`}
           >
             See why businesses across London, Manchester, Birmingham, Glasgow,
             and Edinburgh trust A.S. Collections for their commercial debt
@@ -87,7 +87,7 @@ const Testimonials = () => {
             industries.
           </p>
           <p
-            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans`}
+            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter`}
           >
             Our professional debt collection services have helped over 2,500 UK
             businesses recover outstanding invoices worth millions of pounds.
@@ -125,29 +125,29 @@ const Testimonials = () => {
                 </div>
 
                 <p
-                  className={`${themeClasses.text.primary} mb-6 font-noto-sans leading-relaxed text-sm`}
+                  className={`${themeClasses.text.primary} mb-6 font-inter leading-relaxed text-sm`}
                 >
                   "{testimonial.content}"
                 </p>
 
                 <div className={`border-t ${themeClasses.border.primary} pt-4`}>
                   <div
-                    className={`font-semibold ${themeClasses.text.primary} font-noto-sans`}
+                    className={`font-semibold ${themeClasses.text.primary} font-inter`}
                   >
                     {testimonial.name}
                   </div>
                   <div
-                    className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                    className={`text-sm ${themeClasses.text.secondary} font-inter`}
                   >
                     {testimonial.title}
                   </div>
                   <div
-                    className={`text-sm ${themeClasses.text.accent} font-noto-sans font-medium`}
+                    className={`text-sm ${themeClasses.text.accent} font-inter font-medium`}
                   >
                     {testimonial.company}
                   </div>
                   <div
-                    className={`text-xs ${themeClasses.text.tertiary} font-noto-sans mt-1`}
+                    className={`text-xs ${themeClasses.text.tertiary} font-inter mt-1`}
                   >
                     {testimonial.industry} • {testimonial.location}
                   </div>
@@ -165,12 +165,12 @@ const Testimonials = () => {
           className={`mt-16 text-center ${themeClasses.bg.accent} rounded-2xl p-8`}
         >
           <h3
-            className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}
+            className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
           >
             Join Over 2,500 Satisfied UK Businesses
           </h3>
           <p
-            className={`${themeClasses.text.secondary} mb-6 font-noto-sans max-w-2xl mx-auto`}
+            className={`${themeClasses.text.secondary} mb-6 font-inter max-w-2xl mx-auto`}
           >
             Our commercial debt recovery success rate of 98% speaks for itself.
             From small businesses to large corporations across construction,
@@ -180,48 +180,48 @@ const Testimonials = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <div
-                className={`text-3xl font-bold ${themeClasses.text.accent} font-noto-serif`}
+                className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
               >
                 2,500+
               </div>
               <div
-                className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                className={`text-sm ${themeClasses.text.secondary} font-inter`}
               >
                 Businesses Helped
               </div>
             </div>
             <div>
               <div
-                className={`text-3xl font-bold ${themeClasses.text.accent} font-noto-serif`}
+                className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
               >
                 98%
               </div>
               <div
-                className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                className={`text-sm ${themeClasses.text.secondary} font-inter`}
               >
                 Success Rate
               </div>
             </div>
             <div>
               <div
-                className={`text-3xl font-bold ${themeClasses.text.accent} font-noto-serif`}
+                className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
               >
                 £50M+
               </div>
               <div
-                className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                className={`text-sm ${themeClasses.text.secondary} font-inter`}
               >
                 Total Recovered
               </div>
             </div>
             <div>
               <div
-                className={`text-3xl font-bold ${themeClasses.text.accent} font-noto-serif`}
+                className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
               >
                 14 Days
               </div>
               <div
-                className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                className={`text-sm ${themeClasses.text.secondary} font-inter`}
               >
                 Average Recovery
               </div>

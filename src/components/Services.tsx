@@ -84,12 +84,12 @@ const Services = () => {
           className="text-center mb-16"
         >
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
           >
             Business Debt Collection Services UK
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-4`}
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light mb-4`}
           >
             Comprehensive commercial debt recovery UK solutions across London,
             Manchester, Birmingham, Glasgow, and Edinburgh. From initial unpaid
@@ -97,7 +97,7 @@ const Services = () => {
             UK handles it all.
           </p>
           <p
-            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans`}
+            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter`}
           >
             Our professional debt collection services are fully compliant with
             UK legislation and industry standards. We specialise in B2B debt

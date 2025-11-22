@@ -67,12 +67,12 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
           >
             Our Expertise - UK Debt Recovery Specialist
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}
           >
             Recovery expert for hire UK with decades of experience in commercial
             debt recovery. We take the complexity away from debt recovery by
@@ -93,19 +93,19 @@ const About = () => {
                 </div>
                 <div>
                   <h3
-                    className={`text-2xl font-bold ${themeClasses.text.primary} font-noto-serif`}
+                    className={`text-2xl font-bold ${themeClasses.text.primary} font-montserrat font-700`}
                   >
                     Emilie Campbell
                   </h3>
                   <p
-                    className={`${themeClasses.text.accent} font-semibold font-noto-sans`}
+                    className={`${themeClasses.text.accent} font-semibold font-inter`}
                   >
                     Managing Director
                   </p>
                 </div>
               </div>
               <blockquote
-                className={`${themeClasses.text.primary} text-lg italic leading-relaxed font-noto-serif border-l-4 border-blue-500 pl-4`}
+                className={`${themeClasses.text.primary} text-lg italic leading-relaxed font-montserrat font-700 border-l-4 border-blue-500 pl-4`}
               >
                 "Our mission is simple: recover what's rightfully yours while
                 maintaining the relationships that matter to your business. We
@@ -120,13 +120,13 @@ const About = () => {
             className="space-y-6"
           >
             <h3
-              className={`text-2xl font-bold ${themeClasses.text.primary} font-noto-serif`}
+              className={`text-2xl font-bold ${themeClasses.text.primary} font-montserrat font-700`}
             >
               Leadership with Vision
             </h3>
             <div className="space-y-4">
               <p
-                className={`${themeClasses.text.primary} leading-relaxed font-noto-sans text-lg`}
+                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
               >
                 Under Emilie Campbell's leadership, A.S. Collections has become
                 the UK's most trusted commercial debt recovery agency. With
@@ -135,7 +135,7 @@ const About = () => {
                 results.
               </p>
               <p
-                className={`${themeClasses.text.primary} leading-relaxed font-noto-sans text-lg`}
+                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
               >
                 Our approach focuses on taking complexity away from our clients
                 by heavily investing in technology and delivering bespoke
@@ -143,7 +143,7 @@ const About = () => {
                 tailored strategies reflect this understanding.
               </p>
               <p
-                className={`${themeClasses.text.primary} leading-relaxed font-noto-sans text-lg`}
+                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
               >
                 We maintain the highest professional standards while ensuring
                 ethical practices that preserve your valuable client
@@ -151,7 +151,7 @@ const About = () => {
                 debt recovery methods with innovative digital solutions.
               </p>
               <p
-                className={`${themeClasses.text.primary} leading-relaxed font-noto-sans text-lg`}
+                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
               >
                 Emilie's strategic vision has positioned A.S. Collections as a
                 forward-thinking debt recovery agency that combines proven
@@ -171,7 +171,7 @@ const About = () => {
           className="mb-20"
         >
           <h3
-            className={`text-3xl font-bold ${themeClasses.text.primary} text-center mb-12 font-noto-serif`}
+            className={`text-3xl font-bold ${themeClasses.text.primary} text-center mb-12 font-montserrat font-700`}
           >
             Our Core Values
           </h3>
@@ -184,12 +184,12 @@ const About = () => {
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   <h4
-                    className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}
+                    className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
                   >
                     {value.title}
                   </h4>
                   <p
-                    className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans`}
+                    className={`${themeClasses.text.secondary} leading-relaxed font-inter`}
                   >
                     {value.description}
                   </p>
@@ -208,7 +208,7 @@ const About = () => {
           className={`bg-gradient-to-r ${themeClasses.bg.secondary} rounded-2xl p-8 md:p-12`}
         >
           <h3
-            className={`text-3xl font-bold ${themeClasses.text.primary} text-center mb-12 font-noto-serif`}
+            className={`text-3xl font-bold ${themeClasses.text.primary} text-center mb-12 font-montserrat font-700`}
           >
             Why Businesses Trust Us
           </h3>
@@ -225,12 +225,12 @@ const About = () => {
                     />
                   </div>
                   <h4
-                    className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-noto-serif`}
+                    className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}
                   >
                     {achievement.title}
                   </h4>
                   <p
-                    className={`${themeClasses.text.secondary} text-sm leading-relaxed font-noto-sans`}
+                    className={`${themeClasses.text.secondary} text-sm leading-relaxed font-inter`}
                   >
                     {achievement.description}
                   </p>
@@ -250,12 +250,12 @@ const About = () => {
         >
           <div className="max-w-4xl mx-auto">
             <h3
-              className={`text-3xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+              className={`text-3xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
             >
               Our Mission
             </h3>
             <p
-              className={`text-xl ${themeClasses.text.secondary} leading-relaxed mb-8 font-noto-sans`}
+              className={`text-xl ${themeClasses.text.secondary} leading-relaxed mb-8 font-inter`}
             >
               To revolutionise commercial debt recovery through innovative
               technology, ethical practices, and unmatched expertise. We believe
@@ -265,7 +265,7 @@ const About = () => {
             <div
               className={`${themeClasses.bg.accent} text-blue-600 dark:text-blue-400 rounded-xl p-6 inline-block`}
             >
-              <p className={`text-lg font-semibold font-noto-serif`}>
+              <p className={`text-lg font-semibold font-montserrat font-700`}>
                 "You might not need us now, but there will come a time you
                 will."
               </p>
