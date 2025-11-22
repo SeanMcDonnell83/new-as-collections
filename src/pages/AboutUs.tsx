@@ -23,20 +23,21 @@ const AboutUs = () => {
       <Header />
       <main>
         {/* Page Header */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className={`pt-32 pb-16 ${themeClasses.bg.primary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <h1 className={`text-5xl md:text-6xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
               About A.S. Collections
             </h1>
-            <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}>
-              Leading UK commercial debt recovery specialists with decades of experience helping businesses 
-              recover outstanding invoices. Meet our team and discover why we're the trusted choice for 
-              professional debt collection across England, Scotland, Wales, and Northern Ireland.
+            <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}>
+              Leading UK commercial debt recovery specialists with decades of experience helping businesses recover outstanding invoices.
+            </p>
+            <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed`}>
+              Meet our team and discover why we're the trusted choice for professional debt collection across England, Scotland, Wales, and Northern Ireland.
             </p>
           </div>
         </motion.section>
@@ -45,29 +46,27 @@ const AboutUs = () => {
         <WhyChooseUs />
         
         {/* Mission Statement Section */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-20 ${themeClasses.bg.secondary}`}
+          className={`py-24 ${themeClasses.bg.secondary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <div className="text-center mb-20">
+              <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
                 Our Mission
               </h2>
-              <div className={`max-w-4xl mx-auto ${themeClasses.bg.primary} rounded-2xl p-8 border ${themeClasses.border.primary}`}>
-                <blockquote className={`text-2xl ${themeClasses.text.primary} italic leading-relaxed font-noto-serif mb-6`}>
-                  "To revolutionize commercial debt recovery by combining cutting-edge technology with 
-                  time-tested human expertise, delivering exceptional results whilst preserving the 
-                  relationships that matter most to our clients' businesses."
+              <div className={`max-w-4xl mx-auto ${themeClasses.bg.primary} rounded-2xl p-8 border ${themeClasses.border.primary} backdrop-blur-sm`}>
+                <blockquote className={`text-2xl ${themeClasses.text.primary} italic leading-relaxed font-montserrat font-700 mb-6`}>
+                  "To revolutionize commercial debt recovery by combining cutting-edge technology with time-tested human expertise."
                 </blockquote>
-                <p className={`text-lg ${themeClasses.text.secondary} font-noto-sans`}>
-                  We believe that effective debt recovery shouldn't come at the cost of damaged business 
-                  relationships. Our mission is to provide ethical, professional, and highly effective 
-                  commercial debt collection services that protect and enhance our clients' reputation 
-                  whilst maximizing recovery rates.
+                <p className={`text-lg ${themeClasses.text.secondary} font-inter leading-relaxed mb-4`}>
+                  We deliver exceptional results whilst preserving the relationships that matter most to our clients' businesses.
+                </p>
+                <p className={`text-lg ${themeClasses.text.secondary} font-inter leading-relaxed`}>
+                  We believe effective debt recovery shouldn't damage business relationships. Our mission is to provide ethical, professional, and highly effective commercial debt collection services that protect and enhance reputation whilst maximizing recovery rates.
                 </p>
               </div>
             </div>
@@ -88,13 +87,13 @@ const AboutUs = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`text-center p-6 ${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary}`}
                 >
-                  <div className={`text-4xl font-bold ${themeClasses.text.accent} font-noto-serif mb-2`}>
+                  <div className={`text-4xl font-bold ${themeClasses.text.accent} font-montserrat font-800 mb-2`}>
                     {stat.number}
                   </div>
-                  <div className={`text-lg font-semibold ${themeClasses.text.primary} font-noto-sans mb-1`}>
+                  <div className={`text-lg font-semibold ${themeClasses.text.primary} font-montserrat font-700 mb-1`}>
                     {stat.label}
                   </div>
-                  <div className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}>
+                  <div className={`text-sm ${themeClasses.text.secondary} font-inter`}>
                     {stat.description}
                   </div>
                 </motion.div>
