@@ -160,57 +160,72 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Values Section: Horizontal Scroll */}
-        <section className="py-24 bg-slate-50 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-            <h2 className="text-4xl font-black text-slate-900">
-              OUR CORE VALUES
-            </h2>
-          </div>
+        {/* Values Section: Grid */}
+        <section className={`py-24 ${themeClasses.bg.secondary}`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-16"
+            >
+              <h2 className={`text-4xl font-black ${themeClasses.text.primary} font-montserrat`}>
+                OUR CORE VALUES
+              </h2>
+              <p className={`text-lg ${themeClasses.text.secondary} mt-4 max-w-2xl`}>
+                The principles that drive our commitment to exceptional debt recovery
+              </p>
+            </motion.div>
 
-          <div className="flex gap-8 px-4 overflow-x-auto pb-12 snap-x">
-            {[
-              {
-                title: "Perseverance",
-                desc: "We don't give up. If the debt is recoverable, we will recover it.",
-                icon: TrendingUp,
-                color: "bg-blue-500",
-              },
-              {
-                title: "Professionalism",
-                desc: "We represent your brand with the highest standards of conduct.",
-                icon: Award,
-                color: "bg-purple-500",
-              },
-              {
-                title: "Innovation",
-                desc: "Using the latest tracing technology to find debtors who don't want to be found.",
-                icon: Lightbulb,
-                color: "bg-orange-500",
-              },
-              {
-                title: "Integrity",
-                desc: "Transparent pricing. No hidden fees. Honest advice.",
-                icon: Shield,
-                color: "bg-green-500",
-              },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -10 }}
-                className="min-w-[350px] bg-white p-8 rounded-2xl shadow-xl border border-slate-100 snap-center"
-              >
-                <div
-                  className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: "Perseverance",
+                  desc: "We don't give up. If the debt is recoverable, we will recover it.",
+                  icon: TrendingUp,
+                  gradient: "from-blue-500 to-cyan-500",
+                },
+                {
+                  title: "Professionalism",
+                  desc: "We represent your brand with the highest standards of conduct and ethical practice.",
+                  icon: Award,
+                  gradient: "from-blue-600 to-blue-500",
+                },
+                {
+                  title: "Innovation",
+                  desc: "Using the latest tracing technology and methodologies to find debtors efficiently.",
+                  icon: Lightbulb,
+                  gradient: "from-slate-600 to-slate-700",
+                },
+                {
+                  title: "Integrity",
+                  desc: "Transparent pricing, no hidden fees, and honest advice at every step.",
+                  icon: Shield,
+                  gradient: "from-blue-500 to-slate-600",
+                },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className={`${themeClasses.bg.primary} p-8 rounded-2xl shadow-lg border-l-4 border-blue-600 hover:shadow-xl transition-all duration-300`}
                 >
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mb-6 shadow-lg`}
+                  >
+                    <item.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat`}>
+                    {item.title}
+                  </h3>
+                  <p className={`${themeClasses.text.secondary} leading-relaxed`}>{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
