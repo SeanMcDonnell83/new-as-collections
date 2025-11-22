@@ -198,7 +198,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-24 ${theme === "light" ? "bg-white" : "bg-slate-900"}`}
+          className={`py-24 ${theme === "light" ? "bg-slate-50" : "bg-slate-900"}`}
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
