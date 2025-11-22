@@ -81,24 +81,55 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Emilie Campbell Introduction - Fixed for dark mode */}
+        {/* Emilie Campbell Introduction - Split Screen Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <motion.div {...useScrollAnimation({ delay: 0.2 })}>
+          <motion.div
+            {...useScrollAnimation({ delay: 0.2 })}
+            className="space-y-6 order-2 lg:order-1"
+          >
+            <h3
+              className={`text-3xl font-bold ${themeClasses.text.primary} font-montserrat font-800`}
+            >
+              Leadership with Vision
+            </h3>
+            <div className="space-y-4">
+              <p
+                className={`${themeClasses.text.secondary} leading-relaxed font-inter text-base`}
+              >
+                Under Emilie Campbell's leadership, A.S. Collections has become the UK's most trusted commercial debt recovery agency. With decades of experience in financial services and debt recovery, Emilie has built a team and system that delivers unparalleled results.
+              </p>
+              <p
+                className={`${themeClasses.text.secondary} leading-relaxed font-inter text-base`}
+              >
+                Our approach focuses on taking complexity away from our clients by heavily investing in technology and delivering bespoke solutions. We understand that every business is unique, and our tailored strategies reflect this understanding.
+              </p>
+              <p
+                className={`${themeClasses.text.secondary} leading-relaxed font-inter text-base`}
+              >
+                We maintain the highest professional standards whilst ensuring ethical practices that preserve your valuable client relationships. Our comprehensive approach combines traditional debt recovery methods with innovative digital solutions.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            {...useScrollAnimation({ delay: 0.4 })}
+            className="order-1 lg:order-2"
+          >
             <div
-              className={`${themeClasses.bg.secondary} border-2 ${themeClasses.border.primary} rounded-2xl p-8 shadow-lg`}
+              className={`${themeClasses.bg.secondary} border-2 ${themeClasses.border.primary} rounded-2xl p-8 shadow-lg backdrop-blur-sm`}
             >
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
-                  <User className="w-8 h-8 text-white" />
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                  <User className="w-10 h-10 text-white" />
                 </div>
                 <div>
                   <h3
-                    className={`text-2xl font-bold ${themeClasses.text.primary} font-montserrat font-700`}
+                    className={`text-3xl font-bold ${themeClasses.text.primary} font-montserrat font-800 mb-1`}
                   >
                     Emilie Campbell
                   </h3>
                   <p
-                    className={`${themeClasses.text.accent} font-semibold font-inter`}
+                    className={`${themeClasses.text.accent} font-semibold font-inter text-lg`}
                   >
                     Managing Director
                   </p>
@@ -107,57 +138,8 @@ const About = () => {
               <blockquote
                 className={`${themeClasses.text.primary} text-lg italic leading-relaxed font-montserrat font-700 border-l-4 border-blue-500 pl-4`}
               >
-                "Our mission is simple: recover what's rightfully yours while
-                maintaining the relationships that matter to your business. We
-                achieve this through a perfect blend of cutting-edge technology
-                and time-tested human expertise."
+                "Our mission is simple: recover what's rightfully yours whilst maintaining the relationships that matter to your business. We achieve this through a perfect blend of cutting-edge technology and time-tested human expertise."
               </blockquote>
-            </div>
-          </motion.div>
-
-          <motion.div
-            {...useScrollAnimation({ delay: 0.4 })}
-            className="space-y-6"
-          >
-            <h3
-              className={`text-2xl font-bold ${themeClasses.text.primary} font-montserrat font-700`}
-            >
-              Leadership with Vision
-            </h3>
-            <div className="space-y-4">
-              <p
-                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
-              >
-                Under Emilie Campbell's leadership, A.S. Collections has become
-                the UK's most trusted commercial debt recovery agency. With
-                decades of experience in financial services and debt recovery,
-                Emilie has built a team and system that delivers unparalleled
-                results.
-              </p>
-              <p
-                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
-              >
-                Our approach focuses on taking complexity away from our clients
-                by heavily investing in technology and delivering bespoke
-                solutions. We understand that every business is unique, and our
-                tailored strategies reflect this understanding.
-              </p>
-              <p
-                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
-              >
-                We maintain the highest professional standards while ensuring
-                ethical practices that preserve your valuable client
-                relationships. Our comprehensive approach combines traditional
-                debt recovery methods with innovative digital solutions.
-              </p>
-              <p
-                className={`${themeClasses.text.primary} leading-relaxed font-inter text-lg`}
-              >
-                Emilie's strategic vision has positioned A.S. Collections as a
-                forward-thinking debt recovery agency that combines proven
-                methodologies with cutting-edge technology to deliver superior
-                results for our clients across all industries and sectors.
-              </p>
             </div>
           </motion.div>
         </div>
