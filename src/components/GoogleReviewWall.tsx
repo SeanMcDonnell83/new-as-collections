@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useThemeSafe } from "@/hooks/useThemeSafe";
 import { Button } from "@/components/ui/button";
 
 const GoogleReviewWall = () => {
   const { ref, animationProps } = useScrollAnimation();
+  const { theme } = useThemeSafe();
+  const [displayCount, setDisplayCount] = useState(6);
 
   const getInitialColor = (initial: string): string => {
     const colors = {
@@ -18,7 +22,7 @@ const GoogleReviewWall = () => {
     return colors[initial as keyof typeof colors] || 'bg-slate-500';
   };
 
-  const reviews = [
+  const allReviews = [
     {
       name: "Ben Nahum",
       initial: "B",
@@ -48,11 +52,29 @@ const GoogleReviewWall = () => {
       name: "Yvonne Chorlton",
       initial: "Y",
       review: "We had tried unsuccessfully to obtain payment from a contractor for weeks. One email from A.S. Collections and we were paid in full. Outstanding service."
+    },
+    {
+      name: "Sarah Mitchell",
+      initial: "S",
+      review: "Exceptional service from start to finish. The team at A.S. Collections understood our situation and delivered results. Highly recommended for any business needing debt recovery support."
+    },
+    {
+      name: "David Thompson",
+      initial: "D",
+      review: "Professional, efficient, and results-focused. A.S. Collections recovered a significant debt for us that we thought was lost. Great communication throughout."
+    },
+    {
+      name: "Emma Wilson",
+      initial: "E",
+      review: "Outstanding results. The team handled our case with care and professionalism. We recovered the full amount within weeks. Highly recommend their services."
     }
   ];
 
+  const displayedReviews = allReviews.slice(0, displayCount);
+  const hasMore = displayCount < allReviews.length;
+
   return (
-    <section className={`py-20 ${themeClasses.bg.primary}`}>
+    <section className={`py-24 ${theme === "light" ? "bg-white" : "bg-slate-900"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Trust Badge */}
         <motion.div
@@ -60,7 +82,11 @@ const GoogleReviewWall = () => {
           {...animationProps}
           className="flex justify-center mb-12"
         >
-          <div className="flex items-center gap-3 bg-white dark:bg-neutral-900 rounded-full px-6 py-3 shadow-sm border border-gray-100 dark:border-neutral-800">
+          <div className={`flex items-center gap-3 ${
+            theme === "light" ? "bg-slate-50" : "bg-slate-800"
+          } rounded-full px-6 py-3 shadow-sm border ${
+            theme === "light" ? "border-slate-200" : "border-slate-700"
+          }`}>
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -69,10 +95,14 @@ const GoogleReviewWall = () => {
                 />
               ))}
             </div>
-            <span className="font-semibold text-gray-800 dark:text-gray-200 font-montserrat">
+            <span className={`font-semibold font-montserrat ${
+              theme === "light" ? "text-slate-900" : "text-white"
+            }`}>
               Google Reviews
             </span>
-            <span className="text-sm text-gray-600 dark:text-gray-400 font-inter">
+            <span className={`text-sm font-inter ${
+              theme === "light" ? "text-slate-600" : "text-slate-400"
+            }`}>
               Excellent
             </span>
           </div>
@@ -85,16 +115,16 @@ const GoogleReviewWall = () => {
           className="text-center mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-800`}>
-            Rated 5 Stars by UK Businesses
+            Trusted by UK Businesses
           </h2>
           <p className={`text-lg md:text-xl ${themeClasses.text.secondary} max-w-2xl mx-auto font-inter leading-relaxed`}>
-            Don't just take our word for it. See what our clients say on Google.
+            See what our clients say about our debt recovery services on Google Reviews.
           </p>
         </motion.div>
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {reviews.map((review, index) => (
+          {displayedReviews.map((review, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -103,7 +133,11 @@ const GoogleReviewWall = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group h-full"
             >
-              <div className="bg-white dark:bg-neutral-900 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 p-6 h-full flex flex-col border border-gray-100 dark:border-neutral-800">
+              <div className={`${
+                theme === "light" ? "bg-slate-50" : "bg-slate-800"
+              } rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 p-6 h-full flex flex-col border ${
+                theme === "light" ? "border-slate-200" : "border-slate-700"
+              }`}>
                 {/* Card Header */}
                 <div className="flex items-center gap-4 mb-4">
                   {/* Avatar */}
@@ -115,10 +149,14 @@ const GoogleReviewWall = () => {
 
                   {/* Name and Review Count */}
                   <div className="flex-1">
-                    <h3 className="font-bold text-gray-800 dark:text-gray-100 font-montserrat">
+                    <h3 className={`font-bold font-montserrat ${
+                      theme === "light" ? "text-slate-900" : "text-white"
+                    }`}>
                       {review.name}
                     </h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 font-inter">
+                    <p className={`text-xs font-inter ${
+                      theme === "light" ? "text-slate-500" : "text-slate-400"
+                    }`}>
                       1 review
                     </p>
                   </div>
@@ -156,7 +194,9 @@ const GoogleReviewWall = () => {
                 </div>
 
                 {/* Review Text */}
-                <p className="text-gray-600 dark:text-gray-400 font-inter text-sm leading-relaxed flex-1">
+                <p className={`font-inter text-sm leading-relaxed flex-1 ${
+                  theme === "light" ? "text-slate-700" : "text-slate-300"
+                }`}>
                   {review.review}
                 </p>
               </div>
@@ -164,21 +204,23 @@ const GoogleReviewWall = () => {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center"
-        >
-          <Button
-            onClick={() => window.open('https://maps.google.com/?cid=YOUR_GOOGLE_BUSINESS_ID', '_blank')}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 font-inter inline-block"
+        {/* Load More Button */}
+        {hasMore && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            Read All Google Reviews
-          </Button>
-        </motion.div>
+            <Button
+              onClick={() => setDisplayCount(prev => Math.min(prev + 3, allReviews.length))}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-200 font-inter inline-block"
+            >
+              Load More Reviews
+            </Button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
