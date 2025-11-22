@@ -32,9 +32,9 @@ const FoodDrinkHospitality = () => {
 
       <main>
         {/* Hero Section: Fresh & Fast */}
-        <section className={`relative min-h-screen flex items-center pt-20 overflow-hidden ${themeClasses.bg.secondary}`}>
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50">
           {/* Fresh Accents */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/30 dark:bg-green-950/30 skew-x-12 transform origin-top-right" />
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/50 skew-x-12 transform origin-top-right" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
