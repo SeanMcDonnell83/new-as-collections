@@ -106,7 +106,7 @@ export const IndustryCards = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter`}
           >
-            Specialised commercial debt recovery across key UK business sectors. Our sector-focused teams understand industry-specific challenges and operate on a transparent, no win, no fee basis where appropriate.
+            Specialised commercial debt recovery across key UK business sectors. Our sector-focused teams understand industry-specific challenges and operate on a transparent, no win, no fee basis where appropriate. We also serve other industries; these are just a few of the sectors where our team has deep expertise.
           </motion.p>
         </div>
 
