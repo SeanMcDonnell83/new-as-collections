@@ -11,6 +11,11 @@ import {
   Bookmark,
   X,
   Phone,
+  Zap,
+  Search,
+  AlertOctagon,
+  Eye,
+  TrendingDown,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -325,9 +330,12 @@ const WindingUpCheck = () => {
                 Insolvency Risk Radar
               </h1>
 
-              <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light">
+              <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light mb-4">
                 Check your ledger. Paste your client list below to scan for
                 active Winding-Up Petitions.
+              </p>
+              <p className="text-sm text-slate-500 max-w-xl mx-auto font-light">
+                Separate company names with <strong>commas</strong> or <strong>new lines</strong>. One per entry recommended for clarity.
               </p>
             </motion.div>
           </div>
@@ -368,7 +376,11 @@ const WindingUpCheck = () => {
                     disabled={isSearching}
                   />
                   <p className="text-xs text-slate-500 mt-2 font-mono text-right">
-                    {userInput.split("\n").filter((l) => l.trim()).length}{" "}
+                    {
+                      userInput
+                        .split(/[,\n]+/)
+                        .filter((l) => l.trim()).length
+                    }{" "}
                     ENTRIES DETECTED
                   </p>
                 </div>
@@ -605,9 +617,9 @@ const WindingUpCheck = () => {
                   credit checks and ongoing monitoring are recommended.
                 </li>
                 <li>
-                  <strong>Data Accuracy:</strong> Our database is updated weekly
-                  from Companies House data. Updates may occasionally lag behind
-                  official filings.
+                  <strong>Data Accuracy:</strong> Our data is not 100% real-time.
+                  For the most current information, always cross-check with
+                  official sources.
                 </li>
               </ul>
             </div>
@@ -632,7 +644,7 @@ const WindingUpCheck = () => {
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="relative bg-slate-900 border border-blue-500/50 rounded-2xl p-8 max-w-lg w-full shadow-2xl shadow-blue-900/20 max-h-[90vh] overflow-y-auto"
+              className="relative bg-slate-900 border border-blue-500/50 rounded-2xl p-8 max-w-2xl w-full shadow-2xl shadow-blue-900/20"
             >
               <div className="mb-6">
                 <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mb-4">
@@ -650,7 +662,7 @@ const WindingUpCheck = () => {
               <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 mb-6 space-y-4 text-sm text-slate-300 leading-relaxed">
                 <div>
                   <h3 className="font-bold text-white mb-2 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">1</span>
+                    <Zap className="w-4 h-4 text-yellow-400" />
                     Fuzzy Matching Technology
                   </h3>
                   <p>
@@ -660,7 +672,7 @@ const WindingUpCheck = () => {
 
                 <div>
                   <h3 className="font-bold text-white mb-2 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">2</span>
+                    <Search className="w-4 h-4 text-blue-400" />
                     Verification Required
                   </h3>
                   <p>
@@ -670,7 +682,7 @@ const WindingUpCheck = () => {
 
                 <div>
                   <h3 className="font-bold text-white mb-2 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">3</span>
+                    <AlertOctagon className="w-4 h-4 text-red-400" />
                     No Liability
                   </h3>
                   <p>
@@ -680,7 +692,7 @@ const WindingUpCheck = () => {
 
                 <div>
                   <h3 className="font-bold text-white mb-2 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">4</span>
+                    <Eye className="w-4 h-4 text-purple-400" />
                     Ongoing Monitoring
                   </h3>
                   <p>
@@ -690,11 +702,11 @@ const WindingUpCheck = () => {
 
                 <div>
                   <h3 className="font-bold text-white mb-2 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">5</span>
-                    Data Freshness
+                    <TrendingDown className="w-4 h-4 text-cyan-400" />
+                    Data Accuracy
                   </h3>
                   <p>
-                    Our database is updated weekly from Companies House data. Updates may occasionally lag behind official filings.
+                    Our data is not 100% real-time. For the most current information, always cross-check with official sources.
                   </p>
                 </div>
               </div>
