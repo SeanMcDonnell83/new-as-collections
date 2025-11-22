@@ -91,6 +91,20 @@ const Index = () => {
       <main>
         <Hero />
 
+        {/* Wave Divider: Hero → Services */}
+        <div className="relative -mt-6">
+          <svg
+            className="w-full h-16 text-white dark:text-slate-950"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="currentColor"
+              d="M0,224L80,197.3C160,171,320,117,480,96C640,75,800,85,960,101.3C1120,117,1280,139,1360,149.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+            />
+          </svg>
+        </div>
+
         {/* Business Debt Collection Services UK - Bento Grid Section */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
