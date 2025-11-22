@@ -163,6 +163,9 @@ const Header = () => {
               >
                 <img
                   loading="lazy"
+                  decoding="async"
+                  width={1750}
+                  height={750}
                   src={
                     theme === "light"
                       ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png"

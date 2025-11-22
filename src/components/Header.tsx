@@ -35,6 +35,9 @@ const Header = () => {
           </div>
           <img
             loading="lazy"
+            decoding="async"
+            width={400}
+            height={171}
             src="https://cdn.builder.io/api/v1/image/assets%2Fe4ae46bbd81b4b95bef54d66dd9748cc%2F2e4607f765394e439f0cc9d25ab3ef79?width=400"
             className="aspect-[2.34] object-contain object-center w-full mx-auto min-h-[32px] min-w-[20px] overflow-hidden max-w-[200px]"
             alt="AS Collections Logo"
