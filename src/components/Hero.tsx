@@ -128,12 +128,12 @@ const Hero = () => {
               {/* CTA Buttons */}
               <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <Button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => window.location.href = "/contact"}
                   size="lg"
                   className={`${themeClasses.button.primary} px-8 py-5 text-lg rounded-xl`}
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  Get Started
+                  Get in Touch
                 </Button>
                 <Button
                   onClick={() => setIsCalculatorOpen(true)}
@@ -144,13 +144,13 @@ const Hero = () => {
                   Debt Calculator
                 </Button>
                 <Button
-                  onClick={() => scrollToSection("about")}
+                  onClick={() => window.location.href = "/winding-up-check"}
                   size="lg"
-                  className="border-2 border-neutral-800 dark:border-neutral-200 text-neutral-900 dark:text-neutral-100 bg-neutral-900 dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-neutral-200 px-8 py-5 text-lg rounded-xl"
+                  className="border-2 border-red-600 dark:border-red-500 text-white bg-red-600 dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-800 px-8 py-5 text-lg rounded-xl"
                 >
-                  <BookOpen className="w-5 h-5 mr-2 text-white dark:text-neutral-900" />
-                  <span className="text-white dark:text-neutral-900">
-                    Learn More
+                  <AlertTriangle className="w-5 h-5 mr-2" />
+                  <span>
+                    Check a Company
                   </span>
                 </Button>
               </motion.div>
