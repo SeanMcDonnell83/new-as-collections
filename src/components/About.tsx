@@ -144,40 +144,54 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Core Values */}
+        {/* Core Values - Pattern Background */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-20"
+          className={`mb-20 ${themeClasses.bg.secondary} rounded-3xl p-12 relative overflow-hidden`}
         >
-          <h3
-            className={`text-3xl font-bold ${themeClasses.text.primary} text-center mb-12 font-montserrat font-700`}
-          >
-            Our Core Values
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <div key={index} className="text-center group">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-8 h-8 text-white" />
+          {/* Subtle geometric pattern background */}
+          <div className="absolute inset-0 opacity-5 dark:opacity-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <circle cx="15" cy="15" r="2" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#dots)" />
+            </svg>
+          </div>
+
+          <div className="relative z-10">
+            <h3
+              className={`text-3xl font-bold ${themeClasses.text.primary} text-center mb-12 font-montserrat font-800`}
+            >
+              Our Core Values
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {values.map((value, index) => {
+                const IconComponent = value.icon;
+                return (
+                  <div key={index} className="text-center group">
+                    <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <h4
+                      className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
+                    >
+                      {value.title}
+                    </h4>
+                    <p
+                      className={`${themeClasses.text.secondary} leading-relaxed font-inter`}
+                    >
+                      {value.description}
+                    </p>
                   </div>
-                  <h4
-                    className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
-                  >
-                    {value.title}
-                  </h4>
-                  <p
-                    className={`${themeClasses.text.secondary} leading-relaxed font-inter`}
-                  >
-                    {value.description}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 
