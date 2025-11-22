@@ -339,15 +339,17 @@ const WindingUpSearch = () => {
                 ) : (
                   <>
                     {/* All Clear - No Matches */}
-                    <div className="bg-green-50 dark:bg-green-950 rounded-2xl p-8 border-2 border-green-200 dark:border-green-800 mb-8">
+                    <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 rounded-2xl p-8 border border-green-200 dark:border-green-800 mb-8">
                       <div className="flex items-start mb-6">
-                        <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400 mr-4 flex-shrink-0 mt-1" />
+                        <div className="w-10 h-10 rounded-full bg-green-600 dark:bg-green-500 flex items-center justify-center flex-shrink-0 mr-4">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
                         <div>
-                          <h3 className="text-2xl font-bold text-green-800 dark:text-green-200 font-montserrat font-800 mb-2">
-                            ✓ No Matches Found
+                          <h3 className="text-2xl font-bold text-green-900 dark:text-green-100 font-montserrat font-800 mb-2">
+                            No Matches Found
                           </h3>
-                          <p className="text-green-700 dark:text-green-300 font-inter">
-                            None of the companies listed appear on our current winding-up register. Your credit exposure appears safe.
+                          <p className="text-green-800 dark:text-green-200 font-inter">
+                            None of the companies listed appear on our current winding-up register. Your credit exposure appears safe at this time.
                           </p>
                         </div>
                       </div>
