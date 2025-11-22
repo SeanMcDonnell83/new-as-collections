@@ -564,6 +564,22 @@ const WindingUpSearch = () => {
                             </motion.div>
                           ))}
                         </div>
+
+                        {/* Caution Action Section */}
+                        <div className="bg-amber-100/50 dark:bg-amber-950/30 border-t border-amber-300 dark:border-amber-700 px-8 py-6">
+                          <p className="text-amber-900 dark:text-amber-200 font-montserrat font-700 mb-3 text-sm uppercase tracking-wider">
+                            ⚠️ Manual Verification Required
+                          </p>
+                          <p className={`${themeClasses.text.secondary} font-inter text-sm mb-4 leading-relaxed`}>
+                            These companies are not an exact match but share similarities with our register. Visit Companies House to verify the company number and full legal entity name before making credit decisions. If unsure, our team can help.
+                          </p>
+                          <Button
+                            onClick={() => window.location.href = '/contact'}
+                            className="bg-amber-600 hover:bg-amber-700 text-white font-montserrat font-700 text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-all duration-200 w-full sm:w-auto"
+                          >
+                            Get Verification Help
+                          </Button>
+                        </div>
                       </div>
                     )}
                   </motion.div>
