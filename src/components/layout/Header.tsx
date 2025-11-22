@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Sun, Moon, ArrowRight } from "lucide-react";
+import { Menu, X, Sun, Moon, ArrowRight, Radar, Calculator, Shield, Globe, Users, Building2, Factory, Utensils, Zap, GraduationCap, Briefcase, Ship } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { themeClasses } from "@/contexts/ThemeContext";
@@ -15,55 +15,74 @@ const Header = () => {
     {
       title: "Commercial B2B Debt Collection",
       href: "/services/commercial-debt-recovery",
-      description: "UK-wide business debt recovery"
+      description: "UK-wide business debt recovery",
+      icon: Shield
     },
     {
       title: "International Debt Recovery",
       href: "/services/international-debt-collection",
-      description: "Cross-border debt solutions"
+      description: "Cross-border debt solutions",
+      icon: Globe
     },
     {
       title: "Debtor Tracing & Legal Action",
       href: "/services/debtor-tracing",
-      description: "Advanced tracing & enforcement"
+      description: "Advanced tracing & enforcement",
+      icon: Users
     },
     {
       title: "Credit Control & Insolvency",
       href: "/services/credit-control-insolvency",
-      description: "Specialist insolvency services"
-    },
+      description: "Specialist insolvency services",
+      icon: Building2
+    }
+  ];
+
+  const tools = [
     {
-      title: "Winding-Up Search",
+      title: "Insolvency Radar",
       href: "/winding-up-check",
       description: "Check company insolvency risk",
-      badge: "Tool"
+      icon: Radar
+    },
+    {
+      title: "Debt Calculator",
+      href: "/debt-calculator",
+      description: "Calculate potential recovery",
+      icon: Calculator
     }
   ];
 
   const sectors = [
     {
       title: "Construction & Engineering",
-      href: "/sectors/construction-engineering"
+      href: "/sectors/construction-engineering",
+      icon: Building2
     },
     {
       title: "Food & Drink Industry",
-      href: "/sectors/food-drink-hospitality"
+      href: "/sectors/food-drink-hospitality",
+      icon: Utensils
     },
     {
       title: "Oil & Gas Sector",
-      href: "/sectors/oil-gas-energy"
+      href: "/sectors/oil-gas-energy",
+      icon: Zap
     },
     {
       title: "Independent Schools",
-      href: "/sectors/private-schools-education"
+      href: "/sectors/private-schools-education",
+      icon: GraduationCap
     },
     {
       title: "Recruitment Agencies",
-      href: "/sectors/recruitment-agencies"
+      href: "/sectors/recruitment-agencies",
+      icon: Briefcase
     },
     {
       title: "Shipping & Logistics",
-      href: "/sectors/shipping-logistics"
+      href: "/sectors/shipping-logistics",
+      icon: Ship
     }
   ];
 
