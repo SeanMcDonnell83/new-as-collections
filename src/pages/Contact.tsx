@@ -58,10 +58,10 @@ const ContactPage = () => {
           className={`pt-32 pb-16 ${themeClasses.bg.primary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
               Contact A.S. Collections
             </h1>
-            <p className={`text-xl ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans font-light mb-8`}>
+            <p className={`text-xl ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter font-light mb-8`}>
               Get your free, no-obligation consultation with the UK's leading commercial debt recovery 
               specialists. We're here to help you recover your outstanding debts quickly and professionally.
             </p>
@@ -72,20 +72,20 @@ const ContactPage = () => {
                 <div className="text-center">
                   <a 
                     href="tel:+441513290946"
-                    className={`text-2xl font-bold ${themeClasses.text.accent} hover:underline font-noto-serif block`}
+                    className={`text-2xl font-bold ${themeClasses.text.accent} hover:underline font-montserrat font-700 block`}
                   >
                     0151 329 0946
                   </a>
-                  <span className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}>
+                  <span className={`text-sm ${themeClasses.text.secondary} font-inter`}>
                     Call for immediate consultation
                   </span>
                 </div>
                 <div className={`hidden sm:block w-px h-12 ${themeClasses.border.primary} border-l`}></div>
                 <div className="text-center">
-                  <div className={`text-lg font-bold ${themeClasses.text.primary} font-noto-serif`}>
+                  <div className={`text-lg font-bold ${themeClasses.text.primary} font-montserrat font-700`}>
                     No Win, No Fee
                   </div>
-                  <span className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}>
+                  <span className={`text-sm ${themeClasses.text.secondary} font-inter`}>
                     Free consultation guaranteed
                   </span>
                 </div>
@@ -104,10 +104,10 @@ const ContactPage = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
                 Get In Touch
               </h2>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}>
+              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}>
                 Multiple ways to reach our debt recovery specialists. Choose the method that works best for you.
               </p>
             </motion.div>
@@ -128,14 +128,14 @@ const ContactPage = () => {
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-4">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className={`text-xl font-bold ${themeClasses.text.primary} mb-3 font-noto-serif`}>
+                    <h3 className={`text-xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
                       {info.title}
                     </h3>
                     <div className="space-y-1">
                       {info.details.map((detail, detailIndex) => (
                         <div 
                           key={detailIndex}
-                          className={`${detailIndex === 0 ? `font-semibold ${themeClasses.text.primary}` : `text-sm ${themeClasses.text.secondary}`} font-noto-sans`}
+                          className={`${detailIndex === 0 ? `font-semibold ${themeClasses.text.primary}` : `text-sm ${themeClasses.text.secondary}`} font-inter`}
                         >
                           {detail}
                         </div>
@@ -160,10 +160,10 @@ const ContactPage = () => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
                 UK-Wide Service Coverage
               </h2>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}>
+              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}>
                 Based in Liverpool, we provide commercial debt recovery services across the entire United Kingdom.
               </p>
             </div>
@@ -194,17 +194,17 @@ const ContactPage = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-6`}
                 >
-                  <h3 className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}>
+                  <h3 className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}>
                     {area.region}
                   </h3>
-                  <p className={`${themeClasses.text.secondary} font-noto-sans text-sm mb-4 leading-relaxed`}>
+                  <p className={`${themeClasses.text.secondary} font-inter text-sm mb-4 leading-relaxed`}>
                     {area.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {area.cities.map((city, cityIndex) => (
                       <span 
                         key={cityIndex}
-                        className={`px-3 py-1 rounded-full ${themeClasses.bg.accent} ${themeClasses.text.secondary} text-xs font-noto-sans`}
+                        className={`px-3 py-1 rounded-full ${themeClasses.bg.accent} ${themeClasses.text.secondary} text-xs font-inter`}
                       >
                         {city}
                       </span>

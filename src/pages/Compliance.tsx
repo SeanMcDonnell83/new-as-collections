@@ -97,10 +97,10 @@ const Compliance = () => {
           className={`pt-32 pb-16 ${themeClasses.bg.primary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
               Compliance & Professional Standards
             </h1>
-            <p className={`text-xl ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans font-light mb-8`}>
+            <p className={`text-xl ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter font-light mb-8`}>
               A.S. Collections maintains the highest legal compliance and professional standards in 
               commercial debt recovery. We operate within comprehensive regulatory frameworks ensuring 
               ethical, lawful, and effective debt collection services across the United Kingdom.
@@ -111,10 +111,10 @@ const Compliance = () => {
               <div className="flex items-center justify-center mb-4">
                 <Shield className={`w-12 h-12 ${themeClasses.text.accent} mr-4`} />
                 <div className="text-left">
-                  <div className={`text-2xl font-bold ${themeClasses.text.primary} font-noto-serif`}>
+                  <div className={`text-2xl font-bold ${themeClasses.text.primary} font-montserrat font-700`}>
                     100% Compliant
                   </div>
-                  <div className={`${themeClasses.text.secondary} font-noto-sans`}>
+                  <div className={`${themeClasses.text.secondary} font-inter`}>
                     Fully regulated debt recovery services
                   </div>
                 </div>
@@ -133,10 +133,10 @@ const Compliance = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
                 Professional Accreditations & Regulatory Bodies
               </h2>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}>
+              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}>
                 Our professional memberships and regulatory compliance demonstrates our commitment to 
                 maintaining the highest standards in commercial debt recovery services.
               </p>
@@ -154,7 +154,7 @@ const Compliance = () => {
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <div className={`text-xl font-bold ${themeClasses.text.primary} mb-2 font-noto-serif`}>
+                      <div className={`text-xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-700`}>
                         {accreditation.name}
                       </div>
                       <div className={`w-16 h-8 ${themeClasses.bg.accent} rounded flex items-center justify-center mb-3`}>
@@ -173,7 +173,7 @@ const Compliance = () => {
                       <ExternalLink className="w-3 h-3 ml-2" />
                     </Button>
                   </div>
-                  <p className={`${themeClasses.text.secondary} font-noto-sans leading-relaxed`}>
+                  <p className={`${themeClasses.text.secondary} font-inter leading-relaxed`}>
                     {accreditation.description}
                   </p>
                 </motion.div>
@@ -194,10 +194,10 @@ const Compliance = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
                 Our Compliance Framework
               </h2>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}>
+              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}>
                 Comprehensive compliance policies and procedures ensuring all debt recovery activities 
                 meet the highest legal and ethical standards.
               </p>
@@ -215,22 +215,22 @@ const Compliance = () => {
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
-                      <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}>
+                      <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}>
                         {area.title}
                       </h3>
-                      <p className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans text-lg`}>
+                      <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-lg`}>
                         {area.description}
                       </p>
                     </div>
                     <div>
-                      <h4 className={`text-lg font-semibold ${themeClasses.text.primary} mb-4 font-noto-serif`}>
+                      <h4 className={`text-lg font-semibold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}>
                         Key Requirements:
                       </h4>
                       <div className="grid grid-cols-1 gap-3">
                         {area.requirements.map((requirement, reqIndex) => (
                           <div key={reqIndex} className="flex items-start">
                             <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                            <span className={`${themeClasses.text.secondary} font-noto-sans`}>
+                            <span className={`${themeClasses.text.secondary} font-inter`}>
                               {requirement}
                             </span>
                           </div>
@@ -253,10 +253,10 @@ const Compliance = () => {
           className={`py-20 ${themeClasses.bg.primary}`}
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
               Your Assurance of Compliance
             </h2>
-            <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-noto-sans`}>
+            <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter`}>
               When you choose A.S. Collections, you can be confident that all debt recovery activities 
               are conducted in full compliance with UK legislation and professional standards.
             </p>
@@ -268,10 +268,10 @@ const Compliance = () => {
                 { title: "Transparent Process", desc: "Clear procedures and documentation" }
               ].map((item, index) => (
                 <div key={index} className={`${themeClasses.bg.secondary} rounded-xl p-6 border ${themeClasses.border.primary}`}>
-                  <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-noto-serif`}>
+                  <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-700`}>
                     {item.title}
                   </h3>
-                  <p className={`${themeClasses.text.secondary} font-noto-sans text-sm`}>
+                  <p className={`${themeClasses.text.secondary} font-inter text-sm`}>
                     {item.desc}
                   </p>
                 </div>
@@ -281,7 +281,7 @@ const Compliance = () => {
             <Button
               onClick={() => window.location.href = '/contact'}
               size="lg"
-              className={`${themeClasses.button.primary} font-semibold px-8 py-4 transition-colors duration-200 font-noto-sans`}
+              className={`${themeClasses.button.primary} font-semibold px-8 py-4 transition-colors duration-200 font-inter`}
             >
               Discuss Compliance Requirements
               <ExternalLink className="w-5 h-5 ml-2" />
