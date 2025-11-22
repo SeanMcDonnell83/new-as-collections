@@ -86,55 +86,54 @@ const Index = () => {
       <main>
         <Hero />
 
-        {/* Business Debt Collection Services UK - Intro Section */}
+        {/* Business Debt Collection Services UK - Bento Grid Section */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-24 ${themeClasses.bg.secondary}`}
+          className={`py-24 ${theme === "light" ? "bg-slate-50" : "bg-slate-950"}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
-                Business Debt Collection Services UK
+                Commercial Debt Recovery Services UK
               </h2>
-              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}>
-                Comprehensive commercial debt recovery UK solutions across London, Manchester, Birmingham, Glasgow, and Edinburgh.
-              </p>
-              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}>
-                From initial unpaid invoice recovery to legal enforcement, our debt collection agency handles it all.
-              </p>
               <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed`}>
-                Our professional debt collection services are fully compliant with UK legislation. With over 98% success rate and average recovery times of just 14 days, we're the trusted choice for businesses nationwide.
+                Professional debt collection specialists serving London, Manchester, Birmingham, Glasgow, and Edinburgh with proven expertise across all sectors.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Bento Grid Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, index) => {
                 const IconComponent = service.icon;
+                // Create varied grid spans for Bento effect
+                const spanClass = index === 0 ? "lg:col-span-2 lg:row-span-2" : "lg:col-span-1";
                 return (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className="group"
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className={`group ${spanClass}`}
                   >
-                    <div className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-8 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm`}>
-                      <div className="flex items-start space-x-4">
-                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`${
+                      theme === "light" ? "bg-white" : "bg-slate-900"
+                    } rounded-2xl border ${
+                      theme === "light" ? "border-slate-200" : "border-slate-800"
+                    } p-8 h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}>
+                      <div className="flex flex-col h-full">
+                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mb-4`}>
                           <IconComponent className="w-6 h-6 text-white" />
                         </div>
-                        <div className="flex-1">
-                          <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
-                            {service.title}
-                          </h3>
-                          <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm`}>
-                            {service.description}
-                          </p>
-                        </div>
+                        <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
+                          {service.title}
+                        </h3>
+                        <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm flex-1`}>
+                          {service.description}
+                        </p>
                       </div>
                     </div>
                   </motion.div>
