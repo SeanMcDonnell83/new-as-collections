@@ -65,7 +65,7 @@ const AboutUs = () => {
         </section>
 
         {/* Leadership Section: Split Screen */}
-        <section className="py-24 bg-white">
+        <section className={`py-24 ${themeClasses.bg.primary}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -73,9 +73,9 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative"
+                className="relative order-2 lg:order-1"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/40 to-purple-600/40 rounded-2xl transform rotate-3 translate-x-4 translate-y-4" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-2xl transform rotate-3 translate-x-4 translate-y-4" />
                 <div className="relative z-10 rounded-2xl shadow-2xl w-full h-[600px] bg-gradient-to-br from-slate-900 via-slate-800 to-black flex items-center justify-center overflow-hidden">
                   {/* Animated SVG Shape */}
                   <svg
@@ -98,7 +98,7 @@ const AboutUs = () => {
                         />
                         <stop
                           offset="100%"
-                          stopColor="#a78bfa"
+                          stopColor="#06b6d4"
                           stopOpacity="0.5"
                         />
                       </linearGradient>
@@ -122,7 +122,7 @@ const AboutUs = () => {
                     <h3 className="text-4xl font-black text-white font-montserrat">
                       Emilie Campbell
                     </h3>
-                    <p className="text-slate-300 text-sm mt-2 font-inter">
+                    <p className="text-slate-300 text-sm mt-2">
                       Managing Director
                     </p>
                   </div>
@@ -134,26 +134,27 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
+                className="order-1 lg:order-2"
               >
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
+                <h2 className={`text-4xl md:text-5xl font-black ${themeClasses.text.primary} mb-8 leading-tight font-montserrat`}>
                   LEADERSHIP <br />
                   WITH <span className="text-blue-600">VISION.</span>
                 </h2>
-                <blockquote className="text-2xl text-slate-600 italic font-serif mb-8 border-l-4 border-blue-600 pl-6">
+                <blockquote className={`text-2xl ${themeClasses.text.secondary} italic font-serif mb-8 border-l-4 border-blue-600 pl-6`}>
                   "Our mission is simple: To revolutionise commercial debt
                   recovery by combining cutting-edge technology with time-tested
                   human expertise."
                 </blockquote>
-                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                <p className={`text-lg ${themeClasses.text.secondary} mb-6 leading-relaxed`}>
                   We deliver exceptional results whilst preserving the
                   relationships that matter most to our clients' businesses. We
                   believe effective debt recovery shouldn't damage business
                   relationships.
                 </p>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className={`text-lg ${themeClasses.text.secondary} leading-relaxed`}>
                   Our mission is to provide ethical, professional, and highly
                   effective commercial debt collection services that protect and
-                  enhance reputation whilst maximizing recovery rates.
+                  enhance reputation whilst maximising recovery rates.
                 </p>
               </motion.div>
             </div>
