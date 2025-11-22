@@ -26,7 +26,7 @@ import CreditControlInsolvency from "./pages/services/CreditControlInsolvency";
 import ConstructionEngineering from "./pages/sectors/ConstructionEngineering";
 import FoodDrinkHospitality from "./pages/sectors/FoodDrinkHospitality";
 import OilGasEnergy from "./pages/sectors/OilGasEnergy";
-import PrivateSchoolsEducation from "./pages/sectors/PrivateSchoolsEducation";
+import OtherIndustries from "./pages/sectors/OtherIndustries";
 import RecruitmentAgencies from "./pages/sectors/RecruitmentAgencies";
 import ShippingLogistics from "./pages/sectors/ShippingLogistics";
 
@@ -91,8 +91,8 @@ const App = () => (
                 element={<OilGasEnergy />}
               />
               <Route
-                path="/sectors/private-schools-education"
-                element={<PrivateSchoolsEducation />}
+                path="/sectors/other-industries"
+                element={<OtherIndustries />}
               />
               <Route
                 path="/sectors/recruitment-agencies"

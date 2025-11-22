@@ -30,8 +30,8 @@ const Footer = () => {
     { label: "Food & Drink Industry", href: "/sectors/food-drink-hospitality" },
     { label: "Oil & Gas Sector", href: "/sectors/oil-gas-energy" },
     {
-      label: "Independent Schools",
-      href: "/sectors/private-schools-education",
+      label: "Other Industries",
+      href: "/sectors/other-industries",
     },
     { label: "Recruitment Agencies", href: "/sectors/recruitment-agencies" },
     { label: "Shipping & Logistics", href: "/sectors/shipping-logistics" },
