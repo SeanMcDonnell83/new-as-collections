@@ -385,13 +385,13 @@ const Industries = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="py-20 bg-slate-900 text-white"
+          className={`py-20 ${themeClasses.bg.primary} border-t ${themeClasses.border.primary}`}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-black mb-6 font-montserrat">
+            <h2 className={`text-3xl md:text-4xl font-black mb-6 font-montserrat ${themeClasses.text.primary}`}>
               CHECK YOUR CLIENT LIST BEFORE YOU TRADE.
             </h2>
-            <p className="text-lg text-slate-300 mb-10 font-medium">
+            <p className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}>
               Use our free Insolvency Radar to instantly identify debtors on the
               winding-up register.
             </p>
