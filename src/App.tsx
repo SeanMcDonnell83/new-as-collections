@@ -12,6 +12,7 @@ import CommercialDebtRecovery from "./pages/CommercialDebtRecovery";
 import Industries from "./pages/Industries";
 import Compliance from "./pages/Compliance";
 import ContactPage from "./pages/Contact";
+import ThankYou from "./pages/ThankYou";
 import WindingUpSearch from "./pages/WindingUpSearch";
 import NotFound from "./pages/NotFound";
 
