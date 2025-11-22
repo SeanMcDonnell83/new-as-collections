@@ -156,7 +156,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`${themeClasses.bg.primary} -mt-8 pt-8 pb-12`}
+          className={`${theme === "light" ? "bg-slate-50" : "bg-slate-950"} -mt-8 pt-8 pb-12`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Button
@@ -178,7 +178,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-24 ${themeClasses.bg.primary}`}
+          className={`py-24 ${theme === "light" ? "bg-white" : "bg-slate-900"}`}
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -190,7 +190,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className={`${themeClasses.bg.secondary} rounded-2xl p-8 border ${themeClasses.border.primary}`}>
+            <div className={`${theme === "light" ? "bg-slate-50" : "bg-slate-800"} rounded-2xl p-8 border ${theme === "light" ? "border-slate-200" : "border-slate-700"}`}>
               <Accordion type="single" collapsible className="w-full">
                 {[
                   {
@@ -249,7 +249,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-24 ${themeClasses.bg.secondary}`}
+          className={`py-24 ${theme === "light" ? "bg-slate-50" : "bg-slate-950"}`}
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
