@@ -58,13 +58,17 @@ const CommercialDebtRecovery = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Commercial Debt Recovery UK - No Win No Fee | A.S. Collections</title>
-        <meta 
-          name="description" 
-          content="Professional commercial debt recovery services UK. No win no fee B2B debt collection with 98% success rate. International recovery, debtor tracing, credit control & insolvency." 
+        <title>Commercial B2B Debt Recovery Services | A.S. Collections</title>
+        <meta
+          name="description"
+          content="Professional B2B commercial debt recovery services UK. No win no fee debt collection with 98% success rate. International recovery, debtor tracing, credit control."
         />
-        <meta name="keywords" content="commercial debt recovery UK, B2B debt collection services, international debt recovery, professional debt collection, no win no fee debt recovery, business debt collection" />
+        <meta name="keywords" content="commercial debt recovery UK, B2B debt collection, international debt recovery, debtor tracing, credit control, insolvency services" />
         <link rel="canonical" href="https://ascollections.co.uk/commercial-debt-recovery" />
+        <meta property="og:title" content="Commercial B2B Debt Recovery Services | A.S. Collections" />
+        <meta property="og:description" content="Professional B2B commercial debt recovery services UK. No win no fee, 98% success rate." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ascollections.co.uk/commercial-debt-recovery" />
       </Helmet>
       
       <Header />
