@@ -47,7 +47,10 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/commercial-debt-recovery" element={<CommercialDebtRecovery />} />
+              <Route
+                path="/commercial-debt-recovery"
+                element={<CommercialDebtRecovery />}
+              />
               <Route path="/industries" element={<Industries />} />
               <Route path="/compliance" element={<Compliance />} />
               <Route path="/contact" element={<ContactPage />} />
@@ -57,18 +60,48 @@ const App = () => (
 
               {/* Service Routes */}
               <Route path="/services" element={<ServicesOverview />} />
-              <Route path="/services/commercial-debt-recovery" element={<CommercialDebtRecoveryService />} />
-              <Route path="/services/international-debt-collection" element={<InternationalDebtRecovery />} />
-              <Route path="/services/debtor-tracing" element={<DebtorTracing />} />
-              <Route path="/services/credit-control-insolvency" element={<CreditControlInsolvency />} />
+              <Route
+                path="/services/commercial-debt-recovery"
+                element={<CommercialDebtRecoveryService />}
+              />
+              <Route
+                path="/services/international-debt-collection"
+                element={<InternationalDebtRecovery />}
+              />
+              <Route
+                path="/services/debtor-tracing"
+                element={<DebtorTracing />}
+              />
+              <Route
+                path="/services/credit-control-insolvency"
+                element={<CreditControlInsolvency />}
+              />
 
               {/* Sector Routes */}
-              <Route path="/sectors/construction-engineering" element={<ConstructionEngineering />} />
-              <Route path="/sectors/food-drink-hospitality" element={<FoodDrinkHospitality />} />
-              <Route path="/sectors/oil-gas-energy" element={<OilGasEnergy />} />
-              <Route path="/sectors/private-schools-education" element={<PrivateSchoolsEducation />} />
-              <Route path="/sectors/recruitment-agencies" element={<RecruitmentAgencies />} />
-              <Route path="/sectors/shipping-logistics" element={<ShippingLogistics />} />
+              <Route
+                path="/sectors/construction-engineering"
+                element={<ConstructionEngineering />}
+              />
+              <Route
+                path="/sectors/food-drink-hospitality"
+                element={<FoodDrinkHospitality />}
+              />
+              <Route
+                path="/sectors/oil-gas-energy"
+                element={<OilGasEnergy />}
+              />
+              <Route
+                path="/sectors/private-schools-education"
+                element={<PrivateSchoolsEducation />}
+              />
+              <Route
+                path="/sectors/recruitment-agencies"
+                element={<RecruitmentAgencies />}
+              />
+              <Route
+                path="/sectors/shipping-logistics"
+                element={<ShippingLogistics />}
+              />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

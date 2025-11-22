@@ -172,16 +172,20 @@ const IndustryExpertise = () => {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
               >
                 {/* Text Content Section */}
-                <div className={isEven ? '' : 'lg:order-2'}>
+                <div className={isEven ? "" : "lg:order-2"}>
                   <div className="flex items-start space-x-4 mb-6">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     <div>
-                      <h3 className={`text-3xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-800`}>
+                      <h3
+                        className={`text-3xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-800`}
+                      >
                         {industry.title}
                       </h3>
-                      <p className={`${themeClasses.text.secondary} leading-relaxed font-inter`}>
+                      <p
+                        className={`${themeClasses.text.secondary} leading-relaxed font-inter`}
+                      >
                         {industry.description}
                       </p>
                     </div>
@@ -191,7 +195,9 @@ const IndustryExpertise = () => {
                     {industry.specialties.map((specialty, specialtyIndex) => (
                       <div key={specialtyIndex} className="flex items-start">
                         <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 flex-shrink-0 mt-1"></div>
-                        <span className={`${themeClasses.text.secondary} text-sm font-inter`}>
+                        <span
+                          className={`${themeClasses.text.secondary} text-sm font-inter`}
+                        >
                           {specialty}
                         </span>
                       </div>
@@ -200,33 +206,49 @@ const IndustryExpertise = () => {
                 </div>
 
                 {/* Stats Card Section */}
-                <div className={isEven ? 'lg:order-2' : ''}>
-                  <div className={`${themeClasses.bg.accent} rounded-2xl p-8 h-full`}>
-                    <h4 className={`text-xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-800 text-center`}>
+                <div className={isEven ? "lg:order-2" : ""}>
+                  <div
+                    className={`${themeClasses.bg.accent} rounded-2xl p-8 h-full`}
+                  >
+                    <h4
+                      className={`text-xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-800 text-center`}
+                    >
                       Industry Results
                     </h4>
                     <div className="space-y-8">
                       <div className="text-center">
-                        <div className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}>
+                        <div
+                          className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}
+                        >
                           {industry.stats.recovered}
                         </div>
-                        <div className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}>
+                        <div
+                          className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}
+                        >
                           Total Recovered
                         </div>
                       </div>
                       <div className="text-center">
-                        <div className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}>
+                        <div
+                          className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}
+                        >
                           {industry.stats.clients}
                         </div>
-                        <div className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}>
+                        <div
+                          className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}
+                        >
                           Clients Served
                         </div>
                       </div>
                       <div className="text-center">
-                        <div className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}>
+                        <div
+                          className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}
+                        >
                           {industry.stats.rate}
                         </div>
-                        <div className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}>
+                        <div
+                          className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}
+                        >
                           Success Rate
                         </div>
                       </div>

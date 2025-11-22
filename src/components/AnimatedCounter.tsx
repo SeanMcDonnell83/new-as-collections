@@ -32,7 +32,7 @@ export const AnimatedCounter = ({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -56,7 +56,7 @@ export const AnimatedCounter = ({
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / (duration * 1000), 1);
-      
+
       setCount(Math.floor(progress * end));
 
       if (progress < 1) {

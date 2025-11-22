@@ -3,7 +3,14 @@ import Footer from "@/components/layout/Footer";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, CheckCircle2, HardHat, Ruler, FileText, AlertTriangle } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  HardHat,
+  Ruler,
+  FileText,
+  AlertTriangle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -28,17 +35,21 @@ const ConstructionEngineering = () => {
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
           {/* Blueprint Grid Background */}
           <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-            <div className="absolute inset-0" 
-              style={{ 
-                backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', 
-                backgroundSize: '40px 40px' 
-              }} 
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
+              }}
             />
-            <div className="absolute inset-0" 
-              style={{ 
-                backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)', 
-                backgroundSize: '200px 200px' 
-              }} 
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)",
+                backgroundSize: "200px 200px",
+              }}
             />
           </div>
 
@@ -83,7 +94,7 @@ const ConstructionEngineering = () => {
                 </span>
               </h1>
               <p className="text-xl text-slate-300 mb-8 max-w-lg font-medium">
-                We recover unpaid applications, retentions, and variations. 
+                We recover unpaid applications, retentions, and variations.
                 Don't let "Pay When Paid" clauses destroy your margins.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -93,7 +104,10 @@ const ConstructionEngineering = () => {
                   </Button>
                 </Link>
                 <Link to="/services/commercial-debt-recovery">
-                  <Button variant="outline" className="bg-transparent border-2 border-slate-600 text-white hover:bg-slate-800 font-bold text-lg px-8 py-6 rounded-none">
+                  <Button
+                    variant="outline"
+                    className="bg-transparent border-2 border-slate-600 text-white hover:bg-slate-800 font-bold text-lg px-8 py-6 rounded-none"
+                  >
                     OUR SERVICES
                   </Button>
                 </Link>
@@ -113,7 +127,9 @@ const ConstructionEngineering = () => {
                     <Ruler className="w-5 h-5" />
                     RETENTION CALCULATOR
                   </h3>
-                  <span className="text-xs font-mono text-slate-500">EST. LOCKED CASH</span>
+                  <span className="text-xs font-mono text-slate-500">
+                    EST. LOCKED CASH
+                  </span>
                 </div>
                 <div className="space-y-6 font-mono">
                   <div className="flex justify-between items-center">
@@ -130,8 +146,12 @@ const ConstructionEngineering = () => {
                   </div>
                   <div className="pt-4 border-t border-slate-700">
                     <div className="flex justify-between items-center">
-                      <span className="text-blue-400 font-bold">CASH LOCKED UP</span>
-                      <span className="text-3xl font-bold text-white">£25,000</span>
+                      <span className="text-blue-400 font-bold">
+                        CASH LOCKED UP
+                      </span>
+                      <span className="text-3xl font-bold text-white">
+                        £25,000
+                      </span>
                     </div>
                     <p className="text-xs text-slate-500 mt-2">
                       *Typical retention held past practical completion.
@@ -156,16 +176,16 @@ const ConstructionEngineering = () => {
                   {[
                     {
                       title: '"Pay When Paid" Clauses',
-                      desc: "Main contractors using this illegal excuse to withhold your funds while they sit on the cash."
+                      desc: "Main contractors using this illegal excuse to withhold your funds while they sit on the cash.",
                     },
                     {
                       title: "Indefinite Retentions",
-                      desc: "Money held for years after the defects liability period has ended, often forgotten or ignored."
+                      desc: "Money held for years after the defects liability period has ended, often forgotten or ignored.",
                     },
                     {
                       title: "Spurious Disputes",
-                      desc: "Complex disputes hiding behind minor 'quality issues' just to delay payment applications."
-                    }
+                      desc: "Complex disputes hiding behind minor 'quality issues' just to delay payment applications.",
+                    },
                   ].map((item, idx) => (
                     <motion.div
                       key={idx}
@@ -177,8 +197,12 @@ const ConstructionEngineering = () => {
                     >
                       <div className="w-1 h-full bg-red-500/50 rounded-full" />
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                        <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-slate-400 leading-relaxed">
+                          {item.desc}
+                        </p>
                       </div>
                     </motion.div>
                   ))}
@@ -187,25 +211,36 @@ const ConstructionEngineering = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-lg transform rotate-3" />
                 <div className="relative bg-slate-800 p-8 rounded-lg border border-slate-700">
-                  <h3 className="text-2xl font-bold mb-6 text-blue-400">Our Solution</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-blue-400">
+                    Our Solution
+                  </h3>
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />
-                      <span className="text-slate-300">We understand the Housing Grants, Construction and Regeneration Act.</span>
+                      <span className="text-slate-300">
+                        We understand the Housing Grants, Construction and
+                        Regeneration Act.
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />
-                      <span className="text-slate-300">We know how to enforce Adjudication to get paid fast without court.</span>
+                      <span className="text-slate-300">
+                        We know how to enforce Adjudication to get paid fast
+                        without court.
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />
-                      <span className="text-slate-300">We recover unpaid retentions effectively.</span>
+                      <span className="text-slate-300">
+                        We recover unpaid retentions effectively.
+                      </span>
                     </li>
                   </ul>
                   <div className="mt-8 pt-8 border-t border-slate-700">
                     <Link to="/services/commercial-debt-recovery">
                       <Button className="w-full bg-white text-slate-900 hover:bg-slate-200 font-bold py-4">
-                        VIEW RECOVERY SOLUTIONS <ArrowRight className="ml-2 w-4 h-4" />
+                        VIEW RECOVERY SOLUTIONS{" "}
+                        <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
                     </Link>
                   </div>
@@ -219,13 +254,14 @@ const ConstructionEngineering = () => {
         <section className="py-24 bg-slate-950">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-5xl font-black mb-12">
-              WE SPEAK <span className="text-blue-500">JCT</span> & <span className="text-blue-500">NEC</span>
+              WE SPEAK <span className="text-blue-500">JCT</span> &{" "}
+              <span className="text-blue-500">NEC</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 { icon: FileText, label: "Payment Notices" },
                 { icon: Ruler, label: "Final Accounts" },
-                { icon: HardHat, label: "Sub-Contracts" }
+                { icon: HardHat, label: "Sub-Contracts" },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -248,7 +284,8 @@ const ConstructionEngineering = () => {
               STOP FUNDING YOUR CLIENT'S CASH FLOW.
             </h2>
             <p className="text-xl text-blue-100 mb-10 font-medium">
-              Check if your debtor is already on the winding-up list. It's free and instant.
+              Check if your debtor is already on the winding-up list. It's free
+              and instant.
             </p>
             <Link to="/winding-up-check">
               <Button className="bg-white text-blue-600 hover:bg-blue-50 font-black text-xl px-10 py-8 rounded-none shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1">

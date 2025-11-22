@@ -3,7 +3,9 @@
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ success: false, error: "Method not allowed" });
+    return res
+      .status(405)
+      .json({ success: false, error: "Method not allowed" });
   }
 
   try {
@@ -14,7 +16,7 @@ export default async function handler(req, res) {
     if (!firstName || !lastName || !email || !phone || !company || !message) {
       return res.status(400).json({
         success: false,
-        error: "Missing required fields"
+        error: "Missing required fields",
       });
     }
 
@@ -23,7 +25,7 @@ export default async function handler(req, res) {
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         success: false,
-        error: "Invalid email address"
+        error: "Invalid email address",
       });
     }
 
@@ -80,7 +82,8 @@ A.S. Collections Website System
     // Return success response
     return res.status(200).json({
       success: true,
-      message: "Contact form submitted successfully. We'll be in touch shortly.",
+      message:
+        "Contact form submitted successfully. We'll be in touch shortly.",
     });
   } catch (error) {
     console.error("Contact form error:", error);

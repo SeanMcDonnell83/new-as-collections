@@ -21,9 +21,9 @@ const config: Config = {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         serif: ["Montserrat", "Arial", "sans-serif"],
-        "inter": ["Inter", "system-ui", "sans-serif"],
-        "montserrat": ["Montserrat", "Arial", "sans-serif"],
-        "manrope": ["Manrope", "system-ui", "sans-serif"],
+        inter: ["Inter", "system-ui", "sans-serif"],
+        montserrat: ["Montserrat", "Arial", "sans-serif"],
+        manrope: ["Manrope", "system-ui", "sans-serif"],
         "noto-sans": ["Inter", "system-ui", "sans-serif"],
         "noto-serif": ["Montserrat", "Arial", "sans-serif"],
       },

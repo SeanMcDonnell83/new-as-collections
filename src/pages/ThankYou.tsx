@@ -48,14 +48,21 @@ const ThankYou = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-manrope`}>
+              <h1
+                className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-manrope`}
+              >
                 Thank You!
               </h1>
-              <p className={`text-2xl ${themeClasses.text.secondary} mb-8 font-manrope font-600`}>
+              <p
+                className={`text-2xl ${themeClasses.text.secondary} mb-8 font-manrope font-600`}
+              >
                 Your consultation request has been received
               </p>
-              <p className={`text-lg ${themeClasses.text.secondary} max-w-2xl mx-auto mb-12 font-inter leading-relaxed`}>
-                We've successfully received your consultation request. Our team will review your enquiry and get back to you shortly.
+              <p
+                className={`text-lg ${themeClasses.text.secondary} max-w-2xl mx-auto mb-12 font-inter leading-relaxed`}
+              >
+                We've successfully received your consultation request. Our team
+                will review your enquiry and get back to you shortly.
               </p>
             </motion.div>
 
@@ -66,7 +73,9 @@ const ThankYou = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className={`${themeClasses.bg.secondary} rounded-2xl border ${themeClasses.border.primary} p-8 mb-12`}
             >
-              <h2 className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-manrope`}>
+              <h2
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-manrope`}
+              >
                 What happens next?
               </h2>
 
@@ -78,11 +87,14 @@ const ThankYou = () => {
                     </div>
                   </div>
                   <div className="flex-1 text-left">
-                    <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-manrope`}>
+                    <h3
+                      className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-manrope`}
+                    >
                       Review & Assessment
                     </h3>
                     <p className={`${themeClasses.text.secondary} font-inter`}>
-                      Our team will review your enquiry and assess your debt recovery situation.
+                      Our team will review your enquiry and assess your debt
+                      recovery situation.
                     </p>
                   </div>
                 </div>
@@ -94,11 +106,14 @@ const ThankYou = () => {
                     </div>
                   </div>
                   <div className="flex-1 text-left">
-                    <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-manrope`}>
+                    <h3
+                      className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-manrope`}
+                    >
                       Initial Consultation
                     </h3>
                     <p className={`${themeClasses.text.secondary} font-inter`}>
-                      We'll contact you to discuss your situation and outline a recovery strategy.
+                      We'll contact you to discuss your situation and outline a
+                      recovery strategy.
                     </p>
                   </div>
                 </div>
@@ -110,11 +125,14 @@ const ThankYou = () => {
                     </div>
                   </div>
                   <div className="flex-1 text-left">
-                    <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-manrope`}>
+                    <h3
+                      className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-manrope`}
+                    >
                       No Win, No Fee Agreement
                     </h3>
                     <p className={`${themeClasses.text.secondary} font-inter`}>
-                      We'll outline our no win, no fee terms and start your recovery journey.
+                      We'll outline our no win, no fee terms and start your
+                      recovery journey.
                     </p>
                   </div>
                 </div>
@@ -128,10 +146,14 @@ const ThankYou = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
             >
-              <div className={`${themeClasses.bg.secondary} rounded-xl border ${themeClasses.border.primary} p-6`}>
+              <div
+                className={`${themeClasses.bg.secondary} rounded-xl border ${themeClasses.border.primary} p-6`}
+              >
                 <div className="flex items-center gap-3 mb-3">
                   <Clock className={`w-5 h-5 ${themeClasses.text.accent}`} />
-                  <h3 className={`font-bold ${themeClasses.text.primary} font-manrope`}>
+                  <h3
+                    className={`font-bold ${themeClasses.text.primary} font-manrope`}
+                  >
                     Expected Response Time
                   </h3>
                 </div>
@@ -140,10 +162,14 @@ const ThankYou = () => {
                 </p>
               </div>
 
-              <div className={`${themeClasses.bg.secondary} rounded-xl border ${themeClasses.border.primary} p-6`}>
+              <div
+                className={`${themeClasses.bg.secondary} rounded-xl border ${themeClasses.border.primary} p-6`}
+              >
                 <div className="flex items-center gap-3 mb-3">
                   <Phone className={`w-5 h-5 ${themeClasses.text.accent}`} />
-                  <h3 className={`font-bold ${themeClasses.text.primary} font-manrope`}>
+                  <h3
+                    className={`font-bold ${themeClasses.text.primary} font-manrope`}
+                  >
                     Need Help Sooner?
                   </h3>
                 </div>
@@ -174,7 +200,10 @@ const ThankYou = () => {
               </Link>
 
               <Link to="/contact">
-                <Button variant="outline" className="font-manrope font-bold px-8 py-3 rounded-lg">
+                <Button
+                  variant="outline"
+                  className="font-manrope font-bold px-8 py-3 rounded-lg"
+                >
                   Return to Contact
                 </Button>
               </Link>
@@ -192,10 +221,14 @@ const ThankYou = () => {
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className={`text-3xl font-bold ${themeClasses.text.primary} mb-4 font-manrope`}>
+              <h2
+                className={`text-3xl font-bold ${themeClasses.text.primary} mb-4 font-manrope`}
+              >
                 Why Choose A.S. Collections?
               </h2>
-              <p className={`text-lg ${themeClasses.text.secondary} font-inter`}>
+              <p
+                className={`text-lg ${themeClasses.text.secondary} font-inter`}
+              >
                 We're the UK's trusted commercial debt recovery specialists
               </p>
             </div>
@@ -226,7 +259,9 @@ const ThankYou = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-6 text-center`}
                 >
-                  <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-manrope`}>
+                  <h3
+                    className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-manrope`}
+                  >
                     {item.title}
                   </h3>
                   <p className={`${themeClasses.text.secondary} font-inter`}>

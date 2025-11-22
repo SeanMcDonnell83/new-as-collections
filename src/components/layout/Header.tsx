@@ -1,5 +1,22 @@
 import { useState } from "react";
-import { Menu, X, Sun, Moon, ArrowRight, Radar, Calculator, Shield, Globe, Users, Building2, Utensils, Zap, GraduationCap, Briefcase, Ship } from "lucide-react";
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  ArrowRight,
+  Radar,
+  Calculator,
+  Shield,
+  Globe,
+  Users,
+  Building2,
+  Utensils,
+  Zap,
+  GraduationCap,
+  Briefcase,
+  Ship,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { themeClasses } from "@/contexts/ThemeContext";
@@ -16,26 +33,26 @@ const Header = () => {
       title: "Commercial B2B Debt Collection",
       href: "/services/commercial-debt-recovery",
       description: "UK-wide business debt recovery",
-      icon: Shield
+      icon: Shield,
     },
     {
       title: "International Debt Recovery",
       href: "/services/international-debt-collection",
       description: "Cross-border debt solutions",
-      icon: Globe
+      icon: Globe,
     },
     {
       title: "Debtor Tracing & Legal Action",
       href: "/services/debtor-tracing",
       description: "Advanced tracing & enforcement",
-      icon: Users
+      icon: Users,
     },
     {
       title: "Credit Control & Insolvency",
       href: "/services/credit-control-insolvency",
       description: "Specialist insolvency services",
-      icon: Building2
-    }
+      icon: Building2,
+    },
   ];
 
   const tools = [
@@ -43,47 +60,47 @@ const Header = () => {
       title: "Insolvency Radar",
       href: "/winding-up-check",
       description: "Check company insolvency risk",
-      icon: Radar
+      icon: Radar,
     },
     {
       title: "Debt Calculator",
       href: "/debt-calculator",
       description: "Calculate potential recovery",
-      icon: Calculator
-    }
+      icon: Calculator,
+    },
   ];
 
   const sectors = [
     {
       title: "Construction & Engineering",
       href: "/sectors/construction-engineering",
-      icon: Building2
+      icon: Building2,
     },
     {
       title: "Food & Drink Industry",
       href: "/sectors/food-drink-hospitality",
-      icon: Utensils
+      icon: Utensils,
     },
     {
       title: "Oil & Gas Sector",
       href: "/sectors/oil-gas-energy",
-      icon: Zap
+      icon: Zap,
     },
     {
       title: "Independent Schools",
       href: "/sectors/private-schools-education",
-      icon: GraduationCap
+      icon: GraduationCap,
     },
     {
       title: "Recruitment Agencies",
       href: "/sectors/recruitment-agencies",
-      icon: Briefcase
+      icon: Briefcase,
     },
     {
       title: "Shipping & Logistics",
       href: "/sectors/shipping-logistics",
-      icon: Ship
-    }
+      icon: Ship,
+    },
   ];
 
   const mainNavLinks = [
@@ -98,10 +115,10 @@ const Header = () => {
       y: 0,
       transition: {
         duration: 0.3,
-        ease: "easeOut"
-      }
+        ease: "easeOut",
+      },
     },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.2 } }
+    exit: { opacity: 0, y: -20, transition: { duration: 0.2 } },
   };
 
   return (
@@ -115,19 +132,28 @@ const Header = () => {
         {/* Floating Pill Container */}
         <div className="relative">
           {/* Frosted Glass Background */}
-          <div className={`absolute inset-0 ${
-            theme === "light" ? "bg-white/80" : "bg-slate-900/80"
-          } backdrop-blur-xl border ${
-            theme === "light" ? "border-white/20" : "border-slate-700/40"
-          } rounded-full`}></div>
+          <div
+            className={`absolute inset-0 ${
+              theme === "light" ? "bg-white/80" : "bg-slate-900/80"
+            } backdrop-blur-xl border ${
+              theme === "light" ? "border-white/20" : "border-slate-700/40"
+            } rounded-full`}
+          ></div>
 
           <div className="relative flex justify-between items-center h-24 px-8">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
-              <Link to="/" className="block transition-all duration-200 hover:opacity-80 active:scale-95">
+              <Link
+                to="/"
+                className="block transition-all duration-200 hover:opacity-80 active:scale-95"
+              >
                 <img
                   loading="lazy"
-                  src={theme === "light" ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png" : "/AS-collections-Brand-Logos-Mono-1750-x-750-px-light.png"}
+                  src={
+                    theme === "light"
+                      ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png"
+                      : "/AS-collections-Brand-Logos-Mono-1750-x-750-px-light.png"
+                  }
                   className="h-16 w-auto object-contain"
                   alt="A.S. Collections Logo"
                 />
@@ -181,9 +207,13 @@ const Header = () => {
                       style={{ backdropFilter: "blur(10px)" }}
                     >
                       <div className="p-6">
-                        <p className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
-                          theme === "light" ? "text-slate-600" : "text-slate-400"
-                        }`}>
+                        <p
+                          className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
+                            theme === "light"
+                              ? "text-slate-600"
+                              : "text-slate-400"
+                          }`}
+                        >
                           Our Services
                         </p>
                         <div className="space-y-3">
@@ -204,14 +234,22 @@ const Header = () => {
                                   <IconComponent className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
-                                  <p className={`font-montserrat font-bold text-sm ${
-                                    theme === "light" ? "text-slate-900" : "text-white"
-                                  }`}>
+                                  <p
+                                    className={`font-montserrat font-bold text-sm ${
+                                      theme === "light"
+                                        ? "text-slate-900"
+                                        : "text-white"
+                                    }`}
+                                  >
                                     {service.title}
                                   </p>
-                                  <p className={`text-xs mt-0.5 ${
-                                    theme === "light" ? "text-slate-600" : "text-slate-400"
-                                  }`}>
+                                  <p
+                                    className={`text-xs mt-0.5 ${
+                                      theme === "light"
+                                        ? "text-slate-600"
+                                        : "text-slate-400"
+                                    }`}
+                                  >
                                     {service.description}
                                   </p>
                                 </div>
@@ -258,9 +296,13 @@ const Header = () => {
                       style={{ backdropFilter: "blur(10px)" }}
                     >
                       <div className="p-6">
-                        <p className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
-                          theme === "light" ? "text-slate-600" : "text-slate-400"
-                        }`}>
+                        <p
+                          className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
+                            theme === "light"
+                              ? "text-slate-600"
+                              : "text-slate-400"
+                          }`}
+                        >
                           Industries We Serve
                         </p>
                         <div className="grid grid-cols-2 gap-3">
@@ -325,9 +367,13 @@ const Header = () => {
                       style={{ backdropFilter: "blur(10px)" }}
                     >
                       <div className="p-6">
-                        <p className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
-                          theme === "light" ? "text-slate-600" : "text-slate-400"
-                        }`}>
+                        <p
+                          className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
+                            theme === "light"
+                              ? "text-slate-600"
+                              : "text-slate-400"
+                          }`}
+                        >
                           Free Tools
                         </p>
                         <div className="space-y-3">
@@ -348,14 +394,22 @@ const Header = () => {
                                   <IconComponent className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
-                                  <p className={`font-montserrat font-bold text-sm ${
-                                    theme === "light" ? "text-slate-900" : "text-white"
-                                  }`}>
+                                  <p
+                                    className={`font-montserrat font-bold text-sm ${
+                                      theme === "light"
+                                        ? "text-slate-900"
+                                        : "text-white"
+                                    }`}
+                                  >
                                     {tool.title}
                                   </p>
-                                  <p className={`text-xs mt-0.5 ${
-                                    theme === "light" ? "text-slate-600" : "text-slate-400"
-                                  }`}>
+                                  <p
+                                    className={`text-xs mt-0.5 ${
+                                      theme === "light"
+                                        ? "text-slate-600"
+                                        : "text-slate-400"
+                                    }`}
+                                  >
                                     {tool.description}
                                   </p>
                                 </div>
@@ -405,7 +459,7 @@ const Header = () => {
 
               {/* Get in Touch Button */}
               <Button
-                onClick={() => window.location.href = "/contact"}
+                onClick={() => (window.location.href = "/contact")}
                 className="hidden sm:inline-flex bg-slate-900 hover:bg-slate-950 text-white font-manrope font-bold text-xs px-5 py-2 rounded-full transition-all duration-200"
               >
                 Get in Touch
@@ -417,7 +471,7 @@ const Header = () => {
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <Button
-                  onClick={() => window.location.href = "/winding-up-check"}
+                  onClick={() => (window.location.href = "/winding-up-check")}
                   className="hidden md:inline-flex bg-red-600 hover:bg-red-700 text-white font-manrope font-bold text-xs px-5 py-2 rounded-full transition-all duration-200"
                 >
                   Check List
@@ -434,7 +488,11 @@ const Header = () => {
                 }`}
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
               </button>
             </div>
           </div>
@@ -471,9 +529,11 @@ const Header = () => {
           >
             <div className="p-6 space-y-6">
               <div className="flex items-center justify-between mb-2">
-                <span className={`text-sm font-montserrat font-bold ${
-                  theme === "light" ? "text-slate-900" : "text-white"
-                }`}>
+                <span
+                  className={`text-sm font-montserrat font-bold ${
+                    theme === "light" ? "text-slate-900" : "text-white"
+                  }`}
+                >
                   Menu
                 </span>
                 <button
@@ -491,9 +551,11 @@ const Header = () => {
 
               {/* Services Section */}
               <div>
-                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
-                  theme === "light" ? "text-slate-600" : "text-slate-400"
-                }`}>
+                <p
+                  className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
+                    theme === "light" ? "text-slate-600" : "text-slate-400"
+                  }`}
+                >
                   Services
                 </p>
                 <div className="space-y-2">
@@ -512,7 +574,9 @@ const Header = () => {
                       >
                         <IconComponent className="w-4 h-4 mt-0.5 flex-shrink-0" />
                         <div className="flex-1">
-                          <p className="font-montserrat font-bold text-sm">{service.title}</p>
+                          <p className="font-montserrat font-bold text-sm">
+                            {service.title}
+                          </p>
                         </div>
                       </Link>
                     );
@@ -522,9 +586,11 @@ const Header = () => {
 
               {/* Industries Section */}
               <div>
-                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
-                  theme === "light" ? "text-slate-600" : "text-slate-400"
-                }`}>
+                <p
+                  className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
+                    theme === "light" ? "text-slate-600" : "text-slate-400"
+                  }`}
+                >
                   Industries
                 </p>
                 <div className="space-y-2">
@@ -542,7 +608,9 @@ const Header = () => {
                         }`}
                       >
                         <IconComponent className="w-4 h-4 flex-shrink-0" />
-                        <p className="font-montserrat font-bold text-sm">{sector.title}</p>
+                        <p className="font-montserrat font-bold text-sm">
+                          {sector.title}
+                        </p>
                       </Link>
                     );
                   })}
@@ -551,9 +619,11 @@ const Header = () => {
 
               {/* Tools Section */}
               <div>
-                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
-                  theme === "light" ? "text-slate-600" : "text-slate-400"
-                }`}>
+                <p
+                  className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
+                    theme === "light" ? "text-slate-600" : "text-slate-400"
+                  }`}
+                >
                   Tools
                 </p>
                 <div className="space-y-2">
@@ -572,7 +642,9 @@ const Header = () => {
                       >
                         <IconComponent className="w-4 h-4 mt-0.5 flex-shrink-0 text-red-600 dark:text-red-400" />
                         <div className="flex-1">
-                          <p className="font-montserrat font-bold text-sm">{tool.title}</p>
+                          <p className="font-montserrat font-bold text-sm">
+                            {tool.title}
+                          </p>
                         </div>
                       </Link>
                     );
@@ -582,9 +654,11 @@ const Header = () => {
 
               {/* Other Links */}
               <div>
-                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
-                  theme === "light" ? "text-slate-600" : "text-slate-400"
-                }`}>
+                <p
+                  className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${
+                    theme === "light" ? "text-slate-600" : "text-slate-400"
+                  }`}
+                >
                   Company
                 </p>
                 <div className="space-y-2">
@@ -610,7 +684,9 @@ const Header = () => {
                           : "text-slate-200 hover:bg-slate-800"
                       }`}
                     >
-                      <p className="font-montserrat font-bold text-sm">{link.label}</p>
+                      <p className="font-montserrat font-bold text-sm">
+                        {link.label}
+                      </p>
                     </Link>
                   ))}
                 </div>

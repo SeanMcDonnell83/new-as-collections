@@ -96,17 +96,27 @@ const About = () => {
               <p
                 className={`${themeClasses.text.secondary} leading-relaxed font-inter text-base`}
               >
-                Under Emilie Campbell's leadership, A.S. Collections has become the UK's most trusted commercial debt recovery agency. With decades of experience in financial services and debt recovery, Emilie has built a team and system that delivers unparalleled results.
+                Under Emilie Campbell's leadership, A.S. Collections has become
+                the UK's most trusted commercial debt recovery agency. With
+                decades of experience in financial services and debt recovery,
+                Emilie has built a team and system that delivers unparalleled
+                results.
               </p>
               <p
                 className={`${themeClasses.text.secondary} leading-relaxed font-inter text-base`}
               >
-                Our approach focuses on taking complexity away from our clients by heavily investing in technology and delivering bespoke solutions. We understand that every business is unique, and our tailored strategies reflect this understanding.
+                Our approach focuses on taking complexity away from our clients
+                by heavily investing in technology and delivering bespoke
+                solutions. We understand that every business is unique, and our
+                tailored strategies reflect this understanding.
               </p>
               <p
                 className={`${themeClasses.text.secondary} leading-relaxed font-inter text-base`}
               >
-                We maintain the highest professional standards whilst ensuring ethical practices that preserve your valuable client relationships. Our comprehensive approach combines traditional debt recovery methods with innovative digital solutions.
+                We maintain the highest professional standards whilst ensuring
+                ethical practices that preserve your valuable client
+                relationships. Our comprehensive approach combines traditional
+                debt recovery methods with innovative digital solutions.
               </p>
             </div>
           </motion.div>
@@ -138,7 +148,10 @@ const About = () => {
               <blockquote
                 className={`${themeClasses.text.primary} text-lg italic leading-relaxed font-montserrat font-700 border-l-4 border-blue-500 pl-4`}
               >
-                "Our mission is simple: recover what's rightfully yours whilst maintaining the relationships that matter to your business. We achieve this through a perfect blend of cutting-edge technology and time-tested human expertise."
+                "Our mission is simple: recover what's rightfully yours whilst
+                maintaining the relationships that matter to your business. We
+                achieve this through a perfect blend of cutting-edge technology
+                and time-tested human expertise."
               </blockquote>
             </div>
           </motion.div>
@@ -156,7 +169,14 @@ const About = () => {
           <div className="absolute inset-0 opacity-5 dark:opacity-10">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                <pattern
+                  id="dots"
+                  x="0"
+                  y="0"
+                  width="30"
+                  height="30"
+                  patternUnits="userSpaceOnUse"
+                >
                   <circle cx="15" cy="15" r="2" fill="currentColor" />
                 </pattern>
               </defs>

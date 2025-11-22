@@ -4,7 +4,13 @@ import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle, TrendingUp, Shield, Clock, ArrowRight } from "lucide-react";
+import {
+  CheckCircle,
+  TrendingUp,
+  Shield,
+  Clock,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -46,22 +52,24 @@ const CommercialDebtRecoveryService = () => {
     {
       icon: TrendingUp,
       title: "98% Success Rate",
-      description: "Industry-leading recovery success with proven methodologies"
+      description:
+        "Industry-leading recovery success with proven methodologies",
     },
     {
       icon: Clock,
       title: "14-Day Average Recovery",
-      description: "Fast turnaround on successful collections"
+      description: "Fast turnaround on successful collections",
     },
     {
       icon: Shield,
       title: "Professional Approach",
-      description: "Specialist debt collectors protecting your business relationships"
+      description:
+        "Specialist debt collectors protecting your business relationships",
     },
     {
       icon: CheckCircle,
       title: "No Win, No Fee",
-      description: "Zero upfront costs, you only pay when we recover your debt"
+      description: "Zero upfront costs, you only pay when we recover your debt",
     },
   ];
 
@@ -73,8 +81,14 @@ const CommercialDebtRecoveryService = () => {
           name="description"
           content="Professional commercial B2B debt collection services UK-wide. Specialising in Construction, Food & Drink, Oil & Gas industries. 98% success rate, No Win No Fee."
         />
-        <meta name="keywords" content="commercial debt collection, B2B debt recovery, business debt collection UK, commercial debt agency" />
-        <link rel="canonical" href="https://ascollections.co.uk/services/commercial-debt-recovery" />
+        <meta
+          name="keywords"
+          content="commercial debt collection, B2B debt recovery, business debt collection UK, commercial debt agency"
+        />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/services/commercial-debt-recovery"
+        />
       </Helmet>
 
       <Header />
@@ -87,11 +101,29 @@ const CommercialDebtRecoveryService = () => {
           className={`py-24 ${themeClasses.bg.secondary} relative overflow-hidden`}
         >
           <div className="absolute inset-0 opacity-10 dark:opacity-5">
-            <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+            <svg
+              width="100%"
+              height="100%"
+              viewBox="0 0 1200 600"
+              preserveAspectRatio="xMidYMid slice"
+            >
               {/* Blueprint grid */}
               <defs>
-                <pattern id="blueprint" x="40" y="40" width="80" height="80" patternUnits="userSpaceOnUse">
-                  <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#475569" strokeWidth="1" opacity="0.1" />
+                <pattern
+                  id="blueprint"
+                  x="40"
+                  y="40"
+                  width="80"
+                  height="80"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M 80 0 L 0 0 0 80"
+                    fill="none"
+                    stroke="#475569"
+                    strokeWidth="1"
+                    opacity="0.1"
+                  />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#blueprint)" />
@@ -106,22 +138,32 @@ const CommercialDebtRecoveryService = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6 leading-tight`}>
+                <h1
+                  className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6 leading-tight`}
+                >
                   Commercial B2B Debt Collection
                 </h1>
-                <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  UK-wide specialist debt recovery service for businesses. We understand commercial relationships matter—our expert collectors recover your debts professionally and discreetly.
+                <p
+                  className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}
+                >
+                  UK-wide specialist debt recovery service for businesses. We
+                  understand commercial relationships matter—our expert
+                  collectors recover your debts professionally and discreetly.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-6 h-6 text-green-600" />
-                    <span className={`font-inter ${themeClasses.text.secondary}`}>
+                    <span
+                      className={`font-inter ${themeClasses.text.secondary}`}
+                    >
                       Specialising in Construction, Food & Drink, Oil & Gas
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-6 h-6 text-green-600" />
-                    <span className={`font-inter ${themeClasses.text.secondary}`}>
+                    <span
+                      className={`font-inter ${themeClasses.text.secondary}`}
+                    >
                       Proven track record across all UK regions
                     </span>
                   </div>
@@ -139,11 +181,18 @@ const CommercialDebtRecoveryService = () => {
                   viewBox="0 0 400 400"
                   className="w-full h-auto"
                   style={{
-                    filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))"
+                    filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
                   }}
                 >
                   {/* Blueprint background */}
-                  <rect width="400" height="400" fill="none" stroke="#475569" strokeWidth="2" opacity="0.3" />
+                  <rect
+                    width="400"
+                    height="400"
+                    fill="none"
+                    stroke="#475569"
+                    strokeWidth="2"
+                    opacity="0.3"
+                  />
 
                   {/* Components - animated drawing lines */}
                   <motion.path
@@ -243,22 +292,33 @@ const CommercialDebtRecoveryService = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
+                <h2
+                  className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}
+                >
                   Why Choose Our Commercial Debt Collection Service?
                 </h2>
-                <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  With 98% success rate and an average recovery time of 14 days, our experienced team specialises in complex commercial debts. We work discreetly to preserve your business relationships whilst ensuring payment.
+                <p
+                  className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}
+                >
+                  With 98% success rate and an average recovery time of 14 days,
+                  our experienced team specialises in complex commercial debts.
+                  We work discreetly to preserve your business relationships
+                  whilst ensuring payment.
                 </p>
                 <ul className="space-y-4">
                   {[
                     "Nationwide coverage across England, Scotland, Wales",
                     "Sector specialists: Construction, Food & Drink, Oil & Gas",
                     "Expert negotiators with legal backup",
-                    "No Win, No Fee guarantee"
+                    "No Win, No Fee guarantee",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                      <span className={`font-inter ${themeClasses.text.secondary}`}>{item}</span>
+                      <span
+                        className={`font-inter ${themeClasses.text.secondary}`}
+                      >
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -279,14 +339,22 @@ const CommercialDebtRecoveryService = () => {
                       variants={itemVariants}
                       className={`${themeClasses.bg.secondary} rounded-xl border ${themeClasses.border.primary} p-6 flex items-start gap-4`}
                     >
-                      <div className={`w-10 h-10 rounded-lg ${themeClasses.bg.accent} flex items-center justify-center flex-shrink-0`}>
-                        <IconComponent className={`w-6 h-6 ${themeClasses.text.accent}`} />
+                      <div
+                        className={`w-10 h-10 rounded-lg ${themeClasses.bg.accent} flex items-center justify-center flex-shrink-0`}
+                      >
+                        <IconComponent
+                          className={`w-6 h-6 ${themeClasses.text.accent}`}
+                        />
                       </div>
                       <div>
-                        <h3 className={`font-manrope font-bold ${themeClasses.text.primary} mb-1`}>
+                        <h3
+                          className={`font-manrope font-bold ${themeClasses.text.primary} mb-1`}
+                        >
                           {benefit.title}
                         </h3>
-                        <p className={`text-sm ${themeClasses.text.secondary} font-inter`}>
+                        <p
+                          className={`text-sm ${themeClasses.text.secondary} font-inter`}
+                        >
                           {benefit.description}
                         </p>
                       </div>
@@ -307,11 +375,16 @@ const CommercialDebtRecoveryService = () => {
           className={`py-16 ${themeClasses.bg.secondary}`}
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
+            <h2
+              className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}
+            >
               Let's Recover Your Debts
             </h2>
-            <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter`}>
-              Get your free consultation or check if your client is on the winding-up list.
+            <p
+              className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter`}
+            >
+              Get your free consultation or check if your client is on the
+              winding-up list.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/winding-up-check">
@@ -320,7 +393,10 @@ const CommercialDebtRecoveryService = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button variant="outline" className="font-manrope font-bold px-8 py-3 rounded-full">
+                <Button
+                  variant="outline"
+                  className="font-manrope font-bold px-8 py-3 rounded-full"
+                >
                   Get in Touch
                 </Button>
               </Link>

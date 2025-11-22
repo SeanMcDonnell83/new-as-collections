@@ -16,7 +16,10 @@ const DebtCalculatorPage = () => {
           name="description"
           content="Calculate your potential debt recovery, including statutory interest and compensation. Free online tool."
         />
-        <link rel="canonical" href="https://ascollections.co.uk/debt-calculator" />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/debt-calculator"
+        />
       </Helmet>
 
       <Header />

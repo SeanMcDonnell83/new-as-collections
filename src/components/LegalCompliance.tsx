@@ -85,12 +85,14 @@ const LegalCompliance = () => {
           <p
             className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}
           >
-            Maintaining the highest professional standards in commercial debt recovery across England, Scotland, Wales, and Northern Ireland.
+            Maintaining the highest professional standards in commercial debt
+            recovery across England, Scotland, Wales, and Northern Ireland.
           </p>
           <p
             className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed`}
           >
-            Full compliance with UK legislation and industry best practices ensuring ethical and effective debt collection services.
+            Full compliance with UK legislation and industry best practices
+            ensuring ethical and effective debt collection services.
           </p>
         </motion.div>
 
@@ -123,11 +125,17 @@ const LegalCompliance = () => {
                       {standard.description}
                     </p>
                     <div className="space-y-2 py-4 border-t border-gray-200 dark:border-gray-700">
-                      <div className={`text-sm ${themeClasses.text.secondary} font-inter`}>
-                        <span className="font-semibold">Authority:</span> {standard.authority}
+                      <div
+                        className={`text-sm ${themeClasses.text.secondary} font-inter`}
+                      >
+                        <span className="font-semibold">Authority:</span>{" "}
+                        {standard.authority}
                       </div>
-                      <div className={`text-sm ${themeClasses.text.secondary} font-inter`}>
-                        <span className="font-semibold">Reference:</span> {standard.reference}
+                      <div
+                        className={`text-sm ${themeClasses.text.secondary} font-inter`}
+                      >
+                        <span className="font-semibold">Reference:</span>{" "}
+                        {standard.reference}
                       </div>
                     </div>
                     <Button

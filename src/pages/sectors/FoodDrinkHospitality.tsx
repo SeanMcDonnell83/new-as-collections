@@ -2,7 +2,14 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Utensils, Clock, AlertOctagon, ChefHat, Truck } from "lucide-react";
+import {
+  ArrowRight,
+  Utensils,
+  Clock,
+  AlertOctagon,
+  ChefHat,
+  Truck,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -28,7 +35,7 @@ const FoodDrinkHospitality = () => {
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50">
           {/* Fresh Accents */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/50 skew-x-12 transform origin-top-right" />
-          
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -46,8 +53,9 @@ const FoodDrinkHospitality = () => {
                   <span className="text-green-600 italic">FAST.</span>
                 </h1>
                 <p className="text-xl text-slate-600 mb-8 max-w-lg font-medium leading-relaxed">
-                  In hospitality, speed is everything. Restaurants close overnight. 
-                  We move immediately to secure your payment before the shutters come down.
+                  In hospitality, speed is everything. Restaurants close
+                  overnight. We move immediately to secure your payment before
+                  the shutters come down.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/winding-up-check">
@@ -56,7 +64,10 @@ const FoodDrinkHospitality = () => {
                     </Button>
                   </Link>
                   <Link to="/services/credit-control-insolvency">
-                    <Button variant="ghost" className="text-slate-900 hover:bg-green-50 font-bold text-lg px-8 py-6 rounded-full">
+                    <Button
+                      variant="ghost"
+                      className="text-slate-900 hover:bg-green-50 font-bold text-lg px-8 py-6 rounded-full"
+                    >
                       Insolvency Services
                     </Button>
                   </Link>
@@ -64,7 +75,7 @@ const FoodDrinkHospitality = () => {
               </motion.div>
 
               {/* Masonry Grid Visual */}
-              <motion.div 
+              <motion.div
                 className="grid grid-cols-2 gap-4"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -74,24 +85,32 @@ const FoodDrinkHospitality = () => {
                   <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
                     <Utensils className="w-8 h-8 text-green-500 mb-4" />
                     <h3 className="font-bold text-lg">Restaurants</h3>
-                    <p className="text-sm text-slate-500">High turnover, high risk.</p>
+                    <p className="text-sm text-slate-500">
+                      High turnover, high risk.
+                    </p>
                   </div>
                   <div className="bg-slate-900 text-white p-6 rounded-2xl shadow-xl">
                     <ChefHat className="w-8 h-8 text-green-400 mb-4" />
                     <h3 className="font-bold text-lg">Caterers</h3>
-                    <p className="text-sm text-slate-400">Seasonal cash flow gaps.</p>
+                    <p className="text-sm text-slate-400">
+                      Seasonal cash flow gaps.
+                    </p>
                   </div>
                 </motion.div>
                 <motion.div style={{ y: y2 }} className="space-y-4 mt-12">
                   <div className="bg-green-600 text-white p-6 rounded-2xl shadow-xl">
                     <Truck className="w-8 h-8 text-white mb-4" />
                     <h3 className="font-bold text-lg">Wholesalers</h3>
-                    <p className="text-sm text-green-100">Razor-thin margins.</p>
+                    <p className="text-sm text-green-100">
+                      Razor-thin margins.
+                    </p>
                   </div>
                   <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
                     <Clock className="w-8 h-8 text-red-500 mb-4" />
                     <h3 className="font-bold text-lg">Speed</h3>
-                    <p className="text-sm text-slate-500">Critical response time.</p>
+                    <p className="text-sm text-slate-500">
+                      Critical response time.
+                    </p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -104,7 +123,9 @@ const FoodDrinkHospitality = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-black mb-4">THE MENU OF EXCUSES</h2>
-              <p className="text-xl text-slate-500">Common problems we solve daily.</p>
+              <p className="text-xl text-slate-500">
+                Common problems we solve daily.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -113,20 +134,20 @@ const FoodDrinkHospitality = () => {
                   title: "Insolvency Risk",
                   desc: "Restaurants and bars go bust overnight. If you wait, you get nothing.",
                   icon: AlertOctagon,
-                  color: "text-red-500"
+                  color: "text-red-500",
                 },
                 {
                   title: "Razor-Thin Margins",
                   desc: "You can't afford to write off a £5k invoice on a low-margin food order.",
                   icon: Utensils,
-                  color: "text-orange-500"
+                  color: "text-orange-500",
                 },
                 {
                   title: '"Cheque in the Post"',
                   desc: "Constant excuses from busy chefs and managers while they order from your competitor.",
                   icon: Clock,
-                  color: "text-blue-500"
-                }
+                  color: "text-blue-500",
+                },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -145,7 +166,7 @@ const FoodDrinkHospitality = () => {
         {/* Solution Section: Speed */}
         <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
           <div className="absolute inset-0 bg-green-600/10 blur-3xl transform -skew-y-12" />
-          
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
@@ -154,7 +175,10 @@ const FoodDrinkHospitality = () => {
                   <span className="text-green-500">FASTER.</span>
                 </h2>
                 <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                  In hospitality, being the first creditor to act is the difference between payment and a bad debt write-off. We handle the awkwardness so you can maintain the supplier relationship if you want to.
+                  In hospitality, being the first creditor to act is the
+                  difference between payment and a bad debt write-off. We handle
+                  the awkwardness so you can maintain the supplier relationship
+                  if you want to.
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center gap-3 text-lg font-bold">
@@ -178,7 +202,7 @@ const FoodDrinkHospitality = () => {
               </div>
               <div className="relative">
                 {/* Motion Blur Effect Visual */}
-                <motion.div 
+                <motion.div
                   animate={{ x: [-20, 20, -20] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                   className="bg-green-600 p-12 rounded-3xl transform rotate-3 blur-sm opacity-50 absolute inset-0"
@@ -186,7 +210,8 @@ const FoodDrinkHospitality = () => {
                 <div className="bg-slate-800 p-12 rounded-3xl border border-slate-700 relative shadow-2xl">
                   <h3 className="text-2xl font-bold mb-4">The A.S. Promise</h3>
                   <p className="text-slate-400">
-                    "We don't wait for the second excuse. We secure your position immediately."
+                    "We don't wait for the second excuse. We secure your
+                    position immediately."
                   </p>
                 </div>
               </div>

@@ -50,17 +50,21 @@ export const HorizontalStepper = ({
       className={`py-24 ${themeClasses.bg.primary}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
+          <h2
+            className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}
+          >
             {title}
           </h2>
-          <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter`}>
+          <p
+            className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter`}
+          >
             {subtitle}
           </p>
         </motion.div>
@@ -109,16 +113,24 @@ export const HorizontalStepper = ({
                     {/* Outer ring animation */}
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                       className="absolute inset-0 rounded-full border-2 border-transparent border-t-blue-300 border-r-blue-300"
                     />
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}>
+                  <h3
+                    className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
+                  >
                     {item.title}
                   </h3>
-                  <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm`}>
+                  <p
+                    className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm`}
+                  >
                     {item.description}
                   </p>
                 </motion.div>
@@ -166,10 +178,14 @@ export const HorizontalStepper = ({
 
                 {/* Right side - Content */}
                 <div className="flex-1 pt-2">
-                  <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-700`}>
+                  <h3
+                    className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-700`}
+                  >
                     {item.title}
                   </h3>
-                  <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm`}>
+                  <p
+                    className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm`}
+                  >
                     {item.description}
                   </p>
                 </div>

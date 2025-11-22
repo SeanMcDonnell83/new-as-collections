@@ -58,7 +58,10 @@ const Hero = () => {
               animate="visible"
             >
               {/* Tagline */}
-              <motion.div variants={itemVariants} className="inline-flex items-center px-4 py-2 rounded-full bg-green-200 dark:bg-green-900 border border-green-300 dark:border-green-700 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8 font-inter">
+              <motion.div
+                variants={itemVariants}
+                className="inline-flex items-center px-4 py-2 rounded-full bg-green-200 dark:bg-green-900 border border-green-300 dark:border-green-700 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8 font-inter"
+              >
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                 No Win, No Fee · UK Wide Coverage
               </motion.div>
@@ -90,7 +93,10 @@ const Hero = () => {
               </motion.p>
 
               {/* Key Benefits */}
-              <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <motion.div
+                variants={itemVariants}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
+              >
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span
@@ -126,14 +132,17 @@ const Hero = () => {
               </motion.div>
 
               {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-6">
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 mb-6"
+              >
                 <motion.div
                   animate={{ scale: [1, 1.02, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   className="flex-1"
                 >
                   <Button
-                    onClick={() => window.location.href = "/winding-up-check"}
+                    onClick={() => (window.location.href = "/winding-up-check")}
                     size="lg"
                     className="w-full bg-red-600 hover:bg-red-700 text-white px-8 py-5 text-lg rounded-full font-montserrat font-bold"
                   >
@@ -142,7 +151,7 @@ const Hero = () => {
                   </Button>
                 </motion.div>
                 <Button
-                  onClick={() => window.location.href = "/contact"}
+                  onClick={() => (window.location.href = "/contact")}
                   size="lg"
                   className={`flex-1 ${themeClasses.button.primary} px-8 py-5 text-lg rounded-full font-montserrat font-bold`}
                 >

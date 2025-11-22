@@ -68,7 +68,8 @@ const Contact = () => {
       // Show success message and redirect
       toast({
         title: "Success!",
-        description: "Your consultation request has been sent. We'll be in touch shortly.",
+        description:
+          "Your consultation request has been sent. We'll be in touch shortly.",
       });
 
       // Reset form
