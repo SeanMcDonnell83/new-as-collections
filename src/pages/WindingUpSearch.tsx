@@ -654,6 +654,13 @@ const WindingUpSearch = () => {
                             >
                               Report Risk or Verify
                             </Button>
+                            <Button
+                              onClick={addToBookmarks}
+                              className="bg-green-600/70 hover:bg-green-700 text-white font-montserrat font-700 text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2 flex-1 sm:flex-initial justify-center"
+                            >
+                              <Bookmark className="w-3 h-3" />
+                              Bookmark
+                            </Button>
                           </div>
                         </div>
                       </div>
