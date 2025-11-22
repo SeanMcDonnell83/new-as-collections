@@ -11,13 +11,17 @@ const AboutUs = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>About Us - Leading UK Commercial Debt Recovery | A.S. Collections</title>
-        <meta 
-          name="description" 
-          content="Meet Emilie Campbell and the A.S. Collections team. Leading UK debt recovery specialists with 98% success rate. Our mission, values and why businesses choose us for commercial debt collection." 
+        <title>About Us | Leading UK Debt Collection Agency | A.S. Collections</title>
+        <meta
+          name="description"
+          content="Meet Emilie Campbell and the A.S. Collections team. Leading UK debt recovery specialists with 98% success rate, £50M+ recovered. Our mission, values and expertise."
         />
-        <meta name="keywords" content="about us debt recovery UK, Emilie Campbell managing director, commercial debt collection team, debt recovery specialists UK, professional debt collection services" />
+        <meta name="keywords" content="about A.S. Collections, Emilie Campbell managing director, UK debt recovery team, commercial debt collection specialists, professional debt recovery agency" />
         <link rel="canonical" href="https://ascollections.co.uk/about-us" />
+        <meta property="og:title" content="About Us | Leading UK Debt Collection Agency | A.S. Collections" />
+        <meta property="og:description" content="Meet Emilie Campbell and the A.S. Collections team. 98% success rate, £50M+ recovered." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ascollections.co.uk/about-us" />
       </Helmet>
       
       <Header />
