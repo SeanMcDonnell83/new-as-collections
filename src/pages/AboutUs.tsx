@@ -231,21 +231,21 @@ const AboutUs = () => {
         </section>
 
         {/* Sticky Trust Bar */}
-        <div className="fixed bottom-0 left-0 right-0 bg-slate-900 text-white py-4 z-40 border-t border-slate-800 shadow-2xl">
+        <div className={`fixed bottom-0 left-0 right-0 ${themeClasses.bg.primary} py-4 z-40 border-t ${themeClasses.border.primary} shadow-2xl`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div className="flex gap-8">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="font-bold">£3.2M+ Recovered</span>
+                <span className={`font-bold ${themeClasses.text.primary}`}>£50M+ Recovered</span>
               </div>
               <div className="hidden md:flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="font-bold">98% Success Rate</span>
+                <span className={`font-bold ${themeClasses.text.primary}`}>98% Success Rate</span>
               </div>
             </div>
             <a
               href="/contact"
-              className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-6 py-2 rounded-full transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-6 py-2 rounded-full transition-colors"
             >
               Get Started
             </a>
