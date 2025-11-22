@@ -493,6 +493,19 @@ const WindingUpSearch = () => {
                     </p>
                   </div>
 
+                  {/* Status Indicator */}
+                  <div className="flex items-center justify-between mb-6 pb-6 border-b border-slate-200 dark:border-neutral-800">
+                    <span className={`text-sm font-montserrat font-700 uppercase tracking-wider ${themeClasses.text.primary}`}>
+                      Scan Status
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-lg shadow-green-500/50"></span>
+                      <span className="text-xs font-montserrat font-700 text-green-600 dark:text-green-400 uppercase tracking-wider">
+                        System Online
+                      </span>
+                    </div>
+                  </div>
+
                   {/* Input Field - Code Editor Style */}
                   <div className="mb-8">
                     <label

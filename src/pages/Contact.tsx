@@ -65,15 +65,10 @@ const ContactPage = () => {
       <Header />
       <main>
         {/* Hero Section: The Concierge */}
-        <section className="relative pt-32 pb-20 bg-slate-900 overflow-hidden min-h-[600px] flex items-center">
-          {/* Stylized Map Background */}
-          <div className="absolute inset-0 opacity-20 pointer-events-none">
-             <img 
-               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/United_Kingdom_location_map.svg/1024px-United_Kingdom_location_map.svg.png" 
-               className="w-full h-full object-cover grayscale invert"
-               alt="UK Map"
-             />
-          </div>
+        <section className="relative pt-32 pb-20 bg-slate-900 overflow-hidden min-h-[600px] flex items-center" style={{
+          backgroundImage: 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }}>
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div className="grid lg:grid-cols-12 gap-8 items-start">

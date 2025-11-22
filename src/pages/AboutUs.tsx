@@ -64,15 +64,24 @@ const AboutUs = () => {
                 transition={{ duration: 0.8 }}
                 className="relative"
               >
-                <div className="absolute inset-0 bg-blue-600 rounded-2xl transform rotate-3 translate-x-4 translate-y-4" />
-                <img 
-                  src="/placeholder.svg" 
-                  alt="Emilie Campbell" 
-                  className="relative z-10 rounded-2xl shadow-2xl w-full h-[600px] object-cover bg-slate-200"
-                />
-                <div className="absolute bottom-8 left-8 z-20 bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-xs">
-                  <p className="font-bold text-slate-900 text-lg">Emilie Campbell</p>
-                  <p className="text-slate-600 text-sm">Managing Director</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/40 to-purple-600/40 rounded-2xl transform rotate-3 translate-x-4 translate-y-4" />
+                <div className="relative z-10 rounded-2xl shadow-2xl w-full h-[600px] bg-gradient-to-br from-slate-900 via-slate-800 to-black flex items-center justify-center overflow-hidden">
+                  {/* Animated SVG Shape */}
+                  <svg className="absolute w-64 h-64 opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.5" />
+                        <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.5" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="url(#grad1)" />
+                    <rect x="30" y="30" width="140" height="140" fill="none" stroke="url(#grad1)" strokeWidth="2" opacity="0.3" />
+                  </svg>
+                  <div className="relative z-10 text-center">
+                    <p className="text-slate-400 text-sm font-montserrat font-700 uppercase tracking-widest mb-2">Leadership</p>
+                    <h3 className="text-4xl font-black text-white font-montserrat">Emilie Campbell</h3>
+                    <p className="text-slate-300 text-sm mt-2 font-inter">Managing Director</p>
+                  </div>
                 </div>
               </motion.div>
 
