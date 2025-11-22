@@ -152,8 +152,15 @@ const ContactPage = () => {
           </div>
         </section>
 
-        <Contact />
-        
+        {/* Floating Contact Form */}
+        <div className={`relative ${themeClasses.bg.primary} pb-20`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
+            <div className={`${themeClasses.bg.primary} rounded-2xl shadow-2xl border ${themeClasses.border.primary} p-8`}>
+              <Contact />
+            </div>
+          </div>
+        </div>
+
         {/* Service Areas */}
         <motion.section 
           initial={{ opacity: 0, y: 30 }}
