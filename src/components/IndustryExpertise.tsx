@@ -135,19 +135,19 @@ const IndustryExpertise = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div ref={ref} {...animationProps} className="text-center mb-16">
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
           >
             Industry-Specific Debt Recovery Expertise
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-4`}
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light mb-4`}
           >
             Deep sector knowledge and specialised debt collection strategies for
             UK businesses across construction, food & drink, oil & gas,
             education, recruitment, and shipping industries.
           </p>
           <p
-            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans`}
+            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter`}
           >
             Our commercial debt recovery specialists understand the unique
             challenges, regulations, and relationship dynamics within each
@@ -177,12 +177,12 @@ const IndustryExpertise = () => {
                       </div>
                       <div>
                         <h3
-                          className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-noto-serif`}
+                          className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}
                         >
                           {industry.title}
                         </h3>
                         <p
-                          className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans`}
+                          className={`${themeClasses.text.secondary} leading-relaxed font-inter`}
                         >
                           {industry.description}
                         </p>
@@ -194,7 +194,7 @@ const IndustryExpertise = () => {
                         <div key={specialtyIndex} className="flex items-center">
                           <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 flex-shrink-0"></div>
                           <span
-                            className={`${themeClasses.text.secondary} text-sm font-noto-sans`}
+                            className={`${themeClasses.text.secondary} text-sm font-inter`}
                           >
                             {specialty}
                           </span>
@@ -205,43 +205,43 @@ const IndustryExpertise = () => {
 
                   <div className={`${themeClasses.bg.accent} rounded-xl p-6`}>
                     <h4
-                      className={`text-lg font-bold ${themeClasses.text.primary} mb-4 font-noto-serif text-center`}
+                      className={`text-lg font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700 text-center`}
                     >
                       Industry Results
                     </h4>
                     <div className="space-y-4">
                       <div className="text-center">
                         <div
-                          className={`text-2xl font-bold ${themeClasses.text.accent} font-noto-serif`}
+                          className={`text-2xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
                         >
                           {industry.stats.recovered}
                         </div>
                         <div
-                          className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                          className={`text-sm ${themeClasses.text.secondary} font-inter`}
                         >
                           Total Recovered
                         </div>
                       </div>
                       <div className="text-center">
                         <div
-                          className={`text-2xl font-bold ${themeClasses.text.accent} font-noto-serif`}
+                          className={`text-2xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
                         >
                           {industry.stats.clients}
                         </div>
                         <div
-                          className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                          className={`text-sm ${themeClasses.text.secondary} font-inter`}
                         >
                           Clients Served
                         </div>
                       </div>
                       <div className="text-center">
                         <div
-                          className={`text-2xl font-bold ${themeClasses.text.accent} font-noto-serif`}
+                          className={`text-2xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
                         >
                           {industry.stats.rate}
                         </div>
                         <div
-                          className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                          className={`text-sm ${themeClasses.text.secondary} font-inter`}
                         >
                           Success Rate
                         </div>
@@ -262,12 +262,12 @@ const IndustryExpertise = () => {
           className={`mt-16 ${themeClasses.bg.primary} rounded-2xl border ${themeClasses.border.primary} p-8 text-center`}
         >
           <h3
-            className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}
+            className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
           >
             Don't See Your Industry Listed?
           </h3>
           <p
-            className={`${themeClasses.text.secondary} mb-6 font-noto-sans max-w-2xl mx-auto`}
+            className={`${themeClasses.text.secondary} mb-6 font-inter max-w-2xl mx-auto`}
           >
             Our commercial debt recovery expertise extends across all UK
             business sectors. Contact our specialists to discuss your specific
@@ -289,7 +289,7 @@ const IndustryExpertise = () => {
             ].map((sector, index) => (
               <span
                 key={index}
-                className={`px-3 py-1 rounded-full ${themeClasses.bg.accent} ${themeClasses.text.secondary} font-noto-sans`}
+                className={`px-3 py-1 rounded-full ${themeClasses.bg.accent} ${themeClasses.text.secondary} font-inter`}
               >
                 {sector}
               </span>

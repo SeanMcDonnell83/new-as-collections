@@ -16,13 +16,13 @@ const Footer = () => {
                 alt="AS Collections Logo"
               />
             </div>
-            <p className="text-neutral-300 mb-4 max-w-md font-noto-sans">
+            <p className="text-neutral-300 mb-4 max-w-md font-inter">
               Leading commercial debt recovery UK specialists. No win no fee
               debt collection services across London, Manchester, Birmingham,
               Glasgow, and Edinburgh. Professional B2B debt recovery with 98%
               success rate and ethical approach.
             </p>
-            <p className="text-blue-400 font-semibold mb-6 font-noto-sans">
+            <p className="text-blue-400 font-semibold mb-6 font-inter">
               Recovery experts for hire UK - If we can't collect it, nobody can.
             </p>
 
@@ -30,17 +30,17 @@ const Footer = () => {
             <div className="bg-neutral-800 dark:bg-neutral-900 rounded-lg p-4 mb-6 border border-neutral-700">
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-green-400 font-noto-serif">98%</div>
-                  <div className="text-xs text-neutral-400 font-noto-sans">Success Rate</div>
+                  <div className="text-2xl font-bold text-green-400 font-montserrat font-700">98%</div>
+                  <div className="text-xs text-neutral-400 font-inter">Success Rate</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-green-400 font-noto-serif">14 Days</div>
-                  <div className="text-xs text-neutral-400 font-noto-sans">Average Recovery</div>
+                  <div className="text-2xl font-bold text-green-400 font-montserrat font-700">14 Days</div>
+                  <div className="text-xs text-neutral-400 font-inter">Average Recovery</div>
                 </div>
               </div>
               <div className="mt-3 text-center">
-                <div className="text-lg font-bold text-yellow-400 font-noto-serif">No Win, No Fee</div>
-                <div className="text-xs text-neutral-400 font-noto-sans">Guaranteed for all debt recovery services</div>
+                <div className="text-lg font-bold text-yellow-400 font-montserrat font-700">No Win, No Fee</div>
+                <div className="text-xs text-neutral-400 font-inter">Guaranteed for all debt recovery services</div>
               </div>
             </div>
 
@@ -50,7 +50,7 @@ const Footer = () => {
                 href="https://www.fca.org.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-noto-sans"
+                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
               >
                 FCA
               </a>
@@ -58,7 +58,7 @@ const Footer = () => {
                 href="https://www.cicm.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-noto-sans"
+                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
               >
                 CICM
               </a>
@@ -66,7 +66,7 @@ const Footer = () => {
                 href="https://www.csa-uk.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-noto-sans"
+                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
               >
                 CSA
               </a>
@@ -74,7 +74,7 @@ const Footer = () => {
                 href="https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-noto-sans"
+                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
               >
                 HMCTS
               </a>
@@ -82,10 +82,10 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4 font-noto-sans">
+            <h4 className="text-white font-semibold mb-4 font-inter">
               Services
             </h4>
-            <div className="space-y-2 text-neutral-300 text-sm font-noto-sans">
+            <div className="space-y-2 text-neutral-300 text-sm font-inter">
               <div>Commercial B2B Debt Collection</div>
               <div>Construction & Engineering Recovery</div>
               <div>International Debt Recovery</div>
@@ -98,10 +98,10 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4 font-noto-sans">
+            <h4 className="text-white font-semibold mb-4 font-inter">
               Industry Links
             </h4>
-            <div className="space-y-2 text-neutral-300 text-sm font-noto-sans">
+            <div className="space-y-2 text-neutral-300 text-sm font-inter">
               <a
                 href="https://www.legislation.gov.uk/ukpga/1998/20/contents"
                 target="_blank"
@@ -137,10 +137,10 @@ const Footer = () => {
             </div>
 
             <div className="mt-6">
-              <h5 className="text-white font-semibold mb-2 font-noto-sans">
+              <h5 className="text-white font-semibold mb-2 font-inter">
                 Contact
               </h5>
-              <div className="space-y-1 text-neutral-300 text-sm font-noto-sans">
+              <div className="space-y-1 text-neutral-300 text-sm font-inter">
                 <div>Liverpool, UK</div>
                 <div>London | Manchester | Birmingham</div>
                 <a
@@ -161,7 +161,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
-          <p className="text-neutral-400 text-sm font-noto-sans">
+          <p className="text-neutral-400 text-sm font-inter">
             © {new Date().getFullYear()} OVAS NW. All rights reserved. | Professional debt collection services across England, Scotland, Wales and Northern Ireland.
             <br />
             Website created by{" "}

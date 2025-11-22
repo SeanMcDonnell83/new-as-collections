@@ -126,12 +126,12 @@ A.S. Collections Website System
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div {...animationProps} className="text-center mb-16">
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
           >
             Get Your Free No Win No Fee Consultation
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}
           >
             No obligation, completely free consultation to assess your unpaid
             invoice recovery UK needs. Let us show you how our commercial debt
@@ -152,7 +152,7 @@ A.S. Collections Website System
               className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8 h-fit`}
             >
               <h3
-                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-noto-serif`}
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-700`}
               >
                 Contact Information
               </h3>
@@ -171,14 +171,14 @@ A.S. Collections Website System
                       </div>
                       <div className="flex-1">
                         <h4
-                          className={`font-semibold ${themeClasses.text.primary} mb-1 font-noto-sans`}
+                          className={`font-semibold ${themeClasses.text.primary} mb-1 font-inter`}
                         >
                           {info.title}
                         </h4>
                         {info.details.map((detail, idx) => (
                           <p
                             key={idx}
-                            className={`${themeClasses.text.secondary} text-sm font-noto-sans`}
+                            className={`${themeClasses.text.secondary} text-sm font-inter`}
                           >
                             {detail}
                           </p>
@@ -186,7 +186,7 @@ A.S. Collections Website System
                         {info.action && (
                           <a
                             href={info.link}
-                            className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors mt-1 inline-block font-noto-sans`}
+                            className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors mt-1 inline-block font-inter`}
                           >
                             {info.action}
                           </a>
@@ -204,12 +204,12 @@ A.S. Collections Website System
                   className={`flex items-center space-x-2 ${themeClasses.text.secondary} mb-4`}
                 >
                   <Clock className="w-4 h-4" />
-                  <span className="text-sm font-medium font-noto-sans">
+                  <span className="text-sm font-medium font-inter">
                     Business Hours
                   </span>
                 </div>
                 <div
-                  className={`space-y-1 text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                  className={`space-y-1 text-sm ${themeClasses.text.secondary} font-inter`}
                 >
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
@@ -220,7 +220,7 @@ A.S. Collections Website System
 
               <div className={`mt-6 p-4 ${themeClasses.bg.accent} rounded-lg`}>
                 <p
-                  className={`${themeClasses.text.accent} text-sm font-medium text-center font-noto-sans`}
+                  className={`${themeClasses.text.accent} text-sm font-medium text-center font-inter`}
                 >
                   "You might not need us now, but there will come a time you
                   will."
@@ -241,7 +241,7 @@ A.S. Collections Website System
               className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8`}
             >
               <h3
-                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-noto-serif`}
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-700`}
               >
                 Request Your Free Consultation
               </h3>
@@ -260,17 +260,17 @@ A.S. Collections Website System
                   <div>
                     <Label
                       htmlFor="firstName"
-                      className={`${themeClasses.text.primary} font-noto-sans`}
+                      className={`${themeClasses.text.primary} font-inter`}
                     >
                       First Name *
                     </Label>
                     <Input
                       id="firstName"
                       {...register("firstName")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                     />
                     {errors.firstName && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
                         {errors.firstName.message}
                       </p>
                     )}
@@ -279,17 +279,17 @@ A.S. Collections Website System
                   <div>
                     <Label
                       htmlFor="lastName"
-                      className={`${themeClasses.text.primary} font-noto-sans`}
+                      className={`${themeClasses.text.primary} font-inter`}
                     >
                       Last Name *
                     </Label>
                     <Input
                       id="lastName"
                       {...register("lastName")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                     />
                     {errors.lastName && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
                         {errors.lastName.message}
                       </p>
                     )}
@@ -300,7 +300,7 @@ A.S. Collections Website System
                   <div>
                     <Label
                       htmlFor="email"
-                      className={`${themeClasses.text.primary} font-noto-sans`}
+                      className={`${themeClasses.text.primary} font-inter`}
                     >
                       Email Address *
                     </Label>
@@ -308,10 +308,10 @@ A.S. Collections Website System
                       id="email"
                       type="email"
                       {...register("email")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                     />
                     {errors.email && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
                         {errors.email.message}
                       </p>
                     )}
@@ -320,7 +320,7 @@ A.S. Collections Website System
                   <div>
                     <Label
                       htmlFor="phone"
-                      className={`${themeClasses.text.primary} font-noto-sans`}
+                      className={`${themeClasses.text.primary} font-inter`}
                     >
                       Phone Number *
                     </Label>
@@ -328,10 +328,10 @@ A.S. Collections Website System
                       id="phone"
                       type="tel"
                       {...register("phone")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                     />
                     {errors.phone && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
                         {errors.phone.message}
                       </p>
                     )}
@@ -342,17 +342,17 @@ A.S. Collections Website System
                   <div>
                     <Label
                       htmlFor="company"
-                      className={`${themeClasses.text.primary} font-noto-sans`}
+                      className={`${themeClasses.text.primary} font-inter`}
                     >
                       Company Name *
                     </Label>
                     <Input
                       id="company"
                       {...register("company")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                     />
                     {errors.company && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
+                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
                         {errors.company.message}
                       </p>
                     )}
@@ -361,7 +361,7 @@ A.S. Collections Website System
                   <div>
                     <Label
                       htmlFor="debtAmount"
-                      className={`${themeClasses.text.primary} font-noto-sans`}
+                      className={`${themeClasses.text.primary} font-inter`}
                     >
                       Approximate Debt Amount (£)
                     </Label>
@@ -369,7 +369,7 @@ A.S. Collections Website System
                       id="debtAmount"
                       {...register("debtAmount")}
                       placeholder="e.g., 5,000"
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
+                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                     />
                   </div>
                 </div>
@@ -377,7 +377,7 @@ A.S. Collections Website System
                 <div>
                   <Label
                     htmlFor="message"
-                    className={`${themeClasses.text.primary} font-noto-sans`}
+                    className={`${themeClasses.text.primary} font-inter`}
                   >
                     Tell us about your situation *
                   </Label>
@@ -386,10 +386,10 @@ A.S. Collections Website System
                     {...register("message")}
                     rows={4}
                     placeholder="Please provide details about the debt, debtor, and any previous collection attempts..."
-                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-noto-sans`}
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                   />
                   {errors.message && (
-                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-noto-sans">
+                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
                       {errors.message.message}
                     </p>
                   )}
@@ -398,7 +398,7 @@ A.S. Collections Website System
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full ${themeClasses.button.primary} font-semibold py-3 transition-colors duration-200 font-noto-sans`}
+                  className={`w-full ${themeClasses.button.primary} font-semibold py-3 transition-colors duration-200 font-inter`}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center">
@@ -414,7 +414,7 @@ A.S. Collections Website System
                 </Button>
 
                 <p
-                  className={`text-xs ${themeClasses.text.muted} text-center font-noto-sans`}
+                  className={`text-xs ${themeClasses.text.muted} text-center font-inter`}
                 >
                   By clicking submit, your email client will open with a
                   pre-filled message to info@ascollections.co.uk. Simply send
@@ -426,7 +426,7 @@ A.S. Collections Website System
                   className={`mt-4 p-3 ${themeClasses.bg.secondary} rounded-lg`}
                 >
                   <p
-                    className={`text-xs ${themeClasses.text.tertiary} font-noto-sans`}
+                    className={`text-xs ${themeClasses.text.tertiary} font-inter`}
                   >
                     <strong>GDPR Notice:</strong> Your personal data will be
                     processed in accordance with our privacy policy. You have

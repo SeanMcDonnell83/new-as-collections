@@ -49,12 +49,12 @@ const CookieConsent = () => {
               />
               <div className="flex-1">
                 <h3
-                  className={`font-semibold ${themeClasses.text.primary} font-noto-sans mb-1`}
+                  className={`font-semibold ${themeClasses.text.primary} font-inter mb-1`}
                 >
                   Cookie Preferences
                 </h3>
                 <p
-                  className={`text-sm ${themeClasses.text.secondary} font-noto-sans leading-relaxed`}
+                  className={`text-sm ${themeClasses.text.secondary} font-inter leading-relaxed`}
                 >
                   We use cookies to enhance your experience, analyse site usage,
                   and assist with marketing. By clicking "Accept All", you
@@ -76,7 +76,7 @@ const CookieConsent = () => {
                     transition={{ duration: 0.3 }}
                     className="mt-3 p-3 bg-neutral-50 dark:bg-neutral-800 rounded-lg"
                   >
-                    <div className="space-y-2 text-xs font-noto-sans">
+                    <div className="space-y-2 text-xs font-inter">
                       <div>
                         <strong className={themeClasses.text.primary}>
                           Essential Cookies:
@@ -115,14 +115,14 @@ const CookieConsent = () => {
                 onClick={rejectCookies}
                 variant="outline"
                 size="sm"
-                className={`${themeClasses.button.outline} font-noto-sans text-xs px-4 py-2`}
+                className={`${themeClasses.button.outline} font-inter text-xs px-4 py-2`}
               >
                 Reject All
               </Button>
               <Button
                 onClick={acceptCookies}
                 size="sm"
-                className={`${themeClasses.button.primary} font-noto-sans text-xs px-4 py-2`}
+                className={`${themeClasses.button.primary} font-inter text-xs px-4 py-2`}
               >
                 Accept All
               </Button>

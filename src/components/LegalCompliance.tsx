@@ -78,12 +78,12 @@ const LegalCompliance = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div ref={ref} {...animationProps} className="text-center mb-16">
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}
+            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
           >
             Legal Compliance & Professional Standards
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-4`}
+            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light mb-4`}
           >
             Maintaining the highest professional standards in commercial debt
             recovery across England, Scotland, Wales, and Northern Ireland. Full
@@ -91,7 +91,7 @@ const LegalCompliance = () => {
             ethical and effective debt collection services.
           </p>
           <p
-            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans`}
+            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter`}
           >
             Our debt collection agency operates within strict legal frameworks
             to protect both creditors and debtors throughout the recovery
@@ -120,29 +120,29 @@ const LegalCompliance = () => {
                   </div>
                   <div className="flex-1">
                     <h3
-                      className={`text-xl font-bold ${themeClasses.text.primary} mb-3 font-noto-serif`}
+                      className={`text-xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}
                     >
                       {standard.title}
                     </h3>
                     <p
-                      className={`${themeClasses.text.secondary} mb-4 leading-relaxed font-noto-sans`}
+                      className={`${themeClasses.text.secondary} mb-4 leading-relaxed font-inter`}
                     >
                       {standard.description}
                     </p>
                     <div
-                      className={`text-sm ${themeClasses.text.tertiary} mb-2 font-noto-sans`}
+                      className={`text-sm ${themeClasses.text.tertiary} mb-2 font-inter`}
                     >
                       <strong>Framework:</strong> {standard.authority}
                     </div>
                     <div
-                      className={`text-sm ${themeClasses.text.tertiary} mb-4 font-noto-sans`}
+                      className={`text-sm ${themeClasses.text.tertiary} mb-4 font-inter`}
                     >
                       <strong>Reference:</strong> {standard.reference}
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      className={`${themeClasses.button.outline} text-xs font-noto-sans`}
+                      className={`${themeClasses.button.outline} text-xs font-inter`}
                       onClick={() => window.open(standard.link, "_blank")}
                     >
                       Learn More
@@ -165,12 +165,12 @@ const LegalCompliance = () => {
         >
           <div className="text-center mb-12">
             <h3
-              className={`text-3xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}
+              className={`text-3xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
             >
               Professional Debt Recovery Services
             </h3>
             <p
-              className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans`}
+              className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter`}
             >
               Professional debt recovery services with legal support and
               guidance throughout the process. From initial contact through to
@@ -190,17 +190,17 @@ const LegalCompliance = () => {
                 className={`${themeClasses.bg.primary} rounded-lg border ${themeClasses.border.primary} p-6`}
               >
                 <h4
-                  className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-noto-serif`}
+                  className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}
                 >
                   {service.title}
                 </h4>
                 <p
-                  className={`${themeClasses.text.secondary} mb-4 text-sm leading-relaxed font-noto-sans`}
+                  className={`${themeClasses.text.secondary} mb-4 text-sm leading-relaxed font-inter`}
                 >
                   {service.description}
                 </p>
                 <div
-                  className={`text-xs ${themeClasses.text.accent} font-medium font-noto-sans`}
+                  className={`text-xs ${themeClasses.text.accent} font-medium font-inter`}
                 >
                   {service.process}
                 </div>
@@ -219,12 +219,12 @@ const LegalCompliance = () => {
         >
           <div className="text-center mb-8">
             <h3
-              className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}
+              className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
             >
               Our Professional Commitments
             </h3>
             <p
-              className={`${themeClasses.text.secondary} font-noto-sans max-w-2xl mx-auto`}
+              className={`${themeClasses.text.secondary} font-inter max-w-2xl mx-auto`}
             >
               We operate under comprehensive policies ensuring fair, ethical,
               and effective commercial debt recovery services across the United
@@ -235,36 +235,36 @@ const LegalCompliance = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div
-                className={`text-2xl font-bold ${themeClasses.text.accent} mb-2 font-noto-serif`}
+                className={`text-2xl font-bold ${themeClasses.text.accent} mb-2 font-montserrat font-700`}
               >
                 100%
               </div>
               <div
-                className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                className={`text-sm ${themeClasses.text.secondary} font-inter`}
               >
                 Legal Compliance
               </div>
             </div>
             <div className="text-center">
               <div
-                className={`text-2xl font-bold ${themeClasses.text.accent} mb-2 font-noto-serif`}
+                className={`text-2xl font-bold ${themeClasses.text.accent} mb-2 font-montserrat font-700`}
               >
                 GDPR
               </div>
               <div
-                className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                className={`text-sm ${themeClasses.text.secondary} font-inter`}
               >
                 Data Protection
               </div>
             </div>
             <div className="text-center">
               <div
-                className={`text-2xl font-bold ${themeClasses.text.accent} mb-2 font-noto-serif`}
+                className={`text-2xl font-bold ${themeClasses.text.accent} mb-2 font-montserrat font-700`}
               >
                 UK-Wide
               </div>
               <div
-                className={`text-sm ${themeClasses.text.secondary} font-noto-sans`}
+                className={`text-sm ${themeClasses.text.secondary} font-inter`}
               >
                 Professional Coverage
               </div>
@@ -273,7 +273,7 @@ const LegalCompliance = () => {
 
           <div className="mt-8 text-center">
             <p
-              className={`text-xs ${themeClasses.text.tertiary} font-noto-sans max-w-4xl mx-auto`}
+              className={`text-xs ${themeClasses.text.tertiary} font-inter max-w-4xl mx-auto`}
             >
               All our debt recovery activities are conducted in accordance with
               the Consumer Credit Act 1974, Data Protection Act 2018, UK GDPR
