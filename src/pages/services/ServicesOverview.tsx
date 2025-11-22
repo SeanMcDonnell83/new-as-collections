@@ -184,7 +184,7 @@ const ServicesOverview = () => {
               >
                 <Link to={services[1].href}>
                   <div
-                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-purple-600`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[1].borderColor}`}
                   >
                     <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[1].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10 flex flex-col h-full">
@@ -204,7 +204,7 @@ const ServicesOverview = () => {
                       <p className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}>
                         {services[1].description}
                       </p>
-                      <div className="flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all text-purple-600">
+                      <div className={`flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all ${services[1].textColor}`}>
                         Learn More <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -221,7 +221,7 @@ const ServicesOverview = () => {
               >
                 <Link to={services[2].href}>
                   <div
-                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-orange-600`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[2].borderColor}`}
                   >
                     <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[2].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10 flex flex-col h-full">
@@ -241,7 +241,7 @@ const ServicesOverview = () => {
                       <p className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}>
                         {services[2].description}
                       </p>
-                      <div className="flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all text-orange-600">
+                      <div className={`flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all ${services[2].textColor}`}>
                         Learn More <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -259,7 +259,7 @@ const ServicesOverview = () => {
               >
                 <Link to={services[3].href}>
                   <div
-                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-indigo-600`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[3].borderColor}`}
                   >
                     <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[3].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10">
@@ -281,7 +281,7 @@ const ServicesOverview = () => {
                       <p className={`text-lg mb-6 leading-relaxed font-medium ${themeClasses.text.secondary}`}>
                         {services[3].description}
                       </p>
-                      <div className="flex items-center gap-2 font-bold group-hover:gap-3 transition-all text-indigo-600">
+                      <div className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all ${services[3].textColor}`}>
                         Learn More <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
