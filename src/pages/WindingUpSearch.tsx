@@ -374,7 +374,7 @@ const WindingUpSearch = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6 mb-8"
+                className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6 mb-6 relative z-20"
               >
                 <p className="text-xs font-montserrat font-700 uppercase tracking-wider text-amber-900 dark:text-amber-200 mb-2">
                   ⚠️ Compliance & Accuracy Notice
