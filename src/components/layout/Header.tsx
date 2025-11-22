@@ -87,7 +87,6 @@ const Header = () => {
   ];
 
   const mainNavLinks = [
-    { label: "Home", href: "/" },
     { label: "About Us", href: "/about-us" },
     { label: "Contact", href: "/contact" },
   ];
@@ -129,8 +128,8 @@ const Header = () => {
                 <img
                   loading="lazy"
                   src={theme === "light" ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png" : "/AS-collections-Brand-Logos-Mono-1750-x-750-px-light.png"}
-                  className="h-8 w-auto object-contain"
-                  alt="AS Collections Logo"
+                  className="h-11 w-auto object-contain"
+                  alt="A.S. Collections Logo"
                 />
               </Link>
             </div>
@@ -589,6 +588,17 @@ const Header = () => {
                   Company
                 </p>
                 <div className="space-y-2">
+                  <Link
+                    to="/"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 rounded-lg transition-all duration-200 ${
+                      theme === "light"
+                        ? "text-slate-700 hover:bg-slate-50"
+                        : "text-slate-200 hover:bg-slate-800"
+                    }`}
+                  >
+                    <p className="font-montserrat font-bold text-sm">Home</p>
+                  </Link>
                   {mainNavLinks.map((link) => (
                     <Link
                       key={link.href}
