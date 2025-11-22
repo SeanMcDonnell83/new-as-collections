@@ -79,19 +79,25 @@ const WindingUpSearch = () => {
       return 'exact';
     }
 
-    // Check for potential match
-    const userFirstTwo = getFirstTwoWords(userCompany);
-    const csvFirstTwo = getFirstTwoWords(csvCompany['Company Name']);
+    // Get words for both
+    const userWords = normalisedUser.split(/\s+/).filter(w => w.length > 0);
+    const csvWords = normalisedCSV.split(/\s+/).filter(w => w.length > 0);
 
-    // If first 2 words match and there's good overall similarity
-    if (userFirstTwo && csvFirstTwo && userFirstTwo === csvFirstTwo) {
+    // Check if any significant user words appear in CSV name
+    // At least one word from user input should appear in CSV
+    const hasCommonWord = userWords.some(uWord =>
+      csvWords.some(cWord => cWord === uWord || cWord.startsWith(uWord) || uWord.startsWith(cWord))
+    );
+
+    if (hasCommonWord) {
       const similarity = getSimilarityScore(userCompany, csvCompany['Company Name']);
-      if (similarity >= 70) {
+      // If there's a common word AND decent similarity, it's a potential match
+      if (similarity >= 65) {
         return 'potential';
       }
     }
 
-    // Or if similarity is very high (but not exact)
+    // Or if overall similarity is very high (but not exact)
     const similarity = getSimilarityScore(userCompany, csvCompany['Company Name']);
     if (similarity >= 85) {
       return 'potential';
