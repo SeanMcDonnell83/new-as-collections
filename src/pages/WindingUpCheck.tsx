@@ -1,0 +1,572 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import Papa from "papaparse";
+import {
+  AlertTriangle,
+  CheckCircle,
+  AlertCircle,
+  Loader,
+  Shield,
+  Bookmark,
+  X,
+  Phone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { themeClasses } from "@/contexts/ThemeContext";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import CookieConsent from "@/components/CookieConsent";
+
+interface WindingUpCompany {
+  "Company Name": string;
+  Status: string;
+  "Date Listed": string;
+}
+
+interface MatchResult {
+  userInput: string;
+  name: string;
+  status: string;
+  dateListed: string;
+  matchType: "exact" | "potential" | "none";
+}
+
+const WindingUpCheck = () => {
+  const [companies, setCompanies] = useState<WindingUpCompany[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFetched, setIsFetched] = useState(false);
+  const [userInput, setUserInput] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+  const [allResults, setAllResults] = useState<MatchResult[]>([]);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [showHighRiskModal, setShowHighRiskModal] = useState(false);
+
+  const CSV_URL =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdpHNh87M01OCBlmVcpEdh4rdYmGO7o6QGoWtd6oq5cuSJxp5QPVYEuGyGIH1GFqGTAS32gX30RLW3/pub?output=csv";
+
+  // Normalise company name for matching
+  const normaliseCompanyName = (name: string): string => {
+    return name
+      .toLowerCase()
+      .trim()
+      .replace(
+        /\b(ltd|limited|plc|llp|inc|corporation|corp|co|company)\b/gi,
+        "",
+      )
+      .replace(/[.,\-]/g, "")
+      .trim();
+  };
+
+  // Calculate similarity score (simple Levenshtein-inspired approach)
+  const getSimilarityScore = (str1: string, str2: string): number => {
+    const s1 = normaliseCompanyName(str1);
+    const s2 = normaliseCompanyName(str2);
+
+    if (s1 === s2) return 100;
+
+    // Simple character overlap scoring
+    let matches = 0;
+    for (let char of s1) {
+      if (s2.includes(char)) {
+        matches++;
+      }
+    }
+    return (matches / Math.max(s1.length, s2.length)) * 100;
+  };
+
+  // 3-tier matching logic
+  const classifyMatch = (
+    userCompany: string,
+    csvCompany: WindingUpCompany,
+  ): "exact" | "potential" | "none" => {
+    const normalisedUser = normaliseCompanyName(userCompany);
+    const normalisedCSV = normaliseCompanyName(csvCompany["Company Name"]);
+
+    // Check for exact match
+    if (normalisedUser === normalisedCSV) {
+      return "exact";
+    }
+
+    // Get words for both
+    const userWords = normalisedUser.split(/\s+/).filter((w) => w.length > 0);
+    const csvWords = normalisedCSV.split(/\s+/).filter((w) => w.length > 0);
+
+    // Check if any significant user words appear in CSV name
+    let bestMatchLength = 0;
+    userWords.forEach((uWord) => {
+      csvWords.forEach((cWord) => {
+        if (cWord === uWord) {
+          bestMatchLength = Math.max(bestMatchLength, uWord.length);
+        } else if (cWord.startsWith(uWord)) {
+          bestMatchLength = Math.max(bestMatchLength, uWord.length);
+        } else if (uWord.startsWith(cWord)) {
+          bestMatchLength = Math.max(bestMatchLength, cWord.length);
+        }
+      });
+    });
+
+    // If we found a word match, it's a potential match
+    if (bestMatchLength >= 1) {
+      const similarity = getSimilarityScore(
+        userCompany,
+        csvCompany["Company Name"],
+      );
+      // Lower threshold when we have a word match
+      if (similarity >= 40) {
+        return "potential";
+      }
+    }
+
+    // Or if overall similarity is very high (but not exact)
+    const similarity = getSimilarityScore(
+      userCompany,
+      csvCompany["Company Name"],
+    );
+    if (similarity >= 85) {
+      return "potential";
+    }
+
+    return "none";
+  };
+
+  // Fetch CSV on mount
+  useEffect(() => {
+    const fetchCSV = async () => {
+      try {
+        setIsLoading(true);
+        setFetchError(null);
+        const response = await fetch(CSV_URL);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const csvText = await response.text();
+
+        Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          complete: (results) => {
+            const data = results.data as WindingUpCompany[];
+            setCompanies(
+              data.filter(
+                (row) => row["Company Name"] && row["Company Name"].trim(),
+              ),
+            );
+            setIsFetched(true);
+            setIsLoading(false);
+          },
+          error: (error: Error) => {
+            setFetchError(`Failed to parse CSV: ${error.message}`);
+            setIsLoading(false);
+          },
+        });
+      } catch (error) {
+        const errorMsg =
+          error instanceof Error ? error.message : "Unknown error occurred";
+        setFetchError(`Failed to fetch winding-up data: ${errorMsg}`);
+        setIsLoading(false);
+      }
+    };
+
+    fetchCSV();
+  }, []);
+
+  const handleScanList = () => {
+    setIsSearching(true);
+    setAllResults([]);
+
+    setTimeout(() => {
+      // Split by both commas and newlines
+      const userCompanies = userInput
+        .split(/[,\n]+/)
+        .map((name) => name.trim())
+        .filter((name) => name.length > 0);
+
+      const results: MatchResult[] = [];
+      let hasHighRisk = false;
+
+      // Process each user company
+      for (const userCompany of userCompanies) {
+        let bestMatch: MatchResult | null = null;
+        let bestMatchType: "exact" | "potential" | "none" = "none";
+
+        // Find the best match in the database
+        for (const csvCompany of companies) {
+          const matchType = classifyMatch(userCompany, csvCompany);
+
+          // Prefer exact matches, then potential, then none
+          if (matchType === "exact") {
+            bestMatch = {
+              userInput: userCompany,
+              name: csvCompany["Company Name"],
+              status: csvCompany.Status || "Unknown",
+              dateListed: csvCompany["Date Listed"] || "N/A",
+              matchType: "exact",
+            };
+            bestMatchType = "exact";
+            hasHighRisk = true;
+            break; // Stop on exact match
+          } else if (matchType === "potential" && bestMatchType !== "exact") {
+            bestMatch = {
+              userInput: userCompany,
+              name: csvCompany["Company Name"],
+              status: csvCompany.Status || "Unknown",
+              dateListed: csvCompany["Date Listed"] || "N/A",
+              matchType: "potential",
+            };
+            bestMatchType = "potential";
+          }
+        }
+
+        // If no match found, create a "none" result
+        if (!bestMatch) {
+          results.push({
+            userInput: userCompany,
+            name: userCompany,
+            status: "Not Found",
+            dateListed: "N/A",
+            matchType: "none",
+          });
+        } else {
+          results.push(bestMatch);
+        }
+      }
+
+      setAllResults(results);
+      setHasSearched(true);
+      setIsSearching(false);
+
+      if (hasHighRisk) {
+        setShowHighRiskModal(true);
+      }
+    }, 800);
+  };
+
+  const addToBookmarks = () => {
+    const url = window.location.href;
+    const title = "AS Collections - Winding-Up Search";
+
+    if (window.sidebar && window.sidebar.addPanel) {
+      window.sidebar.addPanel(title, url, "");
+    } else if ((navigator as any).bookmark) {
+      (navigator as any).bookmark(url, title);
+    } else {
+      // Fallback: show keyboard shortcut
+      const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+      const shortcut = isMac ? "Cmd+D" : "Ctrl+D";
+      alert(
+        `Press ${shortcut} to bookmark this page, or use your browser's bookmark menu.`,
+      );
+    }
+  };
+
+  // Separate results by type
+  const exactMatches = allResults.filter((r) => r.matchType === "exact");
+  const potentialMatches = allResults.filter(
+    (r) => r.matchType === "potential",
+  );
+  const clearCompanies = allResults.filter((r) => r.matchType === "none");
+
+  return (
+    <div className="min-h-screen bg-slate-900 text-white font-inter">
+      <Helmet>
+        <title>
+          Winding-Up Search | Insolvency Register Check | A.S. Collections
+        </title>
+        <meta
+          name="description"
+          content="Free UK Insolvency Risk Checker. Check your client list against the latest winding-up petitions and bad debtor data. Updated weekly."
+        />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/winding-up-check"
+        />
+      </Helmet>
+
+      <Header />
+
+      <main className="pt-24 pb-20">
+        {/* Hero Section */}
+        <section className="relative px-4 sm:px-6 lg:px-8 mb-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-1.5 mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="text-xs font-mono text-green-400 uppercase tracking-wider">
+                  Database Online (Updated Weekly)
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-manrope tracking-tight">
+                Insolvency Risk Radar
+              </h1>
+
+              <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light">
+                Check your ledger. Paste your client list below to scan for
+                active Winding-Up Petitions.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* The Risk Console */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-20">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
+            >
+              {/* Console Header */}
+              <div className="bg-white/5 border-b border-white/5 px-6 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-blue-400" />
+                  <span className="text-xs font-mono text-blue-300 uppercase tracking-wider">
+                    SECURE SCAN
+                  </span>
+                </div>
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-500/20"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-8">
+                {/* Input Area */}
+                <div className="mb-6">
+                  <textarea
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    placeholder="Paste company names here..."
+                    className="w-full h-64 bg-slate-800 text-white font-mono text-sm p-4 rounded-xl border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none resize-none placeholder:text-slate-500 transition-all"
+                    disabled={isSearching}
+                  />
+                  <p className="text-xs text-slate-500 mt-2 font-mono text-right">
+                    {userInput.split("\n").filter((l) => l.trim()).length}{" "}
+                    ENTRIES DETECTED
+                  </p>
+                </div>
+
+                {/* Action Button */}
+                <Button
+                  onClick={handleScanList}
+                  disabled={!userInput.trim() || isSearching}
+                  className="w-full bg-red-600 hover:bg-red-500 text-white font-manrope font-bold text-lg py-6 rounded-xl transition-all shadow-lg shadow-red-900/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSearching ? (
+                    <div className="flex items-center gap-2">
+                      <Loader className="w-5 h-5 animate-spin" />
+                      SCANNING DATABASE...
+                    </div>
+                  ) : (
+                    "SCAN FOR RISK"
+                  )}
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Results Section */}
+            {hasSearched && !isSearching && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-12 space-y-8"
+              >
+                <div className="text-center mb-8">
+                  <p className="text-sm text-slate-400 font-mono bg-slate-800/50 inline-block px-4 py-2 rounded-lg border border-slate-700">
+                    ⚠️ Matches are indicative. Verify with Companies House.
+                  </p>
+                </div>
+
+                {/* High Risk Results */}
+                {exactMatches.length > 0 && (
+                  <div className="space-y-4">
+                    <h3 className="text-red-500 font-manrope font-bold text-xl flex items-center gap-2">
+                      <AlertTriangle className="w-5 h-5" />
+                      HIGH RISK DETECTED ({exactMatches.length})
+                    </h3>
+                    {exactMatches.map((match, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="bg-red-950/30 border border-red-500/30 rounded-xl p-4 flex items-center justify-between group hover:bg-red-950/50 transition-colors"
+                      >
+                        <div>
+                          <p className="font-bold text-white font-mono text-lg">
+                            {match.name}
+                          </p>
+                          <p className="text-red-400 text-sm font-mono mt-1">
+                            STATUS: {match.status} | LISTED: {match.dateListed}
+                          </p>
+                        </div>
+                        <Button
+                          onClick={() => setShowHighRiskModal(true)}
+                          className="bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-lg"
+                        >
+                          Request Urgent Callback
+                        </Button>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Warning Results */}
+                {potentialMatches.length > 0 && (
+                  <div className="space-y-4">
+                    <h3 className="text-amber-500 font-manrope font-bold text-xl flex items-center gap-2">
+                      <AlertCircle className="w-5 h-5" />
+                      POTENTIAL MATCHES ({potentialMatches.length})
+                    </h3>
+                    {potentialMatches.map((match, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="bg-amber-950/30 border border-amber-500/30 rounded-xl p-4"
+                      >
+                        <div>
+                          <p className="font-bold text-white font-mono text-lg">
+                            {match.name}
+                          </p>
+                          <p className="text-amber-400 text-sm font-mono mt-1">
+                            SIMILAR TO: "{match.userInput}"
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Clear Results */}
+                {clearCompanies.length > 0 && (
+                  <div className="space-y-4">
+                    <h3 className="text-green-500 font-manrope font-bold text-xl flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5" />
+                      NO MATCHES FOUND ({clearCompanies.length})
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {clearCompanies.map((match, idx) => (
+                        <div
+                          key={idx}
+                          className="bg-green-950/10 border border-green-500/20 rounded-lg p-3"
+                        >
+                          <p className="text-slate-300 font-mono text-sm">
+                            {match.userInput}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </div>
+        </section>
+
+        {/* SEO Content Section */}
+        <section className="px-4 sm:px-6 lg:px-8 py-20 border-t border-slate-800 bg-slate-900/50">
+          <div className="max-w-3xl mx-auto space-y-12 text-slate-300">
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-4 font-manrope">
+                What is the Winding-Up Search?
+              </h2>
+              <p className="leading-relaxed font-light">
+                This tool checks your client list against the latest UK
+                Winding-Up Petitions and insolvency notices. It acts as a free
+                bad debtor register, helping you identify companies at risk of
+                insolvency before they default on payments.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-4 font-manrope">
+                Why check credit status?
+              </h2>
+              <p className="leading-relaxed font-light">
+                Checking the Gazette winding up list manually is slow and prone
+                to error. Our tool automates this process, flagging high-risk
+                companies instantly so you can take proactive measures to
+                protect your cash flow.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+
+      {/* High Risk Modal */}
+      <AnimatePresence>
+        {showHighRiskModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowHighRiskModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative bg-slate-900 border border-red-500/50 rounded-2xl p-8 max-w-md w-full shadow-2xl shadow-red-900/20"
+            >
+              <button
+                onClick={() => setShowHighRiskModal(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <AlertTriangle className="w-8 h-8 text-red-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-white font-manrope mb-2">
+                  High Risk Detected
+                </h3>
+                <p className="text-slate-400 text-sm">
+                  We strongly recommend speaking with an insolvency expert
+                  immediately regarding these matches.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <Button
+                  onClick={() => (window.location.href = "tel:+441513290946")}
+                  className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-4 rounded-xl"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Call 0151 329 0946
+                </Button>
+                <Button
+                  onClick={() => (window.location.href = "/contact")}
+                  variant="outline"
+                  className="w-full border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white py-4 rounded-xl"
+                >
+                  Request Callback
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export default WindingUpCheck;

@@ -18,7 +18,7 @@ const Industries = lazy(() => import("./pages/Industries"));
 const Compliance = lazy(() => import("./pages/Compliance"));
 const ContactPage = lazy(() => import("./pages/Contact"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
-const WindingUpSearch = lazy(() => import("./pages/WindingUpSearch"));
+const WindingUpCheck = lazy(() => import("./pages/WindingUpCheck"));
 const DebtCalculatorPage = lazy(() => import("./pages/DebtCalculator"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -82,7 +82,7 @@ const App = () => (
                 <Route path="/compliance" element={<Compliance />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/thank-you" element={<ThankYou />} />
-                <Route path="/winding-up-check" element={<WindingUpSearch />} />
+                <Route path="/winding-up-check" element={<WindingUpCheck />} />
                 <Route
                   path="/debt-calculator"
                   element={<DebtCalculatorPage />}
