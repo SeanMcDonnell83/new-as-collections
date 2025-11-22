@@ -174,39 +174,61 @@ const Hero = () => {
               className="relative"
             >
               <div
-                className={`relative ${themeClasses.bg.primary} rounded-2xl shadow-2xl p-8 ${themeClasses.border.primary} border`}
+                className={`relative ${themeClasses.bg.primary} rounded-2xl shadow-2xl p-8 ${themeClasses.border.primary} border backdrop-blur-sm`}
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div
-                      className={`text-sm ${themeClasses.text.muted} font-noto-sans`}
+                      className={`text-sm ${themeClasses.text.muted} font-inter`}
                     >
                       Success Rate
                     </div>
-                    <div className="text-2xl font-bold text-green-600 font-noto-sans">
-                      98%
+                    <div className="text-3xl font-bold text-green-600 font-montserrat font-800">
+                      <AnimatedCounter
+                        end={98}
+                        isPercentage
+                        duration={2.5}
+                        className="text-3xl font-montserrat font-800"
+                      />
                     </div>
                   </div>
                   <div
                     className={`w-full ${themeClasses.bg.tertiary} rounded-full h-3`}
                   >
-                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full w-[98%]"></div>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "98%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2.5, ease: "easeOut" }}
+                      className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full"
+                    ></motion.div>
                   </div>
 
                   <div className="flex items-center justify-between">
                     <div
-                      className={`text-sm ${themeClasses.text.muted} font-noto-sans`}
+                      className={`text-sm ${themeClasses.text.muted} font-inter`}
                     >
-                      Average Recovery Time
+                      Avg. Recovery Time
                     </div>
-                    <div className="text-2xl font-bold text-blue-600 font-noto-sans">
-                      14 Days
+                    <div className="text-3xl font-bold text-blue-600 font-montserrat font-800">
+                      <AnimatedCounter
+                        end={14}
+                        suffix=" Days"
+                        duration={2.5}
+                        className="text-3xl font-montserrat font-800"
+                      />
                     </div>
                   </div>
                   <div
                     className={`w-full ${themeClasses.bg.tertiary} rounded-full h-3`}
                   >
-                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full w-[85%]"></div>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "70%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2.5, ease: "easeOut" }}
+                      className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full"
+                    ></motion.div>
                   </div>
 
                   <div
@@ -214,7 +236,7 @@ const Hero = () => {
                   >
                     <div className="text-center">
                       <div
-                        className={`text-2xl font-bold ${themeClasses.text.primary} mb-1 font-noto-sans`}
+                        className={`text-2xl font-bold ${themeClasses.text.primary} mb-1 font-montserrat font-800`}
                       >
                         £
                         {(
@@ -224,7 +246,7 @@ const Hero = () => {
                         k+
                       </div>
                       <div
-                        className={`text-sm ${themeClasses.text.muted} font-noto-sans`}
+                        className={`text-sm ${themeClasses.text.muted} font-inter`}
                       >
                         Recovered This Month
                       </div>
