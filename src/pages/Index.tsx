@@ -67,7 +67,7 @@ const Index = () => {
   ];
 
   return (
-    <div className={`min-h-screen ${theme === "light" ? "bg-slate-50" : themeClasses.bg.primary}`}>
+    <div className={`min-h-screen pt-8 ${theme === "light" ? "bg-slate-50" : "bg-slate-950"}`}>
       <Helmet>
         <title>A.S. Collections | No Win No Fee Commercial Debt Recovery UK</title>
         <meta
