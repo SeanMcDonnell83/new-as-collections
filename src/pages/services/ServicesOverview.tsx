@@ -17,8 +17,8 @@ const ServicesOverview = () => {
         "UK-wide business debt recovery specialising in Construction, Food & Drink, Oil & Gas, and more. No Win, No Fee service.",
       href: "/services/commercial-debt-recovery",
       badge: "98% Success Rate",
-      badgeColor: "bg-green-500",
-      color: "from-blue-600 to-cyan-600",
+      badgeColor: "from-blue-500 to-blue-600",
+      accentColor: "from-blue-500 to-cyan-500",
     },
     {
       icon: Globe,
@@ -27,8 +27,8 @@ const ServicesOverview = () => {
         "Cross-border debt recovery with expertise in 14+ countries. Multi-jurisdictional enforcement.",
       href: "/services/international-debt-collection",
       badge: "14+ Countries",
-      badgeColor: "bg-purple-500",
-      color: "from-purple-600 to-pink-600",
+      badgeColor: "from-purple-500 to-purple-600",
+      accentColor: "from-purple-500 to-pink-500",
     },
     {
       icon: Search,
@@ -37,8 +37,8 @@ const ServicesOverview = () => {
         "Advanced tracing combined with court claims and legal enforcement across UK jurisdictions.",
       href: "/services/debtor-tracing",
       badge: "£50M+ Recovered",
-      badgeColor: "bg-orange-500",
-      color: "from-orange-600 to-red-600",
+      badgeColor: "from-orange-500 to-orange-600",
+      accentColor: "from-orange-500 to-amber-500",
     },
     {
       icon: AlertCircle,
@@ -47,8 +47,8 @@ const ServicesOverview = () => {
         "Complete credit control outsourcing and specialist insolvency guidance for complex situations.",
       href: "/services/credit-control-insolvency",
       badge: "Expert Guidance",
-      badgeColor: "bg-indigo-500",
-      color: "from-indigo-600 to-blue-600",
+      badgeColor: "from-indigo-500 to-indigo-600",
+      accentColor: "from-indigo-500 to-blue-500",
     },
   ];
 
