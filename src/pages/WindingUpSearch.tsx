@@ -675,32 +675,6 @@ const WindingUpSearch = () => {
                     </div>
                   </motion.div>
                 )}
-
-                {/* Bottom CTA & Bookmark - Bookmark & Scan Again */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
-                >
-                  <Button
-                    onClick={addToBookmarks}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2"
-                  >
-                    <Bookmark className="w-4 h-4" />
-                    Bookmark This Page
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      setUserInput('');
-                      setAllResults([]);
-                      setHasSearched(false);
-                    }}
-                    className={`${themeClasses.button.secondary} font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200`}
-                  >
-                    Scan Another List
-                  </Button>
-                </motion.div>
               </motion.div>
             )}
           </div>
