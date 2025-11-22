@@ -269,15 +269,17 @@ const WindingUpSearch = () => {
                 {matches.length > 0 ? (
                   <>
                     {/* Warning - Matches Found */}
-                    <div className="bg-red-50 dark:bg-red-950 rounded-2xl p-8 border-2 border-red-200 dark:border-red-800 mb-8">
+                    <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-950 dark:to-red-900 rounded-2xl p-8 border border-red-200 dark:border-red-800 mb-8">
                       <div className="flex items-start mb-6">
-                        <AlertTriangle className="w-8 h-8 text-red-600 dark:text-red-400 mr-4 flex-shrink-0 mt-1" />
+                        <div className="w-10 h-10 rounded-full bg-red-600 dark:bg-red-500 flex items-center justify-center flex-shrink-0 mr-4">
+                          <AlertTriangle className="w-6 h-6 text-white" />
+                        </div>
                         <div>
-                          <h3 className="text-2xl font-bold text-red-800 dark:text-red-200 font-montserrat font-800 mb-2">
-                            ⚠️ Warning: {matches.length} Match{matches.length !== 1 ? 'es' : ''} Found
+                          <h3 className="text-2xl font-bold text-red-900 dark:text-red-100 font-montserrat font-800 mb-2">
+                            Matches Found: {matches.length} Company{matches.length !== 1 ? 'ies' : ''}
                           </h3>
-                          <p className="text-red-700 dark:text-red-300 font-inter">
-                            The following companies appear on our winding-up register. Immediate action is recommended.
+                          <p className="text-red-800 dark:text-red-200 font-inter">
+                            The following companies appear on our winding-up register. We recommend immediate action to assess your exposure.
                           </p>
                         </div>
                       </div>
