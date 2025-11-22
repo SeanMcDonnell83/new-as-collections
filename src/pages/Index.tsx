@@ -66,13 +66,17 @@ const Index = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Commercial Debt Recovery UK - No Win No Fee | A.S. Collections 2025</title>
-        <meta 
-          name="description" 
-          content="Leading commercial debt recovery UK specialists. No win no fee debt collection services across London, Manchester, Birmingham. 98% success rate. Free consultation." 
+        <title>A.S. Collections | No Win No Fee Commercial Debt Recovery UK</title>
+        <meta
+          name="description"
+          content="UK's leading commercial debt recovery specialists. No win no fee debt collection services. 98% success rate, 14-day average recovery. Free consultation."
         />
-        <meta name="keywords" content="commercial debt recovery UK, business debt collection services, debt collection agency UK, no win no fee debt collection, B2B debt recovery specialists" />
+        <meta name="keywords" content="commercial debt recovery UK, business debt collection services, debt collection agency UK, no win no fee debt collection, B2B debt recovery" />
         <link rel="canonical" href="https://ascollections.co.uk/" />
+        <meta property="og:title" content="A.S. Collections | No Win No Fee Commercial Debt Recovery UK" />
+        <meta property="og:description" content="UK's leading commercial debt recovery specialists. 98% success rate, 14-day average recovery." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ascollections.co.uk/" />
       </Helmet>
       
       <Header />
