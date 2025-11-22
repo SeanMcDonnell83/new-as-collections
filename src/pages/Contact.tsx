@@ -69,42 +69,68 @@ const ContactPage = () => {
       <main>
         {/* Hero Section: The Concierge */}
         <section
-          className="relative pt-24 pb-16 bg-slate-900 overflow-hidden min-h-auto flex items-center"
+          className="relative pt-12 pb-20 bg-slate-900 overflow-hidden min-h-auto flex items-center"
           style={{
             backgroundImage:
               "linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)",
             backgroundSize: "50px 50px",
           }}
         >
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h1 className="text-5xl md:text-6xl font-black text-white mb-4">
-                GET YOUR FREE <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                  NO WIN NO FEE
-                </span>
-                <br /> CONSULTATION
-              </h1>
-              <p className="text-slate-300 text-lg">
-                No obligation, completely free consultation to assess your unpaid
-                invoice recovery UK needs.
-              </p>
-            </motion.div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div className="grid lg:grid-cols-12 gap-8 items-start">
+              {/* Sidebar (Desktop) */}
+              <div className="lg:col-span-4 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h1 className="text-4xl font-black text-white mb-2">
+                    GET YOUR FREE <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                      NO WIN NO FEE
+                    </span>
+                    <br /> CONSULTATION
+                  </h1>
+                  <p className="text-slate-400 text-sm mb-8">
+                    No obligation, completely free consultation to assess your unpaid
+                    invoice recovery UK needs.
+                  </p>
 
-            {/* Floating Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-2xl p-10 shadow-2xl"
-            >
-              <Contact />
-            </motion.div>
+                  <div className="space-y-4">
+                    {contactInfo.map((info, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-slate-800/50 backdrop-blur-md border border-slate-700 p-4 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition-colors cursor-pointer"
+                        onClick={() => info.action && window.location.href !== info.action && window.open(info.action)}
+                      >
+                        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shrink-0">
+                          <info.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-white font-bold text-sm">{info.title}</p>
+                          <p className="text-slate-300 text-xs">
+                            {info.details[0]}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Floating Form */}
+              <div className="lg:col-span-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl"
+                >
+                  <Contact />
+                </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
