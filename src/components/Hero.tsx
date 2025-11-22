@@ -2,20 +2,42 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, BookOpen, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from "./AnimatedCounter";
 import DebtCalculator from "./DebtCalculator";
 import { themeClasses } from "@/contexts/ThemeContext";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useThemeSafe } from "@/hooks/useThemeSafe";
 
 const Hero = () => {
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
-  const animationProps = useScrollAnimation({ delay: 0.2 });
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -30,78 +52,85 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
           <div className="lg:col-span-7">
-            <motion.div {...animationProps}>
-              {/* Tagline - updated background color */}
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-200 dark:bg-green-900 border border-green-300 dark:border-green-700 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8 font-noto-sans">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {/* Tagline */}
+              <motion.div variants={itemVariants} className="inline-flex items-center px-4 py-2 rounded-full bg-green-200 dark:bg-green-900 border border-green-300 dark:border-green-700 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8 font-inter">
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                 No Win, No Fee · UK Wide Coverage
-              </div>
+              </motion.div>
 
               {/* Main Headline */}
-              <h1
-                className={`text-5xl md:text-6xl lg:text-7xl font-bold ${themeClasses.text.primary} leading-[0.9] mb-8 font-noto-serif`}
+              <motion.h1
+                variants={itemVariants}
+                className={`text-5xl md:text-6xl lg:text-7xl font-bold ${themeClasses.text.primary} leading-[0.9] mb-8 font-montserrat font-800`}
               >
                 Debt Recovery
-                <span
-                  className={`block ${themeClasses.text.accent} font-noto-sans font-extrabold tracking-tight`}
+                <motion.span
+                  variants={itemVariants}
+                  className={`block ${themeClasses.text.accent} font-montserrat font-800 tracking-tight`}
                 >
                   Done Right
-                </span>
-              </h1>
+                </motion.span>
+              </motion.h1>
 
               {/* Subtext */}
-              <p
-                className={`text-xl md:text-2xl ${themeClasses.text.secondary} mb-8 leading-relaxed max-w-2xl font-noto-sans font-light`}
+              <motion.p
+                variants={itemVariants}
+                className={`text-lg md:text-xl ${themeClasses.text.secondary} mb-8 leading-relaxed max-w-2xl font-inter font-light`}
               >
                 UK's leading commercial debt recovery specialists.
                 <span className={`font-semibold ${themeClasses.text.primary}`}>
                   <br />
                   Zero upfront costs, maximum results.
                 </span>
-              </p>
+              </motion.p>
 
               {/* Key Benefits */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span
-                    className={`${themeClasses.text.secondary} font-medium font-noto-sans`}
+                    className={`${themeClasses.text.secondary} font-medium font-inter text-sm`}
                   >
-                    Recover debts fast - typically 7-14 days
+                    Recover debts fast
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span
-                    className={`${themeClasses.text.secondary} font-medium font-noto-sans`}
+                    className={`${themeClasses.text.secondary} font-medium font-inter text-sm`}
                   >
-                    98%+ success rate across UK
+                    98%+ success rate
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span
-                    className={`${themeClasses.text.secondary} font-medium font-noto-sans`}
+                    className={`${themeClasses.text.secondary} font-medium font-inter text-sm`}
                   >
-                    Accredited for peace of mind
+                    Accredited specialists
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span
-                    className={`${themeClasses.text.secondary} font-medium font-noto-sans`}
+                    className={`${themeClasses.text.secondary} font-medium font-inter text-sm`}
                   >
-                    No win no fee guarantee*
+                    No win, no fee guarantee*
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* CTA Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <Button
                   onClick={() => scrollToSection("contact")}
                   size="lg"
-                  className={`${themeClasses.button.primary} font-noto-sans font-semibold px-8 py-5 text-lg transition-all duration-200 transform hover:scale-105 rounded-xl shadow-lg`}
+                  className={`${themeClasses.button.primary} font-inter font-semibold px-8 py-5 text-lg transition-all duration-200 transform hover:scale-105 rounded-xl shadow-lg`}
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Get Started
@@ -109,7 +138,7 @@ const Hero = () => {
                 <Button
                   onClick={() => setIsCalculatorOpen(true)}
                   size="lg"
-                  className="bg-green-600 hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-500 text-white font-noto-sans font-semibold px-8 py-5 text-lg transition-all duration-200 transform hover:scale-105 rounded-xl shadow-lg"
+                  className="bg-green-600 hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-500 text-white font-inter font-semibold px-8 py-5 text-lg transition-all duration-200 transform hover:scale-105 rounded-xl shadow-lg"
                 >
                   <Calculator className="w-5 h-5 mr-2" />
                   Debt Calculator
@@ -117,30 +146,31 @@ const Hero = () => {
                 <Button
                   onClick={() => scrollToSection("about")}
                   size="lg"
-                  className="border-2 border-neutral-800 dark:border-neutral-200 text-neutral-900 dark:text-neutral-100 bg-neutral-900 dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-neutral-200 font-noto-sans font-semibold px-8 py-5 text-lg transition-all duration-200 rounded-xl"
+                  className="border-2 border-neutral-800 dark:border-neutral-200 text-neutral-900 dark:text-neutral-100 bg-neutral-900 dark:bg-neutral-100 hover:bg-neutral-800 dark:hover:bg-neutral-200 font-inter font-semibold px-8 py-5 text-lg transition-all duration-200 rounded-xl"
                 >
                   <BookOpen className="w-5 h-5 mr-2 text-white dark:text-neutral-900" />
                   <span className="text-white dark:text-neutral-900">
                     Learn More
                   </span>
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Disclaimer */}
-              <p
-                className={`text-sm ${themeClasses.text.muted} font-noto-sans`}
+              <motion.p
+                variants={itemVariants}
+                className={`text-sm ${themeClasses.text.muted} font-inter`}
               >
                 *No win no fee guarantee - debt assessed on collection viability
-              </p>
+              </motion.p>
             </motion.div>
           </div>
 
           {/* Right side - Visual Element */}
           <div className="lg:col-span-5 mt-12 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              initial={{ opacity: 0, x: 50, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="relative"
             >
               <div
