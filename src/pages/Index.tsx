@@ -6,6 +6,7 @@ import { HorizontalStepper } from "@/components/HorizontalStepper";
 import GoogleReviewWall from "@/components/GoogleReviewWall";
 import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
+import { useThemeSafe } from "@/hooks/useThemeSafe";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
