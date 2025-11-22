@@ -172,21 +172,32 @@ const Industries = () => {
                   >
                     <Link to={sector.href}>
                       <div
-                        className={`relative h-72 rounded-3xl overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}
+                        className={`relative h-72 rounded-3xl overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-l-4`}
+                        style={{
+                          borderLeftColor: sector.accentColor.includes('orange') ? '#f97316' :
+                                          sector.accentColor.includes('emerald') ? '#10b981' :
+                                          sector.accentColor.includes('amber') ? '#f59e0b' :
+                                          sector.accentColor.includes('purple') ? '#a855f7' :
+                                          sector.accentColor.includes('indigo') ? '#6366f1' :
+                                          '#3b82f6'
+                        }}
                       >
                         {/* Background Gradient */}
                         <div
                           className={`absolute inset-0 bg-gradient-to-br ${sector.color} z-0`}
                         />
 
+                        {/* Accent Gradient Top Right */}
+                        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${sector.accentColor} opacity-20 blur-3xl -mr-16 -mt-16`} />
+
                         {/* Dark Overlay */}
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 z-10" />
+                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 z-10" />
 
                         {/* Content */}
                         <div className="relative z-20 h-full flex flex-col justify-between p-8">
                           {/* Icon & Stat */}
                           <div className="flex items-start justify-between">
-                            <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br ${sector.accentColor}`}>
                               <IconComponent className="w-7 h-7 text-white" />
                             </div>
                             <motion.span
@@ -196,7 +207,7 @@ const Industries = () => {
                                 duration: 0.6,
                                 delay: index * 0.1 + 0.3,
                               }}
-                              className="text-xs font-montserrat font-bold text-white/80 bg-white/20 px-3 py-1 rounded-full uppercase tracking-wider"
+                              className={`text-xs font-montserrat font-bold bg-gradient-to-r ${sector.accentColor} bg-clip-text text-transparent px-3 py-1 rounded-full uppercase tracking-wider border border-white/20`}
                             >
                               {sector.stat}
                             </motion.span>
