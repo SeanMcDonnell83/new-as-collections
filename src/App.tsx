@@ -14,6 +14,22 @@ import Compliance from "./pages/Compliance";
 import ContactPage from "./pages/Contact";
 import ThankYou from "./pages/ThankYou";
 import WindingUpSearch from "./pages/WindingUpSearch";
+
+// Service Pages
+import ServicesOverview from "./pages/services/ServicesOverview";
+import CommercialDebtRecoveryService from "./pages/services/CommercialDebtRecoveryService";
+import InternationalDebtRecovery from "./pages/services/InternationalDebtRecovery";
+import DebtorTracing from "./pages/services/DebtorTracing";
+import CreditControlInsolvency from "./pages/services/CreditControlInsolvency";
+
+// Sector Pages
+import ConstructionEngineering from "./pages/sectors/ConstructionEngineering";
+import FoodDrinkHospitality from "./pages/sectors/FoodDrinkHospitality";
+import OilGasEnergy from "./pages/sectors/OilGasEnergy";
+import PrivateSchoolsEducation from "./pages/sectors/PrivateSchoolsEducation";
+import RecruitmentAgencies from "./pages/sectors/RecruitmentAgencies";
+import ShippingLogistics from "./pages/sectors/ShippingLogistics";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
