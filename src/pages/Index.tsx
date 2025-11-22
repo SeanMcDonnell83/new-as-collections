@@ -14,6 +14,8 @@ import { ArrowRight, CheckCircle, Phone, FileText, Calculator, Gavel, AlertTrian
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Index = () => {
+  const { theme } = useThemeSafe();
+
   const scrollToContact = () => {
     window.location.href = '/contact';
   };
