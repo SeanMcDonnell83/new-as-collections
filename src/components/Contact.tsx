@@ -132,104 +132,13 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-1"
-          >
-            <div
-              className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8 h-fit`}
-            >
-              <h3
-                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-700`}
-              >
-                Contact Information
-              </h3>
-
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => {
-                  const IconComponent = info.icon;
-                  return (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div
-                        className={`w-12 h-12 ${themeClasses.bg.accent} rounded-lg flex items-center justify-center flex-shrink-0`}
-                      >
-                        <IconComponent
-                          className={`w-6 h-6 ${themeClasses.text.accent}`}
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <h4
-                          className={`font-semibold ${themeClasses.text.primary} mb-1 font-inter`}
-                        >
-                          {info.title}
-                        </h4>
-                        {info.details.map((detail, idx) => (
-                          <p
-                            key={idx}
-                            className={`${themeClasses.text.secondary} text-sm font-inter`}
-                          >
-                            {detail}
-                          </p>
-                        ))}
-                        {info.action && (
-                          <a
-                            href={info.link}
-                            className={`${themeClasses.text.accent} text-sm font-medium hover:underline transition-colors mt-1 inline-block font-inter`}
-                          >
-                            {info.action}
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div
-                className={`mt-8 pt-8 ${themeClasses.border.primary} border-t`}
-              >
-                <div
-                  className={`flex items-center space-x-2 ${themeClasses.text.secondary} mb-4`}
-                >
-                  <Clock className="w-4 h-4" />
-                  <span className="text-sm font-medium font-inter">
-                    Business Hours
-                  </span>
-                </div>
-                <div
-                  className={`space-y-1 text-sm ${themeClasses.text.secondary} font-inter`}
-                >
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 5:00 PM</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`mt-6 p-4 ${themeClasses.bg.accent} rounded-lg`}>
-                <p
-                  className={`${themeClasses.text.accent} text-sm font-medium text-center font-inter`}
-                >
-                  "You might not need us now, but there will come a time you
-                  will."
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto"
+        >
             <div
               className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8`}
             >
@@ -427,8 +336,7 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
