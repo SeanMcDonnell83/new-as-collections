@@ -33,7 +33,7 @@ const OtherIndustries = () => {
 
       <main>
         {/* Hero Section: The Collage */}
-        <section className={`relative min-h-screen flex items-center pt-20 overflow-hidden ${themeClasses.bg.primary} ${themeClasses.text.primary}`}>
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900 text-white">
           {/* Dynamic Background Collage */}
           <div className="absolute inset-0 z-0 opacity-20">
             <div className="grid grid-cols-4 grid-rows-4 h-full w-full gap-1 transform -rotate-12 scale-125">
