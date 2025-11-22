@@ -39,13 +39,17 @@ const ContactPage = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Contact Us - Free Debt Recovery Consultation | A.S. Collections</title>
-        <meta 
-          name="description" 
-          content="Contact A.S. Collections for free no win no fee debt recovery consultation. Call 0151 329 0946 or email info@ascollections.co.uk. Based in Liverpool serving all UK." 
+        <title>Contact Us | Free Debt Recovery Consultation | A.S. Collections</title>
+        <meta
+          name="description"
+          content="Contact A.S. Collections for free no win no fee debt recovery consultation. Call 0151 329 0946. Liverpool-based, serving all UK. 24/7 email support available."
         />
-        <meta name="keywords" content="contact debt recovery UK, free debt collection consultation, A.S. Collections contact details, Liverpool debt recovery, no win no fee consultation" />
+        <meta name="keywords" content="contact debt recovery, free consultation, A.S. Collections contact, Liverpool debt recovery, 0151 329 0946" />
         <link rel="canonical" href="https://ascollections.co.uk/contact" />
+        <meta property="og:title" content="Contact Us | Free Debt Recovery Consultation | A.S. Collections" />
+        <meta property="og:description" content="Free no win no fee debt recovery consultation. Call 0151 329 0946 or email." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ascollections.co.uk/contact" />
       </Helmet>
       
       <Header />
