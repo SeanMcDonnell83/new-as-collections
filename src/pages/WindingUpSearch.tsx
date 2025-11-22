@@ -358,6 +358,23 @@ const WindingUpSearch = () => {
               </motion.div>
             )}
 
+            {/* Compliance Notice - BEFORE Scan Card */}
+            {isFetched && !fetchError && !hasSearched && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6 mb-8"
+              >
+                <p className="text-xs font-montserrat font-700 uppercase tracking-wider text-amber-900 dark:text-amber-200 mb-2">
+                  ⚠️ Compliance & Accuracy Notice
+                </p>
+                <p className={`text-sm ${themeClasses.text.secondary} font-inter leading-relaxed`}>
+                  <strong>Results are indicative only.</strong> This tool uses 'fuzzy matching' to detect potential insolvency risks. Always verify the exact legal entity name and company number via <a href="https://beta.companieshouse.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">Companies House</a> before taking legal action. We accept no liability for identity errors based on similar trading names. If unsure about any result, please <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">contact us</a> and we will verify for you.
+                </p>
+              </motion.div>
+            )}
+
             {/* Scan Interface */}
             {isFetched && !fetchError && (
               <motion.div
