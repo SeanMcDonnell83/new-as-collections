@@ -41,7 +41,7 @@ const AboutUs = () => {
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
               alt="London Skyline"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
               decoding="async"
               width={2070}
               height={1380}
