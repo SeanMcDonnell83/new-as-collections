@@ -34,21 +34,21 @@ const ConstructionEngineering = () => {
         {/* Hero Section: The Blueprint */}
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
           {/* Blueprint Grid Background */}
-          <div className="absolute inset-0 z-0 opacity-20 pointer-events-none dark:opacity-30">
+          <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
             <div
               className="absolute inset-0"
               style={{
                 backgroundImage:
-                  "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(rgba(15,23,42,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.1) 1px, transparent 1px)",
-                backgroundSize: "40px 40px, 40px 40px, 40px 40px, 40px 40px",
+                  "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
               }}
             />
             <div
               className="absolute inset-0"
               style={{
                 backgroundImage:
-                  "linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(rgba(15,23,42,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.15) 1px, transparent 1px)",
-                backgroundSize: "200px 200px, 200px 200px, 200px 200px, 200px 200px",
+                  "linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)",
+                backgroundSize: "200px 200px",
               }}
             />
           </div>
