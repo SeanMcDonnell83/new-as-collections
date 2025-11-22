@@ -119,29 +119,26 @@ export const IndustryCards = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {industries.map((industry, index) => {
             const IconComponent = industry.icon;
+            const staggerClass = index % 3 === 1 ? "lg:-mt-8" : "";
             return (
               <motion.div
-                key={index}
+                key={industry.name}
                 variants={itemVariants}
-                className="group"
+                className={`group h-full ${staggerClass}`}
               >
                 <motion.div
-                  whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)" }}
+                  whileHover={{ y: -10, boxShadow: "0 25px 45px rgba(15, 23, 42, 0.25)" }}
                   transition={{ duration: 0.3 }}
-                  className={`${themeClasses.bg.primary} rounded-xl p-6 h-full border ${themeClasses.border.primary} cursor-pointer transition-all duration-300`}
+                  className="bg-white dark:bg-slate-900 rounded-3xl p-8 h-full shadow-lg cursor-pointer transition-all duration-300"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-14 h-14 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:shadow-lg"
-                  >
-                    <IconComponent className="w-7 h-7 text-white" />
-                  </motion.div>
-                  <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-700`}>
+                  <div className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-5">
+                    <IconComponent className="w-8 h-8 text-slate-900 dark:text-red-400" />
+                  </div>
+                  <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
                     {industry.name}
                   </h3>
                   <p className={`${themeClasses.text.secondary} text-sm leading-relaxed font-inter`}>
