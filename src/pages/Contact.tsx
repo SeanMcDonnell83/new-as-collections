@@ -6,7 +6,7 @@ import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { MapPin, Phone, Mail, Clock, Plus, Minus } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Plus, Minus, Globe } from "lucide-react";
 import { useState } from "react";
 
 const ContactPage = () => {
