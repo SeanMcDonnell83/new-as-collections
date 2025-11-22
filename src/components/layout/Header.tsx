@@ -87,8 +87,8 @@ const Header = () => {
   ];
 
   const mainNavLinks = [
+    { label: "Home", href: "/" },
     { label: "About Us", href: "/about-us" },
-    { label: "Compliance", href: "/compliance" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -459,6 +459,25 @@ const Header = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6 space-y-6">
+              <div className="flex items-center justify-between mb-2">
+                <span className={`text-sm font-montserrat font-bold ${
+                  theme === "light" ? "text-slate-900" : "text-white"
+                }`}>
+                  Menu
+                </span>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`p-2 rounded-full transition-colors duration-200 ${
+                    theme === "light"
+                      ? "text-slate-600 hover:bg-slate-100/60"
+                      : "text-slate-300 hover:bg-slate-800/70"
+                  }`}
+                  aria-label="Close menu"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
               {/* Services Section */}
               <div>
                 <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-3 ${

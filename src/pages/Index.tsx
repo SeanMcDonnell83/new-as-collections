@@ -25,7 +25,7 @@ const Index = () => {
     {
       icon: FileText,
       title: "Commercial B2B Debt Collection",
-      description: "Professional business debt collection services UK wide, specialising in Construction, Food & Drink, Oil & Gas industries.",
+      description: "Specialised commercial debt recovery services across the UK, on a no win, no fee basis for Construction, Food & Drink and Oil & Gas businesses.",
       href: "/services/commercial-debt-recovery",
     },
     {

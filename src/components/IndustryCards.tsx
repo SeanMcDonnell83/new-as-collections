@@ -1,62 +1,58 @@
 import { motion } from "framer-motion";
 import { themeClasses } from "@/contexts/ThemeContext";
-import { 
-  Building2, 
-  UtensilsCrossed, 
-  Flame, 
-  Zap, 
-  Pill, 
-  Warehouse,
-  TrendingUp,
-  Package
+import {
+  Building2,
+  UtensilsCrossed,
+  Flame,
+  GraduationCap,
+  Briefcase,
+  Ship
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface IndustryCard {
   name: string;
   description: string;
   icon: React.ComponentType<{ className: string }>;
+  href: string;
 }
 
 const industries: IndustryCard[] = [
   {
-    name: "Construction",
-    description: "Specialist debt recovery for construction and property sectors",
+    name: "Construction & Engineering",
+    description: "Specialised commercial debt recovery for contractors, sub-contractors and suppliers on JCT and bespoke contracts.",
     icon: Building2,
+    href: "/sectors/construction-engineering",
   },
   {
-    name: "Food & Drink",
-    description: "Expert collection for hospitality and food service industries",
+    name: "Food & Drink / Hospitality",
+    description: "No win, no fee debt recovery for restaurants, pubs, hotels and wholesalers in a high-insolvency sector.",
     icon: UtensilsCrossed,
+    href: "/sectors/food-drink-hospitality",
   },
   {
-    name: "Oil & Gas",
-    description: "Complex recovery solutions for energy sector B2B debts",
+    name: "Oil & Gas / Energy",
+    description: "High-value, multi-jurisdictional commercial debt recovery for complex energy supply chains.",
     icon: Flame,
+    href: "/sectors/oil-gas-energy",
   },
   {
-    name: "Manufacturing",
-    description: "Industrial debt collection with supply chain expertise",
-    icon: Zap,
+    name: "Independent Schools & Education",
+    description: "Sensitive fee and bursary arrears recovery that protects parent relationships and school reputation.",
+    icon: GraduationCap,
+    href: "/sectors/private-schools-education",
   },
   {
-    name: "Pharmaceuticals",
-    description: "Specialised recovery for healthcare and pharmaceutical sectors",
-    icon: Pill,
+    name: "Recruitment Agencies",
+    description: "Enforcement of backdoor hires, transfer fees and disputed timesheets across permanent and temp placements.",
+    icon: Briefcase,
+    href: "/sectors/recruitment-agencies",
   },
   {
-    name: "Logistics",
-    description: "Transport and warehousing sector debt specialists",
-    icon: Warehouse,
-  },
-  {
-    name: "Technology",
-    description: "B2B debt recovery for tech and software companies",
-    icon: TrendingUp,
-  },
-  {
-    name: "Retail & Distribution",
-    description: "Multi-channel retail and wholesale debt collection",
-    icon: Package,
+    name: "Shipping & Logistics",
+    description: "Commercial debt recovery for freight charges, demurrage, warehousing and cross-border transport disputes.",
+    icon: Ship,
+    href: "/sectors/shipping-logistics",
   },
 ];
 
@@ -103,14 +99,14 @@ export const IndustryCards = () => {
           >
             Industry-Specific Expertise
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter`}
           >
-            Specialised debt recovery across all major UK business sectors. Our sector-focused teams understand industry-specific challenges and opportunities.
+            Specialised commercial debt recovery across key UK business sectors. Our sector-focused teams understand industry-specific challenges and operate on a transparent, no win, no fee basis where appropriate.
           </motion.p>
         </div>
 
@@ -130,21 +126,23 @@ export const IndustryCards = () => {
                 variants={itemVariants}
                 className={`group h-full ${staggerClass}`}
               >
-                <motion.div
-                  whileHover={{ y: -10, boxShadow: "0 25px 45px rgba(15, 23, 42, 0.25)" }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white dark:bg-slate-900 rounded-3xl p-8 h-full shadow-lg cursor-pointer transition-all duration-300"
-                >
-                  <div className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-5">
-                    <IconComponent className="w-8 h-8 text-slate-900 dark:text-red-400" />
-                  </div>
-                  <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
-                    {industry.name}
-                  </h3>
-                  <p className={`${themeClasses.text.secondary} text-sm leading-relaxed font-inter`}>
-                    {industry.description}
-                  </p>
-                </motion.div>
+                <Link to={industry.href} className="block h-full">
+                  <motion.div
+                    whileHover={{ y: -10, boxShadow: "0 25px 45px rgba(15, 23, 42, 0.25)" }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white dark:bg-slate-900 rounded-3xl p-8 h-full shadow-lg cursor-pointer transition-all duration-300"
+                  >
+                    <div className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-5">
+                      <IconComponent className="w-8 h-8 text-slate-900 dark:text-red-400" />
+                    </div>
+                    <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
+                      {industry.name}
+                    </h3>
+                    <p className={`${themeClasses.text.secondary} text-sm leading-relaxed font-inter`}>
+                      {industry.description}
+                    </p>
+                  </motion.div>
+                </Link>
               </motion.div>
             );
           })}
