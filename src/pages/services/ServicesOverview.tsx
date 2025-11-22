@@ -5,11 +5,12 @@ import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import {
-  FileText,
-  Calculator,
-  Gavel,
-  AlertTriangle,
+  Shield,
+  Globe,
+  Search,
+  AlertCircle,
   ArrowRight,
+  CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -17,198 +18,324 @@ import { Link } from "react-router-dom";
 const ServicesOverview = () => {
   const services = [
     {
-      icon: FileText,
+      icon: Shield,
       title: "Commercial B2B Debt Collection",
       description:
-        "Professional business debt collection services UK wide, specialising in Construction, Food & Drink, Oil & Gas industries.",
+        "UK-wide business debt recovery specialising in Construction, Food & Drink, Oil & Gas, and more. No Win, No Fee service.",
       href: "/services/commercial-debt-recovery",
-      stats: "98% success rate",
+      badge: "98% Success Rate",
+      badgeColor: "bg-green-500",
+      size: "lg",
+      color: "from-blue-600 to-cyan-600",
     },
     {
-      icon: Calculator,
+      icon: Globe,
       title: "International Debt Recovery",
       description:
-        "Cross-border commercial debt recovery UK specialists with global reach and expertise in international business debt collection.",
+        "Cross-border debt recovery with expertise in 14+ countries. Multi-jurisdictional enforcement.",
       href: "/services/international-debt-collection",
-      stats: "14+ countries",
+      badge: "14+ Countries",
+      badgeColor: "bg-purple-500",
+      size: "md",
+      color: "from-purple-600 to-pink-600",
     },
     {
-      icon: Gavel,
+      icon: Search,
       title: "Debtor Tracing & Legal Action",
       description:
-        "Advanced debtor tracing combined with court claims and legal enforcement across all UK jurisdictions.",
+        "Advanced tracing combined with court claims and legal enforcement across UK jurisdictions.",
       href: "/services/debtor-tracing",
-      stats: "£50M+ recovered",
+      badge: "£50M+ Recovered",
+      badgeColor: "bg-orange-500",
+      size: "md",
+      color: "from-orange-600 to-red-600",
     },
     {
-      icon: AlertTriangle,
+      icon: AlertCircle,
       title: "Credit Control & Insolvency",
       description:
-        "Complete credit control outsourcing and specialist insolvency services for complex commercial situations.",
+        "Complete credit control outsourcing and specialist insolvency guidance for complex situations.",
       href: "/services/credit-control-insolvency",
-      stats: "Expert guidance",
+      badge: "Expert Guidance",
+      badgeColor: "bg-indigo-500",
+      size: "lg",
+      color: "from-indigo-600 to-blue-600",
     },
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
 
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Debt Recovery Services | A.S. Collections UK</title>
+        <title>Commercial Debt Recovery Services UK | A.S. Collections</title>
         <meta
           name="description"
-          content="Explore our comprehensive debt recovery services: Commercial B2B, International, Debtor Tracing, Credit Control & Insolvency. 98% success rate, No Win No Fee."
+          content="Comprehensive debt recovery solutions tailored to your business. From commercial B2B collections to international recovery and debtor tracing. 98% success rate."
         />
         <meta
           name="keywords"
-          content="debt recovery services, commercial debt collection, international recovery, debtor tracing, insolvency services"
+          content="debt recovery services, commercial debt collection, international recovery, debtor tracing, credit control, insolvency"
         />
         <link rel="canonical" href="https://ascollections.co.uk/services" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Our Recovery Services",
+            "description": "Comprehensive debt recovery solutions",
+            "hasPart": [
+              {
+                "@type": "Service",
+                "name": "Commercial B2B Debt Collection",
+                "url": "https://ascollections.co.uk/services/commercial-debt-recovery"
+              },
+              {
+                "@type": "Service",
+                "name": "International Debt Recovery",
+                "url": "https://ascollections.co.uk/services/international-debt-collection"
+              },
+              {
+                "@type": "Service",
+                "name": "Debtor Tracing & Legal Action",
+                "url": "https://ascollections.co.uk/services/debtor-tracing"
+              },
+              {
+                "@type": "Service",
+                "name": "Credit Control & Insolvency",
+                "url": "https://ascollections.co.uk/services/credit-control-insolvency"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <Header />
       <main>
-        {/* Hero Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className={`py-32 ${themeClasses.bg.secondary}`}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1
-              className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}
-            >
-              Our Recovery Services
-            </h1>
-            <p
-              className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed`}
-            >
-              Comprehensive debt recovery solutions tailored to your business
-              needs. From commercial collections to international recovery, we
-              deliver results.
-            </p>
-          </div>
-        </motion.section>
-
-        {/* Services Grid */}
+        {/* Hero Section with Network Animation */}
         <motion.section
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={`py-20 ${themeClasses.bg.primary}`}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative py-32 bg-slate-900 overflow-hidden"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Network Animation Background */}
+          <div className="absolute inset-0 opacity-20">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#3b82f6" />
+                  <stop offset="100%" stopColor="#06b6d4" />
+                </linearGradient>
+              </defs>
+              {/* Animated nodes */}
+              {[...Array(20)].map((_, i) => (
+                <motion.circle
+                  key={i}
+                  cx={Math.random() * 100 + "%"}
+                  cy={Math.random() * 100 + "%"}
+                  r="3"
+                  fill="url(#nodeGradient)"
+                  animate={{
+                    opacity: [0.3, 0.8, 0.3],
+                    r: [3, 6, 3]
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: i * 0.1
+                  }}
+                />
+              ))}
+            </svg>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {services.map((service, index) => {
-                const IconComponent = service.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    className={`${themeClasses.bg.secondary} rounded-2xl border ${themeClasses.border.primary} p-8 hover:shadow-lg transition-all duration-300 group`}
-                  >
-                    <div className="flex items-start justify-between mb-6">
-                      <div
-                        className={`w-14 h-14 rounded-xl ${themeClasses.bg.accent} flex items-center justify-center transition-transform group-hover:scale-110`}
-                      >
-                        <IconComponent
-                          className={`w-7 h-7 ${themeClasses.text.accent}`}
-                        />
-                      </div>
-                      <span className="text-xs font-montserrat font-bold text-red-600 dark:text-red-400">
-                        {service.stats}
-                      </span>
-                    </div>
-
-                    <h2
-                      className={`text-2xl font-manrope font-bold ${themeClasses.text.primary} mb-3`}
-                    >
-                      {service.title}
-                    </h2>
-
-                    <p
-                      className={`${themeClasses.text.secondary} mb-6 font-inter leading-relaxed`}
-                    >
-                      {service.description}
-                    </p>
-
-                    <Link
-                      to={service.href}
-                      className="inline-flex items-center gap-2 text-red-600 dark:text-red-400 font-montserrat font-bold hover:gap-3 transition-all"
-                    >
-                      Learn More <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </motion.div>
-                );
-              })}
+              <h1 className="text-5xl md:text-6xl font-black text-white mb-6 font-montserrat">
+                OUR RECOVERY <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                  SERVICES.
+                </span>
+              </h1>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto font-light">
+                Comprehensive debt recovery solutions tailored to your business. From commercial collections to international recovery and beyond.
+              </p>
             </motion.div>
           </div>
         </motion.section>
 
-        {/* CTA Section */}
+        {/* Services Bento Grid */}
+        <section className={`py-24 ${themeClasses.bg.primary}`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Card 1: Commercial (Large) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-2 lg:row-span-2"
+              >
+                <Link to={services[0].href}>
+                  <div className={`h-full bg-gradient-to-br ${services[0].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className="relative z-10">
+                      <div className="flex items-start justify-between mb-8">
+                        <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                          <services[0].icon className="w-8 h-8 text-white" />
+                        </div>
+                        <motion.span
+                          animate={{ scale: [1, 1.1, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                          className={`${services[0].badgeColor} text-white text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase tracking-wider`}
+                        >
+                          {services[0].badge}
+                        </motion.span>
+                      </div>
+                      <h3 className="text-3xl font-black mb-4 font-montserrat leading-tight">
+                        {services[0].title}
+                      </h3>
+                      <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
+                        {services[0].description}
+                      </p>
+                      <div className="flex items-center gap-2 text-white font-bold group-hover:gap-3 transition-all">
+                        Learn More <ArrowRight className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* Card 2: International */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <Link to={services[1].href}>
+                  <div className={`h-full bg-gradient-to-br ${services[1].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                          <services[1].icon className="w-6 h-6 text-white" />
+                        </div>
+                        <span className={`${services[1].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}>
+                          {services[1].badge}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3 font-montserrat">
+                        {services[1].title}
+                      </h3>
+                      <p className="text-white/90 text-sm mb-auto leading-relaxed">
+                        {services[1].description}
+                      </p>
+                      <div className="flex items-center gap-2 text-white font-bold text-sm mt-4 group-hover:gap-3 transition-all">
+                        Learn More <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* Card 3: Debtor Tracing */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Link to={services[2].href}>
+                  <div className={`h-full bg-gradient-to-br ${services[2].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                          <services[2].icon className="w-6 h-6 text-white" />
+                        </div>
+                        <span className={`${services[2].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}>
+                          {services[2].badge}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3 font-montserrat">
+                        {services[2].title}
+                      </h3>
+                      <p className="text-white/90 text-sm mb-auto leading-relaxed">
+                        {services[2].description}
+                      </p>
+                      <div className="flex items-center gap-2 text-white font-bold text-sm mt-4 group-hover:gap-3 transition-all">
+                        Learn More <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* Card 4: Credit Control (Large) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="lg:col-span-2"
+              >
+                <Link to={services[3].href}>
+                  <div className={`h-full bg-gradient-to-br ${services[3].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className="relative z-10">
+                      <div className="flex items-start justify-between mb-6">
+                        <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                          <services[3].icon className="w-8 h-8 text-white" />
+                        </div>
+                        <motion.span
+                          animate={{ scale: [1, 1.1, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                          className={`${services[3].badgeColor} text-white text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase tracking-wider`}
+                        >
+                          {services[3].badge}
+                        </motion.span>
+                      </div>
+                      <h3 className="text-3xl font-black mb-4 font-montserrat leading-tight">
+                        {services[3].title}
+                      </h3>
+                      <p className="text-white/90 text-lg mb-6 leading-relaxed font-medium">
+                        {services[3].description}
+                      </p>
+                      <div className="flex items-center gap-2 text-white font-bold group-hover:gap-3 transition-all">
+                        Learn More <ArrowRight className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Risk Checker Band */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-16 ${themeClasses.bg.secondary}`}
+          className="py-20 bg-slate-900"
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2
-              className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}
-            >
-              Ready to recover your debts?
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-6 font-montserrat">
+              CHECK YOUR CLIENT LIST BEFORE YOU TRADE.
             </h2>
-            <p
-              className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter`}
-            >
-              Check if your client is on the winding-up list or get in touch
-              with our team for a free consultation.
+            <p className="text-lg text-slate-300 mb-10 font-medium">
+              Use our free Insolvency Radar to instantly identify debtors on the winding-up register.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/winding-up-check">
-                <Button className="bg-red-700 hover:bg-red-800 text-white font-manrope font-bold px-8 py-3 rounded-full">
-                  Check Winding-Up List
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button
-                  variant="outline"
-                  className="font-manrope font-bold px-8 py-3 rounded-full"
-                >
-                  Get in Touch
-                </Button>
-              </Link>
-            </div>
+            <Link to="/winding-up-check">
+              <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold text-lg px-10 py-6 rounded-full transition-all shadow-2xl">
+                Open Insolvency Radar
+              </Button>
+            </Link>
           </div>
         </motion.section>
       </main>
