@@ -132,6 +132,50 @@ const ConstructionEngineering = () => {
           </div>
         </motion.section>
 
+        {/* Related Services */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={`py-16 ${themeClasses.bg.primary}`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className={`text-3xl font-manrope font-bold ${themeClasses.text.primary} mb-8 text-center`}>
+              Our Services for Construction Professionals
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-12 text-center font-inter max-w-3xl mx-auto`}>
+              We offer specialist debt recovery services tailored to construction sector needs. Explore our full service range:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Link
+                to="/services/commercial-debt-recovery"
+                className={`${themeClasses.bg.secondary} rounded-lg border ${themeClasses.border.primary} p-6 hover:shadow-lg transition-all duration-300`}
+              >
+                <h3 className={`text-xl font-manrope font-bold ${themeClasses.text.primary} mb-3`}>
+                  Commercial B2B Debt Collection
+                </h3>
+                <p className={`${themeClasses.text.secondary} text-sm font-inter mb-4`}>
+                  Our core service for recovering business debts. Perfect for construction invoices.
+                </p>
+                <span className="text-red-600 dark:text-red-400 font-manrope font-bold text-sm">Learn More →</span>
+              </Link>
+              <Link
+                to="/services/debtor-tracing"
+                className={`${themeClasses.bg.secondary} rounded-lg border ${themeClasses.border.primary} p-6 hover:shadow-lg transition-all duration-300`}
+              >
+                <h3 className={`text-xl font-manrope font-bold ${themeClasses.text.primary} mb-3`}>
+                  Debtor Tracing & Legal Action
+                </h3>
+                <p className={`${themeClasses.text.secondary} text-sm font-inter mb-4`}>
+                  Advanced tracing for construction debtors with legal enforcement options.
+                </p>
+                <span className="text-red-600 dark:text-red-400 font-manrope font-bold text-sm">Learn More →</span>
+              </Link>
+            </div>
+          </div>
+        </motion.section>
+
         {/* Common Issues */}
         <motion.section
           initial={{ opacity: 0 }}
