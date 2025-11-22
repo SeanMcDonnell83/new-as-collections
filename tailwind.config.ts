@@ -19,10 +19,12 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Noto Sans", "system-ui", "sans-serif"],
-        serif: ["Noto Serif", "Georgia", "serif"],
-        "noto-sans": ["Noto Sans", "system-ui", "sans-serif"],
-        "noto-serif": ["Noto Serif", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        serif: ["Montserrat", "Arial", "sans-serif"],
+        "inter": ["Inter", "system-ui", "sans-serif"],
+        "montserrat": ["Montserrat", "Arial", "sans-serif"],
+        "noto-sans": ["Inter", "system-ui", "sans-serif"],
+        "noto-serif": ["Montserrat", "Arial", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
