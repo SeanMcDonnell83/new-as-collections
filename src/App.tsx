@@ -31,6 +31,7 @@ import RecruitmentAgencies from "./pages/sectors/RecruitmentAgencies";
 import ShippingLogistics from "./pages/sectors/ShippingLogistics";
 
 import DebtCalculatorPage from "./pages/DebtCalculator";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
