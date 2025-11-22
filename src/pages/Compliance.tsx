@@ -78,13 +78,17 @@ const Compliance = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Legal Compliance & Professional Standards | A.S. Collections</title>
-        <meta 
-          name="description" 
-          content="A.S. Collections maintains the highest legal compliance and professional standards. GDPR compliant, Consumer Credit Act 1974 adherence, FCA, CICM & CSA professional memberships." 
+        <title>Legal Compliance & Accreditations | FCA, CSA, CICM | A.S. Collections</title>
+        <meta
+          name="description"
+          content="A.S. Collections maintains highest legal compliance and professional standards. GDPR compliant, FCA regulated, CICM & CSA accredited. Full Consumer Credit Act 1974 adherence."
         />
-        <meta name="keywords" content="debt collection compliance UK, GDPR debt recovery, Consumer Credit Act, professional debt collection standards, ethical debt collection, legal compliance UK" />
+        <meta name="keywords" content="FCA compliance debt collection, CICM accredited, CSA member, GDPR compliant debt recovery, Consumer Credit Act, professional standards debt collection" />
         <link rel="canonical" href="https://ascollections.co.uk/compliance" />
+        <meta property="og:title" content="Legal Compliance & Accreditations | FCA, CSA, CICM | A.S. Collections" />
+        <meta property="og:description" content="FCA regulated, CICM & CSA accredited. GDPR compliant, Consumer Credit Act adherent." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ascollections.co.uk/compliance" />
       </Helmet>
       
       <Header />
