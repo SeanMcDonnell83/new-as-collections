@@ -1,6 +1,9 @@
-export default async (req, res) => {
+// Contact form API endpoint
+// Handles form submissions and sends them to the configured email service
+
+export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({ success: false, error: "Method not allowed" });
   }
 
   try {
@@ -9,13 +12,19 @@ export default async (req, res) => {
 
     // Validate required fields
     if (!firstName || !lastName || !email || !phone || !company || !message) {
-      return res.status(400).json({ error: "Missing required fields" });
+      return res.status(400).json({
+        success: false,
+        error: "Missing required fields"
+      });
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ error: "Invalid email address" });
+      return res.status(400).json({
+        success: false,
+        error: "Invalid email address"
+      });
     }
 
     // Prepare email body
@@ -42,11 +51,8 @@ Best regards,
 A.S. Collections Website System
     `.trim();
 
-    // Send email using a service like SendGrid, Mailgun, or AWS SES
-    // For now, we'll use a simple SMTP or webhook approach
-    // You should configure your email service here
-
-    // Example using fetch to an email service:
+    // TODO: Configure email service integration
+    // Example using fetch to an email service like SendGrid, Mailgun, or AWS SES:
     // const emailResponse = await fetch("https://your-email-service/send", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },
@@ -74,12 +80,13 @@ A.S. Collections Website System
     // Return success response
     return res.status(200).json({
       success: true,
-      message: "Contact form submitted successfully",
+      message: "Contact form submitted successfully. We'll be in touch shortly.",
     });
   } catch (error) {
     console.error("Contact form error:", error);
     return res.status(500).json({
+      success: false,
       error: "An error occurred while processing your request",
     });
   }
-};
+}
