@@ -137,29 +137,29 @@ const ServicesOverview = () => {
               >
                 <Link to={services[0].href}>
                   <div
-                    className={`h-full bg-gradient-to-br ${services[0].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-blue-600`}
                   >
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[0].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-8">
-                        <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${services[0].accentColor}`}>
                           <Shield className="w-8 h-8 text-white" />
                         </div>
                         <motion.span
                           animate={{ scale: [1, 1.1, 1] }}
                           transition={{ duration: 2, repeat: Infinity }}
-                          className={`${services[0].badgeColor} text-white text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase tracking-wider`}
+                          className={`bg-gradient-to-r ${services[0].badgeColor} text-white text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase tracking-wider`}
                         >
                           {services[0].badge}
                         </motion.span>
                       </div>
-                      <h3 className="text-3xl font-black mb-4 font-montserrat leading-tight">
+                      <h3 className={`text-3xl font-black mb-4 font-montserrat leading-tight ${themeClasses.text.primary}`}>
                         {services[0].title}
                       </h3>
-                      <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
+                      <p className={`text-lg mb-8 leading-relaxed font-medium ${themeClasses.text.secondary}`}>
                         {services[0].description}
                       </p>
-                      <div className="flex items-center gap-2 text-white font-bold group-hover:gap-3 transition-all">
+                      <div className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all text-blue-600`}>
                         Learn More <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
