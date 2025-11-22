@@ -174,12 +174,17 @@ const Industries = () => {
                       <div
                         className={`relative h-72 rounded-3xl overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-l-4`}
                         style={{
-                          borderLeftColor: sector.accentColor.includes('orange') ? '#f97316' :
-                                          sector.accentColor.includes('emerald') ? '#10b981' :
-                                          sector.accentColor.includes('amber') ? '#f59e0b' :
-                                          sector.accentColor.includes('purple') ? '#a855f7' :
-                                          sector.accentColor.includes('indigo') ? '#6366f1' :
-                                          '#3b82f6'
+                          borderLeftColor: sector.accentColor.includes("orange")
+                            ? "#f97316"
+                            : sector.accentColor.includes("emerald")
+                              ? "#10b981"
+                              : sector.accentColor.includes("amber")
+                                ? "#f59e0b"
+                                : sector.accentColor.includes("purple")
+                                  ? "#a855f7"
+                                  : sector.accentColor.includes("indigo")
+                                    ? "#6366f1"
+                                    : "#3b82f6",
                         }}
                       >
                         {/* Background Gradient */}
@@ -188,7 +193,9 @@ const Industries = () => {
                         />
 
                         {/* Accent Gradient Top Right */}
-                        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${sector.accentColor} opacity-20 blur-3xl -mr-16 -mt-16`} />
+                        <div
+                          className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${sector.accentColor} opacity-20 blur-3xl -mr-16 -mt-16`}
+                        />
 
                         {/* Dark Overlay */}
                         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 z-10" />
@@ -197,7 +204,9 @@ const Industries = () => {
                         <div className="relative z-20 h-full flex flex-col justify-between p-8">
                           {/* Icon & Stat */}
                           <div className="flex items-start justify-between">
-                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br ${sector.accentColor}`}>
+                            <div
+                              className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br ${sector.accentColor}`}
+                            >
                               <IconComponent className="w-7 h-7 text-white" />
                             </div>
                             <motion.span
@@ -249,7 +258,8 @@ const Industries = () => {
                 transition={{ duration: 0.6 }}
                 className={`text-5xl md:text-6xl font-black ${themeClasses.text.primary} mb-6 font-montserrat leading-tight`}
               >
-                DON'T SEE YOUR<br />
+                DON'T SEE YOUR
+                <br />
                 INDUSTRY LISTED?
               </motion.h2>
               <motion.p
@@ -282,8 +292,12 @@ const Industries = () => {
                     className={`relative group`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-                    <div className={`relative ${themeClasses.bg.primary} border-l-4 border-blue-600 px-6 py-4 rounded-lg hover:shadow-lg transition-all duration-300 group-hover:translate-x-1`}>
-                      <p className={`${themeClasses.text.primary} font-semibold text-lg`}>
+                    <div
+                      className={`relative ${themeClasses.bg.primary} border-l-4 border-blue-600 px-6 py-4 rounded-lg hover:shadow-lg transition-all duration-300 group-hover:translate-x-1`}
+                    >
+                      <p
+                        className={`${themeClasses.text.primary} font-semibold text-lg`}
+                      >
                         {industry}
                       </p>
                     </div>
@@ -300,7 +314,9 @@ const Industries = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className={`text-3xl font-black ${themeClasses.text.primary} mb-8 font-montserrat`}>
+                <h3
+                  className={`text-3xl font-black ${themeClasses.text.primary} mb-8 font-montserrat`}
+                >
                   Comprehensive <br />
                   <span className="text-blue-600">Sector Expertise</span>
                 </h3>
@@ -332,7 +348,9 @@ const Industries = () => {
                     >
                       <div className="w-1 bg-gradient-to-b from-blue-600 to-cyan-600 rounded-full shrink-0" />
                       <div>
-                        <h4 className={`text-xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat`}>
+                        <h4
+                          className={`text-xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat`}
+                        >
                           {benefit.title}
                         </h4>
                         <p className={`${themeClasses.text.secondary}`}>
@@ -352,14 +370,14 @@ const Industries = () => {
                 className={`${themeClasses.bg.primary} rounded-2xl p-12 border border-blue-600/30 shadow-xl`}
               >
                 <div className="mb-8">
-                  <p className={`text-lg ${themeClasses.text.secondary} font-medium mb-6`}>
-                    If your industry isn't listed, we still have the expertise you
-                    need.
+                  <p
+                    className={`text-lg ${themeClasses.text.secondary} font-medium mb-6`}
+                  >
+                    If your industry isn't listed, we still have the expertise
+                    you need.
                   </p>
                   <Link to="/contact">
-                    <Button
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-bold text-lg py-6 rounded-xl transition-all shadow-lg hover:shadow-xl"
-                    >
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-bold text-lg py-6 rounded-xl transition-all shadow-lg hover:shadow-xl">
                       Discuss Your Industry Requirements
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
@@ -367,11 +385,14 @@ const Industries = () => {
                 </div>
 
                 <div className="pt-8 border-t border-slate-200 dark:border-slate-700">
-                  <p className={`text-sm font-semibold ${themeClasses.text.secondary} mb-4 uppercase tracking-widest`}>
+                  <p
+                    className={`text-sm font-semibold ${themeClasses.text.secondary} mb-4 uppercase tracking-widest`}
+                  >
                     No Win, No Fee
                   </p>
                   <p className={`text-sm ${themeClasses.text.secondary}`}>
-                    We only get paid when we recover your money. It's our confidence backed up by legal guarantee.
+                    We only get paid when we recover your money. It's our
+                    confidence backed up by legal guarantee.
                   </p>
                 </div>
               </motion.div>
@@ -388,10 +409,14 @@ const Industries = () => {
           className={`py-20 ${themeClasses.bg.primary} border-t ${themeClasses.border.primary}`}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-3xl md:text-4xl font-black mb-6 font-montserrat ${themeClasses.text.primary}`}>
+            <h2
+              className={`text-3xl md:text-4xl font-black mb-6 font-montserrat ${themeClasses.text.primary}`}
+            >
               CHECK YOUR CLIENT LIST BEFORE YOU TRADE.
             </h2>
-            <p className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}>
+            <p
+              className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}
+            >
               Use our free Insolvency Radar to instantly identify debtors on the
               winding-up register.
             </p>

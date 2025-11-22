@@ -93,8 +93,8 @@ const ContactPage = () => {
                     <br /> CONSULTATION
                   </h1>
                   <p className="text-slate-400 text-sm mb-8">
-                    No obligation, completely free consultation to assess your unpaid
-                    invoice recovery UK needs.
+                    No obligation, completely free consultation to assess your
+                    unpaid invoice recovery UK needs.
                   </p>
 
                   <div className="space-y-4">
@@ -102,13 +102,19 @@ const ContactPage = () => {
                       <div
                         key={idx}
                         className="bg-slate-800/50 backdrop-blur-md border border-slate-700 p-4 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition-colors cursor-pointer"
-                        onClick={() => info.action && window.location.href !== info.action && window.open(info.action)}
+                        onClick={() =>
+                          info.action &&
+                          window.location.href !== info.action &&
+                          window.open(info.action)
+                        }
                       >
                         <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shrink-0">
                           <info.icon className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <p className="text-white font-bold text-sm">{info.title}</p>
+                          <p className="text-white font-bold text-sm">
+                            {info.title}
+                          </p>
                           <p className="text-slate-300 text-xs">
                             {info.details[0]}
                           </p>

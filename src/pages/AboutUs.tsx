@@ -136,22 +136,30 @@ const AboutUs = () => {
                 transition={{ duration: 0.8 }}
                 className="order-1 lg:order-2"
               >
-                <h2 className={`text-4xl md:text-5xl font-black ${themeClasses.text.primary} mb-8 leading-tight font-montserrat`}>
+                <h2
+                  className={`text-4xl md:text-5xl font-black ${themeClasses.text.primary} mb-8 leading-tight font-montserrat`}
+                >
                   LEADERSHIP <br />
                   WITH <span className="text-blue-600">VISION.</span>
                 </h2>
-                <blockquote className={`text-2xl ${themeClasses.text.secondary} italic font-serif mb-8 border-l-4 border-blue-600 pl-6`}>
+                <blockquote
+                  className={`text-2xl ${themeClasses.text.secondary} italic font-serif mb-8 border-l-4 border-blue-600 pl-6`}
+                >
                   "Our mission is simple: To revolutionise commercial debt
                   recovery by combining cutting-edge technology with time-tested
                   human expertise."
                 </blockquote>
-                <p className={`text-lg ${themeClasses.text.secondary} mb-6 leading-relaxed`}>
+                <p
+                  className={`text-lg ${themeClasses.text.secondary} mb-6 leading-relaxed`}
+                >
                   We deliver exceptional results whilst preserving the
                   relationships that matter most to our clients' businesses. We
                   believe effective debt recovery shouldn't damage business
                   relationships.
                 </p>
-                <p className={`text-lg ${themeClasses.text.secondary} leading-relaxed`}>
+                <p
+                  className={`text-lg ${themeClasses.text.secondary} leading-relaxed`}
+                >
                   Our mission is to provide ethical, professional, and highly
                   effective commercial debt collection services that protect and
                   enhance reputation whilst maximising recovery rates.
@@ -171,11 +179,16 @@ const AboutUs = () => {
               transition={{ duration: 0.6 }}
               className="mb-16"
             >
-              <h2 className={`text-4xl font-black ${themeClasses.text.primary} font-montserrat`}>
+              <h2
+                className={`text-4xl font-black ${themeClasses.text.primary} font-montserrat`}
+              >
                 OUR CORE VALUES
               </h2>
-              <p className={`text-lg ${themeClasses.text.secondary} mt-4 max-w-2xl`}>
-                The principles that drive our commitment to exceptional debt recovery
+              <p
+                className={`text-lg ${themeClasses.text.secondary} mt-4 max-w-2xl`}
+              >
+                The principles that drive our commitment to exceptional debt
+                recovery
               </p>
             </motion.div>
 
@@ -220,10 +233,16 @@ const AboutUs = () => {
                   >
                     <item.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat`}>
+                  <h3
+                    className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat`}
+                  >
                     {item.title}
                   </h3>
-                  <p className={`${themeClasses.text.secondary} leading-relaxed`}>{item.desc}</p>
+                  <p
+                    className={`${themeClasses.text.secondary} leading-relaxed`}
+                  >
+                    {item.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -231,16 +250,22 @@ const AboutUs = () => {
         </section>
 
         {/* Sticky Trust Bar */}
-        <div className={`fixed bottom-0 left-0 right-0 ${themeClasses.bg.primary} py-4 z-40 border-t ${themeClasses.border.primary} shadow-2xl`}>
+        <div
+          className={`fixed bottom-0 left-0 right-0 ${themeClasses.bg.primary} py-4 z-40 border-t ${themeClasses.border.primary} shadow-2xl`}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div className="flex gap-8">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className={`font-bold ${themeClasses.text.primary}`}>£50M+ Recovered</span>
+                <span className={`font-bold ${themeClasses.text.primary}`}>
+                  £50M+ Recovered
+                </span>
               </div>
               <div className="hidden md:flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className={`font-bold ${themeClasses.text.primary}`}>98% Success Rate</span>
+                <span className={`font-bold ${themeClasses.text.primary}`}>
+                  98% Success Rate
+                </span>
               </div>
             </div>
             <a

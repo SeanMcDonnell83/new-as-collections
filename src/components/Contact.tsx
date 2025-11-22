@@ -139,203 +139,203 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto"
         >
-            <div
-              className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8`}
+          <div
+            className={`${themeClasses.bg.primary} rounded-2xl ${themeClasses.border.primary} border p-8`}
+          >
+            <h3
+              className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-700`}
             >
-              <h3
-                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-700`}
-              >
-                Request Your Free Consultation
-              </h3>
+              Request Your Free Consultation
+            </h3>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Honeypot field for spam protection */}
-                <input
-                  {...register("honeypot")}
-                  type="text"
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              {/* Honeypot field for spam protection */}
+              <input
+                {...register("honeypot")}
+                type="text"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <Label
-                      htmlFor="firstName"
-                      className={`${themeClasses.text.primary} font-inter`}
-                    >
-                      First Name *
-                    </Label>
-                    <Input
-                      id="firstName"
-                      {...register("firstName")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
-                    />
-                    {errors.firstName && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
-                        {errors.firstName.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label
-                      htmlFor="lastName"
-                      className={`${themeClasses.text.primary} font-inter`}
-                    >
-                      Last Name *
-                    </Label>
-                    <Input
-                      id="lastName"
-                      {...register("lastName")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
-                    />
-                    {errors.lastName && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
-                        {errors.lastName.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <Label
-                      htmlFor="email"
-                      className={`${themeClasses.text.primary} font-inter`}
-                    >
-                      Email Address *
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      {...register("email")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
-                    />
-                    {errors.email && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label
-                      htmlFor="phone"
-                      className={`${themeClasses.text.primary} font-inter`}
-                    >
-                      Phone Number *
-                    </Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      {...register("phone")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
-                    />
-                    {errors.phone && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <Label
-                      htmlFor="company"
-                      className={`${themeClasses.text.primary} font-inter`}
-                    >
-                      Company Name *
-                    </Label>
-                    <Input
-                      id="company"
-                      {...register("company")}
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
-                    />
-                    {errors.company && (
-                      <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
-                        {errors.company.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label
-                      htmlFor="debtAmount"
-                      className={`${themeClasses.text.primary} font-inter`}
-                    >
-                      Approximate Debt Amount (£)
-                    </Label>
-                    <Input
-                      id="debtAmount"
-                      {...register("debtAmount")}
-                      placeholder="e.g., 5,000"
-                      className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
-                    />
-                  </div>
-                </div>
-
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <Label
-                    htmlFor="message"
+                    htmlFor="firstName"
                     className={`${themeClasses.text.primary} font-inter`}
                   >
-                    Tell us about your situation *
+                    First Name *
                   </Label>
-                  <Textarea
-                    id="message"
-                    {...register("message")}
-                    rows={4}
-                    placeholder="Please provide details about the debt, debtor, and any previous collection attempts..."
+                  <Input
+                    id="firstName"
+                    {...register("firstName")}
                     className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
                   />
-                  {errors.message && (
+                  {errors.firstName && (
                     <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
-                      {errors.message.message}
+                      {errors.firstName.message}
                     </p>
                   )}
                 </div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full ${themeClasses.button.primary} font-semibold py-3 transition-colors duration-200 font-inter`}
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Sending...
-                    </div>
-                  ) : (
-                    <div className="flex items-center">
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Consultation Request
-                    </div>
-                  )}
-                </Button>
-
-                <p
-                  className={`text-xs ${themeClasses.text.muted} text-center font-inter`}
-                >
-                  We'll get back to you within 2 hours during business hours.
-                </p>
-
-                {/* GDPR Notice */}
-                <div
-                  className={`mt-4 p-3 ${themeClasses.bg.secondary} rounded-lg`}
-                >
-                  <p
-                    className={`text-xs ${themeClasses.text.tertiary} font-inter`}
+                <div>
+                  <Label
+                    htmlFor="lastName"
+                    className={`${themeClasses.text.primary} font-inter`}
                   >
-                    <strong>GDPR Notice:</strong> Your personal data will be
-                    processed in accordance with our privacy policy. You have
-                    the right to access, rectify, or delete your data. Contact
-                    info@ascollections.co.uk for data protection enquiries.
-                  </p>
+                    Last Name *
+                  </Label>
+                  <Input
+                    id="lastName"
+                    {...register("lastName")}
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                  />
+                  {errors.lastName && (
+                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      {errors.lastName.message}
+                    </p>
+                  )}
                 </div>
-              </form>
-            </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label
+                    htmlFor="email"
+                    className={`${themeClasses.text.primary} font-inter`}
+                  >
+                    Email Address *
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    {...register("email")}
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                  />
+                  {errors.email && (
+                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <Label
+                    htmlFor="phone"
+                    className={`${themeClasses.text.primary} font-inter`}
+                  >
+                    Phone Number *
+                  </Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    {...register("phone")}
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                  />
+                  {errors.phone && (
+                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label
+                    htmlFor="company"
+                    className={`${themeClasses.text.primary} font-inter`}
+                  >
+                    Company Name *
+                  </Label>
+                  <Input
+                    id="company"
+                    {...register("company")}
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                  />
+                  {errors.company && (
+                    <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                      {errors.company.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <Label
+                    htmlFor="debtAmount"
+                    className={`${themeClasses.text.primary} font-inter`}
+                  >
+                    Approximate Debt Amount (£)
+                  </Label>
+                  <Input
+                    id="debtAmount"
+                    {...register("debtAmount")}
+                    placeholder="e.g., 5,000"
+                    className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label
+                  htmlFor="message"
+                  className={`${themeClasses.text.primary} font-inter`}
+                >
+                  Tell us about your situation *
+                </Label>
+                <Textarea
+                  id="message"
+                  {...register("message")}
+                  rows={4}
+                  placeholder="Please provide details about the debt, debtor, and any previous collection attempts..."
+                  className={`mt-1 ${themeClasses.bg.secondary} ${themeClasses.border.primary} ${themeClasses.text.primary} font-inter`}
+                />
+                {errors.message && (
+                  <p className="text-red-600 dark:text-red-400 text-sm mt-1 font-inter">
+                    {errors.message.message}
+                  </p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full ${themeClasses.button.primary} font-semibold py-3 transition-colors duration-200 font-inter`}
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Sending...
+                  </div>
+                ) : (
+                  <div className="flex items-center">
+                    <Send className="w-4 h-4 mr-2" />
+                    Send Consultation Request
+                  </div>
+                )}
+              </Button>
+
+              <p
+                className={`text-xs ${themeClasses.text.muted} text-center font-inter`}
+              >
+                We'll get back to you within 2 hours during business hours.
+              </p>
+
+              {/* GDPR Notice */}
+              <div
+                className={`mt-4 p-3 ${themeClasses.bg.secondary} rounded-lg`}
+              >
+                <p
+                  className={`text-xs ${themeClasses.text.tertiary} font-inter`}
+                >
+                  <strong>GDPR Notice:</strong> Your personal data will be
+                  processed in accordance with our privacy policy. You have the
+                  right to access, rectify, or delete your data. Contact
+                  info@ascollections.co.uk for data protection enquiries.
+                </p>
+              </div>
+            </form>
+          </div>
         </motion.div>
       </div>
     </section>

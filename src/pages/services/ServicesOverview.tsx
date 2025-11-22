@@ -116,13 +116,17 @@ const ServicesOverview = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h1 className={`text-5xl md:text-6xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}>
+              <h1
+                className={`text-5xl md:text-6xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}
+              >
                 OUR RECOVERY <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
                   SERVICES.
                 </span>
               </h1>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-light`}>
+              <p
+                className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-light`}
+              >
                 Comprehensive debt recovery solutions tailored to your business.
                 From commercial collections to international recovery and
                 beyond.
@@ -147,10 +151,14 @@ const ServicesOverview = () => {
                   <div
                     className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[0].borderColor}`}
                   >
-                    <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[0].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`} />
+                    <div
+                      className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[0].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`}
+                    />
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-8">
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${services[0].accentColor}`}>
+                        <div
+                          className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${services[0].accentColor}`}
+                        >
                           <Shield className="w-8 h-8 text-white" />
                         </div>
                         <motion.span
@@ -161,13 +169,19 @@ const ServicesOverview = () => {
                           {services[0].badge}
                         </motion.span>
                       </div>
-                      <h3 className={`text-3xl font-black mb-4 font-montserrat leading-tight ${themeClasses.text.primary}`}>
+                      <h3
+                        className={`text-3xl font-black mb-4 font-montserrat leading-tight ${themeClasses.text.primary}`}
+                      >
                         {services[0].title}
                       </h3>
-                      <p className={`text-lg mb-8 leading-relaxed font-medium ${themeClasses.text.secondary}`}>
+                      <p
+                        className={`text-lg mb-8 leading-relaxed font-medium ${themeClasses.text.secondary}`}
+                      >
                         {services[0].description}
                       </p>
-                      <div className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all ${services[0].textColor}`}>
+                      <div
+                        className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all ${services[0].textColor}`}
+                      >
                         Learn More <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
@@ -186,10 +200,14 @@ const ServicesOverview = () => {
                   <div
                     className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[1].borderColor}`}
                   >
-                    <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[1].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`} />
+                    <div
+                      className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[1].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`}
+                    />
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
-                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${services[1].accentColor}`}>
+                        <div
+                          className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${services[1].accentColor}`}
+                        >
                           <Globe className="w-6 h-6 text-white" />
                         </div>
                         <span
@@ -198,13 +216,19 @@ const ServicesOverview = () => {
                           {services[1].badge}
                         </span>
                       </div>
-                      <h3 className={`text-xl font-bold mb-3 font-montserrat ${themeClasses.text.primary}`}>
+                      <h3
+                        className={`text-xl font-bold mb-3 font-montserrat ${themeClasses.text.primary}`}
+                      >
                         {services[1].title}
                       </h3>
-                      <p className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}>
+                      <p
+                        className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}
+                      >
                         {services[1].description}
                       </p>
-                      <div className={`flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all ${services[1].textColor}`}>
+                      <div
+                        className={`flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all ${services[1].textColor}`}
+                      >
                         Learn More <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -223,10 +247,14 @@ const ServicesOverview = () => {
                   <div
                     className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[2].borderColor}`}
                   >
-                    <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[2].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`} />
+                    <div
+                      className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[2].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`}
+                    />
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
-                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${services[2].accentColor}`}>
+                        <div
+                          className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${services[2].accentColor}`}
+                        >
                           <Search className="w-6 h-6 text-white" />
                         </div>
                         <span
@@ -235,13 +263,19 @@ const ServicesOverview = () => {
                           {services[2].badge}
                         </span>
                       </div>
-                      <h3 className={`text-xl font-bold mb-3 font-montserrat ${themeClasses.text.primary}`}>
+                      <h3
+                        className={`text-xl font-bold mb-3 font-montserrat ${themeClasses.text.primary}`}
+                      >
                         {services[2].title}
                       </h3>
-                      <p className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}>
+                      <p
+                        className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}
+                      >
                         {services[2].description}
                       </p>
-                      <div className={`flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all ${services[2].textColor}`}>
+                      <div
+                        className={`flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all ${services[2].textColor}`}
+                      >
                         Learn More <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -261,10 +295,14 @@ const ServicesOverview = () => {
                   <div
                     className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[3].borderColor}`}
                   >
-                    <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[3].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`} />
+                    <div
+                      className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[3].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`}
+                    />
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-6">
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${services[3].accentColor}`}>
+                        <div
+                          className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${services[3].accentColor}`}
+                        >
                           <AlertCircle className="w-8 h-8 text-white" />
                         </div>
                         <motion.span
@@ -275,13 +313,19 @@ const ServicesOverview = () => {
                           {services[3].badge}
                         </motion.span>
                       </div>
-                      <h3 className={`text-3xl font-black mb-4 font-montserrat leading-tight ${themeClasses.text.primary}`}>
+                      <h3
+                        className={`text-3xl font-black mb-4 font-montserrat leading-tight ${themeClasses.text.primary}`}
+                      >
                         {services[3].title}
                       </h3>
-                      <p className={`text-lg mb-6 leading-relaxed font-medium ${themeClasses.text.secondary}`}>
+                      <p
+                        className={`text-lg mb-6 leading-relaxed font-medium ${themeClasses.text.secondary}`}
+                      >
                         {services[3].description}
                       </p>
-                      <div className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all ${services[3].textColor}`}>
+                      <div
+                        className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all ${services[3].textColor}`}
+                      >
                         Learn More <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
@@ -301,10 +345,14 @@ const ServicesOverview = () => {
           className={`py-20 ${themeClasses.bg.primary} border-t ${themeClasses.border.primary}`}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-3xl md:text-4xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}>
+            <h2
+              className={`text-3xl md:text-4xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}
+            >
               CHECK YOUR CLIENT LIST BEFORE YOU TRADE.
             </h2>
-            <p className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}>
+            <p
+              className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}
+            >
               Use our free Insolvency Radar to instantly identify debtors on the
               winding-up register.
             </p>
