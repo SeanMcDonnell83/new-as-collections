@@ -13,7 +13,7 @@ import {
   Building2,
   Utensils,
   Zap,
-  GraduationCap,
+  Layers,
   Briefcase,
   Ship,
 } from "lucide-react";
@@ -34,24 +34,28 @@ const Header = () => {
       href: "/services/commercial-debt-recovery",
       description: "UK-wide business debt recovery",
       icon: Shield,
+      color: "text-blue-500",
     },
     {
       title: "International Debt Recovery",
       href: "/services/international-debt-collection",
       description: "Cross-border debt solutions",
       icon: Globe,
+      color: "text-cyan-500",
     },
     {
       title: "Debtor Tracing & Legal Action",
       href: "/services/debtor-tracing",
       description: "Advanced tracing & enforcement",
       icon: Users,
+      color: "text-blue-400",
     },
     {
       title: "Credit Control & Insolvency",
       href: "/services/credit-control-insolvency",
       description: "Specialist insolvency services",
       icon: Building2,
+      color: "text-indigo-500",
     },
   ];
 
@@ -61,12 +65,14 @@ const Header = () => {
       href: "/winding-up-check",
       description: "Check company insolvency risk",
       icon: Radar,
+      color: "text-green-500",
     },
     {
       title: "Debt Calculator",
       href: "/debt-calculator",
       description: "Calculate potential recovery",
       icon: Calculator,
+      color: "text-emerald-500",
     },
   ];
 
@@ -75,31 +81,37 @@ const Header = () => {
       title: "Construction & Engineering",
       href: "/sectors/construction-engineering",
       icon: Building2,
+      color: "text-orange-500",
     },
     {
       title: "Food & Drink Industry",
       href: "/sectors/food-drink-hospitality",
       icon: Utensils,
+      color: "text-red-500",
     },
     {
       title: "Oil & Gas Sector",
       href: "/sectors/oil-gas-energy",
       icon: Zap,
+      color: "text-amber-500",
     },
     {
-      title: "Independent Schools",
-      href: "/sectors/private-schools-education",
-      icon: GraduationCap,
+      title: "Other Industries",
+      href: "/sectors/other-industries",
+      icon: Layers,
+      color: "text-purple-500",
     },
     {
       title: "Recruitment Agencies",
       href: "/sectors/recruitment-agencies",
       icon: Briefcase,
+      color: "text-pink-500",
     },
     {
       title: "Shipping & Logistics",
       href: "/sectors/shipping-logistics",
       icon: Ship,
+      color: "text-blue-600",
     },
   ];
 
@@ -134,9 +146,9 @@ const Header = () => {
           {/* Frosted Glass Background */}
           <div
             className={`absolute inset-0 ${
-              theme === "light" ? "bg-white/80" : "bg-slate-900/80"
+              theme === "light" ? "bg-white/90" : "bg-slate-900/90"
             } backdrop-blur-xl border ${
-              theme === "light" ? "border-white/20" : "border-slate-700/40"
+              theme === "light" ? "border-white/20 shadow-xl" : "border-slate-700/40 shadow-2xl"
             } rounded-full`}
           ></div>
 
@@ -230,7 +242,7 @@ const Header = () => {
                                     : "hover:bg-slate-800"
                                 }`}
                               >
-                                <div className="w-5 h-5 mt-0.5 flex-shrink-0 text-slate-600 dark:text-slate-400">
+                                <div className={`w-5 h-5 mt-0.5 flex-shrink-0 ${service.color}`}>
                                   <IconComponent className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
@@ -319,7 +331,7 @@ const Header = () => {
                                     : "hover:bg-slate-800 text-white"
                                 }`}
                               >
-                                <div className="w-4 h-4 flex-shrink-0 text-slate-600 dark:text-slate-400">
+                                <div className={`w-4 h-4 flex-shrink-0 ${sector.color}`}>
                                   <IconComponent className="w-4 h-4" />
                                 </div>
                                 <p className="font-montserrat font-bold text-sm">
@@ -390,7 +402,7 @@ const Header = () => {
                                     : "hover:bg-slate-800"
                                 }`}
                               >
-                                <div className="w-5 h-5 mt-0.5 flex-shrink-0 text-red-600 dark:text-red-400">
+                                <div className={`w-5 h-5 mt-0.5 flex-shrink-0 ${tool.color}`}>
                                   <IconComponent className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
@@ -431,7 +443,7 @@ const Header = () => {
                   className={`font-montserrat font-bold text-sm px-4 py-2 rounded-full transition-all duration-200 ${
                     theme === "light"
                       ? "text-slate-900 hover:bg-slate-100/60"
-                      : "text-white hover:bg-slate-700/50"
+                      : "text-slate-400 hover:bg-slate-700/50"
                   }`}
                 >
                   {link.label}

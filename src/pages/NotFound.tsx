@@ -1,77 +1,39 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Home, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { themeClasses } from "@/contexts/ThemeContext";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
-  const navigate = useNavigate();
-  const [countdown, setCountdown] = useState(10);
-
-  useEffect(() => {
-    // Auto redirect to homepage after 10 seconds
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          navigate("/", { replace: true });
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [navigate]);
   return (
-    <div className={`min-h-screen ${themeClasses.bg.primary}`}>
-      <Header />
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-24">
-        <div className="text-center max-w-md">
-          <div className="mb-8">
-            <div
-              className={`text-8xl font-bold ${themeClasses.text.accent} font-noto-serif`}
-            >
-              404
-            </div>
-            <h1
-              className={`text-3xl font-bold ${themeClasses.text.primary} mt-4 font-noto-serif`}
-            >
-              Page Not Found
-            </h1>
-            <p className={`${themeClasses.text.secondary} mt-4 font-noto-sans`}>
-              The page you're looking for doesn't exist or has been moved.
-            </p>
-            <p
-              className={`${themeClasses.text.tertiary} mt-2 font-noto-sans text-sm`}
-            >
-              Redirecting to homepage in {countdown} seconds...
-            </p>
-          </div>
+    <div className="min-h-screen bg-black text-red-500 font-mono flex flex-col items-center justify-center relative overflow-hidden">
+      <Helmet>
+        <title>404: Project Not Found | A.S. Collections</title>
+      </Helmet>
+      
+      {/* Matrix Rain Effect Placeholder (CSS Animation) */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="animate-pulse w-full h-full bg-[linear-gradient(0deg,transparent_24%,rgba(255,0,0,.3)_25%,rgba(255,0,0,.3)_26%,transparent_27%,transparent_74%,rgba(255,0,0,.3)_75%,rgba(255,0,0,.3)_76%,transparent_77%,transparent),linear-gradient(90deg,transparent_24%,rgba(255,0,0,.3)_25%,rgba(255,0,0,.3)_26%,transparent_27%,transparent_74%,rgba(255,0,0,.3)_75%,rgba(255,0,0,.3)_76%,transparent_77%,transparent)] bg-[length:50px_50px]" />
+      </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              className={`${themeClasses.button.primary} font-noto-sans`}
-            >
-              <Link to="/">
-                <Home className="w-4 h-4 mr-2" />
-                Back to Home
-              </Link>
+      <div className="relative z-10 text-center p-4">
+        <h1 className="text-9xl font-black mb-4 animate-pulse glitch-text" style={{ textShadow: "2px 2px 0px #fff" }}>404</h1>
+        <p className="text-2xl mb-8 text-white">PROJECT NOT FOUND</p>
+        <p className="text-red-400 mb-12 max-w-md mx-auto">
+          Don't let your own project end up here. We recover lost funds so you can keep building.
+        </p>
+        
+        <div className="flex gap-4 justify-center">
+          <Link to="/">
+            <Button className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-6 rounded-none border border-red-500">
+              GO HOME
             </Button>
-            <Button
-              variant="outline"
-              onClick={() => window.history.back()}
-              className={`${themeClasses.button.outline} font-noto-sans`}
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Go Back
+          </Link>
+          <Link to="/contact">
+            <Button variant="outline" className="bg-transparent border-red-600 text-red-500 hover:bg-red-900/20 font-bold px-8 py-6 rounded-none">
+              BOOK A RESCUE
             </Button>
-          </div>
+          </Link>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

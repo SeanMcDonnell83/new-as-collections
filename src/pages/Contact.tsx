@@ -6,35 +6,32 @@ import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Plus, Minus } from "lucide-react";
+import { useState } from "react";
 
 const ContactPage = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const contactInfo = [
     {
       icon: Phone,
       title: "Phone",
-      details: ["0151 329 0946", "Free consultation available"],
+      details: ["0151 329 0946"],
+      sub: "Free consultation available",
       action: "tel:+441513290946",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@ascollections.co.uk", "24/7 email support"],
+      details: ["info@ascollections.co.uk"],
+      sub: "24/7 email support",
       action: "mailto:info@ascollections.co.uk",
     },
     {
       icon: MapPin,
       title: "Office",
-      details: ["Liverpool, UK", "Serving England, Scotland, Wales"],
-      action: null,
-    },
-    {
-      icon: Clock,
-      title: "Hours",
-      details: [
-        "Mon-Fri: 9:00 AM - 6:00 PM",
-        "Emergency consultations available",
-      ],
+      details: ["Liverpool, UK"],
+      sub: "Serving England, Scotland, Wales",
       action: null,
     },
   ];
@@ -42,265 +39,138 @@ const ContactPage = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>
-          Contact Us | Free Debt Recovery Consultation | A.S. Collections
-        </title>
+        <title>Contact Us | Free Debt Recovery Consultation | A.S. Collections</title>
         <meta
           name="description"
-          content="Contact A.S. Collections for free no win no fee debt recovery consultation. Call 0151 329 0946. Liverpool-based, serving all UK. 24/7 email support available."
+          content="Contact A.S. Collections for free no win no fee debt recovery consultation. Call 0151 329 0946. Liverpool-based, serving all UK."
         />
-        <meta
-          name="keywords"
-          content="contact debt recovery, free consultation, A.S. Collections contact, Liverpool debt recovery, 0151 329 0946"
-        />
-        <link rel="canonical" href="https://ascollections.co.uk/contact" />
-        <meta
-          property="og:title"
-          content="Contact Us | Free Debt Recovery Consultation | A.S. Collections"
-        />
-        <meta
-          property="og:description"
-          content="Free no win no fee debt recovery consultation. Call 0151 329 0946 or email."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ascollections.co.uk/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "A.S. Collections",
+            "image": "https://ascollections.co.uk/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png",
+            "telephone": "0151 329 0946",
+            "email": "info@ascollections.co.uk",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Liverpool",
+              "addressCountry": "UK"
+            },
+            "url": "https://ascollections.co.uk/contact"
+          })}
+        </script>
       </Helmet>
 
       <Header />
       <main>
-        {/* Page Header */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className={`pt-32 pb-16 ${themeClasses.bg.primary}`}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1
-              className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
-            >
-              Contact A.S. Collections
-            </h1>
-            <p
-              className={`text-xl ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter font-light mb-8`}
-            >
-              Get your free, no-obligation consultation with the UK's leading
-              commercial debt recovery specialists. We're here to help you
-              recover your outstanding debts quickly and professionally.
-            </p>
-
-            {/* Quick Contact CTA */}
-            <div
-              className={`${themeClasses.bg.secondary} rounded-2xl p-6 border ${themeClasses.border.primary} max-w-2xl mx-auto`}
-            >
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <div className="text-center">
-                  <a
-                    href="tel:+441513290946"
-                    className={`text-2xl font-bold ${themeClasses.text.accent} hover:underline font-montserrat font-700 block`}
-                  >
-                    0151 329 0946
-                  </a>
-                  <span
-                    className={`text-sm ${themeClasses.text.secondary} font-inter`}
-                  >
-                    Call for immediate consultation
-                  </span>
-                </div>
-                <div
-                  className={`hidden sm:block w-px h-12 ${themeClasses.border.primary} border-l`}
-                ></div>
-                <div className="text-center">
-                  <div
-                    className={`text-lg font-bold ${themeClasses.text.primary} font-montserrat font-700`}
-                  >
-                    No Win, No Fee
-                  </div>
-                  <span
-                    className={`text-sm ${themeClasses.text.secondary} font-inter`}
-                  >
-                    Free consultation guaranteed
-                  </span>
-                </div>
-              </div>
-            </div>
+        {/* Hero Section: The Concierge */}
+        <section className="relative pt-32 pb-20 bg-slate-900 overflow-hidden min-h-[600px] flex items-center">
+          {/* Stylized Map Background */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+             <img 
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/United_Kingdom_location_map.svg/1024px-United_Kingdom_location_map.svg.png" 
+               className="w-full h-full object-cover grayscale invert"
+               alt="UK Map"
+             />
           </div>
-        </motion.section>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div className="grid lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Sidebar (Desktop) */}
+              <div className="lg:col-span-4 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h1 className="text-5xl font-black text-white mb-2">GET IN TOUCH.</h1>
+                  <p className="text-slate-400 text-lg mb-8">We're ready to recover your money.</p>
+                  
+                  <div className="space-y-4">
+                    {contactInfo.map((info, idx) => (
+                      <div 
+                        key={idx} 
+                        className="bg-slate-800/50 backdrop-blur-md border border-slate-700 p-4 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition-colors cursor-pointer"
+                        onClick={() => info.action && window.open(info.action)}
+                      >
+                        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shrink-0">
+                          <info.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-white font-bold">{info.title}</p>
+                          <p className="text-slate-300 text-sm">{info.details[0]}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
 
-        {/* Contact Information */}
-        <section className={`py-20 ${themeClasses.bg.secondary}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2
-                className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
-              >
-                Get In Touch
-              </h2>
-              <p
-                className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}
-              >
-                Multiple ways to reach our debt recovery specialists. Choose the
-                method that works best for you.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {contactInfo.map((info, index) => {
-                const IconComponent = info.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-6 text-center hover:shadow-lg transition-all duration-300 ${info.action ? "cursor-pointer" : ""}`}
-                    onClick={() => info.action && window.open(info.action)}
-                  >
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <h3
-                      className={`text-xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}
-                    >
-                      {info.title}
+                  {/* Coverage Map List */}
+                  <div className="mt-8 bg-slate-800/50 backdrop-blur-md border border-slate-700 p-6 rounded-xl">
+                    <h3 className="text-white font-bold mb-4 flex items-center gap-2">
+                      <Globe className="w-4 h-4 text-blue-500" /> UK-Wide Coverage
                     </h3>
-                    <div className="space-y-1">
-                      {info.details.map((detail, detailIndex) => (
-                        <div
-                          key={detailIndex}
-                          className={`${detailIndex === 0 ? `font-semibold ${themeClasses.text.primary}` : `text-sm ${themeClasses.text.secondary}`} font-inter`}
-                        >
-                          {detail}
+                    <div className="space-y-2">
+                      {["London", "Manchester", "Birmingham", "Liverpool", "Leeds", "Scotland", "Wales"].map((city, i) => (
+                        <div key={i} className="flex items-center gap-3 text-sm text-slate-400">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                          </span>
+                          {city}
                         </div>
                       ))}
                     </div>
-                  </motion.div>
-                );
-              })}
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Floating Form */}
+              <div className="lg:col-span-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl"
+                >
+                  <Contact />
+                </motion.div>
+              </div>
+
             </div>
           </div>
         </section>
 
-        {/* Floating Contact Form */}
-        <div className={`relative ${themeClasses.bg.primary} pb-20`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
-            <div
-              className={`${themeClasses.bg.primary} rounded-2xl shadow-2xl border ${themeClasses.border.primary} p-8`}
-            >
-              <Contact />
-            </div>
-          </div>
-        </div>
-
-        {/* Service Areas */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={`py-20 ${themeClasses.bg.secondary}`}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2
-                className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
-              >
-                UK-Wide Service Coverage
-              </h2>
-              <p
-                className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light`}
-              >
-                Based in Liverpool, we provide commercial debt recovery services
-                across the entire United Kingdom.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* FAQ Section */}
+        <section className="py-24 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-black text-slate-900 mb-12 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-4">
               {[
-                {
-                  region: "England",
-                  cities: [
-                    "London",
-                    "Manchester",
-                    "Birmingham",
-                    "Liverpool",
-                    "Leeds",
-                    "Sheffield",
-                    "Bristol",
-                    "Newcastle",
-                  ],
-                  description:
-                    "Comprehensive coverage across all English counties and major commercial centers.",
-                },
-                {
-                  region: "Scotland",
-                  cities: [
-                    "Glasgow",
-                    "Edinburgh",
-                    "Aberdeen",
-                    "Dundee",
-                    "Stirling",
-                    "Perth",
-                  ],
-                  description:
-                    "Full Scottish coverage with understanding of Scottish legal procedures and commercial practices.",
-                },
-                {
-                  region: "Wales & Northern Ireland",
-                  cities: [
-                    "Cardiff",
-                    "Swansea",
-                    "Newport",
-                    "Belfast",
-                    "Londonderry",
-                    "Armagh",
-                  ],
-                  description:
-                    "Extending our services throughout Wales and Northern Ireland with local expertise.",
-                },
-              ].map((area, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-6`}
-                >
-                  <h3
-                    className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}
+                { q: "How much does it cost?", a: "We operate on a No Win, No Fee basis. If we don't recover your money, you don't pay us a penny for the collection service." },
+                { q: "How long does it take?", a: "Most debts are recovered within 14 days. However, complex cases may take longer. We keep you updated at every step." },
+                { q: "Can you recover debts from individuals?", a: "Yes, we recover both B2B (commercial) and B2C (consumer) debts, provided they are legally enforceable." },
+                { q: "Do you cover my area?", a: "Yes, we cover the entire UK including England, Scotland, Wales, and Northern Ireland, as well as international debts." }
+              ].map((item, idx) => (
+                <div key={idx} className="border border-slate-200 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                    className="w-full flex items-center justify-between p-6 bg-slate-50 hover:bg-slate-100 transition-colors text-left"
                   >
-                    {area.region}
-                  </h3>
-                  <p
-                    className={`${themeClasses.text.secondary} font-inter text-sm mb-4 leading-relaxed`}
-                  >
-                    {area.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {area.cities.map((city, cityIndex) => (
-                      <span
-                        key={cityIndex}
-                        className={`px-3 py-1 rounded-full ${themeClasses.bg.accent} ${themeClasses.text.secondary} text-xs font-inter`}
-                      >
-                        {city}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
+                    <span className="font-bold text-slate-900">{item.q}</span>
+                    {openFaq === idx ? <Minus className="w-5 h-5 text-blue-600" /> : <Plus className="w-5 h-5 text-slate-400" />}
+                  </button>
+                  {openFaq === idx && (
+                    <div className="p-6 bg-white text-slate-600 leading-relaxed border-t border-slate-200">
+                      {item.a}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
-
-        <FAQ />
+        </section>
       </main>
       <Footer />
       <CookieConsent />
