@@ -137,6 +137,18 @@ const Header = () => {
 
             {/* Desktop Navigation with Mega Menus */}
             <nav className="hidden lg:flex items-center gap-1 mx-auto">
+              {/* Home Link */}
+              <Link
+                to="/"
+                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-full transition-all duration-200 ${
+                  theme === "light"
+                    ? "text-slate-900 hover:bg-slate-100/60"
+                    : "text-white hover:bg-slate-700/50"
+                }`}
+              >
+                Home
+              </Link>
+
               {/* Services Dropdown */}
               <div
                 className="relative group"
@@ -604,26 +616,6 @@ const Header = () => {
                   className="w-full bg-slate-900 hover:bg-slate-950 text-white font-manrope font-bold text-sm py-3 rounded-full transition-all duration-200"
                 >
                   Get in Touch
-                </Button>
-
-                <Button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    window.location.href = "/winding-up-check";
-                  }}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-manrope font-bold text-sm py-3 rounded-full transition-all duration-200"
-                >
-                  Insolvency Radar
-                </Button>
-
-                <Button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    window.location.href = "/debt-calculator";
-                  }}
-                  className="w-full border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 font-manrope font-bold text-sm py-3 rounded-full transition-all duration-200"
-                >
-                  Debt Calculator
                 </Button>
 
                 {/* Theme Toggle in Mobile Menu */}
