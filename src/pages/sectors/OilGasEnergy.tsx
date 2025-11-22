@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { themeClasses } from "@/contexts/ThemeContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import {
@@ -18,7 +19,7 @@ const OilGasEnergy = () => {
   const backgroundY = useTransform(scrollY, [0, 1000], [0, 300]);
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-orange-500 selection:text-white overflow-x-hidden">
+    <div className={`min-h-screen ${themeClasses.bg.primary} ${themeClasses.text.primary} font-sans selection:bg-orange-500 selection:text-white overflow-x-hidden`}>
       <Helmet>
         <title>Oil & Gas Debt Recovery | Energy Sector Specialists</title>
         <meta
