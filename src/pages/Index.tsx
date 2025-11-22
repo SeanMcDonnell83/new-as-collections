@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Phone, FileText, Calculator, Gavel, AlertTriangle, ChevronDown } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const { theme } = useThemeSafe();
@@ -25,21 +26,25 @@ const Index = () => {
       icon: FileText,
       title: "Commercial B2B Debt Collection",
       description: "Professional business debt collection services UK wide, specialising in Construction, Food & Drink, Oil & Gas industries.",
+      href: "/services/commercial-debt-recovery",
     },
     {
       icon: Calculator,
-      title: "International Debt Recovery", 
+      title: "International Debt Recovery",
       description: "Cross-border commercial debt recovery UK specialists with global reach and expertise in international business debt collection.",
+      href: "/services/international-debt-collection",
     },
     {
       icon: Gavel,
       title: "Debtor Tracing & Legal Action",
       description: "Advanced debtor tracing combined with court claims and legal enforcement across all UK jurisdictions.",
+      href: "/services/debtor-tracing",
     },
     {
       icon: AlertTriangle,
       title: "Credit Control & Insolvency",
       description: "Complete credit control outsourcing and specialist insolvency services for complex commercial situations.",
+      href: "/services/credit-control-insolvency",
     },
   ];
 
