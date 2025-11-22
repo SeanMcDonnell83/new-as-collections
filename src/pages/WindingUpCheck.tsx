@@ -11,7 +11,6 @@ import {
   Bookmark,
   X,
   Phone,
-  CheckCircle as CheckCircleIcon,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
