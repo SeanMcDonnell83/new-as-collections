@@ -30,7 +30,7 @@ import PrivateSchoolsEducation from "./pages/sectors/PrivateSchoolsEducation";
 import RecruitmentAgencies from "./pages/sectors/RecruitmentAgencies";
 import ShippingLogistics from "./pages/sectors/ShippingLogistics";
 
-import NotFound from "./pages/NotFound";
+import DebtCalculatorPage from "./pages/DebtCalculator";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +52,7 @@ const App = () => (
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/thank-you" element={<ThankYou />} />
               <Route path="/winding-up-check" element={<WindingUpSearch />} />
+              <Route path="/debt-calculator" element={<DebtCalculatorPage />} />
 
               {/* Service Routes */}
               <Route path="/services" element={<ServicesOverview />} />

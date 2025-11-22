@@ -121,14 +121,14 @@ const Header = () => {
             theme === "light" ? "border-white/20" : "border-slate-700/40"
           } rounded-full`}></div>
 
-          <div className="relative flex justify-between items-center h-16 px-8">
+          <div className="relative flex justify-between items-center h-24 px-8">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <Link to="/" className="block transition-all duration-200 hover:opacity-80 active:scale-95">
                 <img
                   loading="lazy"
                   src={theme === "light" ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png" : "/AS-collections-Brand-Logos-Mono-1750-x-750-px-light.png"}
-                  className="h-11 w-auto object-contain"
+                  className="h-16 w-auto object-contain"
                   alt="A.S. Collections Logo"
                 />
               </Link>
