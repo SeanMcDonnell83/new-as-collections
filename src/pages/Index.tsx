@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/Hero";
 import { IndustryCards } from "@/components/IndustryCards";
 import { HorizontalStepper } from "@/components/HorizontalStepper";
-import Testimonials from "@/components/Testimonials";
+import GoogleReviewWall from "@/components/GoogleReviewWall";
 import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
@@ -168,7 +168,7 @@ const Index = () => {
           </div>
         </motion.div>
 
-        <Testimonials />
+        <GoogleReviewWall />
 
         {/* Top 5 FAQs Section */}
         <motion.section
