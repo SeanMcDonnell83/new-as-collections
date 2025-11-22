@@ -508,12 +508,21 @@ const WindingUpSearch = () => {
                           <p className={`${themeClasses.text.secondary} font-inter text-sm mb-4 leading-relaxed`}>
                             Stop all credit extension to these companies immediately. Cease any new trading arrangements and review your existing exposure. Our insolvency specialists are standing by to help you manage this risk and secure your position.
                           </p>
-                          <Button
-                            onClick={() => window.location.href = 'tel:+441513290946'}
-                            className="bg-red-600 hover:bg-red-700 text-white font-montserrat font-700 text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-all duration-200 w-full sm:w-auto"
-                          >
-                            Speak to Expert Now: 0151 329 0946
-                          </Button>
+                          <div className="flex flex-col sm:flex-row gap-3 items-start">
+                            <Button
+                              onClick={() => window.location.href = 'tel:+441513290946'}
+                              className="bg-red-600 hover:bg-red-700 text-white font-montserrat font-700 text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-all duration-200 flex-1 sm:flex-initial"
+                            >
+                              Speak to Expert Now: 0151 329 0946
+                            </Button>
+                            <Button
+                              onClick={addToBookmarks}
+                              className="bg-red-600/70 hover:bg-red-700 text-white font-montserrat font-700 text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2 flex-1 sm:flex-initial justify-center"
+                            >
+                              <Bookmark className="w-3 h-3" />
+                              Bookmark
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     )}
