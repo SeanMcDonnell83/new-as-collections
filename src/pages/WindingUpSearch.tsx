@@ -401,26 +401,29 @@ const WindingUpSearch = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className={`py-20 ${themeClasses.bg.secondary}`}
+            className={`py-20 ${themeClasses.bg.primary}`}
           >
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className={`text-3xl font-bold ${themeClasses.text.primary} mb-12 text-center font-montserrat font-800`}>
-                How It Works
-              </h2>
+              <div className="text-center mb-16">
+                <h2 className={`text-3xl md:text-4xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-800`}>
+                  How Our Search Works
+                </h2>
+                <div className="h-1 w-16 bg-gradient-to-r from-blue-600 to-transparent rounded-full mx-auto mt-4"></div>
+              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
                   {
                     title: 'Real-Time Data',
-                    description: 'Our database is updated daily with the latest winding-up petitions filed at Companies House.'
+                    description: 'Our database is updated daily with the latest winding-up petitions filed at Companies House, ensuring you always have current information.'
                   },
                   {
-                    title: 'Fast Results',
-                    description: 'Scan multiple companies instantly and identify risks before they impact your business.'
+                    title: 'Instant Results',
+                    description: 'Scan multiple companies in seconds and identify insolvency risks before they impact your business operations or cash flow.'
                   },
                   {
                     title: 'Expert Support',
-                    description: 'Get guidance from our debt recovery specialists on managing companies facing insolvency.'
+                    description: 'Get professional guidance from our debt recovery specialists on managing companies facing winding-up action.'
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -429,17 +432,43 @@ const WindingUpSearch = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`${themeClasses.bg.primary} rounded-xl p-6 border ${themeClasses.border.primary}`}
+                    className="group"
                   >
-                    <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
-                      {item.title}
-                    </h3>
-                    <p className={`${themeClasses.text.secondary} font-inter leading-relaxed`}>
-                      {item.description}
-                    </p>
+                    <div className={`${themeClasses.bg.secondary} rounded-xl p-8 border ${themeClasses.border.primary} h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}>
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <span className="text-white font-bold text-lg font-montserrat">{index + 1}</span>
+                      </div>
+                      <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
+                        {item.title}
+                      </h3>
+                      <p className={`${themeClasses.text.secondary} font-inter leading-relaxed`}>
+                        {item.description}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className={`${themeClasses.bg.secondary} rounded-xl p-8 border ${themeClasses.border.primary} mt-12`}
+              >
+                <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}>
+                  Need Help Interpreting Results?
+                </h3>
+                <p className={`${themeClasses.text.secondary} font-inter leading-relaxed mb-4`}>
+                  If you find matches on our winding-up register, our debt recovery experts are ready to help you assess your exposure and determine the best course of action. Contact us for a free consultation.
+                </p>
+                <Button
+                  onClick={() => window.location.href = '/contact'}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-200 font-inter"
+                >
+                  Get Expert Advice
+                </Button>
+              </motion.div>
             </div>
           </motion.section>
         )}
