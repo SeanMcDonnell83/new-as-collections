@@ -42,7 +42,7 @@ const Hero = () => {
 
   return (
     <section
-      className={`relative min-h-screen bg-gradient-to-br from-neutral-50 via-blue-50 to-neutral-100 dark:from-neutral-900 dark:via-blue-950 dark:to-neutral-800 flex items-center pt-24`}
+      className={`relative min-h-screen bg-gradient-to-br from-blue-50 via-neutral-50 to-blue-100 dark:from-blue-950 dark:via-neutral-900 dark:to-blue-900 flex items-center pt-24`}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10">
