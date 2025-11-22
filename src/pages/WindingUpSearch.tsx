@@ -503,6 +503,22 @@ const WindingUpSearch = () => {
                             </motion.div>
                           ))}
                         </div>
+
+                        {/* Critical Action Section */}
+                        <div className="bg-red-100/50 dark:bg-red-950/30 border-t border-red-300 dark:border-red-700 px-8 py-6">
+                          <p className="text-red-900 dark:text-red-200 font-montserrat font-700 mb-3 text-sm uppercase tracking-wider">
+                            ⚠️ Immediate Action Required
+                          </p>
+                          <p className={`${themeClasses.text.secondary} font-inter text-sm mb-4 leading-relaxed`}>
+                            Stop all credit extension to these companies immediately. Cease any new trading arrangements and review your existing exposure. Our insolvency specialists are standing by to help you manage this risk and secure your position.
+                          </p>
+                          <Button
+                            onClick={() => window.location.href = 'tel:+441513290946'}
+                            className="bg-red-600 hover:bg-red-700 text-white font-montserrat font-700 text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-all duration-200 w-full sm:w-auto"
+                          >
+                            Speak to Expert Now: 0151 329 0946
+                          </Button>
+                        </div>
                       </div>
                     )}
 
