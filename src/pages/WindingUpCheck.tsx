@@ -51,6 +51,7 @@ const WindingUpCheck = () => {
   const [callbackName, setCallbackName] = useState("");
   const [callbackPhone, setCallbackPhone] = useState("");
   const [isSubmittingCallback, setIsSubmittingCallback] = useState(false);
+  const [callbackError, setCallbackError] = useState<string | null>(null);
   const [hasAcknowledgedDisclaimer, setHasAcknowledgedDisclaimer] =
     useState(false);
   const [showDisclaimerModal, setShowDisclaimerModal] = useState(false);
@@ -288,6 +289,7 @@ const WindingUpCheck = () => {
     (r) => r.matchType === "potential",
   );
   const clearCompanies = allResults.filter((r) => r.matchType === "none");
+  const flaggedCompanies = [...exactMatches, ...potentialMatches];
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-inter">
@@ -822,7 +824,7 @@ const WindingUpCheck = () => {
                     Companies Flagged:
                   </p>
                   <ul className="space-y-1">
-                    {exactMatches.map((match, idx) => (
+                    {flaggedCompanies.map((match, idx) => (
                       <li key={idx} className="text-sm text-red-200 font-mono">
                         • {match.name}
                       </li>
@@ -846,12 +848,10 @@ const WindingUpCheck = () => {
               <form
                 onSubmit={async (e) => {
                   e.preventDefault();
+                  setCallbackError(null);
+
                   if (!callbackName.trim() || !callbackPhone.trim()) {
-                    toast({
-                      title: "Required fields",
-                      description: "Please enter your name and phone number.",
-                      variant: "destructive",
-                    });
+                    setCallbackError("Please enter your name and phone number.");
                     return;
                   }
 
@@ -863,7 +863,7 @@ const WindingUpCheck = () => {
                       body: JSON.stringify({
                         name: callbackName,
                         phone: callbackPhone,
-                        companies: exactMatches.map((m) => m.name),
+                        companies: flaggedCompanies.map((m) => m.name),
                       }),
                     });
 
@@ -872,21 +872,17 @@ const WindingUpCheck = () => {
                     }
 
                     toast({
-                      title: "Success!",
-                      description:
-                        "Your urgent callback request has been received. We'll call you shortly.",
+                      title: "Alert sent",
+                      description: "An expert will call you immediately.",
                     });
 
                     setShowHighRiskModal(false);
                     setCallbackName("");
                     setCallbackPhone("");
                   } catch (error) {
-                    toast({
-                      title: "Error",
-                      description:
-                        "Failed to submit callback request. Please try again or call 0151 329 0946.",
-                      variant: "destructive",
-                    });
+                    setCallbackError(
+                      "Failed to submit callback request. Please try again or call 0151 329 0946.",
+                    );
                   } finally {
                     setIsSubmittingCallback(false);
                   }
@@ -938,6 +934,11 @@ const WindingUpCheck = () => {
                     </>
                   )}
                 </Button>
+                {callbackError && (
+                  <p className="mt-3 text-xs text-red-400 font-mono">
+                    {callbackError}
+                  </p>
+                )}
               </form>
 
               <div className="mt-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
