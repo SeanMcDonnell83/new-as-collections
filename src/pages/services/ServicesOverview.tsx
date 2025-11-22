@@ -145,7 +145,7 @@ const ServicesOverview = () => {
               >
                 <Link to={services[0].href}>
                   <div
-                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-blue-600`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 ${services[0].borderColor}`}
                   >
                     <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[0].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10">
@@ -167,7 +167,7 @@ const ServicesOverview = () => {
                       <p className={`text-lg mb-8 leading-relaxed font-medium ${themeClasses.text.secondary}`}>
                         {services[0].description}
                       </p>
-                      <div className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all text-blue-600`}>
+                      <div className={`flex items-center gap-2 font-bold group-hover:gap-3 transition-all ${services[0].textColor}`}>
                         Learn More <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
