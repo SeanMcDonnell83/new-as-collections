@@ -82,10 +82,10 @@ const ServicesOverview = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative py-32 bg-slate-900 overflow-hidden"
+          className={`relative py-32 ${themeClasses.bg.primary} overflow-hidden`}
         >
           {/* Network Animation Background */}
-          <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient
@@ -108,13 +108,13 @@ const ServicesOverview = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h1 className="text-5xl md:text-6xl font-black text-white mb-6 font-montserrat">
+              <h1 className={`text-5xl md:text-6xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}>
                 OUR RECOVERY <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
                   SERVICES.
                 </span>
               </h1>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto font-light">
+              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-light`}>
                 Comprehensive debt recovery solutions tailored to your business.
                 From commercial collections to international recovery and
                 beyond.
