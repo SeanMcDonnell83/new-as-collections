@@ -45,47 +45,39 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Create comprehensive email body
-      const emailBody = `
-New Debt Enquiry from A.S. Collections Website
-
-CONTACT DETAILS:
-Name: ${data.firstName} ${data.lastName}
-Company: ${data.company}
-Email: ${data.email}
-Phone: ${data.phone}
-Debt Amount: £${data.debtAmount || "Not specified"}
-
-MESSAGE:
-${data.message}
-
-ADDITIONAL INFORMATION:
-- Submitted: ${new Date().toLocaleString("en-GB")}
-- Source: A.S. Collections Website Contact Form
-- IP Address: [Automatically captured]
-
-Please respond to this enquiry within 2 hours as per our service commitment.
-
-Best regards,
-A.S. Collections Website System
-      `.trim();
-
-      // Create mailto link with pre-populated content
-      const emailSubject = `New Debt Enquiry - ${data.company}`;
-      const mailtoLink = `mailto:info@ascollections.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-      // Open email client
-      window.location.href = mailtoLink;
-
-      // Show success message
-      toast({
-        title: "Email client opened!",
-        description:
-          "Your email client should now be open with the enquiry details pre-filled. Please send the email to complete your submission.",
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone,
+          company: data.company,
+          debtAmount: data.debtAmount,
+          message: data.message,
+        }),
       });
 
-      // Reset form after successful preparation
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      // Show success message and redirect
+      toast({
+        title: "Success!",
+        description: "Your consultation request has been sent. We'll be in touch shortly.",
+      });
+
+      // Reset form
       reset();
+
+      // Redirect to thank you page after a short delay
+      setTimeout(() => {
+        window.location.href = "/thank-you";
+      }, 1500);
     } catch (error) {
       toast({
         title: "Something went wrong",
