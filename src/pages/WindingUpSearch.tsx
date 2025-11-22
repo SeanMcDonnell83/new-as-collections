@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Papa from 'papaparse';
-import { AlertTriangle, CheckCircle, AlertCircle, Loader, Shield } from 'lucide-react';
+import { AlertTriangle, CheckCircle, AlertCircle, Loader, Shield, Bookmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { themeClasses } from '@/contexts/ThemeContext';
 import Header from '@/components/layout/Header';
@@ -16,9 +16,11 @@ interface WindingUpCompany {
 }
 
 interface MatchResult {
+  userInput: string;
   name: string;
   status: string;
   dateListed: string;
+  matchType: 'exact' | 'potential' | 'none';
 }
 
 const WindingUpSearch = () => {
@@ -27,7 +29,7 @@ const WindingUpSearch = () => {
   const [isFetched, setIsFetched] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [isSearching, setIsSearching] = useState(false);
-  const [matches, setMatches] = useState<MatchResult[]>([]);
+  const [allResults, setAllResults] = useState<MatchResult[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
@@ -43,13 +45,19 @@ const WindingUpSearch = () => {
       .trim();
   };
 
+  // Get first 2 words of normalised name
+  const getFirstTwoWords = (name: string): string => {
+    const normalised = normaliseCompanyName(name);
+    const words = normalised.split(/\s+/).slice(0, 2).join(' ');
+    return words;
+  };
+
   // Calculate similarity score (simple Levenshtein-inspired approach)
   const getSimilarityScore = (str1: string, str2: string): number => {
     const s1 = normaliseCompanyName(str1);
     const s2 = normaliseCompanyName(str2);
 
     if (s1 === s2) return 100;
-    if (s1.includes(s2) || s2.includes(s1)) return 85;
 
     // Simple character overlap scoring
     let matches = 0;
@@ -59,6 +67,37 @@ const WindingUpSearch = () => {
       }
     }
     return (matches / Math.max(s1.length, s2.length)) * 100;
+  };
+
+  // 3-tier matching logic
+  const classifyMatch = (userCompany: string, csvCompany: WindingUpCompany): 'exact' | 'potential' | 'none' => {
+    const normalisedUser = normaliseCompanyName(userCompany);
+    const normalisedCSV = normaliseCompanyName(csvCompany['Company Name']);
+
+    // Check for exact match
+    if (normalisedUser === normalisedCSV) {
+      return 'exact';
+    }
+
+    // Check for potential match
+    const userFirstTwo = getFirstTwoWords(userCompany);
+    const csvFirstTwo = getFirstTwoWords(csvCompany['Company Name']);
+
+    // If first 2 words match and there's good overall similarity
+    if (userFirstTwo && csvFirstTwo && userFirstTwo === csvFirstTwo) {
+      const similarity = getSimilarityScore(userCompany, csvCompany['Company Name']);
+      if (similarity >= 70) {
+        return 'potential';
+      }
+    }
+
+    // Or if similarity is very high (but not exact)
+    const similarity = getSimilarityScore(userCompany, csvCompany['Company Name']);
+    if (similarity >= 85) {
+      return 'potential';
+    }
+
+    return 'none';
   };
 
   // Fetch CSV on mount
@@ -99,37 +138,91 @@ const WindingUpSearch = () => {
 
   const handleScanList = () => {
     setIsSearching(true);
-    setMatches([]);
+    setAllResults([]);
 
     setTimeout(() => {
-      // Split by both commas and newlines, handle multiple separators
+      // Split by both commas and newlines
       const userCompanies = userInput
         .split(/[,\n]+/)
         .map(name => name.trim())
         .filter(name => name.length > 0);
 
-      const foundMatches: MatchResult[] = [];
-      const threshold = 70; // Similarity score threshold
+      const results: MatchResult[] = [];
 
+      // Process each user company
       for (const userCompany of userCompanies) {
+        let bestMatch: MatchResult | null = null;
+        let bestMatchType: 'exact' | 'potential' | 'none' = 'none';
+
+        // Find the best match in the database
         for (const csvCompany of companies) {
-          const similarity = getSimilarityScore(userCompany, csvCompany['Company Name']);
-          if (similarity >= threshold) {
-            foundMatches.push({
+          const matchType = classifyMatch(userCompany, csvCompany);
+
+          // Prefer exact matches, then potential, then none
+          if (matchType === 'exact') {
+            bestMatch = {
+              userInput: userCompany,
               name: csvCompany['Company Name'],
               status: csvCompany.Status || 'Unknown',
-              dateListed: csvCompany['Date Listed'] || 'N/A'
-            });
-            break; // Stop after first match for this company
+              dateListed: csvCompany['Date Listed'] || 'N/A',
+              matchType: 'exact'
+            };
+            bestMatchType = 'exact';
+            break; // Stop on exact match
+          } else if (matchType === 'potential' && bestMatchType !== 'exact') {
+            bestMatch = {
+              userInput: userCompany,
+              name: csvCompany['Company Name'],
+              status: csvCompany.Status || 'Unknown',
+              dateListed: csvCompany['Date Listed'] || 'N/A',
+              matchType: 'potential'
+            };
+            bestMatchType = 'potential';
           }
+        }
+
+        // If no match found, create a "none" result
+        if (!bestMatch) {
+          results.push({
+            userInput: userCompany,
+            name: userCompany,
+            status: 'Not Found',
+            dateListed: 'N/A',
+            matchType: 'none'
+          });
+        } else {
+          results.push(bestMatch);
         }
       }
 
-      setMatches(foundMatches);
+      setAllResults(results);
       setHasSearched(true);
       setIsSearching(false);
     }, 500);
   };
+
+  const addToBookmarks = () => {
+    const url = window.location.href;
+    const title = 'AS Collections - Winding-Up Search';
+    
+    if (window.sidebar && window.sidebar.addPanel) {
+      window.sidebar.addPanel(title, url, '');
+    } else if ((navigator as any).bookmark) {
+      (navigator as any).bookmark(url, title);
+    } else {
+      // Fallback: show keyboard shortcut
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      const shortcut = isMac ? 'Cmd+D' : 'Ctrl+D';
+      alert(`Press ${shortcut} to bookmark this page, or use your browser's bookmark menu.`);
+    }
+  };
+
+  // Separate results by type
+  const exactMatches = allResults.filter(r => r.matchType === 'exact');
+  const potentialMatches = allResults.filter(r => r.matchType === 'potential');
+  const clearCompanies = allResults.filter(r => r.matchType === 'none');
+
+  const hasRiskAlerts = exactMatches.length > 0 || potentialMatches.length > 0;
 
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
@@ -322,165 +415,201 @@ const WindingUpSearch = () => {
                 transition={{ duration: 0.6 }}
                 className="space-y-8"
               >
-                {matches.length > 0 ? (
-                  <>
-                    {/* CRITICAL RISK STATE */}
-                    <div className="bg-white dark:bg-neutral-900 rounded-2xl border-2 border-red-500 overflow-hidden shadow-2xl">
-                      <div className="bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-950 dark:to-red-900/50 px-8 py-6 border-b border-red-500">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-full bg-red-600 dark:bg-red-500 flex items-center justify-center flex-shrink-0 animate-pulse">
-                            <AlertTriangle className="w-7 h-7 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-3xl font-bold text-red-900 dark:text-red-100 font-montserrat font-800 mb-2">
-                              CRITICAL INSOLVENCY RISK DETECTED
-                            </h3>
-                            <p className="text-red-800 dark:text-red-200 font-inter leading-relaxed max-w-2xl">
-                              One or more companies on your list are currently flagged for winding-up action. <strong>Do not extend further credit.</strong> Contact us immediately to secure your position.
-                            </p>
-                          </div>
+                {/* COMPLIANCE NOTE - AT TOP */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6"
+                >
+                  <p className="text-xs font-montserrat font-700 uppercase tracking-wider text-amber-900 dark:text-amber-200 mb-2">
+                    ⚠️ Compliance & Accuracy Notice
+                  </p>
+                  <p className={`text-sm ${themeClasses.text.secondary} font-inter leading-relaxed`}>
+                    <strong>Results are indicative only.</strong> This tool uses 'fuzzy matching' to detect potential insolvency risks. Always verify the exact legal entity name and company number via <a href="https://beta.companieshouse.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">Companies House</a> before taking legal action. We accept no liability for identity errors based on similar trading names. If unsure about any result, please <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">contact us</a> and we will verify for you.
+                  </p>
+                </motion.div>
+
+                {/* SECTION A: RISK ALERTS (Red + Amber) */}
+                {hasRiskAlerts && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="space-y-6"
+                  >
+                    <h3 className={`text-2xl font-bold ${themeClasses.text.primary} font-montserrat font-800 flex items-center gap-2`}>
+                      <AlertTriangle className="w-6 h-6 text-red-600" />
+                      Risk Alerts
+                    </h3>
+
+                    {/* RED - Exact Matches */}
+                    {exactMatches.length > 0 && (
+                      <div className="bg-white dark:bg-neutral-900 rounded-2xl border-2 border-red-500 overflow-hidden shadow-2xl">
+                        <div className="bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-950 dark:to-red-900/50 px-8 py-6 border-b border-red-500">
+                          <h4 className="text-xl font-bold text-red-900 dark:text-red-100 font-montserrat font-800 flex items-center gap-2 mb-1">
+                            🔴 CRITICAL: Exact Match Found
+                          </h4>
+                          <p className="text-sm text-red-800 dark:text-red-200 font-inter">
+                            Do not extend credit. These companies match exactly with our winding-up register.
+                          </p>
+                        </div>
+
+                        <div className="p-6 space-y-4">
+                          {exactMatches.map((match, index) => (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: index * 0.1 }}
+                              className="border-l-4 border-red-600 pl-4 py-3"
+                            >
+                              <div className="flex items-start justify-between gap-4">
+                                <div className="flex-1">
+                                  <p className={`font-bold ${themeClasses.text.primary} font-montserrat mb-1`}>
+                                    {match.name}
+                                  </p>
+                                  <p className={`text-sm ${themeClasses.text.secondary} font-inter`}>
+                                    Listed: {match.dateListed}
+                                  </p>
+                                </div>
+                                <span className="inline-block bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-xs font-montserrat font-700 uppercase whitespace-nowrap flex-shrink-0">
+                                  {match.status}
+                                </span>
+                              </div>
+                            </motion.div>
+                          ))}
                         </div>
                       </div>
+                    )}
 
-                      {/* Results Table */}
-                      <div className="overflow-x-auto">
-                        <table className="w-full">
-                          <thead>
-                            <tr className={`${themeClasses.bg.secondary} border-b ${themeClasses.border.primary}`}>
-                              <th className="text-left px-6 py-4 font-montserrat font-700 uppercase text-xs tracking-wider text-slate-600 dark:text-slate-400">
-                                Company Name
-                              </th>
-                              <th className="text-left px-6 py-4 font-montserrat font-700 uppercase text-xs tracking-wider text-slate-600 dark:text-slate-400">
-                                Status
-                              </th>
-                              <th className="text-left px-6 py-4 font-montserrat font-700 uppercase text-xs tracking-wider text-slate-600 dark:text-slate-400">
-                                Date Listed
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {matches.map((match, index) => (
-                              <motion.tr
-                                key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: index * 0.1 }}
-                                className={`border-b ${themeClasses.border.primary} hover:${themeClasses.bg.secondary} transition-colors duration-200`}
-                              >
-                                <td className={`px-6 py-4 font-bold ${themeClasses.text.primary} font-montserrat`}>
-                                  {match.name}
-                                </td>
-                                <td className="px-6 py-4">
-                                  <span className="inline-block bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-xs font-montserrat font-700 uppercase">
-                                    {match.status}
-                                  </span>
-                                </td>
-                                <td className={`px-6 py-4 ${themeClasses.text.secondary} font-inter`}>
-                                  {match.dateListed}
-                                </td>
-                              </motion.tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
+                    {/* AMBER - Potential Matches */}
+                    {potentialMatches.length > 0 && (
+                      <div className="bg-white dark:bg-neutral-900 rounded-2xl border-2 border-amber-500 overflow-hidden shadow-lg">
+                        <div className="bg-gradient-to-r from-amber-50 to-amber-100/50 dark:from-amber-950 dark:to-amber-900/50 px-8 py-6 border-b border-amber-500">
+                          <h4 className="text-xl font-bold text-amber-900 dark:text-amber-100 font-montserrat font-800 flex items-center gap-2 mb-1">
+                            🟠 WARNING: Potential Match (Exercise Caution)
+                          </h4>
+                          <p className="text-sm text-amber-800 dark:text-amber-200 font-inter">
+                            Similar name found. Please verify company number manually via Companies House.
+                          </p>
+                        </div>
 
-                      {/* Action CTA */}
-                      <div className="bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-950 dark:to-red-900/50 px-8 py-8 border-t border-red-500">
-                        <div className="flex flex-col sm:flex-row items-center gap-4">
-                          <div className="flex-1">
-                            <p className={`font-montserrat font-700 text-lg ${themeClasses.text.primary} mb-2`}>
-                              Need Expert Guidance?
-                            </p>
-                            <p className={`${themeClasses.text.secondary} font-inter text-sm`}>
-                              Our insolvency specialists are ready to help you assess your exposure and take immediate action.
-                            </p>
-                          </div>
-                          <Button
-                            onClick={() => window.location.href = 'tel:+441513290946'}
-                            className="bg-red-600 hover:bg-red-700 text-white font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap flex-shrink-0"
-                          >
-                            Speak to Expert Now
-                            <span className="text-xl ml-2">0151 329 0946</span>
-                          </Button>
+                        <div className="p-6 space-y-4">
+                          {potentialMatches.map((match, index) => (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: index * 0.1 }}
+                              className="border-l-4 border-amber-500 pl-4 py-3"
+                            >
+                              <div className="flex items-start justify-between gap-4">
+                                <div className="flex-1">
+                                  <div className="mb-2">
+                                    <p className={`text-sm ${themeClasses.text.secondary} font-inter mb-1`}>
+                                      You searched for: <strong>{match.userInput}</strong>
+                                    </p>
+                                    <p className={`font-bold ${themeClasses.text.primary} font-montserrat`}>
+                                      Similar to: {match.name}
+                                    </p>
+                                  </div>
+                                  <p className={`text-sm ${themeClasses.text.secondary} font-inter`}>
+                                    Listed: {match.dateListed}
+                                  </p>
+                                </div>
+                                <span className="inline-block bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 px-3 py-1 rounded-full text-xs font-montserrat font-700 uppercase whitespace-nowrap flex-shrink-0">
+                                  {match.status}
+                                </span>
+                              </div>
+                            </motion.div>
+                          ))}
                         </div>
                       </div>
-                    </div>
-
-                    {/* Compliance Note */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                      className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6"
-                    >
-                      <p className="text-xs font-montserrat font-700 uppercase tracking-wider text-amber-900 dark:text-amber-200 mb-2">
-                        Compliance Note
-                      </p>
-                      <p className={`text-sm ${themeClasses.text.secondary} font-inter leading-relaxed`}>
-                        This tool uses 'fuzzy matching' to detect potential insolvency risks. <strong>Always verify the exact legal entity name and company number via Companies House before taking legal action.</strong> We accept no liability for identity errors based on similar trading names.
-                      </p>
-                    </motion.div>
-                  </>
-                ) : (
-                  <>
-                    {/* SAFE STATE */}
-                    <div className="bg-white dark:bg-neutral-900 rounded-2xl border-2 border-green-500 overflow-hidden shadow-2xl">
-                      <div className="bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950 dark:to-green-900/50 px-8 py-6 border-b border-green-500">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-full bg-green-600 dark:bg-green-500 flex items-center justify-center flex-shrink-0">
-                            <CheckCircle className="w-7 h-7 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-3xl font-bold text-green-900 dark:text-green-100 font-montserrat font-800 mb-2">
-                              No Risks Detected
-                            </h3>
-                            <p className="text-green-800 dark:text-green-200 font-inter leading-relaxed">
-                              None of the companies scanned appear on our current winding-up register. Your credit exposure looks secure at this time.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="px-8 py-6">
-                        <p className={`${themeClasses.text.secondary} font-inter mb-2`}>
-                          Keep your business protected. Run regular checks on your client list and monitor for changes.
-                        </p>
-                        <p className={`text-sm ${themeClasses.text.tertiary} font-inter`}>
-                          Our database is updated daily with the latest Companies House filings.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Compliance Note */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6"
-                    >
-                      <p className="text-xs font-montserrat font-700 uppercase tracking-wider text-amber-900 dark:text-amber-200 mb-2">
-                        Compliance Note
-                      </p>
-                      <p className={`text-sm ${themeClasses.text.secondary} font-inter leading-relaxed`}>
-                        This tool uses 'fuzzy matching' to detect potential insolvency risks. <strong>Always verify the exact legal entity name and company number via Companies House before taking legal action.</strong> We accept no liability for identity errors based on similar trading names.
-                      </p>
-                    </motion.div>
-                  </>
+                    )}
+                  </motion.div>
                 )}
 
-                {/* New Scan Button */}
-                <div className="text-center">
-                  <Button
-                    onClick={() => {
-                      setUserInput('');
-                      setMatches([]);
-                      setHasSearched(false);
-                    }}
-                    className={`${themeClasses.button.secondary} font-montserrat font-700 text-sm uppercase tracking-wider px-8 py-3 rounded-lg transition-all duration-200`}
+                {/* SECTION B: CLEAR COMPANIES (Green) */}
+                {clearCompanies.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: hasRiskAlerts ? 0.2 : 0.1 }}
+                    className="space-y-4"
                   >
-                    Scan Another List
-                  </Button>
-                </div>
+                    <h3 className={`text-2xl font-bold ${themeClasses.text.primary} font-montserrat font-800 flex items-center gap-2`}>
+                      <CheckCircle className="w-6 h-6 text-green-600" />
+                      Clear Companies
+                    </h3>
+
+                    <div className="bg-white dark:bg-neutral-900 rounded-2xl border-2 border-green-500 overflow-hidden shadow-lg">
+                      <div className="bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950 dark:to-green-900/50 px-8 py-6 border-b border-green-500">
+                        <h4 className="text-lg font-bold text-green-900 dark:text-green-100 font-montserrat font-800 flex items-center gap-2 mb-1">
+                          🟢 CLEAR: No Match Found
+                        </h4>
+                        <p className="text-sm text-green-800 dark:text-green-200 font-inter">
+                          These companies do not appear in our current winding-up database. Safe to proceed with caution.
+                        </p>
+                      </div>
+
+                      <div className="p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {clearCompanies.map((match, index) => (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, scale: 0.95 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.3, delay: index * 0.05 }}
+                              className="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg p-4"
+                            >
+                              <p className={`font-semibold ${themeClasses.text.primary} font-montserrat`}>
+                                {match.userInput}
+                              </p>
+                              <p className="text-xs text-green-700 dark:text-green-300 font-inter mt-1">
+                                ✓ Not found in database
+                              </p>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Weekly Update & Retention CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950 dark:to-blue-900/50 rounded-2xl border border-blue-200 dark:border-blue-800 p-8 text-center"
+                >
+                  <h4 className="text-2xl font-bold text-blue-900 dark:text-blue-100 font-montserrat font-800 mb-2">
+                    Data Updated Weekly
+                  </h4>
+                  <p className={`${themeClasses.text.secondary} font-inter mb-6 max-w-2xl mx-auto`}>
+                    Our database is refreshed every week with the latest Companies House filings. We recommend checking your client ledger against this tool every Monday morning to stay protected.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <Button
+                      onClick={addToBookmarks}
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2"
+                    >
+                      <Bookmark className="w-4 h-4" />
+                      Bookmark This Page
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        setUserInput('');
+                        setAllResults([]);
+                        setHasSearched(false);
+                      }}
+                      className={`${themeClasses.button.secondary} font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200`}
+                    >
+                      Scan Another List
+                    </Button>
+                  </div>
+                </motion.div>
               </motion.div>
             )}
           </div>
@@ -505,7 +634,7 @@ const WindingUpSearch = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                 {[
                   {
                     num: "01",
@@ -546,12 +675,47 @@ const WindingUpSearch = () => {
                 ))}
               </div>
 
+              {/* SEO Content Section */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className={`${themeClasses.bg.primary} rounded-xl p-8 border ${themeClasses.border.primary} mt-12`}
+                transition={{ duration: 0.6 }}
+                className={`${themeClasses.bg.primary} rounded-2xl p-12 border ${themeClasses.border.primary}`}
+              >
+                <h2 className={`text-3xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
+                  About the Insolvency Register Check
+                </h2>
+
+                <div className={`${themeClasses.text.secondary} font-inter space-y-4 leading-relaxed`}>
+                  <p>
+                    The Insolvency Register Check tool helps UK businesses protect themselves from trading with financially distressed companies. Whether you're concerned about "bad debtors" or companies facing "winding-up petitions," this tool provides instant visibility into which of your clients may be at risk.
+                  </p>
+
+                  <p>
+                    Winding-up petitions are filed at Companies House when creditors seek to force a company into insolvency proceedings. By identifying these companies early, you can take proactive steps to secure outstanding payments, stop extending credit, and mitigate financial loss.
+                  </p>
+
+                  <p>
+                    Our database is continuously updated with the latest insolvency filings, ensuring you always have access to current information about potential credit risks. With our intelligent matching system, we can detect companies even when names vary slightly—whether due to trading names, abbreviations, or other variations.
+                  </p>
+
+                  <p>
+                    This tool is essential for businesses in Construction, Logistics, Manufacturing, and other sectors where credit risk management is critical. Regular checks—we recommend weekly—help you maintain a healthy ledger and protect your cash flow.
+                  </p>
+
+                  <p>
+                    <strong>Remember:</strong> Always verify results via Companies House before taking legal action. Contact our insolvency specialists for guidance on managing identified risks.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className={`${themeClasses.bg.secondary} rounded-xl p-8 border ${themeClasses.border.primary} mt-8`}
               >
                 <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}>
                   Questions About Your Results?
