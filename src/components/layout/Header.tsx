@@ -110,8 +110,8 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation with Mega Menus */}
-          <nav className="hidden lg:flex items-center gap-1 mx-auto">
+          {/* Desktop Navigation with Mega Menus - Pill Style */}
+          <nav className="hidden lg:flex items-center gap-0 mx-auto bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm rounded-full border border-white/60 dark:border-slate-700/40 px-2 py-1.5">
             {/* Services Dropdown */}
             <div
               className="relative group"
@@ -120,10 +120,10 @@ const Header = () => {
             >
               <Link
                 to="/services"
-                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
+                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-full transition-all duration-200 ${
                   theme === "light"
-                    ? "text-slate-900 hover:bg-slate-100"
-                    : "text-white hover:bg-slate-800"
+                    ? "text-slate-900 hover:bg-slate-100/80"
+                    : "text-white hover:bg-slate-700/60"
                 }`}
               >
                 Services
@@ -137,7 +137,7 @@ const Header = () => {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className={`absolute top-full left-0 w-screen max-w-4xl mt-0 rounded-xl shadow-2xl border ${
+                    className={`absolute top-full left-0 w-screen max-w-4xl mt-2 rounded-xl shadow-2xl border ${
                       theme === "light"
                         ? "bg-white border-slate-200"
                         : "bg-slate-900 border-slate-800"
@@ -224,10 +224,10 @@ const Header = () => {
             >
               <Link
                 to="/industries"
-                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
+                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-full transition-all duration-200 ${
                   theme === "light"
-                    ? "text-slate-900 hover:bg-slate-100"
-                    : "text-white hover:bg-slate-800"
+                    ? "text-slate-900 hover:bg-slate-100/80"
+                    : "text-white hover:bg-slate-700/60"
                 }`}
               >
                 Sectors
@@ -241,7 +241,7 @@ const Header = () => {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className={`absolute top-full left-0 w-screen max-w-3xl mt-0 rounded-xl shadow-2xl border ${
+                    className={`absolute top-full left-0 w-screen max-w-3xl mt-2 rounded-xl shadow-2xl border ${
                       theme === "light"
                         ? "bg-white border-slate-200"
                         : "bg-slate-900 border-slate-800"
@@ -283,10 +283,10 @@ const Header = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
+                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-full transition-all duration-200 ${
                   theme === "light"
-                    ? "text-slate-900 hover:bg-slate-100"
-                    : "text-white hover:bg-slate-800"
+                    ? "text-slate-900 hover:bg-slate-100/80"
+                    : "text-white hover:bg-slate-700/60"
                 }`}
               >
                 {link.label}
