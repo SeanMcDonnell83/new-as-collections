@@ -60,14 +60,14 @@ const FoodDrinkHospitality = () => {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/winding-up-check">
-                    <Button className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-green-200 transition-all">
+                    <Button className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-all">
                       Check Insolvency Risk
                     </Button>
                   </Link>
                   <Link to="/services/credit-control-insolvency">
                     <Button
                       variant="ghost"
-                      className="text-slate-900 hover:bg-green-50 font-bold text-lg px-8 py-6 rounded-full"
+                      className={`${themeClasses.text.primary} hover:${themeClasses.bg.accent} font-bold text-lg px-8 py-6 rounded-full`}
                     >
                       Insolvency Services
                     </Button>
