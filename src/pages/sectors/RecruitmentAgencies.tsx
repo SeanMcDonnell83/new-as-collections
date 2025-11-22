@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 const RecruitmentAgencies = () => {
   return (
-    <div className={`min-h-screen ${themeClasses.bg.primary} ${themeClasses.text.primary} font-sans selection:bg-purple-500 selection:text-white overflow-x-hidden`}>
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-purple-500 selection:text-white overflow-x-hidden">
       <Helmet>
         <title>Recruitment Debt Collection | Backdoor Hire Specialists</title>
         <meta
