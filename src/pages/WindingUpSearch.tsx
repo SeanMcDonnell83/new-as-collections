@@ -615,38 +615,30 @@ const WindingUpSearch = () => {
                   </motion.div>
                 )}
 
-                {/* Weekly Update & Retention CTA */}
+                {/* Bottom CTA & Bookmark - Bookmark & Scan Again */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950 dark:to-blue-900/50 rounded-2xl border border-blue-200 dark:border-blue-800 p-8 text-center"
+                  className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
                 >
-                  <h4 className="text-2xl font-bold text-blue-900 dark:text-blue-100 font-montserrat font-800 mb-2">
-                    Data Updated Weekly
-                  </h4>
-                  <p className={`${themeClasses.text.secondary} font-inter mb-6 max-w-2xl mx-auto`}>
-                    Our database is refreshed every week with the latest Companies House filings. We recommend checking your client ledger against this tool every Monday morning to stay protected.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Button
-                      onClick={addToBookmarks}
-                      className="bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2"
-                    >
-                      <Bookmark className="w-4 h-4" />
-                      Bookmark This Page
-                    </Button>
-                    <Button
-                      onClick={() => {
-                        setUserInput('');
-                        setAllResults([]);
-                        setHasSearched(false);
-                      }}
-                      className={`${themeClasses.button.secondary} font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200`}
-                    >
-                      Scan Another List
-                    </Button>
-                  </div>
+                  <Button
+                    onClick={addToBookmarks}
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2"
+                  >
+                    <Bookmark className="w-4 h-4" />
+                    Bookmark This Page
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setUserInput('');
+                      setAllResults([]);
+                      setHasSearched(false);
+                    }}
+                    className={`${themeClasses.button.secondary} font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200`}
+                  >
+                    Scan Another List
+                  </Button>
                 </motion.div>
               </motion.div>
             )}
