@@ -335,7 +335,9 @@ const WindingUpCheck = () => {
                 active Winding-Up Petitions.
               </p>
               <p className="text-sm text-slate-500 max-w-xl mx-auto font-light">
-                Separate company names with <strong>commas</strong> or <strong>new lines</strong>. One per entry recommended for clarity.
+                Separate company names with <strong>commas</strong> or{" "}
+                <strong>new lines</strong>. One per entry recommended for
+                clarity.
               </p>
             </motion.div>
           </div>
@@ -376,11 +378,7 @@ const WindingUpCheck = () => {
                     disabled={isSearching}
                   />
                   <p className="text-xs text-slate-500 mt-2 font-mono text-right">
-                    {
-                      userInput
-                        .split(/[,\n]+/)
-                        .filter((l) => l.trim()).length
-                    }{" "}
+                    {userInput.split(/[,\n]+/).filter((l) => l.trim()).length}{" "}
                     ENTRIES DETECTED
                   </p>
                 </div>
@@ -617,9 +615,9 @@ const WindingUpCheck = () => {
                   credit checks and ongoing monitoring are recommended.
                 </li>
                 <li>
-                  <strong>Data Accuracy:</strong> Our data is not 100% real-time.
-                  For the most current information, always cross-check with
-                  official sources.
+                  <strong>Data Accuracy:</strong> Our data is not 100%
+                  real-time. For the most current information, always
+                  cross-check with official sources.
                 </li>
               </ul>
             </div>
@@ -654,7 +652,8 @@ const WindingUpCheck = () => {
                   Important Disclaimer
                 </h2>
                 <p className="text-slate-400 text-sm">
-                  Before using this tool, please review and confirm you understand our disclaimer.
+                  Before using this tool, please review and confirm you
+                  understand our disclaimer.
                 </p>
               </div>
 
@@ -666,7 +665,10 @@ const WindingUpCheck = () => {
                     Fuzzy Matching Technology
                   </h3>
                   <p>
-                    This tool uses advanced 'fuzzy matching' to identify companies with similar names. Results are <strong>indicative only</strong> and may include partial or similar matches that are not exact.
+                    This tool uses advanced 'fuzzy matching' to identify
+                    companies with similar names. Results are{" "}
+                    <strong>indicative only</strong> and may include partial or
+                    similar matches that are not exact.
                   </p>
                 </div>
 
@@ -676,7 +678,17 @@ const WindingUpCheck = () => {
                     Verification Required
                   </h3>
                   <p>
-                    Always verify the exact legal entity name and company number via <a href="https://beta.companieshouse.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-semibold">Companies House</a> before taking any legal action.
+                    Always verify the exact legal entity name and company number
+                    via{" "}
+                    <a
+                      href="https://beta.companieshouse.gov.uk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 font-semibold"
+                    >
+                      Companies House
+                    </a>{" "}
+                    before taking any legal action.
                   </p>
                 </div>
 
@@ -686,7 +698,9 @@ const WindingUpCheck = () => {
                     No Liability
                   </h3>
                   <p>
-                    We accept no liability for identity errors based on similar trading names. If unsure about any result, contact us for manual verification.
+                    We accept no liability for identity errors based on similar
+                    trading names. If unsure about any result, contact us for
+                    manual verification.
                   </p>
                 </div>
 
@@ -696,7 +710,9 @@ const WindingUpCheck = () => {
                     Ongoing Monitoring
                   </h3>
                   <p>
-                    The absence of a company from our register does not guarantee creditworthiness. Standard credit checks and ongoing monitoring are recommended.
+                    The absence of a company from our register does not
+                    guarantee creditworthiness. Standard credit checks and
+                    ongoing monitoring are recommended.
                   </p>
                 </div>
 
@@ -706,7 +722,8 @@ const WindingUpCheck = () => {
                     Data Accuracy
                   </h3>
                   <p>
-                    Our data is not 100% real-time. For the most current information, always cross-check with official sources.
+                    Our data is not 100% real-time. For the most current
+                    information, always cross-check with official sources.
                   </p>
                 </div>
               </div>
@@ -722,8 +739,12 @@ const WindingUpCheck = () => {
                   }}
                   className="w-4 h-4 mt-1 cursor-pointer accent-blue-500"
                 />
-                <label htmlFor="disclaimer-confirm" className="text-sm text-slate-300 cursor-pointer">
-                  I understand and accept these terms. I will verify all results via Companies House and use this tool responsibly.
+                <label
+                  htmlFor="disclaimer-confirm"
+                  className="text-sm text-slate-300 cursor-pointer"
+                >
+                  I understand and accept these terms. I will verify all results
+                  via Companies House and use this tool responsibly.
                 </label>
               </div>
 
@@ -732,7 +753,7 @@ const WindingUpCheck = () => {
                 <Button
                   onClick={() => {
                     const checkbox = document.getElementById(
-                      "disclaimer-confirm"
+                      "disclaimer-confirm",
                     ) as HTMLInputElement;
                     if (checkbox && checkbox.checked) {
                       setHasAcknowledgedDisclaimer(true);
@@ -749,8 +770,8 @@ const WindingUpCheck = () => {
                   }}
                   className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
                 >
-                  <CheckCircle className="w-4 h-4" />
-                  I Understand - Proceed to Scan
+                  <CheckCircle className="w-4 h-4" />I Understand - Proceed to
+                  Scan
                 </Button>
                 <Button
                   onClick={() => setShowDisclaimerModal(false)}
