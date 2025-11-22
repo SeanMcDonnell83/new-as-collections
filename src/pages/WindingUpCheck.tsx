@@ -11,6 +11,7 @@ import {
   Bookmark,
   X,
   Phone,
+  CheckCircle as CheckCircleIcon,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -46,6 +47,9 @@ const WindingUpCheck = () => {
   const [callbackName, setCallbackName] = useState("");
   const [callbackPhone, setCallbackPhone] = useState("");
   const [isSubmittingCallback, setIsSubmittingCallback] = useState(false);
+  const [hasAcknowledgedDisclaimer, setHasAcknowledgedDisclaimer] =
+    useState(false);
+  const [showDisclaimerModal, setShowDisclaimerModal] = useState(false);
   const { toast } = useToast();
 
   const CSV_URL =
@@ -176,6 +180,14 @@ const WindingUpCheck = () => {
 
     fetchCSV();
   }, []);
+
+  const handleScanClick = () => {
+    if (!hasAcknowledgedDisclaimer) {
+      setShowDisclaimerModal(true);
+      return;
+    }
+    handleScanList();
+  };
 
   const handleScanList = () => {
     setIsSearching(true);
@@ -364,7 +376,7 @@ const WindingUpCheck = () => {
 
                 {/* Action Button */}
                 <Button
-                  onClick={handleScanList}
+                  onClick={handleScanClick}
                   disabled={!userInput.trim() || isSearching}
                   className="w-full bg-red-600 hover:bg-red-500 text-white font-manrope font-bold text-lg py-6 rounded-xl transition-all shadow-lg shadow-red-900/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
@@ -606,6 +618,142 @@ const WindingUpCheck = () => {
 
       <Footer />
 
+      {/* Compliance Disclaimer Modal */}
+      <AnimatePresence>
+        {showDisclaimerModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowDisclaimerModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative bg-slate-900 border border-blue-500/50 rounded-2xl p-8 max-w-lg w-full shadow-2xl shadow-blue-900/20 max-h-[90vh] overflow-y-auto"
+            >
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-blue-400" />
+                </div>
+                <h2 className="text-2xl font-bold text-white font-manrope mb-2">
+                  Important Disclaimer
+                </h2>
+                <p className="text-slate-400 text-sm">
+                  Before using this tool, please review and confirm you understand our disclaimer.
+                </p>
+              </div>
+
+              {/* Disclaimer Content */}
+              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 mb-6 space-y-4 text-sm text-slate-300 leading-relaxed">
+                <div>
+                  <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">1</span>
+                    Fuzzy Matching Technology
+                  </h3>
+                  <p>
+                    This tool uses advanced 'fuzzy matching' to identify companies with similar names. Results are <strong>indicative only</strong> and may include partial or similar matches that are not exact.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">2</span>
+                    Verification Required
+                  </h3>
+                  <p>
+                    Always verify the exact legal entity name and company number via <a href="https://beta.companieshouse.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-semibold">Companies House</a> before taking any legal action.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">3</span>
+                    No Liability
+                  </h3>
+                  <p>
+                    We accept no liability for identity errors based on similar trading names. If unsure about any result, contact us for manual verification.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">4</span>
+                    Ongoing Monitoring
+                  </h3>
+                  <p>
+                    The absence of a company from our register does not guarantee creditworthiness. Standard credit checks and ongoing monitoring are recommended.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white font-bold">5</span>
+                    Data Freshness
+                  </h3>
+                  <p>
+                    Our database is updated weekly from Companies House data. Updates may occasionally lag behind official filings.
+                  </p>
+                </div>
+              </div>
+
+              {/* Acknowledgment Checkbox */}
+              <div className="flex items-start gap-3 mb-6 bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
+                <input
+                  type="checkbox"
+                  id="disclaimer-confirm"
+                  defaultChecked={false}
+                  onChange={(e) => {
+                    // State for this modal is local; we just need to enable the button
+                  }}
+                  className="w-4 h-4 mt-1 cursor-pointer accent-blue-500"
+                />
+                <label htmlFor="disclaimer-confirm" className="text-sm text-slate-300 cursor-pointer">
+                  I understand and accept these terms. I will verify all results via Companies House and use this tool responsibly.
+                </label>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="space-y-3">
+                <Button
+                  onClick={() => {
+                    const checkbox = document.getElementById(
+                      "disclaimer-confirm"
+                    ) as HTMLInputElement;
+                    if (checkbox && checkbox.checked) {
+                      setHasAcknowledgedDisclaimer(true);
+                      setShowDisclaimerModal(false);
+                      setTimeout(() => handleScanList(), 300);
+                    } else {
+                      toast({
+                        title: "Please confirm",
+                        description:
+                          "You must acknowledge the disclaimer to proceed.",
+                        variant: "destructive",
+                      });
+                    }
+                  }}
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
+                >
+                  <CheckCircle className="w-4 h-4" />
+                  I Understand - Proceed to Scan
+                </Button>
+                <Button
+                  onClick={() => setShowDisclaimerModal(false)}
+                  variant="outline"
+                  className="w-full border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white py-3 rounded-lg transition-all"
+                >
+                  Cancel
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       {/* High Risk Callback Modal */}
       <AnimatePresence>
         {showHighRiskModal && (
@@ -744,18 +892,18 @@ const WindingUpCheck = () => {
                 <Button
                   type="submit"
                   disabled={isSubmittingCallback}
-                  className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                  className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
                 >
                   {isSubmittingCallback ? (
-                    <div className="flex items-center gap-2">
+                    <>
                       <Loader className="w-4 h-4 animate-spin" />
                       Submitting...
-                    </div>
+                    </>
                   ) : (
-                    <div className="flex items-center gap-2">
+                    <>
                       <Phone className="w-4 h-4" />
                       Request Callback
-                    </div>
+                    </>
                   )}
                 </Button>
               </form>
