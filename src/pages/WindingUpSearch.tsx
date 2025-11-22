@@ -148,25 +148,27 @@ const WindingUpSearch = () => {
 
       <Header />
       <main className="pt-32">
-        {/* Hero Section - Alert Style */}
+        {/* Hero Section - Professional Alert Style */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 text-white py-20"
+          className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 dark:from-blue-900 dark:via-blue-800 dark:to-slate-900 text-white py-24"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex justify-center mb-6">
-              <AlertTriangle className="w-16 h-16 text-amber-400" />
+            <div className="flex justify-center mb-8">
+              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                <AlertTriangle className="w-10 h-10 text-white" />
+              </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-montserrat font-800">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-montserrat font-800 leading-tight">
               Winding-Up Petition Search
             </h1>
-            <p className="text-xl text-slate-300 mb-4 leading-relaxed max-w-2xl mx-auto font-inter">
-              Protect your business. Instantly check your client list against our live database of UK companies facing winding-up action.
+            <p className="text-xl text-blue-100 mb-4 leading-relaxed max-w-2xl mx-auto font-inter">
+              Protect your business by screening your client list against our live database of UK companies facing winding-up action.
             </p>
-            <p className="text-lg text-slate-400 font-inter max-w-2xl mx-auto">
-              Identify risk early and take proactive measures to safeguard your cash flow and business relationships.
+            <p className="text-lg text-blue-100 font-inter max-w-2xl mx-auto opacity-90">
+              Identify insolvency risks early and take proactive measures to safeguard your cash flow and business relationships.
             </p>
           </div>
         </motion.section>
