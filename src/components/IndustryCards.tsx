@@ -90,7 +90,7 @@ export const IndustryCards = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`py-24 ${themeClasses.bg.secondary}`}
+      className="py-24 bg-slate-100 dark:bg-slate-950"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
