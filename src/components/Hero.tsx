@@ -126,32 +126,28 @@ const Hero = () => {
               </motion.div>
 
               {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-6">
+                <motion.div
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="flex-1"
+                >
+                  <Button
+                    onClick={() => window.location.href = "/winding-up-check"}
+                    size="lg"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white px-8 py-5 text-lg rounded-full font-montserrat font-bold"
+                  >
+                    <Radar className="w-5 h-5 mr-2" />
+                    Check Winding-Up List
+                  </Button>
+                </motion.div>
                 <Button
                   onClick={() => window.location.href = "/contact"}
                   size="lg"
-                  className={`${themeClasses.button.primary} px-8 py-5 text-lg rounded-xl`}
+                  className={`flex-1 ${themeClasses.button.primary} px-8 py-5 text-lg rounded-full font-montserrat font-bold`}
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  Get in Touch
-                </Button>
-                <Button
-                  onClick={() => setIsCalculatorOpen(true)}
-                  size="lg"
-                  className="bg-green-600 hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-500 text-white px-8 py-5 text-lg rounded-xl"
-                >
-                  <Calculator className="w-5 h-5 mr-2" />
-                  Debt Calculator
-                </Button>
-                <Button
-                  onClick={() => window.location.href = "/winding-up-check"}
-                  size="lg"
-                  className="border-2 border-red-600 dark:border-red-500 text-white bg-red-600 dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-800 px-8 py-5 text-lg rounded-xl"
-                >
-                  <AlertTriangle className="w-5 h-5 mr-2" />
-                  <span>
-                    Check a Company
-                  </span>
+                  Free Consultation
                 </Button>
               </motion.div>
 
