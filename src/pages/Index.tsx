@@ -142,7 +142,7 @@ const Index = () => {
         <HorizontalStepper
           steps={processSteps}
           title="Our Recovery Process"
-          subtitle="A proven 4-step approach that maximizes recovery rates while preserving valuable business relationships. Our systematic methodology ensures optimal results for every debt recovery case."
+          subtitle="A proven 4-step approach that maximises recovery rates whilst preserving valuable business relationships. Our systematic methodology ensures optimal results for every debt recovery case."
         />
 
         <motion.div

@@ -45,7 +45,7 @@ const Compliance = () => {
         "Privacy impact assessments", 
         "Data subject rights compliance",
         "Breach notification protocols",
-        "Staff training programs",
+        "Staff training programmes",
         "Regular compliance audits"
       ]
     },

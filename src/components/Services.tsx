@@ -174,7 +174,7 @@ const Services = () => {
               Our Recovery Process
             </h3>
             <p className={`text-lg ${themeClasses.text.secondary}`}>
-              A proven 4-step approach that maximizes recovery while preserving
+              A proven 4-step approach that maximises recovery whilst preserving
               relationships
             </p>
           </div>
