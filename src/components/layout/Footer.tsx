@@ -187,8 +187,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="border-t border-slate-800 pt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Left: Copyright & Legal */}
             <div className="text-slate-400 text-xs font-inter">
               <p className="mb-2">
