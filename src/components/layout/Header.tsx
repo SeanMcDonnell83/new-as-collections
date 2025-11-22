@@ -357,13 +357,55 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -300 }}
             transition={{ duration: 0.3 }}
-            className="fixed lg:hidden top-20 left-0 bottom-0 w-64 bg-white dark:bg-slate-950 shadow-2xl z-40 overflow-y-auto"
+            className="fixed lg:hidden top-20 left-0 bottom-0 w-72 bg-white dark:bg-slate-950 shadow-2xl z-40 overflow-y-auto"
           >
-            <div className="px-4 py-6 space-y-2">
+            {/* Header with Close Button and Theme Toggle */}
+            <div className={`sticky top-0 flex items-center justify-between px-6 py-4 border-b ${
+              theme === "light"
+                ? "bg-white border-slate-100"
+                : "bg-slate-950 border-slate-800"
+            }`}>
+              <h2 className={`text-sm font-montserrat font-bold ${
+                theme === "light" ? "text-slate-900" : "text-white"
+              }`}>
+                Menu
+              </h2>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleTheme}
+                  className={`p-2 rounded-lg transition-all duration-200 ${
+                    theme === "light"
+                      ? "text-slate-600 hover:bg-slate-100"
+                      : "text-slate-400 hover:bg-slate-800"
+                  }`}
+                  aria-label="Toggle theme"
+                >
+                  {theme === "light" ? (
+                    <Moon className="w-4 h-4" />
+                  ) : (
+                    <Sun className="w-4 h-4" />
+                  )}
+                </button>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`p-2 rounded-lg transition-all duration-200 ${
+                    theme === "light"
+                      ? "text-slate-600 hover:bg-slate-100"
+                      : "text-slate-400 hover:bg-slate-800"
+                  }`}
+                  aria-label="Close menu"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Menu Content */}
+            <div className="px-3 py-6 space-y-6">
               {/* Services Section */}
               <div>
-                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-4 py-2 ${
-                  theme === "light" ? "text-slate-600" : "text-slate-400"
+                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-2 ${
+                  theme === "light" ? "text-slate-500" : "text-slate-500"
                 }`}>
                   Services
                 </p>
@@ -373,24 +415,31 @@ const Header = () => {
                       key={service.href}
                       to={service.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`block px-4 py-2 text-sm rounded-lg transition-all duration-200 ${
+                      className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
                         theme === "light"
-                          ? "text-slate-900 hover:bg-slate-100"
-                          : "text-white hover:bg-slate-800"
+                          ? "text-slate-700 hover:bg-slate-100"
+                          : "text-slate-200 hover:bg-slate-800"
                       }`}
                     >
-                      {service.title}
+                      <div className="flex items-center justify-between">
+                        <span>{service.title}</span>
+                        {service.badge && (
+                          <span className="ml-2 px-2 py-0.5 bg-red-600 text-white text-xs font-montserrat font-bold rounded-full">
+                            {service.badge}
+                          </span>
+                        )}
+                      </div>
                     </Link>
                   ))}
                 </div>
               </div>
 
               {/* Sectors Section */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
-                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-4 py-2 ${
-                  theme === "light" ? "text-slate-600" : "text-slate-400"
+              <div>
+                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-2 ${
+                  theme === "light" ? "text-slate-500" : "text-slate-500"
                 }`}>
-                  Sectors
+                  Industries
                 </p>
                 <div className="space-y-1">
                   {sectors.map((sector) => (
@@ -398,10 +447,10 @@ const Header = () => {
                       key={sector.href}
                       to={sector.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`block px-4 py-2 text-sm rounded-lg transition-all duration-200 ${
+                      className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
                         theme === "light"
-                          ? "text-slate-900 hover:bg-slate-100"
-                          : "text-white hover:bg-slate-800"
+                          ? "text-slate-700 hover:bg-slate-100"
+                          : "text-slate-200 hover:bg-slate-800"
                       }`}
                     >
                       {sector.title}
@@ -411,45 +460,56 @@ const Header = () => {
               </div>
 
               {/* Other Links */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
-                {mainNavLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 text-sm rounded-lg transition-all duration-200 ${
-                      theme === "light"
-                        ? "text-slate-900 hover:bg-slate-100"
-                        : "text-white hover:bg-slate-800"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              <div>
+                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-2 mb-2 ${
+                  theme === "light" ? "text-slate-500" : "text-slate-500"
+                }`}>
+                  More
+                </p>
+                <div className="space-y-1">
+                  {mainNavLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                        theme === "light"
+                          ? "text-slate-700 hover:bg-slate-100"
+                          : "text-slate-200 hover:bg-slate-800"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
+            </div>
 
-              {/* Mobile CTA Buttons */}
-              <div className="pt-6 space-y-3 border-t border-slate-200 dark:border-slate-800">
-                <Button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    window.location.href = "/contact";
-                  }}
-                  className="w-full bg-slate-900 hover:bg-slate-950 text-white font-manrope font-bold text-sm py-3 rounded-full transition-all duration-200"
-                >
-                  Get in Touch
-                </Button>
+            {/* Mobile CTA Buttons - Sticky Bottom */}
+            <div className={`sticky bottom-0 px-4 py-4 space-y-3 border-t ${
+              theme === "light"
+                ? "bg-white border-slate-100"
+                : "bg-slate-950 border-slate-800"
+            }`}>
+              <Button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.location.href = "/contact";
+                }}
+                className="w-full bg-slate-900 hover:bg-slate-950 text-white font-manrope font-bold text-sm py-2.5 rounded-full transition-all duration-200"
+              >
+                Get in Touch
+              </Button>
 
-                <Button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    window.location.href = "/winding-up-check";
-                  }}
-                  className="w-full bg-red-700 hover:bg-red-800 text-white font-manrope font-bold text-sm py-3 rounded-full transition-all duration-200"
-                >
-                  Risk Checker
-                </Button>
-              </div>
+              <Button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.location.href = "/winding-up-check";
+                }}
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-manrope font-bold text-sm py-2.5 rounded-full transition-all duration-200"
+              >
+                Risk Checker
+              </Button>
             </div>
           </motion.div>
         )}
