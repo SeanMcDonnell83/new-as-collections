@@ -40,7 +40,7 @@ const industries: IndustryCard[] = [
   },
   {
     name: "Pharmaceuticals",
-    description: "Specialized recovery for healthcare and pharma sectors",
+    description: "Specialised recovery for healthcare and pharmaceutical sectors",
     icon: Pill,
   },
   {
@@ -110,7 +110,7 @@ export const IndustryCards = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter`}
           >
-            Specialized debt recovery across all major UK business sectors. Our sector-focused teams understand industry-specific challenges and opportunities.
+            Specialised debt recovery across all major UK business sectors. Our sector-focused teams understand industry-specific challenges and opportunities.
           </motion.p>
         </div>
 
