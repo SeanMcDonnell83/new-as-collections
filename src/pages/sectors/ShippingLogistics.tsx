@@ -1,6 +1,5 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { themeClasses } from "@/contexts/ThemeContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Anchor, Container, Globe, Map, Ship } from "lucide-react";
