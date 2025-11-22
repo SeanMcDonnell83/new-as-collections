@@ -97,7 +97,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-24 ${theme === "light" ? "bg-slate-50" : "bg-slate-950"}`}
+          className={`py-24 ${theme === "light" ? "bg-white" : "bg-slate-950"}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
@@ -113,32 +113,47 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, index) => {
                 const IconComponent = service.icon;
-                // Create varied grid spans for Bento effect
-                const spanClass = index === 0 ? "lg:col-span-2 lg:row-span-2" : "lg:col-span-1";
+                const isPrimary = index === 0;
+                const spanClass = isPrimary ? "lg:col-span-2 lg:row-span-2" : "lg:col-span-1";
+                const cardBackground = theme === "light"
+                  ? isPrimary
+                    ? "bg-gradient-to-br from-white to-slate-50"
+                    : "bg-white"
+                  : "bg-slate-900";
+
                 return (
                   <motion.div
-                    key={index}
+                    key={service.title}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     className={`group ${spanClass}`}
                   >
-                    <div className={`${
-                      theme === "light" ? "bg-white" : "bg-slate-900"
-                    } rounded-2xl border ${
-                      theme === "light" ? "border-slate-200" : "border-slate-800"
-                    } p-8 h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}>
+                    <div
+                      className={`${cardBackground} rounded-2xl border ${
+                        theme === "light" ? "border-slate-200" : "border-slate-800"
+                      } p-8 h-full flex flex-col hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
+                    >
                       <div className="flex flex-col h-full">
-                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mb-4`}>
-                          <IconComponent className="w-6 h-6 text-white" />
+                        <div className="w-12 h-12 rounded-full bg-blue-600/10 text-blue-700 dark:text-blue-300 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mb-4">
+                          <IconComponent className="w-6 h-6" />
                         </div>
                         <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
                           {service.title}
                         </h3>
-                        <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm flex-1`}>
+                        <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm flex-grow mb-4`}>
                           {service.description}
                         </p>
+                        {service.href && (
+                          <Link
+                            to={service.href}
+                            className="mt-auto inline-flex items-center text-sm font-semibold text-blue-700 dark:text-blue-300 group/link"
+                          >
+                            <span className="group-hover/link:translate-x-0.5 transition-transform">Learn more</span>
+                            <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/link:translate-x-1" />
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </motion.div>
