@@ -70,7 +70,7 @@ const CommercialDebtRecovery = () => {
       <Header />
       <main>
         {/* Page Header */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -79,19 +79,20 @@ const CommercialDebtRecovery = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+                <h1 className={`text-5xl md:text-6xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
                   Commercial Debt Recovery Services UK
                 </h1>
-                <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-noto-sans font-light leading-relaxed`}>
-                  Professional B2B debt collection services with a 98% success rate. Our no win, no fee 
-                  commercial debt recovery specialists help UK businesses recover outstanding invoices 
-                  quickly and ethically whilst preserving valuable client relationships.
+                <p className={`text-lg ${themeClasses.text.secondary} mb-4 font-inter leading-relaxed`}>
+                  Professional B2B debt collection services with a 98% success rate.
+                </p>
+                <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
+                  Our no win, no fee commercial debt recovery specialists help UK businesses recover outstanding invoices quickly and ethically whilst preserving valuable client relationships.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
                     onClick={scrollToContact}
                     size="lg"
-                    className={`${themeClasses.button.primary} font-semibold px-8 py-4 transition-colors duration-200 font-noto-sans`}
+                    className={`${themeClasses.button.primary} font-semibold px-8 py-4 transition-colors duration-200 font-inter`}
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     Get Free Consultation
