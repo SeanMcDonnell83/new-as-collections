@@ -33,11 +33,7 @@ const Header = () => {
             <Link to="/" className="block">
               <img
                 loading="lazy"
-                src={
-                  theme === "light"
-                    ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png"
-                    : "/AS-collections-Brand-Logos-Mono-1750-x-750-px-light.png"
-                }
+                src={theme === "light" ? "/AS-collections-Brand-Logos-Mono-1750-x-750-px-dark.png" : "/AS-collections-Brand-Logos-Mono-1750-x-750-px-light.png"}
                 className="h-12 w-auto object-contain transition-all duration-200 hover:scale-105"
                 alt="AS Collections Logo"
               />
@@ -45,25 +41,37 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation - centered */}
-          <nav className="hidden md:flex items-center space-x-8 mx-auto">
-            <button
-              onClick={() => scrollToSection("services")}
+          <nav className="hidden md:flex items-center space-x-6 mx-auto">
+            <Link
+              to="/about-us"
               className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
             >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
+              About Us
+            </Link>
+            <Link
+              to="/commercial-debt-recovery"
               className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
             >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
+              Our Services
+            </Link>
+            <Link
+              to="/industries"
+              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
+            >
+              Sectors
+            </Link>
+            <Link
+              to="/compliance"
+              className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
+            >
+              Compliance
+            </Link>
+            <Link
+              to="/contact"
               className={`${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200 font-medium font-noto-sans px-4 py-2 rounded-lg`}
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
           {/* Theme Toggle & CTA */}
@@ -80,7 +88,7 @@ const Header = () => {
               )}
             </button>
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => window.location.href = '/contact'}
               className={`${themeClasses.button.primary} font-semibold px-6 py-2 transition-colors duration-200 font-noto-sans`}
             >
               <Phone className="w-4 h-4 mr-2" />
@@ -124,27 +132,47 @@ const Header = () => {
             className={`md:hidden ${themeClasses.border.primary} border-t ${themeClasses.bg.primary}`}
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => scrollToSection("services")}
+              <Link
+                to="/about-us"
+                onClick={() => setIsMenuOpen(false)}
                 className={`block w-full text-left px-3 py-2 ${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:${themeClasses.bg.secondary} transition-colors duration-200 font-medium font-noto-sans rounded-md`}
               >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
+                About Us
+              </Link>
+              <Link
+                to="/commercial-debt-recovery"
+                onClick={() => setIsMenuOpen(false)}
                 className={`block w-full text-left px-3 py-2 ${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:${themeClasses.bg.secondary} transition-colors duration-200 font-medium font-noto-sans rounded-md`}
               >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
+                Our Services
+              </Link>
+              <Link
+                to="/industries"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block w-full text-left px-3 py-2 ${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:${themeClasses.bg.secondary} transition-colors duration-200 font-medium font-noto-sans rounded-md`}
+              >
+                Sectors
+              </Link>
+              <Link
+                to="/compliance"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block w-full text-left px-3 py-2 ${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:${themeClasses.bg.secondary} transition-colors duration-200 font-medium font-noto-sans rounded-md`}
+              >
+                Compliance
+              </Link>
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
                 className={`block w-full text-left px-3 py-2 ${themeClasses.text.secondary} hover:${themeClasses.text.accent} hover:${themeClasses.bg.secondary} transition-colors duration-200 font-medium font-noto-sans rounded-md`}
               >
                 Contact
-              </button>
+              </Link>
               <div className="px-3 py-2">
                 <Button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    window.location.href = '/contact';
+                  }}
                   className={`w-full ${themeClasses.button.primary} font-semibold transition-colors duration-200 font-noto-sans`}
                 >
                   <Phone className="w-4 h-4 mr-2" />
