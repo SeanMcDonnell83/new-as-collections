@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ObfuscatedMailto } from "@/components/ui/ObfuscatedMailto";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -22,7 +23,7 @@ const contactFormSchema = z.object({
   message: z
     .string()
     .min(10, "Please provide more details about your situation"),
-  honeypot: z.string().max(0, "Bot detected"), // Anti-spam honeypot
+  honeypot: z.string().optional(), // Anti-spam honeypot
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -43,6 +44,21 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+
+    if (data.honeypot) {
+      console.log("Bot detected");
+      toast({
+        title: "Success!",
+        description:
+          "Your consultation request has been sent. We'll be in touch shortly.",
+      });
+      reset();
+      setTimeout(() => {
+        window.location.href = "/thank-you";
+      }, 1500);
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -101,9 +117,9 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@ascollections.co.uk", "Response within 2 hours"],
+      details: ["Email our team", "Response within 2 hours"],
       action: "Send Email",
-      link: "mailto:info@ascollections.co.uk",
+      link: "",
     },
     {
       icon: MapPin,
@@ -153,9 +169,10 @@ const Contact = () => {
               <input
                 {...register("honeypot")}
                 type="text"
-                className="hidden"
+                className="opacity-0 absolute -z-10 h-0 w-0 pointer-events-none"
                 tabIndex={-1}
                 autoComplete="off"
+                aria-hidden="true"
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -330,8 +347,14 @@ const Contact = () => {
                 >
                   <strong>GDPR Notice:</strong> Your personal data will be
                   processed in accordance with our privacy policy. You have the
-                  right to access, rectify, or delete your data. Contact
-                  info@ascollections.co.uk for data protection enquiries.
+                  right to access, rectify, or delete your data. For data
+                  protection enquiries, please email {""}
+                  <ObfuscatedMailto
+                    user="info"
+                    domain="ascollections.co.uk"
+                    className="underline underline-offset-2"
+                  />
+                  .
                 </p>
               </div>
             </form>

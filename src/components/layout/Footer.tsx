@@ -2,6 +2,7 @@ import { themeClasses } from "@/contexts/ThemeContext";
 import { useThemeSafe } from "@/hooks/useThemeSafe";
 import { Link } from "react-router-dom";
 import { CheckCircle, TrendingUp, Shield } from "lucide-react";
+import { ObfuscatedMailto } from "@/components/ui/ObfuscatedMailto";
 
 const Footer = () => {
   const { theme } = useThemeSafe();
@@ -190,12 +191,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:info@ascollections.co.uk"
+                <ObfuscatedMailto
+                  user="info"
+                  domain="ascollections.co.uk"
                   className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200 break-all"
-                >
-                  info@ascollections.co.uk
-                </a>
+                />
               </li>
             </ul>
           </div>

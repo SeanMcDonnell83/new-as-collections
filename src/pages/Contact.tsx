@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { MapPin, Phone, Mail, Clock, Plus, Minus, Globe } from "lucide-react";
 import { useState } from "react";
+import { ObfuscatedMailto } from "@/components/ui/ObfuscatedMailto";
 
 const ContactPage = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -23,9 +24,9 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@ascollections.co.uk"],
+      details: ["Email our team"],
       sub: "24/7 email support",
-      action: "mailto:info@ascollections.co.uk",
+      action: null,
     },
     {
       icon: MapPin,
@@ -115,9 +116,17 @@ const ContactPage = () => {
                           <p className="text-white font-bold text-sm">
                             {info.title}
                           </p>
-                          <p className="text-slate-300 text-xs">
-                            {info.details[0]}
-                          </p>
+                          {info.title === "Email" ? (
+                            <ObfuscatedMailto
+                              user="info"
+                              domain="ascollections.co.uk"
+                              className="text-slate-300 text-xs underline underline-offset-2"
+                            />
+                          ) : (
+                            <p className="text-slate-300 text-xs">
+                              {info.details[0]}
+                            </p>
+                          )}
                         </div>
                       </div>
                     ))}
