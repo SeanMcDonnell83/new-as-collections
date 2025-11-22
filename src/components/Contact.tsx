@@ -395,12 +395,12 @@ const Contact = () => {
                   {isSubmitting ? (
                     <div className="flex items-center">
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Preparing Email...
+                      Sending...
                     </div>
                   ) : (
                     <div className="flex items-center">
                       <Send className="w-4 h-4 mr-2" />
-                      Send Free Consultation Request
+                      Send Consultation Request
                     </div>
                   )}
                 </Button>
@@ -408,9 +408,7 @@ const Contact = () => {
                 <p
                   className={`text-xs ${themeClasses.text.muted} text-center font-inter`}
                 >
-                  By clicking submit, your email client will open with a
-                  pre-filled message to info@ascollections.co.uk. Simply send
-                  the email to complete your consultation request.
+                  We'll get back to you within 2 hours during business hours.
                 </p>
 
                 {/* GDPR Notice */}
