@@ -108,37 +108,35 @@ const LegalCompliance = () => {
                 className={`${themeClasses.bg.primary} rounded-xl border-2 border-gray-300 dark:border-gray-700 p-8 shadow-md hover:shadow-lg transition-all duration-300`}
               >
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center flex-shrink-0">
-                    <IconComponent className="w-6 h-6 text-white" />
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                    <IconComponent className="w-7 h-7 text-white" />
                   </div>
                   <div className="flex-1">
                     <h3
-                      className={`text-xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}
+                      className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-800`}
                     >
                       {standard.title}
                     </h3>
                     <p
-                      className={`${themeClasses.text.secondary} mb-4 leading-relaxed font-inter`}
+                      className={`${themeClasses.text.secondary} mb-4 leading-relaxed font-inter text-sm`}
                     >
                       {standard.description}
                     </p>
-                    <div
-                      className={`text-sm ${themeClasses.text.tertiary} mb-2 font-inter`}
-                    >
-                      <strong>Framework:</strong> {standard.authority}
-                    </div>
-                    <div
-                      className={`text-sm ${themeClasses.text.tertiary} mb-4 font-inter`}
-                    >
-                      <strong>Reference:</strong> {standard.reference}
+                    <div className="space-y-2 py-4 border-t border-gray-200 dark:border-gray-700">
+                      <div className={`text-sm ${themeClasses.text.secondary} font-inter`}>
+                        <span className="font-semibold">Authority:</span> {standard.authority}
+                      </div>
+                      <div className={`text-sm ${themeClasses.text.secondary} font-inter`}>
+                        <span className="font-semibold">Reference:</span> {standard.reference}
+                      </div>
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      className={`${themeClasses.button.outline} text-xs font-inter`}
+                      className={`${themeClasses.button.outline} text-xs font-inter mt-4`}
                       onClick={() => window.open(standard.link, "_blank")}
                     >
-                      Learn More
+                      View Details
                       <ExternalLink className="w-3 h-3 ml-2" />
                     </Button>
                   </div>
