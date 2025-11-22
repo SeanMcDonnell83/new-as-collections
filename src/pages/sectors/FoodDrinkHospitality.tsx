@@ -44,16 +44,16 @@ const FoodDrinkHospitality = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-800 text-sm font-bold mb-6 tracking-wide uppercase">
+                <span className={`inline-block py-1 px-3 rounded-full ${themeClasses.bg.accent} text-green-600 dark:text-green-400 text-sm font-bold mb-6 tracking-wide uppercase`}>
                   Hospitality & Food Service
                 </span>
-                <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9]">
+                <h1 className={`text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9] ${themeClasses.text.primary}`}>
                   SERVED <br />
-                  <span className="text-green-600 italic">FRESH.</span> <br />
+                  <span className="text-green-600 dark:text-green-400 italic">FRESH.</span> <br />
                   PAID <br />
-                  <span className="text-green-600 italic">FAST.</span>
+                  <span className="text-green-600 dark:text-green-400 italic">FAST.</span>
                 </h1>
-                <p className="text-xl text-slate-600 mb-8 max-w-lg font-medium leading-relaxed">
+                <p className={`text-xl ${themeClasses.text.secondary} mb-8 max-w-lg font-medium leading-relaxed`}>
                   In hospitality, speed is everything. Restaurants close
                   overnight. We move immediately to secure your payment before
                   the shutters come down.
