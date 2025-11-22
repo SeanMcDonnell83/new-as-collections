@@ -11,7 +11,6 @@ import {
   Bookmark,
   X,
   Phone,
-  ArrowRight,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -464,6 +463,19 @@ const WindingUpCheck = () => {
                         </div>
                       </motion.div>
                     ))}
+
+                    {/* Potential Matches Advice */}
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                      className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 mt-6"
+                    >
+                      <p className="text-amber-200 text-sm font-semibold mb-2">⚠️ Verification Required</p>
+                      <p className="text-amber-200 text-sm leading-relaxed">
+                        These companies are not an exact match but share similarities with our register. We recommend verifying the company number and full legal entity name via Companies House before making credit decisions. If unsure, contact our team for manual verification.
+                      </p>
+                    </motion.div>
                   </div>
                 )}
 
@@ -486,6 +498,19 @@ const WindingUpCheck = () => {
                         </div>
                       ))}
                     </div>
+
+                    {/* Clear Companies Advice */}
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                      className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 mt-6"
+                    >
+                      <p className="text-green-200 text-sm font-semibold mb-2">ℹ️ Continued Monitoring Recommended</p>
+                      <p className="text-green-200 text-sm leading-relaxed">
+                        These companies are not currently flagged in our winding-up register. However, credit risk is always present in business. We recommend monitoring their status regularly and conducting standard credit checks. If you have concerns about any company, please contact us immediately.
+                      </p>
+                    </motion.div>
                   </div>
                 )}
               </motion.div>
@@ -493,9 +518,10 @@ const WindingUpCheck = () => {
           </div>
         </section>
 
-        {/* SEO Content Section */}
+        {/* Advice & Compliance Section */}
         <section className="px-4 sm:px-6 lg:px-8 py-20 border-t border-slate-800 bg-slate-900/50">
-          <div className="max-w-3xl mx-auto space-y-12 text-slate-300">
+          <div className="max-w-3xl mx-auto space-y-16 text-slate-300">
+            {/* Main Info */}
             <div>
               <h2 className="text-2xl font-bold text-white mb-4 font-manrope">
                 What is the Winding-Up Search?
@@ -518,6 +544,28 @@ const WindingUpCheck = () => {
                 companies instantly so you can take proactive measures to
                 protect your cash flow.
               </p>
+            </div>
+
+            {/* Compliance Notice */}
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-white mb-4 font-manrope flex items-center gap-2">
+                <Shield className="w-5 h-5 text-blue-400" />
+                Compliance & Legal Disclaimer
+              </h3>
+              <ul className="space-y-3 text-sm leading-relaxed font-light">
+                <li>
+                  <strong>Indicative Results:</strong> This tool uses 'fuzzy matching' and provides indicative results only. Always verify the exact legal entity name and company number via <a href="https://beta.companieshouse.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-semibold">Companies House</a> before taking any legal action.
+                </li>
+                <li>
+                  <strong>No Liability:</strong> We accept no liability for identity errors based on similar trading names. If you are unsure about any result, please contact us for manual verification.
+                </li>
+                <li>
+                  <strong>Ongoing Risk:</strong> The absence of a company from our register does not guarantee creditworthiness. Standard credit checks and ongoing monitoring are recommended.
+                </li>
+                <li>
+                  <strong>Data Accuracy:</strong> Our database is updated weekly from Companies House data. Updates may occasionally lag behind official filings.
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -553,11 +601,24 @@ const WindingUpCheck = () => {
                 <div className="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center mb-4">
                   <AlertTriangle className="w-6 h-6 text-red-500" />
                 </div>
-                <h3 className="text-xl font-bold text-white font-manrope mb-2">
-                  Request Urgent Callback
+                <h3 className="text-lg font-bold text-white font-manrope mb-3">
+                  High Risk Companies Detected
                 </h3>
+                <div className="bg-red-950/30 border border-red-500/30 rounded-lg p-3 mb-4">
+                  <p className="text-xs font-mono text-red-300 uppercase tracking-wider mb-2">Companies Flagged:</p>
+                  <ul className="space-y-1">
+                    {exactMatches.map((match, idx) => (
+                      <li key={idx} className="text-sm text-red-200 font-mono">
+                        • {match.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="text-red-200 text-sm leading-relaxed mb-4">
+                  <strong>We suggest that you do not extend credit to these companies.</strong> They are currently listed on the UK winding-up register, indicating active insolvency proceedings. Our specialists will guide you on next steps.
+                </p>
                 <p className="text-slate-400 text-sm">
-                  Our specialists will contact you within the hour to discuss your high-risk matches.
+                  Please provide your contact details below, and our team will contact you within the hour.
                 </p>
               </div>
 
@@ -611,7 +672,7 @@ const WindingUpCheck = () => {
                 }}
                 className="space-y-4"
               >
-                <div>
+                <div className="border-t border-slate-700 pt-4">
                   <label className="block text-sm font-mono text-slate-300 mb-2 uppercase tracking-wider">
                     Full Name
                   </label>
@@ -659,15 +720,13 @@ const WindingUpCheck = () => {
               </form>
 
               <div className="mt-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
-                <p className="text-xs text-slate-400 font-mono">
-                  Or call immediately:{" "}
-                  <a
-                    href="tel:+441513290946"
-                    className="text-red-400 hover:text-red-300 font-bold"
-                  >
-                    0151 329 0946
-                  </a>
-                </p>
+                <p className="text-xs text-slate-300 font-mono mb-2 font-semibold">Urgent? Call immediately:</p>
+                <a
+                  href="tel:+441513290946"
+                  className="text-red-400 hover:text-red-300 font-bold text-sm"
+                >
+                  0151 329 0946
+                </a>
               </div>
             </motion.div>
           </div>
