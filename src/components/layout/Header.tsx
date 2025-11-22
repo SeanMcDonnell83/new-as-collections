@@ -1,23 +1,90 @@
 import { useState } from "react";
-import { Menu, X, Phone, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { themeClasses } from "@/contexts/ThemeContext";
 import { useThemeSafe } from "@/hooks/useThemeSafe";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const { theme, toggleTheme } = useThemeSafe();
 
-  const navLinks = [
+  const services = [
+    {
+      title: "Commercial B2B Debt Collection",
+      href: "/services/commercial-debt-recovery",
+      description: "UK-wide business debt recovery"
+    },
+    {
+      title: "International Debt Recovery",
+      href: "/services/international-debt-collection",
+      description: "Cross-border debt solutions"
+    },
+    {
+      title: "Debtor Tracing & Legal Action",
+      href: "/services/debtor-tracing",
+      description: "Advanced tracing & enforcement"
+    },
+    {
+      title: "Credit Control & Insolvency",
+      href: "/services/credit-control-insolvency",
+      description: "Specialist insolvency services"
+    },
+    {
+      title: "Winding-Up Search",
+      href: "/winding-up-check",
+      description: "Check company insolvency risk",
+      badge: "Tool"
+    }
+  ];
+
+  const sectors = [
+    {
+      title: "Construction & Engineering",
+      href: "/sectors/construction-engineering"
+    },
+    {
+      title: "Food & Drink Industry",
+      href: "/sectors/food-drink-hospitality"
+    },
+    {
+      title: "Oil & Gas Sector",
+      href: "/sectors/oil-gas-energy"
+    },
+    {
+      title: "Independent Schools",
+      href: "/sectors/private-schools-education"
+    },
+    {
+      title: "Recruitment Agencies",
+      href: "/sectors/recruitment-agencies"
+    },
+    {
+      title: "Shipping & Logistics",
+      href: "/sectors/shipping-logistics"
+    }
+  ];
+
+  const mainNavLinks = [
     { label: "About Us", href: "/about-us" },
-    { label: "Services", href: "/commercial-debt-recovery" },
-    { label: "Sectors", href: "/industries" },
     { label: "Compliance", href: "/compliance" },
-    { label: "Risk Checker", href: "/winding-up-check" },
     { label: "Contact", href: "/contact" },
   ];
+
+  const megaMenuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.2 } }
+  };
 
   return (
     <motion.header
@@ -26,7 +93,8 @@ const Header = () => {
       transition={{ duration: 0.6 }}
       className="sticky top-0 left-0 right-0 z-50"
     >
-      <div className="absolute inset-0 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-b border-slate-200 dark:border-neutral-800"></div>
+      {/* Frosted Glass Background */}
+      <div className="absolute inset-0 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -42,16 +110,183 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1 mx-auto">
-            {navLinks.map((link) => (
+          {/* Desktop Navigation with Mega Menus */}
+          <nav className="hidden lg:flex items-center gap-1 mx-auto">
+            {/* Services Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown("services")}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to="/services"
+                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
+                  theme === "light"
+                    ? "text-slate-900 hover:bg-slate-100"
+                    : "text-white hover:bg-slate-800"
+                }`}
+              >
+                Services
+              </Link>
+
+              {/* Services Mega Menu */}
+              <AnimatePresence>
+                {activeDropdown === "services" && (
+                  <motion.div
+                    variants={megaMenuVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className={`absolute top-full left-0 w-screen max-w-4xl mt-0 rounded-xl shadow-2xl border ${
+                      theme === "light"
+                        ? "bg-white border-slate-200"
+                        : "bg-slate-900 border-slate-800"
+                    }`}
+                    style={{ backdropFilter: "blur(10px)" }}
+                  >
+                    <div className="grid grid-cols-2 gap-0">
+                      {/* Services List */}
+                      <div className="p-6 border-r border-slate-200 dark:border-slate-800">
+                        <p className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
+                          theme === "light" ? "text-slate-600" : "text-slate-400"
+                        }`}>
+                          Our Services
+                        </p>
+                        <div className="space-y-2">
+                          {services.map((service) => (
+                            <Link
+                              key={service.href}
+                              to={service.href}
+                              onClick={() => setActiveDropdown(null)}
+                              className={`block p-3 rounded-lg transition-all duration-200 group/item ${
+                                theme === "light"
+                                  ? "hover:bg-slate-50"
+                                  : "hover:bg-slate-800"
+                              }`}
+                            >
+                              <div className="flex items-start justify-between">
+                                <div>
+                                  <p className={`font-montserrat font-bold text-sm ${
+                                    theme === "light" ? "text-slate-900" : "text-white"
+                                  }`}>
+                                    {service.title}
+                                  </p>
+                                  <p className={`text-xs mt-1 ${
+                                    theme === "light" ? "text-slate-600" : "text-slate-400"
+                                  }`}>
+                                    {service.description}
+                                  </p>
+                                </div>
+                                {service.badge && (
+                                  <span className="ml-2 px-2 py-1 bg-red-600 text-white text-xs font-montserrat font-bold rounded-full whitespace-nowrap">
+                                    {service.badge}
+                                  </span>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Featured CTA Card */}
+                      <div className="p-6 bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/20 dark:to-orange-950/20 flex flex-col justify-between">
+                        <div>
+                          <h3 className={`font-montserrat font-bold text-lg mb-2 ${
+                            theme === "light" ? "text-red-700" : "text-red-400"
+                          }`}>
+                            Need Immediate Help?
+                          </h3>
+                          <p className={`text-sm ${
+                            theme === "light" ? "text-slate-700" : "text-slate-300"
+                          }`}>
+                            Check if your client is on the winding-up list now.
+                          </p>
+                        </div>
+                        <Link
+                          to="/winding-up-check"
+                          onClick={() => setActiveDropdown(null)}
+                          className="flex items-center gap-2 text-red-700 dark:text-red-400 font-montserrat font-bold text-sm mt-4 hover:gap-3 transition-all"
+                        >
+                          Check Now <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Sectors Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown("sectors")}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to="/industries"
+                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
+                  theme === "light"
+                    ? "text-slate-900 hover:bg-slate-100"
+                    : "text-white hover:bg-slate-800"
+                }`}
+              >
+                Sectors
+              </Link>
+
+              {/* Sectors Mega Menu */}
+              <AnimatePresence>
+                {activeDropdown === "sectors" && (
+                  <motion.div
+                    variants={megaMenuVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className={`absolute top-full left-0 w-screen max-w-3xl mt-0 rounded-xl shadow-2xl border ${
+                      theme === "light"
+                        ? "bg-white border-slate-200"
+                        : "bg-slate-900 border-slate-800"
+                    }`}
+                    style={{ backdropFilter: "blur(10px)" }}
+                  >
+                    <div className="p-6">
+                      <p className={`text-xs font-montserrat font-bold uppercase tracking-wider mb-4 ${
+                        theme === "light" ? "text-slate-600" : "text-slate-400"
+                      }`}>
+                        Industries We Serve
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {sectors.map((sector) => (
+                          <Link
+                            key={sector.href}
+                            to={sector.href}
+                            onClick={() => setActiveDropdown(null)}
+                            className={`p-3 rounded-lg transition-all duration-200 ${
+                              theme === "light"
+                                ? "hover:bg-slate-50 text-slate-900"
+                                : "hover:bg-slate-800 text-white"
+                            }`}
+                          >
+                            <p className="font-montserrat font-bold text-sm">
+                              {sector.title}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Other Nav Links */}
+            {mainNavLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-inter font-500 transition-all duration-200 px-4 py-2 rounded-lg ${
+                className={`font-montserrat font-bold text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
                   theme === "light"
-                    ? "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                    : "text-slate-300 hover:bg-neutral-800 hover:text-white"
+                    ? "text-slate-900 hover:bg-slate-100"
+                    : "text-white hover:bg-slate-800"
                 }`}
               >
                 {link.label}
@@ -60,13 +295,13 @@ const Header = () => {
           </nav>
 
           {/* Right Section: Theme Toggle & CTAs */}
-          <div className="flex items-center space-x-3 lg:space-x-4">
+          <div className="flex items-center space-x-3">
             <button
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-all duration-200 ${
                 theme === "light"
                   ? "text-slate-600 hover:bg-slate-100"
-                  : "text-slate-400 hover:bg-neutral-800"
+                  : "text-slate-400 hover:bg-slate-800"
               }`}
               aria-label="Toggle theme"
             >
@@ -77,21 +312,26 @@ const Header = () => {
               )}
             </button>
 
-            {/* Free Consultation Button - Secondary CTA */}
+            {/* Get in Touch Button - Navy Blue Pill */}
             <Button
               onClick={() => window.location.href = "/contact"}
-              className="hidden sm:inline-flex bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-manrope font-bold text-xs px-5 py-2 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg gap-2"
+              className="hidden sm:inline-flex bg-slate-900 hover:bg-slate-950 text-white font-manrope font-bold text-xs px-5 py-2.5 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              Get Started
+              Get in Touch
             </Button>
 
-            {/* Risk Checker Button - Primary CTA */}
-            <Button
-              onClick={() => window.location.href = "/winding-up-check"}
-              className="hidden md:inline-flex bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-manrope font-bold text-xs px-5 py-2 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg gap-2"
+            {/* Risk Checker Button - Red Pill with Pulse Animation */}
+            <motion.div
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
             >
-              Risk Checker
-            </Button>
+              <Button
+                onClick={() => window.location.href = "/winding-up-check"}
+                className="hidden md:inline-flex bg-red-700 hover:bg-red-800 text-white font-manrope font-bold text-xs px-5 py-2.5 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Risk Checker
+              </Button>
+            </motion.div>
 
             {/* Mobile Menu Button */}
             <button
@@ -99,7 +339,7 @@ const Header = () => {
               className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
                 theme === "light"
                   ? "text-slate-600 hover:bg-slate-100"
-                  : "text-slate-400 hover:bg-neutral-800"
+                  : "text-slate-400 hover:bg-slate-800"
               }`}
               aria-label="Toggle menu"
             >
@@ -110,66 +350,124 @@ const Header = () => {
       </div>
 
       {/* Mobile Navigation - Slide-out Menu from Left */}
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, x: -300 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -300 }}
-          transition={{ duration: 0.3 }}
-          className="fixed lg:hidden top-20 left-0 bottom-0 w-64 bg-white dark:bg-neutral-950 shadow-2xl z-40 overflow-y-auto"
-        >
-          <div className="px-4 py-6 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-3 text-base font-inter font-500 rounded-lg transition-all duration-200 ${
-                  theme === "light"
-                    ? "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                    : "text-slate-300 hover:bg-neutral-800 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: -300 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -300 }}
+            transition={{ duration: 0.3 }}
+            className="fixed lg:hidden top-20 left-0 bottom-0 w-64 bg-white dark:bg-slate-950 shadow-2xl z-40 overflow-y-auto"
+          >
+            <div className="px-4 py-6 space-y-2">
+              {/* Services Section */}
+              <div>
+                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-4 py-2 ${
+                  theme === "light" ? "text-slate-600" : "text-slate-400"
+                }`}>
+                  Services
+                </p>
+                <div className="space-y-1">
+                  {services.map((service) => (
+                    <Link
+                      key={service.href}
+                      to={service.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block px-4 py-2 text-sm rounded-lg transition-all duration-200 ${
+                        theme === "light"
+                          ? "text-slate-900 hover:bg-slate-100"
+                          : "text-white hover:bg-slate-800"
+                      }`}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
 
-            <div className="pt-6 space-y-3 border-t border-slate-200 dark:border-neutral-800">
-              <Button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  window.location.href = "/contact";
-                }}
-                className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-manrope font-bold text-sm py-3 rounded-lg transition-all duration-200"
-              >
-                Get Started
-              </Button>
+              {/* Sectors Section */}
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+                <p className={`text-xs font-montserrat font-bold uppercase tracking-wider px-4 py-2 ${
+                  theme === "light" ? "text-slate-600" : "text-slate-400"
+                }`}>
+                  Sectors
+                </p>
+                <div className="space-y-1">
+                  {sectors.map((sector) => (
+                    <Link
+                      key={sector.href}
+                      to={sector.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block px-4 py-2 text-sm rounded-lg transition-all duration-200 ${
+                        theme === "light"
+                          ? "text-slate-900 hover:bg-slate-100"
+                          : "text-white hover:bg-slate-800"
+                      }`}
+                    >
+                      {sector.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
 
-              <Button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  window.location.href = "/winding-up-check";
-                }}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-manrope font-bold text-sm py-3 rounded-lg transition-all duration-200"
-              >
-                Risk Checker
-              </Button>
+              {/* Other Links */}
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+                {mainNavLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 text-sm rounded-lg transition-all duration-200 ${
+                      theme === "light"
+                        ? "text-slate-900 hover:bg-slate-100"
+                        : "text-white hover:bg-slate-800"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile CTA Buttons */}
+              <div className="pt-6 space-y-3 border-t border-slate-200 dark:border-slate-800">
+                <Button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    window.location.href = "/contact";
+                  }}
+                  className="w-full bg-slate-900 hover:bg-slate-950 text-white font-manrope font-bold text-sm py-3 rounded-full transition-all duration-200"
+                >
+                  Get in Touch
+                </Button>
+
+                <Button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    window.location.href = "/winding-up-check";
+                  }}
+                  className="w-full bg-red-700 hover:bg-red-800 text-white font-manrope font-bold text-sm py-3 rounded-full transition-all duration-200"
+                >
+                  Risk Checker
+                </Button>
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu Backdrop */}
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          onClick={() => setIsMenuOpen(false)}
-          className="fixed inset-0 bg-black/20 lg:hidden z-30"
-        />
-      )}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsMenuOpen(false)}
+            className="fixed inset-0 bg-black/20 lg:hidden z-30"
+          />
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };
