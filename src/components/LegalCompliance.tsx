@@ -74,34 +74,27 @@ const LegalCompliance = () => {
   ];
 
   return (
-    <section className={`py-20 ${themeClasses.bg.primary}`}>
+    <section className="py-20 bg-gray-100 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div ref={ref} {...animationProps} className="text-center mb-16">
           <h2
-            className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}
+            className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}
           >
             Legal Compliance & Professional Standards
           </h2>
           <p
-            className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter font-light mb-4`}
+            className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}
           >
-            Maintaining the highest professional standards in commercial debt
-            recovery across England, Scotland, Wales, and Northern Ireland. Full
-            compliance with UK legislation and industry best practices ensuring
-            ethical and effective debt collection services.
+            Maintaining the highest professional standards in commercial debt recovery across England, Scotland, Wales, and Northern Ireland.
           </p>
           <p
-            className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter`}
+            className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed`}
           >
-            Our debt collection agency operates within strict legal frameworks
-            to protect both creditors and debtors throughout the recovery
-            process. We maintain comprehensive policies and procedures ensuring
-            all activities comply with current UK legislation and professional
-            standards.
+            Full compliance with UK legislation and industry best practices ensuring ethical and effective debt collection services.
           </p>
         </motion.div>
 
-        {/* Standards Grid */}
+        {/* Standards Grid - Paper Card Style */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {standards.map((standard, index) => {
             const IconComponent = standard.icon;
@@ -112,7 +105,7 @@ const LegalCompliance = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`${themeClasses.bg.secondary} rounded-xl border ${themeClasses.border.primary} p-6 hover:shadow-lg transition-all duration-300`}
+                className={`${themeClasses.bg.primary} rounded-xl border-2 border-gray-300 dark:border-gray-700 p-8 shadow-md hover:shadow-lg transition-all duration-300`}
               >
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center flex-shrink-0">
