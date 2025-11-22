@@ -221,111 +221,143 @@ const Industries = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-24 ${themeClasses.bg.secondary}`}
+          className={`py-32 ${themeClasses.bg.secondary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2
-                className={`text-4xl md:text-5xl font-black ${themeClasses.text.primary} mb-6 font-montserrat`}
+            <div className="text-center mb-20">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`text-5xl md:text-6xl font-black ${themeClasses.text.primary} mb-6 font-montserrat leading-tight`}
               >
-                DON'T SEE YOUR <br />
-                <span className="text-blue-600">INDUSTRY LISTED?</span>
-              </h2>
-              <p
-                className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-medium`}
+                DON'T SEE YOUR<br />
+                INDUSTRY LISTED?
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-medium`}
               >
                 Our commercial debt recovery expertise extends across all UK
                 business sectors.
-              </p>
+              </motion.p>
             </div>
 
-            {/* Tag Cloud / Ticker of Additional Industries */}
-            <div
-              className={`${themeClasses.bg.primary} rounded-3xl border ${themeClasses.border.primary} p-12 mb-12`}
-            >
+            {/* Additional Industries Grid - Less Boxy */}
+            <div className="mb-20">
               <h3
-                className={`text-2xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat text-center`}
+                className={`text-2xl font-bold ${themeClasses.text.primary} mb-12 font-montserrat text-center`}
               >
                 Additional Sectors We Serve
               </h3>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {additionalIndustries.map((industry, index) => (
-                  <motion.span
+                  <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className={`px-4 py-2 rounded-full ${themeClasses.bg.accent} ${themeClasses.text.secondary} text-sm font-medium border ${themeClasses.border.primary} transition-all duration-300 hover:scale-110 hover:shadow-md`}
+                    transition={{ duration: 0.4, delay: index * 0.03 }}
+                    className={`relative group`}
                   >
-                    {industry}
-                  </motion.span>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                    <div className={`relative ${themeClasses.bg.primary} border-l-4 border-blue-600 px-6 py-4 rounded-lg hover:shadow-lg transition-all duration-300 group-hover:translate-x-1`}>
+                      <p className={`${themeClasses.text.primary} font-semibold text-lg`}>
+                        {industry}
+                      </p>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="mt-12 text-center"
-              >
-                <p
-                  className={`${themeClasses.text.secondary} mb-6 font-medium text-lg`}
-                >
-                  If your industry isn't listed, we still have the expertise you
-                  need.
-                </p>
-                <Link to="/contact">
-                  <Button
-                    className={`${themeClasses.button.primary} font-montserrat font-bold text-lg px-10 py-4 rounded-full transition-all hover:shadow-xl`}
-                  >
-                    Discuss Your Industry Requirements{" "}
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
-              </motion.div>
             </div>
 
-            {/* Benefits Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Sector Knowledge",
-                  description:
-                    "Deep understanding of industry-specific challenges, payment terms, and business practices for more effective debt recovery.",
-                },
-                {
-                  title: "Relationship Preservation",
-                  description:
-                    "We understand the importance of maintaining client relationships within your industry and tailor our approach accordingly.",
-                },
-                {
-                  title: "Regulatory Compliance",
-                  description:
-                    "Full compliance with sector-specific regulations and professional standards ensures ethical and legal debt collection practices.",
-                },
-              ].map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`${themeClasses.bg.primary} rounded-2xl border ${themeClasses.border.primary} p-8 text-center hover:shadow-lg transition-all duration-300`}
-                >
-                  <h4
-                    className={`text-2xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat`}
-                  >
-                    {benefit.title}
-                  </h4>
-                  <p
-                    className={`${themeClasses.text.secondary} leading-relaxed`}
-                  >
-                    {benefit.description}
+            {/* CTA and Benefits Combined */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h3 className={`text-3xl font-black ${themeClasses.text.primary} mb-8 font-montserrat`}>
+                  Comprehensive <br />
+                  <span className="text-blue-600">Sector Expertise</span>
+                </h3>
+                <div className="space-y-6">
+                  {[
+                    {
+                      title: "Sector Knowledge",
+                      description:
+                        "Deep understanding of industry-specific challenges, payment terms, and business practices.",
+                    },
+                    {
+                      title: "Relationship Preservation",
+                      description:
+                        "We tailor our approach to maintain the client relationships that matter most to your business.",
+                    },
+                    {
+                      title: "Regulatory Compliance",
+                      description:
+                        "Full compliance with sector-specific regulations and professional standards.",
+                    },
+                  ].map((benefit, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="flex gap-4"
+                    >
+                      <div className="w-1 bg-gradient-to-b from-blue-600 to-cyan-600 rounded-full shrink-0" />
+                      <div>
+                        <h4 className={`text-xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat`}>
+                          {benefit.title}
+                        </h4>
+                        <p className={`${themeClasses.text.secondary}`}>
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`${themeClasses.bg.primary} rounded-2xl p-12 border border-blue-600/30 shadow-xl`}
+              >
+                <div className="mb-8">
+                  <p className={`text-lg ${themeClasses.text.secondary} font-medium mb-6`}>
+                    If your industry isn't listed, we still have the expertise you
+                    need.
                   </p>
-                </motion.div>
-              ))}
+                  <Link to="/contact">
+                    <Button
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-bold text-lg py-6 rounded-xl transition-all shadow-lg hover:shadow-xl"
+                    >
+                      Discuss Your Industry Requirements
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                  </Link>
+                </div>
+
+                <div className="pt-8 border-t border-slate-200 dark:border-slate-700">
+                  <p className={`text-sm font-semibold ${themeClasses.text.secondary} mb-4 uppercase tracking-widest`}>
+                    No Win, No Fee
+                  </p>
+                  <p className={`text-sm ${themeClasses.text.secondary}`}>
+                    We only get paid when we recover your money. It's our confidence backed up by legal guarantee.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.section>
