@@ -32,37 +32,38 @@ const Industries = () => {
       <Header />
       <main>
         {/* Page Header */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className={`pt-32 pb-16 ${themeClasses.bg.primary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className={`text-5xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <h1 className={`text-5xl md:text-6xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
               Sectors We Serve
             </h1>
-            <p className={`text-xl ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans font-light mb-8`}>
-              Industry-specific debt recovery expertise across all UK business sectors. Our specialists 
-              understand the unique challenges, regulations, and relationship dynamics within each industry, 
-              enabling us to achieve higher success rates whilst protecting your valuable business relationships.
+            <p className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter leading-relaxed mb-4`}>
+              Industry-specific debt recovery expertise across all UK business sectors. Our specialists understand the unique challenges and regulations within each industry.
+            </p>
+            <p className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-inter leading-relaxed mb-8`}>
+              We enable higher success rates whilst protecting your valuable business relationships.
             </p>
             
             {/* Key Industries Overview */}
-            <div className={`${themeClasses.bg.secondary} rounded-2xl p-8 border ${themeClasses.border.primary} max-w-4xl mx-auto`}>
-              <h2 className={`text-2xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <div className={`${themeClasses.bg.secondary} rounded-2xl p-8 border ${themeClasses.border.primary} max-w-4xl mx-auto backdrop-blur-sm`}>
+              <h2 className={`text-2xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700`}>
                 Our Specialist Sectors
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-left">
                 {[
                   "Construction & Engineering",
-                  "Food & Drink Industry", 
+                  "Food & Drink Industry",
                   "Oil & Gas Sector",
                   "Independent Schools",
                   "Recruitment Agencies",
                   "Shipping & Logistics"
                 ].map((industry, index) => (
-                  <div key={index} className={`${themeClasses.text.secondary} font-noto-sans flex items-center`}>
+                  <div key={index} className={`${themeClasses.text.secondary} font-inter flex items-center`}>
                     <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 flex-shrink-0"></div>
                     {industry}
                   </div>
@@ -75,26 +76,28 @@ const Industries = () => {
         <IndustryExpertise />
 
         {/* Additional Industries Section */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-20 ${themeClasses.bg.secondary}`}
+          className={`py-24 ${themeClasses.bg.secondary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <div className="text-center mb-20">
+              <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
                 Don't See Your Industry Listed?
               </h2>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-8`}>
-                Our commercial debt recovery expertise extends across all UK business sectors. We adapt 
-                our proven methodologies to suit your industry's specific requirements and challenges.
+              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}>
+                Our commercial debt recovery expertise extends across all UK business sectors.
+              </p>
+              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-8`}>
+                We adapt our proven methodologies to suit your industry's specific requirements and challenges.
               </p>
             </div>
 
-            <div className={`${themeClasses.bg.primary} rounded-2xl border ${themeClasses.border.primary} p-8 mb-12`}>
-              <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif text-center`}>
+            <div className={`${themeClasses.bg.primary} rounded-2xl border ${themeClasses.border.primary} p-8 mb-12 backdrop-blur-sm`}>
+              <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-700 text-center`}>
                 Additional Sectors We Serve
               </h3>
               <div className="flex flex-wrap justify-center gap-3">
