@@ -576,7 +576,7 @@ const WindingUpSearch = () => {
                         </p>
                       </div>
 
-                      <div className="p-6">
+                      <div className="p-6 space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {clearCompanies.map((match, index) => (
                             <motion.div
@@ -594,6 +594,21 @@ const WindingUpSearch = () => {
                               </p>
                             </motion.div>
                           ))}
+                        </div>
+
+                        {/* Warning for clear companies */}
+                        <div className="border-t border-green-200 dark:border-green-800 pt-6">
+                          <p className={`${themeClasses.text.secondary} font-inter mb-4 text-sm leading-relaxed`}>
+                            While these companies aren't currently on our winding-up register, we recommend continuing to monitor their status. Credit risk is always present in business. If you have concerns about any company, or if you believe one should be on our register, please <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">contact us</a> immediately.
+                          </p>
+                          <div className="flex flex-col sm:flex-row gap-3">
+                            <Button
+                              onClick={() => window.location.href = '/contact'}
+                              className="bg-green-600 hover:bg-green-700 text-white font-montserrat font-700 text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-all duration-200 flex-1 sm:flex-initial"
+                            >
+                              Report Risk or Verify
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </div>
