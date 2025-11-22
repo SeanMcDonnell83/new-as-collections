@@ -11,7 +11,9 @@ import {
   Bookmark,
   X,
   Phone,
+  ArrowRight,
 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { themeClasses } from "@/contexts/ThemeContext";
 import Header from "@/components/layout/Header";
@@ -42,6 +44,10 @@ const WindingUpCheck = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [showHighRiskModal, setShowHighRiskModal] = useState(false);
+  const [callbackName, setCallbackName] = useState("");
+  const [callbackPhone, setCallbackPhone] = useState("");
+  const [isSubmittingCallback, setIsSubmittingCallback] = useState(false);
+  const { toast } = useToast();
 
   const CSV_URL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdpHNh87M01OCBlmVcpEdh4rdYmGO7o6QGoWtd6oq5cuSJxp5QPVYEuGyGIH1GFqGTAS32gX30RLW3/pub?output=csv";
@@ -286,7 +292,7 @@ const WindingUpCheck = () => {
 
       <Header />
 
-      <main className="pt-24 pb-20">
+      <main className="pt-40 pb-20">
         {/* Hero Section */}
         <section className="relative px-4 sm:px-6 lg:px-8 mb-12">
           <div className="max-w-4xl mx-auto text-center">
@@ -401,7 +407,7 @@ const WindingUpCheck = () => {
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-red-950/30 border border-red-500/30 rounded-xl p-4 flex items-center justify-between group hover:bg-red-950/50 transition-colors"
+                        className="bg-red-950/30 border border-red-500/30 rounded-xl p-4 hover:bg-red-950/50 transition-colors"
                       >
                         <div>
                           <p className="font-bold text-white font-mono text-lg">
@@ -411,14 +417,25 @@ const WindingUpCheck = () => {
                             STATUS: {match.status} | LISTED: {match.dateListed}
                           </p>
                         </div>
-                        <Button
-                          onClick={() => setShowHighRiskModal(true)}
-                          className="bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-lg"
-                        >
-                          Request Urgent Callback
-                        </Button>
                       </motion.div>
                     ))}
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                      className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mt-6"
+                    >
+                      <p className="text-red-200 text-sm mb-4 leading-relaxed">
+                        These companies have been flagged as high-risk. Do not extend credit. Contact our specialists immediately for urgent guidance.
+                      </p>
+                      <Button
+                        onClick={() => setShowHighRiskModal(true)}
+                        className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2"
+                      >
+                        <Phone className="w-4 h-4" />
+                        Request Urgent Callback
+                      </Button>
+                    </motion.div>
                   </div>
                 )}
 
@@ -508,7 +525,7 @@ const WindingUpCheck = () => {
 
       <Footer />
 
-      {/* High Risk Modal */}
+      {/* High Risk Callback Modal */}
       <AnimatePresence>
         {showHighRiskModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
@@ -532,34 +549,125 @@ const WindingUpCheck = () => {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <AlertTriangle className="w-8 h-8 text-red-500" />
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center mb-4">
+                  <AlertTriangle className="w-6 h-6 text-red-500" />
                 </div>
-                <h3 className="text-2xl font-bold text-white font-manrope mb-2">
-                  High Risk Detected
+                <h3 className="text-xl font-bold text-white font-manrope mb-2">
+                  Request Urgent Callback
                 </h3>
                 <p className="text-slate-400 text-sm">
-                  We strongly recommend speaking with an insolvency expert
-                  immediately regarding these matches.
+                  Our specialists will contact you within the hour to discuss your high-risk matches.
                 </p>
               </div>
 
-              <div className="space-y-3">
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (!callbackName.trim() || !callbackPhone.trim()) {
+                    toast({
+                      title: "Required fields",
+                      description: "Please enter your name and phone number.",
+                      variant: "destructive",
+                    });
+                    return;
+                  }
+
+                  setIsSubmittingCallback(true);
+                  try {
+                    const response = await fetch("/api/urgent-callback", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        name: callbackName,
+                        phone: callbackPhone,
+                        companies: exactMatches.map((m) => m.name),
+                      }),
+                    });
+
+                    if (!response.ok) {
+                      throw new Error("Failed to submit");
+                    }
+
+                    toast({
+                      title: "Success!",
+                      description:
+                        "Your urgent callback request has been received. We'll call you shortly.",
+                    });
+
+                    setShowHighRiskModal(false);
+                    setCallbackName("");
+                    setCallbackPhone("");
+                  } catch (error) {
+                    toast({
+                      title: "Error",
+                      description:
+                        "Failed to submit callback request. Please try again or call 0151 329 0946.",
+                      variant: "destructive",
+                    });
+                  } finally {
+                    setIsSubmittingCallback(false);
+                  }
+                }}
+                className="space-y-4"
+              >
+                <div>
+                  <label className="block text-sm font-mono text-slate-300 mb-2 uppercase tracking-wider">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    value={callbackName}
+                    onChange={(e) => setCallbackName(e.target.value)}
+                    placeholder="Your name"
+                    className="w-full bg-slate-800 text-white px-4 py-2 rounded-lg border border-slate-700 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all"
+                    disabled={isSubmittingCallback}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-mono text-slate-300 mb-2 uppercase tracking-wider">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    value={callbackPhone}
+                    onChange={(e) => setCallbackPhone(e.target.value)}
+                    placeholder="0151 329 0946"
+                    className="w-full bg-slate-800 text-white px-4 py-2 rounded-lg border border-slate-700 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all"
+                    disabled={isSubmittingCallback}
+                  />
+                </div>
+
                 <Button
-                  onClick={() => (window.location.href = "tel:+441513290946")}
-                  className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-4 rounded-xl"
+                  type="submit"
+                  disabled={isSubmittingCallback}
+                  className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                 >
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call 0151 329 0946
+                  {isSubmittingCallback ? (
+                    <div className="flex items-center gap-2">
+                      <Loader className="w-4 h-4 animate-spin" />
+                      Submitting...
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      Request Callback
+                    </div>
+                  )}
                 </Button>
-                <Button
-                  onClick={() => (window.location.href = "/contact")}
-                  variant="outline"
-                  className="w-full border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white py-4 rounded-xl"
-                >
-                  Request Callback
-                </Button>
+              </form>
+
+              <div className="mt-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                <p className="text-xs text-slate-400 font-mono">
+                  Or call immediately:{" "}
+                  <a
+                    href="tel:+441513290946"
+                    className="text-red-400 hover:text-red-300 font-bold"
+                  >
+                    0151 329 0946
+                  </a>
+                </p>
               </div>
             </motion.div>
           </div>
