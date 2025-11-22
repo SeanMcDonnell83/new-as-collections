@@ -24,7 +24,7 @@ const ShippingLogistics = () => {
 
       <main>
         {/* Hero Section: Global Motion */}
-        <section className={`relative min-h-screen flex items-center pt-20 overflow-hidden ${themeClasses.bg.primary} ${themeClasses.text.primary}`}>
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-blue-950 text-white">
           {/* Animated Globe/Map Background */}
           <div className="absolute inset-0 z-0 opacity-20">
             <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] bg-cover bg-center opacity-30" />
