@@ -102,8 +102,9 @@ const WindingUpSearch = () => {
     setMatches([]);
 
     setTimeout(() => {
+      // Split by both commas and newlines, handle multiple separators
       const userCompanies = userInput
-        .split('\n')
+        .split(/[,\n]+/)
         .map(name => name.trim())
         .filter(name => name.length > 0);
 
