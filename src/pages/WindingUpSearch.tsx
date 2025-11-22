@@ -393,7 +393,7 @@ const WindingUpSearch = () => {
                 transition={{ duration: 0.6 }}
               >
                 {/* Floating Card */}
-                <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl p-8 md:p-12 border border-slate-100 dark:border-neutral-800 -translate-y-16 relative z-10">
+                <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl p-8 md:p-12 border border-slate-100 dark:border-neutral-800 relative z-10">
                   <div className="mb-8">
                     <h2 className={`text-2xl md:text-3xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-800`}>
                       Scan Your Client List
