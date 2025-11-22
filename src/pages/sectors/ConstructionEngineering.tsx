@@ -38,10 +38,10 @@ const ConstructionEngineering = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6 leading-tight`}>
-                  Construction Debt Recovery
+                  Construction & Engineering Debt Recovery Specialists
                 </h1>
                 <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  Specialist debt recovery for construction and engineering sectors. We understand project payment disputes, sub-contractor debts, and material supplier issues.
+                  Specialised commercial debt recovery for contractors, sub-contractors and suppliers. We understand JCT contracts, retentions and "pay when paid" clauses, and use no win, no fee strategies to keep cash flowing on live projects.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -85,17 +85,18 @@ const ConstructionEngineering = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
-                  Why We Excel in Construction Recovery
+                  Why collecting in construction is difficult
                 </h2>
                 <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  The construction industry presents unique challenges: project timelines, contractor disputes, payment terms variations. We specialise in understanding and resolving these complex situations.
+                  Construction debt is complex. Disputes over quality, delays and retention payments often hold up cash flow for months. Layers of contractors, conflicting contract terms and adjudication risk make it hard to know when to push and when to preserve relationships.
                 </p>
                 <ul className="space-y-4">
                   {[
-                    "25+ years experience in construction sector recovery",
-                    "Expert knowledge of JCT contracts and payment terms",
-                    "Rapid response to project delay disputes",
-                    "Relationships with major construction bodies"
+                    "Retentions withheld for years after practical completion",
+                    '"Pay when paid" clauses used as an excuse not to release funds',
+                    "Contested variations and final account disputes",
+                    "Adjudication and Construction Act timelines creating uncertainty",
+                    "Main contractor insolvency leaving sub-contractors unpaid"
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
@@ -186,16 +187,15 @@ const ConstructionEngineering = () => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className={`text-3xl font-manrope font-bold ${themeClasses.text.primary} mb-12 text-center`}>
-              Construction Payment Issues We Recover
+              Our approach to construction debt recovery
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
-                "Unpaid invoices from main contractors",
-                "Sub-contractor payment disputes",
-                "Supply chain payment delays",
-                "Project completion payment disagreements",
-                "Retention payment recovery",
-                "Defects liability period disputes"
+                "Reading and interpreting JCT payment schedules and notices",
+                "Challenging unfair retentions and withheld certificates",
+                "Using the Construction Act and adjudication to unlock stalled payments",
+                "Negotiating firmly with main contractors whilst protecting relationships",
+                "Coordinating action across complex supply chains and sub-contractors"
               ].map((issue, idx) => (
                 <motion.div
                   key={idx}
@@ -223,10 +223,10 @@ const ConstructionEngineering = () => {
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
-              Recover Your Construction Debts
+              Recover your construction debt today
             </h2>
             <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter`}>
-              Get specialist help with your construction sector debt recovery.
+              Talk to our construction debt recovery specialists about JCT payment disputes, retentions and unpaid applications. We work on a commercial, no win, no fee basis where suitable.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/winding-up-check">
