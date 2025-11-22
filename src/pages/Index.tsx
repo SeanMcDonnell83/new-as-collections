@@ -87,20 +87,18 @@ const Index = () => {
           className={`py-24 ${themeClasses.bg.secondary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
+            <div className="text-center mb-20">
+              <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
                 Business Debt Collection Services UK
               </h2>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light mb-4`}>
-                Comprehensive commercial debt recovery UK solutions across London, Manchester, Birmingham, 
-                Glasgow, and Edinburgh. From initial unpaid invoice recovery UK to legal enforcement, our 
-                debt collection agency UK handles it all.
+              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}>
+                Comprehensive commercial debt recovery UK solutions across London, Manchester, Birmingham, Glasgow, and Edinburgh.
               </p>
-              <p className={`text-lg ${themeClasses.text.secondary} max-w-4xl mx-auto font-noto-sans`}>
-                Our professional debt collection services are fully compliant with UK legislation and industry 
-                standards. We specialise in B2B debt recovery, helping businesses across all sectors recover 
-                outstanding invoices efficiently and ethically. With over 98% success rate and average recovery 
-                times of just 14 days, we're the trusted choice for businesses nationwide.
+              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed mb-4`}>
+                From initial unpaid invoice recovery to legal enforcement, our debt collection agency handles it all.
+              </p>
+              <p className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed`}>
+                Our professional debt collection services are fully compliant with UK legislation. With over 98% success rate and average recovery times of just 14 days, we're the trusted choice for businesses nationwide.
               </p>
             </div>
 
@@ -116,16 +114,16 @@ const Index = () => {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     className="group"
                   >
-                    <div className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-8 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}>
+                    <div className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-8 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm`}>
                       <div className="flex items-start space-x-4">
                         <div className={`w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
                           <IconComponent className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className={`text-xl font-bold ${themeClasses.text.primary} mb-3`}>
+                          <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
                             {service.title}
                           </h3>
-                          <p className={`${themeClasses.text.secondary} leading-relaxed`}>
+                          <p className={`${themeClasses.text.secondary} leading-relaxed font-inter text-sm`}>
                             {service.description}
                           </p>
                         </div>
