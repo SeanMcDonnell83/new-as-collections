@@ -9,7 +9,8 @@ import { themeClasses } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Phone, FileText, Calculator, Gavel, AlertTriangle } from "lucide-react";
+import { ArrowRight, CheckCircle, Phone, FileText, Calculator, Gavel, AlertTriangle, ChevronDown } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Index = () => {
   const scrollToContact = () => {
@@ -164,6 +165,77 @@ const Index = () => {
         </motion.div>
 
         <Testimonials />
+
+        {/* Top 5 FAQs Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={`py-24 ${themeClasses.bg.primary}`}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
+                Frequently Asked Questions
+              </h2>
+              <p className={`text-lg ${themeClasses.text.secondary} max-w-2xl mx-auto font-inter leading-relaxed`}>
+                Find answers to common questions about our commercial debt recovery services and processes.
+              </p>
+            </div>
+
+            <div className={`${themeClasses.bg.secondary} rounded-2xl p-8 border ${themeClasses.border.primary}`}>
+              <Accordion type="single" collapsible className="w-full">
+                {[
+                  {
+                    question: "How does the No Win, No Fee model work?",
+                    answer: "Under our No Win, No Fee guarantee, we only charge you when we successfully recover your debt. If we cannot collect, you pay nothing. This aligns our success with yours and removes the financial risk from pursuing debt recovery."
+                  },
+                  {
+                    question: "What is your success rate?",
+                    answer: "We maintain a 98% success rate across all sectors and debt types. This is achieved through our combination of cutting-edge technology, expert knowledge, and tailored recovery strategies for each unique situation."
+                  },
+                  {
+                    question: "How long does the debt recovery process typically take?",
+                    answer: "Most debts are recovered within 14 days on average. However, timescales vary depending on the complexity of the case, the debtor's circumstances, and whether legal action is required. We provide regular updates throughout the process."
+                  },
+                  {
+                    question: "Will pursuing debt recovery damage my client relationships?",
+                    answer: "We specialise in ethical debt recovery that preserves business relationships. Our professional approach maintains your reputation whilst recovering the debt. We handle all communication and negotiations, protecting your client relationships."
+                  },
+                  {
+                    question: "What industries do you specialise in?",
+                    answer: "We have sector-specific expertise across Construction, Food & Drink, Oil & Gas, Manufacturing, Recruitment, Logistics, Technology, and many more. Our industry knowledge enables us to achieve higher success rates and understand sector-specific challenges."
+                  }
+                ].map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`} className="border-b last:border-0">
+                    <AccordionTrigger className={`py-4 hover:no-underline group ${themeClasses.text.primary} font-montserrat font-700 text-left`}>
+                      <span className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                        {faq.question}
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className={`pb-4 ${themeClasses.text.secondary} font-inter leading-relaxed`}>
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+
+            <div className="text-center mt-12">
+              <p className={`${themeClasses.text.secondary} mb-6 font-inter`}>
+                Can't find the answer you're looking for?
+              </p>
+              <Button
+                onClick={scrollToContact}
+                className={`${themeClasses.button.primary} font-semibold px-8 py-4 transition-colors duration-200 font-inter`}
+              >
+                Contact Our Team
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </div>
+          </div>
+        </motion.section>
 
         {/* Still Have Questions? CTA Section */}
         <motion.section
