@@ -284,7 +284,7 @@ const WindingUpSearch = () => {
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-red-900 dark:text-red-100 font-montserrat font-800 mb-2">
-                            Matches Found: {matches.length} Company{matches.length !== 1 ? 'ies' : ''}
+                            Matches Found: {matches.length} {matches.length !== 1 ? 'Companies' : 'Company'}
                           </h3>
                           <p className="text-red-800 dark:text-red-200 font-inter">
                             The following companies appear on our winding-up register. We recommend immediate action to assess your exposure.
