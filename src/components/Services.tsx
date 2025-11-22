@@ -121,7 +121,7 @@ const Services = () => {
                 className="group"
               >
                 <div
-                  className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-8 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
+                  className={`${themeClasses.bg.primary} rounded-xl border ${themeClasses.border.primary} p-8 h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}
                 >
                   <div className="flex items-start space-x-4">
                     <div
