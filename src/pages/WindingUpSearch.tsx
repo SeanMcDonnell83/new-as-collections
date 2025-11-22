@@ -219,37 +219,44 @@ const WindingUpSearch = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className={`${themeClasses.bg.secondary} rounded-2xl p-8 md:p-12 border ${themeClasses.border.primary} mb-8`}>
-                  <h2 className={`text-3xl font-bold ${themeClasses.text.primary} mb-6 font-montserrat font-800`}>
-                    Bulk Company Search
-                  </h2>
-                  <p className={`${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                    Paste a list of company names below (one per line) to check them against our winding-up database. We'll identify any matches instantly.
+                <div className={`${themeClasses.bg.secondary} rounded-2xl p-8 md:p-12 border ${themeClasses.border.primary} mb-8 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300`}>
+                  <div className="mb-8">
+                    <h2 className={`text-3xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-800`}>
+                      Bulk Company Search
+                    </h2>
+                    <div className="h-1 w-16 bg-gradient-to-r from-blue-600 to-transparent rounded-full mb-4"></div>
+                  </div>
+
+                  <p className={`${themeClasses.text.secondary} mb-8 font-inter leading-relaxed text-lg`}>
+                    Enter company names below (one per line or comma-separated) to check them against our live winding-up database. Results appear instantly.
                   </p>
 
-                  <div className="mb-6">
+                  <div className="mb-8">
                     <label htmlFor="companyList" className={`block text-sm font-semibold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
-                      Company Names
+                      Company Names to Check
                     </label>
                     <textarea
                       id="companyList"
                       value={userInput}
                       onChange={(e) => setUserInput(e.target.value)}
-                      placeholder="Paste your list of company names here (one per line)..."
-                      className={`w-full h-48 p-4 rounded-lg border-2 ${themeClasses.border.primary} ${themeClasses.bg.primary} ${themeClasses.text.primary} font-inter placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+                      placeholder="Example: Acme Ltd, Smith & Co Ltd, ABC Solutions Ltd..."
+                      className={`w-full h-48 p-4 rounded-lg border-2 ${themeClasses.border.primary} ${themeClasses.bg.primary} ${themeClasses.text.primary} font-inter placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none`}
                       disabled={isSearching}
                     />
+                    <p className={`text-xs ${themeClasses.text.tertiary} mt-2 font-inter`}>
+                      You can check one company or many at once. Separate entries with a new line.
+                    </p>
                   </div>
 
                   <Button
                     onClick={handleScanList}
                     disabled={!userInput.trim() || isSearching}
-                    className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 font-inter disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 font-inter disabled:opacity-50 disabled:cursor-not-allowed disabled:from-gray-500 disabled:to-gray-600 shadow-md hover:shadow-lg"
                   >
                     {isSearching ? (
                       <>
                         <Loader className="w-5 h-5 animate-spin mr-2" />
-                        Scanning List...
+                        Scanning Database...
                       </>
                     ) : (
                       'Scan List'
