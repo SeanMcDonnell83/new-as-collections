@@ -176,27 +176,27 @@ const ServicesOverview = () => {
               >
                 <Link to={services[1].href}>
                   <div
-                    className={`h-full bg-gradient-to-br ${services[1].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-purple-600`}
                   >
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[1].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${services[1].accentColor}`}>
                           <Globe className="w-6 h-6 text-white" />
                         </div>
                         <span
-                          className={`${services[1].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}
+                          className={`bg-gradient-to-r ${services[1].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}
                         >
                           {services[1].badge}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 font-montserrat">
+                      <h3 className={`text-xl font-bold mb-3 font-montserrat ${themeClasses.text.primary}`}>
                         {services[1].title}
                       </h3>
-                      <p className="text-white/90 text-sm mb-auto leading-relaxed">
+                      <p className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}>
                         {services[1].description}
                       </p>
-                      <div className="flex items-center gap-2 text-white font-bold text-sm mt-4 group-hover:gap-3 transition-all">
+                      <div className="flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all text-purple-600">
                         Learn More <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -213,27 +213,27 @@ const ServicesOverview = () => {
               >
                 <Link to={services[2].href}>
                   <div
-                    className={`h-full bg-gradient-to-br ${services[2].color} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-orange-600`}
                   >
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${services[2].accentColor} opacity-10 blur-2xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${services[2].accentColor}`}>
                           <Search className="w-6 h-6 text-white" />
                         </div>
                         <span
-                          className={`${services[2].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}
+                          className={`bg-gradient-to-r ${services[2].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}
                         >
                           {services[2].badge}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 font-montserrat">
+                      <h3 className={`text-xl font-bold mb-3 font-montserrat ${themeClasses.text.primary}`}>
                         {services[2].title}
                       </h3>
-                      <p className="text-white/90 text-sm mb-auto leading-relaxed">
+                      <p className={`text-sm mb-auto leading-relaxed ${themeClasses.text.secondary}`}>
                         {services[2].description}
                       </p>
-                      <div className="flex items-center gap-2 text-white font-bold text-sm mt-4 group-hover:gap-3 transition-all">
+                      <div className="flex items-center gap-2 font-bold text-sm mt-4 group-hover:gap-3 transition-all text-orange-600">
                         Learn More <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -251,29 +251,29 @@ const ServicesOverview = () => {
               >
                 <Link to={services[3].href}>
                   <div
-                    className={`h-full bg-gradient-to-br ${services[3].color} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-white relative overflow-hidden group`}
+                    className={`h-full ${themeClasses.bg.primary} rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer relative overflow-hidden group border-l-4 border-indigo-600`}
                   >
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${services[3].accentColor} opacity-10 blur-3xl -mr-32 -mt-32 group-hover:opacity-20 transition-opacity duration-300`} />
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-6">
-                        <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${services[3].accentColor}`}>
                           <AlertCircle className="w-8 h-8 text-white" />
                         </div>
                         <motion.span
                           animate={{ scale: [1, 1.1, 1] }}
                           transition={{ duration: 2, repeat: Infinity }}
-                          className={`${services[3].badgeColor} text-white text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase tracking-wider`}
+                          className={`bg-gradient-to-r ${services[3].badgeColor} text-white text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase tracking-wider`}
                         >
                           {services[3].badge}
                         </motion.span>
                       </div>
-                      <h3 className="text-3xl font-black mb-4 font-montserrat leading-tight">
+                      <h3 className={`text-3xl font-black mb-4 font-montserrat leading-tight ${themeClasses.text.primary}`}>
                         {services[3].title}
                       </h3>
-                      <p className="text-white/90 text-lg mb-6 leading-relaxed font-medium">
+                      <p className={`text-lg mb-6 leading-relaxed font-medium ${themeClasses.text.secondary}`}>
                         {services[3].description}
                       </p>
-                      <div className="flex items-center gap-2 text-white font-bold group-hover:gap-3 transition-all">
+                      <div className="flex items-center gap-2 font-bold group-hover:gap-3 transition-all text-indigo-600">
                         Learn More <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
