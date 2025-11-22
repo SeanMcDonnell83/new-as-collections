@@ -82,7 +82,7 @@ const ServicesOverview = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className={`relative py-32 ${themeClasses.bg.primary} overflow-hidden`}
+          className={`relative pt-12 pb-32 ${themeClasses.bg.primary} overflow-hidden`}
         >
           {/* Network Animation Background */}
           <div className="absolute inset-0 opacity-10">
