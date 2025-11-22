@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, BookOpen, Calculator } from "lucide-react";
+import { ArrowRight, Phone, AlertTriangle, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "./AnimatedCounter";
 import DebtCalculator from "./DebtCalculator";
