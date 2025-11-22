@@ -30,6 +30,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const { toast } = useToast();
   const animationProps = useScrollAnimation({ delay: 0.2 });
 
@@ -44,6 +45,7 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    setSubmitError(null);
 
     if (data.honeypot) {
       console.log("Bot detected");
@@ -61,19 +63,20 @@ const Contact = () => {
     }
 
     try {
+      const name = `${data.firstName} ${data.lastName}`.trim();
+      const message = `Situation: ${data.message}${data.debtAmount ? ` | Debt Amount: £${data.debtAmount}` : ""}`;
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName: data.firstName,
-          lastName: data.lastName,
+          name,
           email: data.email,
           phone: data.phone,
           company: data.company,
-          debtAmount: data.debtAmount,
-          message: data.message,
+          message,
         }),
       });
 
@@ -81,26 +84,10 @@ const Contact = () => {
         throw new Error("Failed to submit form");
       }
 
-      // Show success message and redirect
-      toast({
-        title: "Success!",
-        description:
-          "Your consultation request has been sent. We'll be in touch shortly.",
-      });
-
-      // Reset form
       reset();
-
-      // Redirect to thank you page after a short delay
-      setTimeout(() => {
-        window.location.href = "/thank-you";
-      }, 1500);
+      window.location.href = "/thank-you";
     } catch (error) {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or call us directly at 0151 329 0946.",
-        variant: "destructive",
-      });
+      setSubmitError("Connection failed. Please call 0151 329 0946.");
     } finally {
       setIsSubmitting(false);
     }
@@ -331,6 +318,11 @@ const Contact = () => {
                   </div>
                 )}
               </Button>
+              {submitError && (
+                <p className="mt-3 text-sm text-red-500 font-inter text-center">
+                  {submitError}
+                </p>
+              )}
 
               <p
                 className={`text-xs ${themeClasses.text.muted} text-center font-inter`}
