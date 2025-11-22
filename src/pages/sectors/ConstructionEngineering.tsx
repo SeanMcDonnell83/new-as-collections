@@ -19,7 +19,7 @@ const ConstructionEngineering = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white font-montserrat selection:bg-blue-500 selection:text-white overflow-x-hidden">
+    <div className={`min-h-screen ${themeClasses.bg.primary} ${themeClasses.text.primary} font-montserrat selection:bg-blue-500 selection:text-white overflow-x-hidden`}>
       <Helmet>
         <title>Construction Debt Recovery | JCT & Retention Specialists</title>
         <meta
