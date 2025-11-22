@@ -140,7 +140,7 @@ const AboutUs = () => {
                   WITH <span className="text-blue-600">VISION.</span>
                 </h2>
                 <blockquote className="text-2xl text-slate-600 italic font-serif mb-8 border-l-4 border-blue-600 pl-6">
-                  "Our mission is simple: To revolutionize commercial debt
+                  "Our mission is simple: To revolutionise commercial debt
                   recovery by combining cutting-edge technology with time-tested
                   human expertise."
                 </blockquote>
