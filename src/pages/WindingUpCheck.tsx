@@ -851,7 +851,9 @@ const WindingUpCheck = () => {
                   setCallbackError(null);
 
                   if (!callbackName.trim() || !callbackPhone.trim()) {
-                    setCallbackError("Please enter your name and phone number.");
+                    setCallbackError(
+                      "Please enter your name and phone number.",
+                    );
                     return;
                   }
 
