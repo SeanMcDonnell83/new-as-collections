@@ -20,7 +20,7 @@ const OtherIndustries = () => {
   const y = useTransform(scrollY, [0, 500], [0, -100]);
 
   return (
-    <div className={`min-h-screen ${themeClasses.bg.primary} ${themeClasses.text.primary} font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden`}>
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden">
       <Helmet>
         <title>Bespoke Debt Recovery | Media, Tech, Automotive & More</title>
         <meta
