@@ -98,11 +98,12 @@ const WindingUpSearch = () => {
       });
     });
 
-    // If we found a meaningful word match (at least 2 characters), it's a potential match
-    if (bestMatchLength >= 2) {
+    // If we found a word match, it's a potential match
+    // Even single characters matter in company names (e.g., "B" is unique)
+    if (bestMatchLength >= 1) {
       const similarity = getSimilarityScore(userCompany, csvCompany['Company Name']);
       // Lower threshold when we have a word match
-      if (similarity >= 45) {
+      if (similarity >= 40) {
         return 'potential';
       }
     }
