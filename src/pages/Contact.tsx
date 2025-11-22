@@ -69,7 +69,7 @@ const ContactPage = () => {
       <main>
         {/* Hero Section: The Concierge */}
         <section
-          className="relative pt-12 pb-20 bg-slate-900 overflow-hidden min-h-auto flex items-center"
+          className="relative pt-32 pb-20 bg-slate-900 overflow-hidden min-h-screen flex items-center justify-center"
           style={{
             backgroundImage:
               "linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)",
