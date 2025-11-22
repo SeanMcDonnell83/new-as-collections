@@ -667,6 +667,28 @@ const WindingUpSearch = () => {
                     </div>
                   </motion.div>
                 )}
+
+                {/* Scan Another List Button - Bottom of Results */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="text-center pt-8"
+                >
+                  <p className={`${themeClasses.text.secondary} font-inter mb-4`}>
+                    Want to check another list? Our database is updated weekly with the latest insolvency filings.
+                  </p>
+                  <Button
+                    onClick={() => {
+                      setUserInput('');
+                      setAllResults([]);
+                      setHasSearched(false);
+                    }}
+                    className={`${themeClasses.button.secondary} font-montserrat font-700 text-sm uppercase tracking-wider px-8 py-3 rounded-lg transition-all duration-200`}
+                  >
+                    Scan Another List
+                  </Button>
+                </motion.div>
               </motion.div>
             )}
           </div>
