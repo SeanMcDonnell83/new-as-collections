@@ -24,9 +24,11 @@ const OilGasEnergy = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Oil & Gas Debt Recovery</h1>
+                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
+                  Oil, Gas & Energy Debt Recovery Specialists
+                </h1>
                 <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  Specialist recovery services for the energy sector. We handle complex supply chain debts, equipment leasing disputes, and international energy sector claims.
+                  High-value commercial debt recovery for operators, contractors and suppliers in the oil, gas and wider energy sector. We deal with complex, multi‑jurisdictional supply chains and technical contracts.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -50,9 +52,14 @@ const OilGasEnergy = () => {
 
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-20 ${themeClasses.bg.primary}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-12 text-center`}>Energy Sector Specialist Services</h2>
+            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6 text-center`}>
+              Why collecting in oil & gas is difficult
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-10 font-inter leading-relaxed text-center max-w-3xl mx-auto`}>
+              Oil and gas debts are high‑value and high‑stakes. Long project lifecycles, complex contracting chains and multiple jurisdictions mean payments often get stuck at the top while smaller contractors carry the risk.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {["Equipment & Machinery Leasing", "Service Contract Disputes", "International Supply Chains", "High-Value Claims", "Technical Expertise", "Regulatory Compliance"].map((item, idx) => (
+              {["Tiered contracting chains where liability is unclear","Major operators slow‑rolling approvals and payment runs","Cross‑border contracts governed by different legal systems","Disputes over day‑rates, downtime and variation orders","Joint venture structures obscuring who actually owes the money","Reluctance to challenge blue‑chip names despite mounting arrears"].map((item, idx) => (
                 <motion.div key={idx} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.05 }} className={`${themeClasses.bg.secondary} rounded-lg border ${themeClasses.border.primary} p-6`}>
                   <p className={`font-manrope font-bold ${themeClasses.text.primary}`}>{item}</p>
                 </motion.div>
@@ -63,7 +70,12 @@ const OilGasEnergy = () => {
 
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-16 ${themeClasses.bg.secondary}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Recover Your Energy Sector Debts</h2>
+            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-4`}>
+              Our approach to oil, gas & energy debt recovery
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
+              We have the legal weight to cut through supply chain bureaucracy and demand payment from major operators and contractors. Our commercial debt recovery strategies protect your position without jeopardising future project work.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/winding-up-check">
                 <Button className="bg-red-700 hover:bg-red-800 text-white font-manrope font-bold px-8 py-3 rounded-full">Check Winding-Up List</Button>

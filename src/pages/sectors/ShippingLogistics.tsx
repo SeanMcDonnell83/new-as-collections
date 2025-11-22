@@ -24,9 +24,11 @@ const ShippingLogistics = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Shipping & Logistics Debt Recovery</h1>
+                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
+                  Shipping & Logistics Debt Recovery Specialists
+                </h1>
                 <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  Specialist recovery services for the logistics sector. We handle freight charges, shipping disputes, warehouse fees, and transport company debts.
+                  Commercial debt recovery for freight forwarders, hauliers, warehouse operators and logistics providers. We understand demurrage, fuel surcharges and cross‑border disputes.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -50,9 +52,14 @@ const ShippingLogistics = () => {
 
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-20 ${themeClasses.bg.primary}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-12 text-center`}>Logistics Sector Expertise</h2>
+            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6 text-center`}>
+              Why collecting in logistics is difficult
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-10 font-inter leading-relaxed text-center max-w-3xl mx-auto`}>
+              International borders and complex freight law make logistics debt hard to chase. Ignoring it leads to spiralling demurrage, fuel and storage costs that quickly erode profit on already tight contracts.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {["Freight Charge Disputes", "Warehouse Fee Recovery", "Port & Terminal Fees", "Customs Clearance Charges", "Rapid Resolution", "Commercial Relationships"].map((item, idx) => (
+              {["Containers sitting on quay incurring demurrage day after day","Disputes over who is liable for freight and surcharges","Shippers disappearing or going insolvent mid‑voyage","Unpaid warehouse and storage fees tying up valuable space","Complex chains of forwarders, NVOCCs and agents obscuring liability","Cross‑border enforcement that feels slow and expensive"].map((item, idx) => (
                 <motion.div key={idx} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.05 }} className={`${themeClasses.bg.secondary} rounded-lg border ${themeClasses.border.primary} p-6`}>
                   <p className={`font-manrope font-bold ${themeClasses.text.primary}`}>{item}</p>
                 </motion.div>
@@ -63,7 +70,12 @@ const ShippingLogistics = () => {
 
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-16 ${themeClasses.bg.secondary}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Recover Your Logistics Debts</h2>
+            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-4`}>
+              Our approach to logistics debt recovery
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
+              We operate globally. We understand maritime liens, Bills of Lading and freight law, allowing us to hold cargo or enforce payment across borders effectively before losses escalate.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/winding-up-check">
                 <Button className="bg-red-700 hover:bg-red-800 text-white font-manrope font-bold px-8 py-3 rounded-full">Check Winding-Up List</Button>

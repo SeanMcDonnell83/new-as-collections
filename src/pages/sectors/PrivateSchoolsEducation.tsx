@@ -24,9 +24,11 @@ const PrivateSchoolsEducation = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Independent Schools Debt Recovery</h1>
+                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
+                  Independent Schools Debt Recovery Specialists
+                </h1>
                 <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  Sensitive debt recovery for independent schools and educational institutions. We handle student fee disputes and supplier debts with discretion.
+                  Specialist commercial debt recovery for independent schools and colleges. We recover unpaid term fees, bursary shortfalls and ancillary charges with discretion and care.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -50,9 +52,14 @@ const PrivateSchoolsEducation = () => {
 
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-20 ${themeClasses.bg.primary}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-12 text-center`}>Education Sector Services</h2>
+            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6 text-center`}>
+              Why collecting in education is difficult
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-10 font-inter leading-relaxed text-center max-w-3xl mx-auto`}>
+              Chasing parents for unpaid school fees is delicate. You need to recover funds without damaging the school’s reputation or disrupting the pupil’s education. Term dates, bursaries and parental contracts all add legal and emotional complexity.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {["Student Fee Recovery", "Tuition Dispute Resolution", "Supplier Payment Recovery", "Parent Payment Plans", "Confidential Handling", "Minimal Disruption"].map((item, idx) => (
+              {["Parents falling into arrears over multiple terms","Unclear parental contracts and responsibility for fees","Bursary and scholarship shortfalls that were never budgeted","Reluctance to escalate for fear of reputational damage","International parents leaving the UK without settling balances","Balancing fee recovery with safeguarding and pastoral duties"].map((item, idx) => (
                 <motion.div key={idx} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.05 }} className={`${themeClasses.bg.secondary} rounded-lg border ${themeClasses.border.primary} p-6`}>
                   <p className={`font-manrope font-bold ${themeClasses.text.primary}`}>{item}</p>
                 </motion.div>
@@ -63,7 +70,12 @@ const PrivateSchoolsEducation = () => {
 
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-16 ${themeClasses.bg.secondary}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Recover Education Sector Debts</h2>
+            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-4`}>
+              Our approach to education debt recovery
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
+              We operate with absolute discretion. Our soft collection strategy preserves the parent–school relationship whilst ensuring fees, extras and boarding costs are settled before the next term begins.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/winding-up-check">
                 <Button className="bg-red-700 hover:bg-red-800 text-white font-manrope font-bold px-8 py-3 rounded-full">Check Winding-Up List</Button>

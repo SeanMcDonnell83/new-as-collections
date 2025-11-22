@@ -24,9 +24,11 @@ const RecruitmentAgencies = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Recruitment Agencies Debt Recovery</h1>
+                <h1 className={`text-5xl md:text-6xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>
+                  Recruitment Agency Debt Recovery Specialists
+                </h1>
                 <p className={`text-xl ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
-                  Specialist debt recovery for recruitment and staffing agencies. We recover unpaid placement fees, invoice disputes, and contractor-related debts.
+                  Commercial debt recovery for recruitment and staffing agencies. We chase unpaid placement fees, temp invoices and transfer fees whilst keeping client relationships intact.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -50,9 +52,14 @@ const RecruitmentAgencies = () => {
 
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-20 ${themeClasses.bg.primary}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-12 text-center`}>Recruitment Sector Expertise</h2>
+            <h2 className={`text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6 text-center`}>
+              Why collecting in recruitment is difficult
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-10 font-inter leading-relaxed text-center max-w-3xl mx-auto`}>
+              Clients hiring candidates behind your back or stretching rebate periods can wipe out commission. Disputed timesheets and complex transfer fee clauses make enforcing your Terms of Business feel risky.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {["Placement Fee Disputes", "Contractor Invoice Recovery", "Client Payment Disputes", "Contract Term Recovery", "Professional Handling", "Business Continuation"].map((item, idx) => (
+              {["Backdoor hires where candidates are taken on off‑book","Clients hiding placements through sister or overseas entities","End‑clients disputing timesheets to avoid paying temp invoices","Rebate periods being misused long after a candidate has settled","Conflicting contracts between agencies, umbrellas and end‑clients","Fear of damaging repeat business if you push too hard"].map((item, idx) => (
                 <motion.div key={idx} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.05 }} className={`${themeClasses.bg.secondary} rounded-lg border ${themeClasses.border.primary} p-6`}>
                   <p className={`font-manrope font-bold ${themeClasses.text.primary}`}>{item}</p>
                 </motion.div>
@@ -63,7 +70,12 @@ const RecruitmentAgencies = () => {
 
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`py-16 ${themeClasses.bg.secondary}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-6`}>Recover Your Recruitment Debts</h2>
+            <h2 className={`text-3xl md:text-4xl font-manrope font-bold ${themeClasses.text.primary} mb-4`}>
+              Our approach to recruitment debt recovery
+            </h2>
+            <p className={`text-lg ${themeClasses.text.secondary} mb-8 font-inter leading-relaxed`}>
+              We are experts in tracing backdoor hires and enforcing your Terms of Business. Our team recovers placement fees quickly whilst preserving the long‑term value of your client relationships.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/winding-up-check">
                 <Button className="bg-red-700 hover:bg-red-800 text-white font-manrope font-bold px-8 py-3 rounded-full">Check Winding-Up List</Button>
