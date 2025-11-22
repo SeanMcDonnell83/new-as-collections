@@ -1,179 +1,217 @@
 import { themeClasses } from "@/contexts/ThemeContext";
 import { useThemeSafe } from "@/hooks/useThemeSafe";
+import { Link } from "react-router-dom";
+import { CheckCircle, TrendingUp, Shield } from "lucide-react";
 
 const Footer = () => {
   const { theme } = useThemeSafe();
+
+  const services = [
+    { label: "Commercial Debt Recovery", href: "/services/commercial-debt-recovery" },
+    { label: "International Recovery", href: "/services/international-debt-collection" },
+    { label: "Debtor Tracing", href: "/services/debtor-tracing" },
+    { label: "Credit Control & Insolvency", href: "/services/credit-control-insolvency" },
+  ];
+
+  const sectors = [
+    { label: "Construction & Engineering", href: "/sectors/construction-engineering" },
+    { label: "Food & Drink Industry", href: "/sectors/food-drink-hospitality" },
+    { label: "Oil & Gas Sector", href: "/sectors/oil-gas-energy" },
+    { label: "Independent Schools", href: "/sectors/private-schools-education" },
+    { label: "Recruitment Agencies", href: "/sectors/recruitment-agencies" },
+    { label: "Shipping & Logistics", href: "/sectors/shipping-logistics" },
+  ];
+
   return (
-    <footer className="bg-neutral-900 dark:bg-neutral-950 text-white py-12">
+    <footer className="bg-slate-950 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
+          {/* Column 1: Logo & Company Info */}
+          <div className="md:col-span-1">
             <div className="mb-6">
               <img
                 loading="lazy"
                 src="/AS-collections-Brand-Logos-Mono-1750-x-750-px-light.png"
-                className="h-12 w-auto"
+                className="h-10 w-auto"
                 alt="AS Collections Logo"
               />
             </div>
-            <p className="text-neutral-300 mb-4 max-w-md font-inter">
-              Leading commercial debt recovery UK specialists. No win no fee
-              debt collection services across London, Manchester, Birmingham,
-              Glasgow, and Edinburgh. Professional B2B debt recovery with 98%
-              success rate and ethical approach.
-            </p>
-            <p className="text-blue-400 font-semibold mb-6 font-inter">
-              Recovery experts for hire UK - If we can't collect it, nobody can.
+            <p className="text-slate-300 text-sm mb-6 font-inter leading-relaxed">
+              Recovery experts for hire UK. Professional debt collection services across England, Scotland, Wales and Northern Ireland.
             </p>
 
-            {/* No Win No Fee & Trust Motifs */}
-            <div className="bg-neutral-800 dark:bg-neutral-900 rounded-lg p-4 mb-6 border border-neutral-700">
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold text-green-400 font-montserrat font-700">98%</div>
-                  <div className="text-xs text-neutral-400 font-inter">Success Rate</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-green-400 font-montserrat font-700">14 Days</div>
-                  <div className="text-xs text-neutral-400 font-inter">Average Recovery</div>
-                </div>
+            {/* Trust Signals */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                <span className="text-sm font-inter text-slate-300">98% Success Rate</span>
               </div>
-              <div className="mt-3 text-center">
-                <div className="text-lg font-bold text-yellow-400 font-montserrat font-700">No Win, No Fee</div>
-                <div className="text-xs text-neutral-400 font-inter">Guaranteed for all debt recovery services</div>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-green-500 flex-shrink-0" />
+                <span className="text-sm font-inter text-slate-300">14-Day Average Recovery</span>
               </div>
-            </div>
-
-            {/* External Links */}
-            <div className="flex flex-wrap space-x-4 mb-6">
-              <a
-                href="https://www.fca.org.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
-              >
-                FCA
-              </a>
-              <a
-                href="https://www.cicm.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
-              >
-                CICM
-              </a>
-              <a
-                href="https://www.csa-uk.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
-              >
-                CSA
-              </a>
-              <a
-                href="https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-blue-400 transition-colors text-sm font-inter"
-              >
-                HMCTS
-              </a>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-green-500 flex-shrink-0" />
+                <span className="text-sm font-inter text-slate-300">No Win, No Fee Guarantee</span>
+              </div>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-semibold mb-4 font-inter">
-              Services
-            </h4>
-            <div className="space-y-2 text-neutral-300 text-sm font-inter">
-              <div>Commercial B2B Debt Collection</div>
-              <div>Construction & Engineering Recovery</div>
-              <div>International Debt Recovery</div>
-              <div>Independent Schools Collections</div>
-              <div>Food & Drink Sector Recovery</div>
-              <div>Oil & Gas Debt Collection</div>
-              <div>Debtor Tracing Services</div>
-              <div>Legal Action & Enforcement</div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-4 font-inter">
-              Industry Links
-            </h4>
-            <div className="space-y-2 text-neutral-300 text-sm font-inter">
-              <a
-                href="https://www.legislation.gov.uk/ukpga/1998/20/contents"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-blue-400 transition-colors"
-              >
-                Late Payment of Commercial Debts Act
-              </a>
-              <a
-                href="https://www.gov.uk/late-commercial-payments-interest-debt-recovery"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-blue-400 transition-colors"
-              >
-                Late Payment Legislation
-              </a>
-              <a
-                href="https://www.gov.uk/statutory-demands"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-blue-400 transition-colors"
-              >
-                Statutory Demands
-              </a>
-              <a
-                href="https://www.gov.uk/county-court-judgments-ccj-for-debt"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-blue-400 transition-colors"
-              >
-                County Court Claims
-              </a>
-            </div>
-
-            <div className="mt-6">
-              <h5 className="text-white font-semibold mb-2 font-inter">
-                Contact
-              </h5>
-              <div className="space-y-1 text-neutral-300 text-sm font-inter">
-                <div>Liverpool, UK</div>
-                <div>London | Manchester | Birmingham</div>
-                <a
-                  href="mailto:info@ascollections.co.uk"
-                  className="block hover:text-blue-400 transition-colors"
+          {/* Column 2: Services */}
+          <div className="md:col-span-1">
+            <h3 className="font-manrope font-bold text-white text-sm uppercase tracking-wider mb-6">Services</h3>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service.href}>
+                  <Link
+                    to={service.href}
+                    className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200"
+                  >
+                    {service.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  to="/services"
+                  className="text-red-500 hover:text-red-400 text-sm font-inter font-bold transition-colors duration-200"
                 >
-                  info@ascollections.co.uk
-                </a>
+                  View All Services →
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Sectors */}
+          <div className="md:col-span-1">
+            <h3 className="font-manrope font-bold text-white text-sm uppercase tracking-wider mb-6">Sectors</h3>
+            <ul className="space-y-3">
+              {sectors.map((sector) => (
+                <li key={sector.href}>
+                  <Link
+                    to={sector.href}
+                    className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200"
+                  >
+                    {sector.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Tools & Resources */}
+          <div className="md:col-span-1">
+            <h3 className="font-manrope font-bold text-white text-sm uppercase tracking-wider mb-6">Tools</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/winding-up-check"
+                  className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200"
+                >
+                  Check Winding-Up List
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about-us"
+                  className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/compliance"
+                  className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200"
+                >
+                  Compliance
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200"
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5: Contact */}
+          <div className="md:col-span-1">
+            <h3 className="font-manrope font-bold text-white text-sm uppercase tracking-wider mb-6">Contact</h3>
+            <ul className="space-y-3">
+              <li>
+                <div className="text-slate-300 text-sm font-inter">Liverpool, UK</div>
+                <div className="text-slate-400 text-xs font-inter">Serving all UK regions</div>
+              </li>
+              <li>
                 <a
                   href="tel:+441513290946"
-                  className="block hover:text-blue-400 transition-colors"
+                  className="text-red-500 hover:text-red-400 text-sm font-inter font-bold transition-colors duration-200"
                 >
                   0151 329 0946
                 </a>
-              </div>
-            </div>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@ascollections.co.uk"
+                  className="text-slate-300 hover:text-white text-sm font-inter transition-colors duration-200 break-all"
+                >
+                  info@ascollections.co.uk
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
-          <p className="text-neutral-400 text-sm font-inter">
-            © {new Date().getFullYear()} OVAS NW. All rights reserved. | Professional debt collection services across England, Scotland, Wales and Northern Ireland.
-            <br />
-            Website created by{" "}
-            <a
-              href="https://kaizenweb.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              Kaizen
-            </a>
-          </p>
+        {/* No Win No Fee Badge */}
+        <div className="bg-gradient-to-r from-red-600/10 to-orange-600/10 border border-red-600/30 rounded-xl p-6 mb-12">
+          <div className="text-center">
+            <div className="text-2xl font-manrope font-bold text-red-500 mb-2">No Win, No Fee</div>
+            <p className="text-slate-300 text-sm font-inter">
+              We only succeed when you succeed. Zero upfront costs, no hidden fees. You pay only when we recover your debt.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-slate-800 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {/* Left: Copyright & Legal */}
+            <div className="text-slate-400 text-xs font-inter">
+              <p className="mb-2">
+                © {new Date().getFullYear()} OVAS NW. All rights reserved.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-slate-300 transition-colors">Complaints</a>
+              </div>
+            </div>
+
+            {/* Right: Website Credit */}
+            <div className="text-slate-400 text-xs font-inter md:text-right">
+              <p>
+                Website created by{" "}
+                <a
+                  href="https://kaizenweb.co.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 hover:text-red-400 transition-colors font-bold"
+                >
+                  Kaizen
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Tagline */}
+          <div className="text-center text-slate-500 text-xs font-inter italic">
+            <p>"If we can't collect it, nobody can." – A.S. Collections</p>
+          </div>
         </div>
       </div>
     </footer>
