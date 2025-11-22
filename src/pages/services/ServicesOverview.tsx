@@ -10,7 +10,6 @@ import {
   Search,
   AlertCircle,
   ArrowRight,
-  CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -25,7 +24,6 @@ const ServicesOverview = () => {
       href: "/services/commercial-debt-recovery",
       badge: "98% Success Rate",
       badgeColor: "bg-green-500",
-      size: "lg",
       color: "from-blue-600 to-cyan-600",
     },
     {
@@ -36,7 +34,6 @@ const ServicesOverview = () => {
       href: "/services/international-debt-collection",
       badge: "14+ Countries",
       badgeColor: "bg-purple-500",
-      size: "md",
       color: "from-purple-600 to-pink-600",
     },
     {
@@ -47,7 +44,6 @@ const ServicesOverview = () => {
       href: "/services/debtor-tracing",
       badge: "£50M+ Recovered",
       badgeColor: "bg-orange-500",
-      size: "md",
       color: "from-orange-600 to-red-600",
     },
     {
@@ -58,7 +54,6 @@ const ServicesOverview = () => {
       href: "/services/credit-control-insolvency",
       badge: "Expert Guidance",
       badgeColor: "bg-indigo-500",
-      size: "lg",
       color: "from-indigo-600 to-blue-600",
     },
   ];
@@ -82,28 +77,6 @@ const ServicesOverview = () => {
             "@type": "CollectionPage",
             "name": "Our Recovery Services",
             "description": "Comprehensive debt recovery solutions",
-            "hasPart": [
-              {
-                "@type": "Service",
-                "name": "Commercial B2B Debt Collection",
-                "url": "https://ascollections.co.uk/services/commercial-debt-recovery"
-              },
-              {
-                "@type": "Service",
-                "name": "International Debt Recovery",
-                "url": "https://ascollections.co.uk/services/international-debt-collection"
-              },
-              {
-                "@type": "Service",
-                "name": "Debtor Tracing & Legal Action",
-                "url": "https://ascollections.co.uk/services/debtor-tracing"
-              },
-              {
-                "@type": "Service",
-                "name": "Credit Control & Insolvency",
-                "url": "https://ascollections.co.uk/services/credit-control-insolvency"
-              }
-            ]
           })}
         </script>
       </Helmet>
@@ -126,25 +99,6 @@ const ServicesOverview = () => {
                   <stop offset="100%" stopColor="#06b6d4" />
                 </linearGradient>
               </defs>
-              {/* Animated nodes */}
-              {[...Array(20)].map((_, i) => (
-                <motion.circle
-                  key={i}
-                  cx={Math.random() * 100 + "%"}
-                  cy={Math.random() * 100 + "%"}
-                  r="3"
-                  fill="url(#nodeGradient)"
-                  animate={{
-                    opacity: [0.3, 0.8, 0.3],
-                    r: [3, 6, 3]
-                  }}
-                  transition={{
-                    duration: 3 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: i * 0.1
-                  }}
-                />
-              ))}
             </svg>
           </div>
 
@@ -185,7 +139,7 @@ const ServicesOverview = () => {
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-8">
                         <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                          <services[0].icon className="w-8 h-8 text-white" />
+                          <Shield className="w-8 h-8 text-white" />
                         </div>
                         <motion.span
                           animate={{ scale: [1, 1.1, 1] }}
@@ -222,7 +176,7 @@ const ServicesOverview = () => {
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                          <services[1].icon className="w-6 h-6 text-white" />
+                          <Globe className="w-6 h-6 text-white" />
                         </div>
                         <span className={`${services[1].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}>
                           {services[1].badge}
@@ -255,7 +209,7 @@ const ServicesOverview = () => {
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                          <services[2].icon className="w-6 h-6 text-white" />
+                          <Search className="w-6 h-6 text-white" />
                         </div>
                         <span className={`${services[2].badgeColor} text-white text-xs font-montserrat font-bold px-2 py-1 rounded-full uppercase tracking-wider`}>
                           {services[2].badge}
@@ -289,7 +243,7 @@ const ServicesOverview = () => {
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-6">
                         <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                          <services[3].icon className="w-8 h-8 text-white" />
+                          <AlertCircle className="w-8 h-8 text-white" />
                         </div>
                         <motion.span
                           animate={{ scale: [1, 1.1, 1] }}
