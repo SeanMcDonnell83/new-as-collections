@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/Hero";
+import { IndustryCards } from "@/components/IndustryCards";
 import Testimonials from "@/components/Testimonials";
 import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
@@ -77,12 +78,12 @@ const Index = () => {
         <Hero />
 
         {/* Business Debt Collection Services UK - Intro Section */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-20 ${themeClasses.bg.secondary}`}
+          className={`py-24 ${themeClasses.bg.secondary}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -135,6 +136,8 @@ const Index = () => {
             </div>
           </div>
         </motion.section>
+
+        <IndustryCards />
 
         {/* Our Recovery Process - 4-step infographic */}
         <motion.section 
