@@ -26,6 +26,24 @@ const Footer = () => {
               Recovery experts for hire UK - If we can't collect it, nobody can.
             </p>
 
+            {/* No Win No Fee & Trust Motifs */}
+            <div className="bg-neutral-800 dark:bg-neutral-900 rounded-lg p-4 mb-6 border border-neutral-700">
+              <div className="grid grid-cols-2 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-green-400 font-noto-serif">98%</div>
+                  <div className="text-xs text-neutral-400 font-noto-sans">Success Rate</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-green-400 font-noto-serif">14 Days</div>
+                  <div className="text-xs text-neutral-400 font-noto-sans">Average Recovery</div>
+                </div>
+              </div>
+              <div className="mt-3 text-center">
+                <div className="text-lg font-bold text-yellow-400 font-noto-serif">No Win, No Fee</div>
+                <div className="text-xs text-neutral-400 font-noto-sans">Guaranteed for all debt recovery services</div>
+              </div>
+            </div>
+
             {/* External Links */}
             <div className="flex flex-wrap space-x-4 mb-6">
               <a
@@ -144,9 +162,7 @@ const Footer = () => {
 
         <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
           <p className="text-neutral-400 text-sm font-noto-sans">
-            © {new Date().getFullYear()} OVAS NW. All rights reserved. |
-            Professional debt collection services across England, Scotland,
-            Wales and Northern Ireland.
+            © {new Date().getFullYear()} OVAS NW. All rights reserved. | Professional debt collection services across England, Scotland, Wales and Northern Ireland.
             <br />
             Website created by{" "}
             <a
