@@ -157,9 +157,11 @@ const IndustryExpertise = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-12">
+        <div className="space-y-20">
           {industries.map((industry, index) => {
             const IconComponent = industry.icon;
+            const isEven = index % 2 === 0;
+
             return (
               <motion.div
                 key={index}
@@ -167,82 +169,64 @@ const IndustryExpertise = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`${themeClasses.bg.primary} rounded-2xl border ${themeClasses.border.primary} p-8 hover:shadow-lg transition-all duration-300`}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="flex items-start space-x-4 mb-6">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3
-                          className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}
-                        >
-                          {industry.title}
-                        </h3>
-                        <p
-                          className={`${themeClasses.text.secondary} leading-relaxed font-inter`}
-                        >
-                          {industry.description}
-                        </p>
-                      </div>
+                {/* Text Content Section */}
+                <div className={isEven ? '' : 'lg:order-2'}>
+                  <div className="flex items-start space-x-4 mb-6">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-white" />
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {industry.specialties.map((specialty, specialtyIndex) => (
-                        <div key={specialtyIndex} className="flex items-center">
-                          <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 flex-shrink-0"></div>
-                          <span
-                            className={`${themeClasses.text.secondary} text-sm font-inter`}
-                          >
-                            {specialty}
-                          </span>
-                        </div>
-                      ))}
+                    <div>
+                      <h3 className={`text-3xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-800`}>
+                        {industry.title}
+                      </h3>
+                      <p className={`${themeClasses.text.secondary} leading-relaxed font-inter`}>
+                        {industry.description}
+                      </p>
                     </div>
                   </div>
 
-                  <div className={`${themeClasses.bg.accent} rounded-xl p-6`}>
-                    <h4
-                      className={`text-lg font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700 text-center`}
-                    >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-20">
+                    {industry.specialties.map((specialty, specialtyIndex) => (
+                      <div key={specialtyIndex} className="flex items-start">
+                        <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 flex-shrink-0 mt-1"></div>
+                        <span className={`${themeClasses.text.secondary} text-sm font-inter`}>
+                          {specialty}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Stats Card Section */}
+                <div className={isEven ? 'lg:order-2' : ''}>
+                  <div className={`${themeClasses.bg.accent} rounded-2xl p-8 h-full`}>
+                    <h4 className={`text-xl font-bold ${themeClasses.text.primary} mb-8 font-montserrat font-800 text-center`}>
                       Industry Results
                     </h4>
-                    <div className="space-y-4">
+                    <div className="space-y-8">
                       <div className="text-center">
-                        <div
-                          className={`text-2xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
-                        >
+                        <div className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}>
                           {industry.stats.recovered}
                         </div>
-                        <div
-                          className={`text-sm ${themeClasses.text.secondary} font-inter`}
-                        >
+                        <div className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}>
                           Total Recovered
                         </div>
                       </div>
                       <div className="text-center">
-                        <div
-                          className={`text-2xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
-                        >
+                        <div className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}>
                           {industry.stats.clients}
                         </div>
-                        <div
-                          className={`text-sm ${themeClasses.text.secondary} font-inter`}
-                        >
+                        <div className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}>
                           Clients Served
                         </div>
                       </div>
                       <div className="text-center">
-                        <div
-                          className={`text-2xl font-bold ${themeClasses.text.accent} font-montserrat font-700`}
-                        >
+                        <div className={`text-3xl font-bold ${themeClasses.text.accent} font-montserrat font-800`}>
                           {industry.stats.rate}
                         </div>
-                        <div
-                          className={`text-sm ${themeClasses.text.secondary} font-inter`}
-                        >
+                        <div className={`text-sm ${themeClasses.text.secondary} font-inter mt-2`}>
                           Success Rate
                         </div>
                       </div>
