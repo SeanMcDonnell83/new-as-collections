@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Papa from 'papaparse';
-import { AlertTriangle, CheckCircle, AlertCircle, Loader } from 'lucide-react';
+import { AlertTriangle, CheckCircle, AlertCircle, Loader, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { themeClasses } from '@/contexts/ThemeContext';
 import Header from '@/components/layout/Header';
@@ -134,133 +134,180 @@ const WindingUpSearch = () => {
   return (
     <div className={`min-h-screen ${themeClasses.bg.primary}`}>
       <Helmet>
-        <title>Winding-Up Petition Search | Check Company Insolvency | A.S. Collections</title>
+        <title>Risk Checker - Winding-Up Petition Search | A.S. Collections</title>
         <meta
           name="description"
-          content="Instantly check if your clients face winding-up petitions. Live UK company insolvency database. Protect your business with our free winding-up search tool."
+          content="Instantly screen your client list against our live UK winding-up database. Identify insolvency risks before they impact your business."
         />
         <meta name="keywords" content="winding-up petition search, company insolvency check, UK winding-up database, credit check, business risk assessment" />
         <link rel="canonical" href="https://ascollections.co.uk/winding-up-check" />
-        <meta property="og:title" content="Winding-Up Petition Search | Check Company Insolvency | A.S. Collections" />
+        <meta property="og:title" content="Risk Checker - Winding-Up Petition Search | A.S. Collections" />
         <meta property="og:description" content="Instantly check if your clients face winding-up petitions. Live UK company insolvency database." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ascollections.co.uk/winding-up-check" />
       </Helmet>
 
       <Header />
-      <main className="pt-32">
-        {/* Hero Section - Professional Alert Style */}
+      <main className="pt-20">
+        {/* Hero Section - Dark Dashboard Style */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 dark:from-blue-900 dark:via-blue-800 dark:to-slate-900 text-white py-24"
+          className="relative bg-slate-900 dark:bg-slate-950 text-white py-32 overflow-hidden"
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex justify-center mb-8">
-              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
-                <AlertTriangle className="w-10 h-10 text-white" />
-              </div>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-montserrat font-800 leading-tight">
-              Winding-Up Petition Search
-            </h1>
-            <p className="text-xl text-blue-100 mb-4 leading-relaxed max-w-2xl mx-auto font-inter">
-              Protect your business by screening your client list against our live database of UK companies facing winding-up action.
-            </p>
-            <p className="text-lg text-blue-100 font-inter max-w-2xl mx-auto opacity-90">
-              Identify insolvency risks early and take proactive measures to safeguard your cash flow and business relationships.
-            </p>
+          {/* Grid pattern background */}
+          <div className="absolute inset-0 opacity-5">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+          </div>
+
+          {/* Gradient orbs */}
+          <div className="absolute top-20 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 -left-40 w-80 h-80 bg-red-600/20 rounded-full blur-3xl"></div>
+
+          <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/30 rounded-full px-4 py-2 mb-8"
+            >
+              <Shield className="w-4 h-4 text-blue-400" />
+              <span className="text-xs font-montserrat font-700 uppercase tracking-widest text-blue-300">
+                Live Risk Detection
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-5xl md:text-6xl font-bold mb-6 font-montserrat font-800"
+            >
+              Insolvency Risk Checker
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-xl text-slate-300 max-w-2xl mx-auto mb-4 leading-relaxed font-inter"
+            >
+              Screen your entire client list against our live UK winding-up database in seconds.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-lg text-slate-400 font-inter"
+            >
+              Identify insolvency risks instantly. Protect your business. Make informed credit decisions.
+            </motion.p>
           </div>
         </motion.section>
 
-        {/* Main Content */}
-        <section className={`py-20 ${themeClasses.bg.primary}`}>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* CSV Fetch Status */}
+        {/* Main Scan Interface */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Loading State */}
             {isLoading && (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className={`${themeClasses.bg.secondary} rounded-lg p-6 mb-8 border ${themeClasses.border.primary} text-center`}
+                className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl p-12 text-center border border-slate-100 dark:border-neutral-800"
               >
-                <Loader className="w-6 h-6 animate-spin mx-auto mb-4 text-blue-600" />
-                <p className={`${themeClasses.text.secondary} font-inter`}>
-                  Loading winding-up database...
+                <Loader className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" />
+                <p className={`${themeClasses.text.secondary} font-inter text-lg`}>
+                  Initializing Risk Detection System...
                 </p>
               </motion.div>
             )}
 
+            {/* Fetch Error State */}
             {fetchError && (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="bg-red-50 dark:bg-red-950 rounded-lg p-6 mb-8 border border-red-200 dark:border-red-800"
+                className="bg-red-50 dark:bg-red-950/20 rounded-2xl shadow-2xl p-8 border border-red-200 dark:border-red-800"
               >
-                <div className="flex items-start">
-                  <AlertCircle className="w-6 h-6 text-red-600 dark:text-red-400 mr-4 flex-shrink-0 mt-0.5" />
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-red-600 dark:bg-red-500 flex items-center justify-center flex-shrink-0">
+                    <AlertCircle className="w-6 h-6 text-white" />
+                  </div>
                   <div>
-                    <h3 className="font-montserrat font-700 text-red-800 dark:text-red-200 mb-2">
-                      Unable to Load Database
+                    <h3 className="text-xl font-bold text-red-900 dark:text-red-200 font-montserrat mb-2">
+                      System Error
                     </h3>
-                    <p className={`${themeClasses.text.secondary} font-inter text-sm`}>
-                      {fetchError} Please try again later or contact us for assistance.
+                    <p className={`${themeClasses.text.secondary} font-inter mb-4`}>
+                      {fetchError}
+                    </p>
+                    <p className={`text-sm ${themeClasses.text.tertiary} font-inter`}>
+                      Please try again later or contact us for assistance.
                     </p>
                   </div>
                 </div>
               </motion.div>
             )}
 
-            {/* Search Tool */}
+            {/* Scan Interface */}
             {isFetched && !fetchError && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className={`${themeClasses.bg.secondary} rounded-2xl p-8 md:p-12 border ${themeClasses.border.primary} mb-8 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300`}>
+                {/* Floating Card */}
+                <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl p-8 md:p-12 border border-slate-100 dark:border-neutral-800 -translate-y-16 relative z-10">
                   <div className="mb-8">
-                    <h2 className={`text-3xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-800`}>
-                      Bulk Company Search
+                    <h2 className={`text-2xl md:text-3xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-800`}>
+                      Scan Your Client List
                     </h2>
-                    <div className="h-1 w-16 bg-gradient-to-r from-blue-600 to-transparent rounded-full mb-4"></div>
+                    <p className={`${themeClasses.text.secondary} font-inter`}>
+                      Enter company names below. We'll instantly check each against our live winding-up database.
+                    </p>
                   </div>
 
-                  <p className={`${themeClasses.text.secondary} mb-8 font-inter leading-relaxed text-lg`}>
-                    Enter company names below (one per line or comma-separated) to check them against our live winding-up database. Results appear instantly.
-                  </p>
-
+                  {/* Input Field - Code Editor Style */}
                   <div className="mb-8">
-                    <label htmlFor="companyList" className={`block text-sm font-semibold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
-                      Company Names to Check
+                    <label htmlFor="companyList" className={`block text-sm font-montserrat font-700 uppercase tracking-wider ${themeClasses.text.primary} mb-3`}>
+                      Company Names
                     </label>
                     <textarea
                       id="companyList"
                       value={userInput}
                       onChange={(e) => setUserInput(e.target.value)}
-                      placeholder="Example: Acme Ltd, Smith & Co Ltd, ABC Solutions Ltd..."
-                      className={`w-full h-48 p-4 rounded-lg border-2 ${themeClasses.border.primary} ${themeClasses.bg.primary} ${themeClasses.text.primary} font-inter placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none`}
+                      placeholder="Acme Ltd&#10;Smith & Co&#10;ABC Solutions Ltd"
+                      className={`w-full h-40 p-4 rounded-lg bg-slate-50 dark:bg-neutral-950 border-2 border-slate-200 dark:border-neutral-800 ${themeClasses.text.primary} font-mono text-sm leading-relaxed placeholder-slate-400 dark:placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none`}
                       disabled={isSearching}
                     />
                     <p className={`text-xs ${themeClasses.text.tertiary} mt-2 font-inter`}>
-                      You can check one company or many at once. Separate entries with a new line.
+                      Separate entries with commas or new lines. One company per line or comma-separated.
                     </p>
                   </div>
 
+                  {/* Scan Button */}
                   <Button
                     onClick={handleScanList}
                     disabled={!userInput.trim() || isSearching}
-                    className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 font-inter disabled:opacity-50 disabled:cursor-not-allowed disabled:from-gray-500 disabled:to-gray-600 shadow-md hover:shadow-lg"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-montserrat font-700 text-sm uppercase tracking-widest py-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:from-gray-500 disabled:to-gray-600 shadow-lg hover:shadow-xl disabled:shadow-none"
                   >
                     {isSearching ? (
                       <>
                         <Loader className="w-5 h-5 animate-spin mr-2" />
-                        Scanning Database...
+                        SCANNING DATABASE...
                       </>
                     ) : (
-                      'Scan List'
+                      'SCAN FOR RISK'
                     )}
                   </Button>
                 </div>
@@ -273,111 +320,155 @@ const WindingUpSearch = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
+                className="space-y-8"
               >
                 {matches.length > 0 ? (
                   <>
-                    {/* Warning - Matches Found */}
-                    <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-950 dark:to-red-900 rounded-2xl p-8 border border-red-200 dark:border-red-800 mb-8">
-                      <div className="flex items-start mb-6">
-                        <div className="w-10 h-10 rounded-full bg-red-600 dark:bg-red-500 flex items-center justify-center flex-shrink-0 mr-4">
-                          <AlertTriangle className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-red-900 dark:text-red-100 font-montserrat font-800 mb-2">
-                            Matches Found: {matches.length} {matches.length !== 1 ? 'Companies' : 'Company'}
-                          </h3>
-                          <p className="text-red-800 dark:text-red-200 font-inter">
-                            The following companies appear on our winding-up register. We recommend immediate action to assess your exposure.
-                          </p>
+                    {/* CRITICAL RISK STATE */}
+                    <div className="bg-white dark:bg-neutral-900 rounded-2xl border-2 border-red-500 overflow-hidden shadow-2xl">
+                      <div className="bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-950 dark:to-red-900/50 px-8 py-6 border-b border-red-500">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-full bg-red-600 dark:bg-red-500 flex items-center justify-center flex-shrink-0 animate-pulse">
+                            <AlertTriangle className="w-7 h-7 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-3xl font-bold text-red-900 dark:text-red-100 font-montserrat font-800 mb-2">
+                              CRITICAL INSOLVENCY RISK DETECTED
+                            </h3>
+                            <p className="text-red-800 dark:text-red-200 font-inter leading-relaxed max-w-2xl">
+                              One or more companies on your list are currently flagged for winding-up action. <strong>Do not extend further credit.</strong> Contact us immediately to secure your position.
+                            </p>
+                          </div>
                         </div>
                       </div>
 
-                      <div className="space-y-4 mb-8">
-                        {matches.map((match, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
-                            className={`${themeClasses.bg.primary} rounded-lg p-4 border-l-4 border-red-600 dark:border-red-400`}
-                          >
-                            <h4 className={`font-bold ${themeClasses.text.primary} font-montserrat font-700 mb-2`}>
-                              {match.name}
-                            </h4>
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <span className={`${themeClasses.text.secondary} font-inter`}>Status:</span>
-                                <p className={`font-semibold ${themeClasses.text.primary} font-montserrat font-700`}>
-                                  {match.status}
-                                </p>
-                              </div>
-                              <div>
-                                <span className={`${themeClasses.text.secondary} font-inter`}>Date Listed:</span>
-                                <p className={`font-semibold ${themeClasses.text.primary} font-montserrat font-700`}>
+                      {/* Results Table */}
+                      <div className="overflow-x-auto">
+                        <table className="w-full">
+                          <thead>
+                            <tr className={`${themeClasses.bg.secondary} border-b ${themeClasses.border.primary}`}>
+                              <th className="text-left px-6 py-4 font-montserrat font-700 uppercase text-xs tracking-wider text-slate-600 dark:text-slate-400">
+                                Company Name
+                              </th>
+                              <th className="text-left px-6 py-4 font-montserrat font-700 uppercase text-xs tracking-wider text-slate-600 dark:text-slate-400">
+                                Status
+                              </th>
+                              <th className="text-left px-6 py-4 font-montserrat font-700 uppercase text-xs tracking-wider text-slate-600 dark:text-slate-400">
+                                Date Listed
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {matches.map((match, index) => (
+                              <motion.tr
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                                className={`border-b ${themeClasses.border.primary} hover:${themeClasses.bg.secondary} transition-colors duration-200`}
+                              >
+                                <td className={`px-6 py-4 font-bold ${themeClasses.text.primary} font-montserrat`}>
+                                  {match.name}
+                                </td>
+                                <td className="px-6 py-4">
+                                  <span className="inline-block bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-xs font-montserrat font-700 uppercase">
+                                    {match.status}
+                                  </span>
+                                </td>
+                                <td className={`px-6 py-4 ${themeClasses.text.secondary} font-inter`}>
                                   {match.dateListed}
-                                </p>
-                              </div>
-                            </div>
-                          </motion.div>
-                        ))}
+                                </td>
+                              </motion.tr>
+                            ))}
+                          </tbody>
+                        </table>
                       </div>
 
-                      <div className={`${themeClasses.bg.secondary} rounded-lg p-6 border ${themeClasses.border.primary}`}>
-                        <p className={`${themeClasses.text.primary} font-semibold mb-4 font-montserrat font-700`}>
-                          Next Steps:
-                        </p>
-                        <ul className={`${themeClasses.text.secondary} space-y-2 font-inter text-sm`}>
-                          <li>✓ Suspend credit immediately to affected companies</li>
-                          <li>✓ Review existing credit exposure and liabilities</li>
-                          <li>✓ Prepare claims for insolvency proceedings</li>
-                          <li>✓ Contact us for specialist debt recovery advice</li>
-                        </ul>
-                      </div>
-
-                      <div className="mt-8 text-center">
-                        <Button
-                          onClick={() => window.location.href = '/contact'}
-                          className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 font-inter"
-                        >
-                          Contact Us Immediately
-                        </Button>
+                      {/* Action CTA */}
+                      <div className="bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-950 dark:to-red-900/50 px-8 py-8 border-t border-red-500">
+                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                          <div className="flex-1">
+                            <p className={`font-montserrat font-700 text-lg ${themeClasses.text.primary} mb-2`}>
+                              Need Expert Guidance?
+                            </p>
+                            <p className={`${themeClasses.text.secondary} font-inter text-sm`}>
+                              Our insolvency specialists are ready to help you assess your exposure and take immediate action.
+                            </p>
+                          </div>
+                          <Button
+                            onClick={() => window.location.href = 'tel:+441513290946'}
+                            className="bg-red-600 hover:bg-red-700 text-white font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap flex-shrink-0"
+                          >
+                            Speak to Expert Now
+                            <span className="text-xl ml-2">0151 329 0946</span>
+                          </Button>
+                        </div>
                       </div>
                     </div>
+
+                    {/* Compliance Note */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6"
+                    >
+                      <p className="text-xs font-montserrat font-700 uppercase tracking-wider text-amber-900 dark:text-amber-200 mb-2">
+                        Compliance Note
+                      </p>
+                      <p className={`text-sm ${themeClasses.text.secondary} font-inter leading-relaxed`}>
+                        This tool uses 'fuzzy matching' to detect potential insolvency risks. <strong>Always verify the exact legal entity name and company number via Companies House before taking legal action.</strong> We accept no liability for identity errors based on similar trading names.
+                      </p>
+                    </motion.div>
                   </>
                 ) : (
                   <>
-                    {/* All Clear - No Matches */}
-                    <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 rounded-2xl p-8 border border-green-200 dark:border-green-800 mb-8">
-                      <div className="flex items-start mb-6">
-                        <div className="w-10 h-10 rounded-full bg-green-600 dark:bg-green-500 flex items-center justify-center flex-shrink-0 mr-4">
-                          <CheckCircle className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-green-900 dark:text-green-100 font-montserrat font-800 mb-2">
-                            No Matches Found
-                          </h3>
-                          <p className="text-green-800 dark:text-green-200 font-inter">
-                            None of the companies listed appear on our current winding-up register. Your credit exposure appears safe at this time.
-                          </p>
+                    {/* SAFE STATE */}
+                    <div className="bg-white dark:bg-neutral-900 rounded-2xl border-2 border-green-500 overflow-hidden shadow-2xl">
+                      <div className="bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950 dark:to-green-900/50 px-8 py-6 border-b border-green-500">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-full bg-green-600 dark:bg-green-500 flex items-center justify-center flex-shrink-0">
+                            <CheckCircle className="w-7 h-7 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-3xl font-bold text-green-900 dark:text-green-100 font-montserrat font-800 mb-2">
+                              No Risks Detected
+                            </h3>
+                            <p className="text-green-800 dark:text-green-200 font-inter leading-relaxed">
+                              None of the companies scanned appear on our current winding-up register. Your credit exposure looks secure at this time.
+                            </p>
+                          </div>
                         </div>
                       </div>
 
-                      <div className={`${themeClasses.bg.secondary} rounded-lg p-6 border ${themeClasses.border.primary}`}>
-                        <p className={`${themeClasses.text.primary} font-semibold mb-4 font-montserrat font-700`}>
-                          Recommendation:
+                      <div className="px-8 py-6">
+                        <p className={`${themeClasses.text.secondary} font-inter mb-2`}>
+                          Keep your business protected. Run regular checks on your client list and monitor for changes.
                         </p>
-                        <p className={`${themeClasses.text.secondary} font-inter mb-4`}>
-                          Continue to monitor these companies and run regular checks. We update our winding-up database daily to ensure you have the latest information.
-                        </p>
-                        <p className={`${themeClasses.text.secondary} font-inter text-sm`}>
-                          Want to set up automated alerts? <a href="/contact" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">Contact our team</a> for more information.
+                        <p className={`text-sm ${themeClasses.text.tertiary} font-inter`}>
+                          Our database is updated daily with the latest Companies House filings.
                         </p>
                       </div>
                     </div>
+
+                    {/* Compliance Note */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800 p-6"
+                    >
+                      <p className="text-xs font-montserrat font-700 uppercase tracking-wider text-amber-900 dark:text-amber-200 mb-2">
+                        Compliance Note
+                      </p>
+                      <p className={`text-sm ${themeClasses.text.secondary} font-inter leading-relaxed`}>
+                        This tool uses 'fuzzy matching' to detect potential insolvency risks. <strong>Always verify the exact legal entity name and company number via Companies House before taking legal action.</strong> We accept no liability for identity errors based on similar trading names.
+                      </p>
+                    </motion.div>
                   </>
                 )}
 
-                {/* New Search Button */}
+                {/* New Scan Button */}
                 <div className="text-center">
                   <Button
                     onClick={() => {
@@ -385,9 +476,9 @@ const WindingUpSearch = () => {
                       setMatches([]);
                       setHasSearched(false);
                     }}
-                    className={`${themeClasses.button.primary} font-semibold px-8 py-3 rounded-lg transition-all duration-200 font-inter`}
+                    className={`${themeClasses.button.secondary} font-montserrat font-700 text-sm uppercase tracking-wider px-8 py-3 rounded-lg transition-all duration-200`}
                   >
-                    Search Another List
+                    Scan Another List
                   </Button>
                 </div>
               </motion.div>
@@ -402,29 +493,34 @@ const WindingUpSearch = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className={`py-20 ${themeClasses.bg.primary}`}
+            className={`py-20 ${themeClasses.bg.secondary}`}
           >
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
-                <h2 className={`text-3xl md:text-4xl font-bold ${themeClasses.text.primary} mb-2 font-montserrat font-800`}>
-                  How Our Search Works
+                <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-800`}>
+                  How Risk Detection Works
                 </h2>
-                <div className="h-1 w-16 bg-gradient-to-r from-blue-600 to-transparent rounded-full mx-auto mt-4"></div>
+                <p className={`text-lg ${themeClasses.text.secondary} max-w-2xl mx-auto font-inter`}>
+                  Our intelligent screening system processes your client list in real-time against live UK government data.
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
                   {
-                    title: 'Real-Time Data',
-                    description: 'Our database is updated daily with the latest winding-up petitions filed at Companies House, ensuring you always have current information.'
+                    num: "01",
+                    title: "Real-Time Database",
+                    description: "Live data updated daily from Companies House with the latest winding-up petitions and insolvency filings."
                   },
                   {
-                    title: 'Instant Results',
-                    description: 'Scan multiple companies in seconds and identify insolvency risks before they impact your business operations or cash flow.'
+                    num: "02",
+                    title: "Smart Matching Engine",
+                    description: "Our AI-powered fuzzy matching detects company names even with slight variations in spelling or formatting."
                   },
                   {
-                    title: 'Expert Support',
-                    description: 'Get professional guidance from our debt recovery specialists on managing companies facing winding-up action.'
+                    num: "03",
+                    title: "Instant Results",
+                    description: "Scan dozens of companies in seconds. Get immediate insights to protect your business and credit exposure."
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -432,12 +528,12 @@ const WindingUpSearch = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
                     className="group"
                   >
-                    <div className={`${themeClasses.bg.secondary} rounded-xl p-8 border ${themeClasses.border.primary} h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}>
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-white font-bold text-lg font-montserrat">{index + 1}</span>
+                    <div className={`${themeClasses.bg.primary} rounded-xl p-8 border ${themeClasses.border.primary} h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}>
+                      <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 font-montserrat mb-4 opacity-50">
+                        {item.num}
                       </div>
                       <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-3 font-montserrat font-700`}>
                         {item.title}
@@ -455,19 +551,19 @@ const WindingUpSearch = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className={`${themeClasses.bg.secondary} rounded-xl p-8 border ${themeClasses.border.primary} mt-12`}
+                className={`${themeClasses.bg.primary} rounded-xl p-8 border ${themeClasses.border.primary} mt-12`}
               >
                 <h3 className={`text-lg font-bold ${themeClasses.text.primary} mb-4 font-montserrat font-700`}>
-                  Need Help Interpreting Results?
+                  Questions About Your Results?
                 </h3>
-                <p className={`${themeClasses.text.secondary} font-inter leading-relaxed mb-4`}>
-                  If you find matches on our winding-up register, our debt recovery experts are ready to help you assess your exposure and determine the best course of action. Contact us for a free consultation.
+                <p className={`${themeClasses.text.secondary} font-inter mb-6`}>
+                  Our team of insolvency and debt recovery experts are ready to help you understand your findings and develop a strategy to protect your business.
                 </p>
                 <Button
                   onClick={() => window.location.href = '/contact'}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-200 font-inter"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-700 text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-200"
                 >
-                  Get Expert Advice
+                  Get Expert Consultation
                 </Button>
               </motion.div>
             </div>
