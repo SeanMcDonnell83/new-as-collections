@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/Hero";
 import { IndustryCards } from "@/components/IndustryCards";
+import { HorizontalStepper } from "@/components/HorizontalStepper";
 import Testimonials from "@/components/Testimonials";
 import CookieConsent from "@/components/CookieConsent";
 import { themeClasses } from "@/contexts/ThemeContext";
@@ -139,65 +140,30 @@ const Index = () => {
 
         <IndustryCards />
 
-        {/* Our Recovery Process - 4-step infographic */}
-        <motion.section 
+        <HorizontalStepper
+          steps={processSteps}
+          title="Our Recovery Process"
+          subtitle="A proven 4-step approach that maximizes recovery rates while preserving valuable business relationships. Our systematic methodology ensures optimal results for every debt recovery case."
+        />
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`py-20 ${themeClasses.bg.primary}`}
+          className={`${themeClasses.bg.primary} -mt-8 pt-8 pb-12`}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className={`text-4xl font-bold ${themeClasses.text.primary} mb-6 font-noto-serif`}>
-                Our Recovery Process
-              </h2>
-              <p className={`text-xl ${themeClasses.text.secondary} max-w-3xl mx-auto font-noto-sans font-light`}>
-                A proven 4-step approach that maximizes recovery rates while preserving valuable business relationships. 
-                Our systematic methodology ensures optimal results for every debt recovery case.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="text-center relative"
-                >
-                  <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-lg font-noto-serif">
-                      {step.step}
-                    </span>
-                  </div>
-                  <h3 className={`text-xl font-bold ${themeClasses.text.primary} mb-4 font-noto-serif`}>
-                    {step.title}
-                  </h3>
-                  <p className={`${themeClasses.text.secondary} leading-relaxed font-noto-sans`}>
-                    {step.description}
-                  </p>
-                  {index < 3 && (
-                    <ArrowRight className="hidden lg:block absolute top-8 -right-4 w-6 h-6 text-blue-300" />
-                  )}
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 transition-colors duration-200 font-noto-sans"
-              >
-                Start Your Free Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <Button
+              onClick={scrollToContact}
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 transition-colors duration-200 font-inter"
+            >
+              Start Your Free Consultation
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
           </div>
-        </motion.section>
+        </motion.div>
 
         <Testimonials />
 
