@@ -35,7 +35,7 @@ interface MatchResult {
   name: string;
   status: string;
   dateListed: string;
-  matchType: "exact" | "potential" | "none";
+  matchType: "exact" | "none";
 }
 
 const WindingUpCheck = () => {
