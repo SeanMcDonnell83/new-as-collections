@@ -252,6 +252,22 @@ const WindingUpCheck = () => {
   // Separate results by type
   const exactMatches = allResults.filter((r) => r.matchType === "exact");
   const clearCompanies = allResults.filter((r) => r.matchType === "none");
+
+  const HIGH_RISK_PREVIEW_LIMIT = 5;
+  const CLEAR_PREVIEW_LIMIT = 5;
+
+  const exactPreview = exactMatches.slice(0, HIGH_RISK_PREVIEW_LIMIT);
+  const exactRemainingCount = Math.max(
+    exactMatches.length - exactPreview.length,
+    0,
+  );
+
+  const clearPreview = clearCompanies.slice(0, CLEAR_PREVIEW_LIMIT);
+  const clearRemainingCount = Math.max(
+    clearCompanies.length - clearPreview.length,
+    0,
+  );
+
   const flaggedCompanies = exactMatches;
 
   return (
