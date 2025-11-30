@@ -405,7 +405,7 @@ const WindingUpCheck = () => {
                       <AlertTriangle className="w-5 h-5" />
                       HIGH RISK DETECTED ({exactMatches.length})
                     </h3>
-                    {exactMatches.map((match, idx) => (
+                    {exactPreview.map((match, idx) => (
                       <motion.div
                         key={idx}
                         initial={{ x: -20, opacity: 0 }}
@@ -423,6 +423,21 @@ const WindingUpCheck = () => {
                         </div>
                       </motion.div>
                     ))}
+                    {exactRemainingCount > 0 && (
+                      <p className="text-xs text-red-200 font-mono">
+                        Showing first {exactPreview.length} of {exactMatches.length} high-risk
+                        companies.
+                      </p>
+                    )}
+                    {exactRemainingCount > 0 && (
+                      <Button
+                        onClick={() => setShowAllHighRiskModal(true)}
+                        variant="outline"
+                        className="mt-2 border-red-500/40 text-red-200 hover:bg-red-950/40"
+                      >
+                        View full high-risk list
+                      </Button>
+                    )}
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -453,7 +468,7 @@ const WindingUpCheck = () => {
                       NO MATCHES FOUND ({clearCompanies.length})
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {clearCompanies.map((match, idx) => (
+                      {clearPreview.map((match, idx) => (
                         <div
                           key={idx}
                           className="bg-green-950/10 border border-green-500/20 rounded-lg p-3"
@@ -464,6 +479,21 @@ const WindingUpCheck = () => {
                         </div>
                       ))}
                     </div>
+                    {clearRemainingCount > 0 && (
+                      <p className="text-xs text-green-200 font-mono">
+                        Showing first {clearPreview.length} of {clearCompanies.length} clear
+                        companies.
+                      </p>
+                    )}
+                    {clearRemainingCount > 0 && (
+                      <Button
+                        onClick={() => setShowAllClearModal(true)}
+                        variant="outline"
+                        className="mt-2 border-green-500/40 text-green-200 hover:bg-green-950/40"
+                      >
+                        View full clear list
+                      </Button>
+                    )}
 
                     {/* Clear Companies Advice */}
                     <motion.div
