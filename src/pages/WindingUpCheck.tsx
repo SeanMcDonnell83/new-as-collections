@@ -487,8 +487,7 @@ const WindingUpCheck = () => {
                     {clearRemainingCount > 0 && (
                       <Button
                         onClick={() => setShowAllClearModal(true)}
-                        variant="outline"
-                        className="mt-2 border-green-500/40 text-green-200 hover:bg-green-950/40"
+                        className="mt-2 bg-green-600 hover:bg-green-500 text-white border border-green-500/60 px-4 py-2 rounded-lg"
                       >
                         View full clear list
                       </Button>
