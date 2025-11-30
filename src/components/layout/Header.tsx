@@ -162,7 +162,8 @@ const Header = () => {
                 className="block transition-all duration-200 hover:opacity-80 active:scale-95"
               >
                 <img
-                  loading="lazy"
+                  loading="eager"
+                  fetchpriority="high"
                   decoding="async"
                   width={1750}
                   height={750}
