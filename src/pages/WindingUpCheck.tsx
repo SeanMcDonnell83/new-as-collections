@@ -424,53 +424,6 @@ const WindingUpCheck = () => {
                   </div>
                 )}
 
-                {/* Warning Results */}
-                {potentialMatches.length > 0 && (
-                  <div className="space-y-4">
-                    <h3 className="text-amber-500 font-manrope font-bold text-xl flex items-center gap-2">
-                      <AlertCircle className="w-5 h-5" />
-                      POTENTIAL MATCHES ({potentialMatches.length})
-                    </h3>
-                    {potentialMatches.map((match, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ x: -20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-amber-950/30 border border-amber-500/30 rounded-xl p-4"
-                      >
-                        <div>
-                          <p className="font-bold text-white font-mono text-lg">
-                            {match.name}
-                          </p>
-                          <p className="text-amber-400 text-sm font-mono mt-1">
-                            SIMILAR TO: "{match.userInput}"
-                          </p>
-                        </div>
-                      </motion.div>
-                    ))}
-
-                    {/* Potential Matches Advice */}
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 mt-6"
-                    >
-                      <p className="text-amber-200 text-sm font-semibold mb-2">
-                        ⚠️ Verification Required
-                      </p>
-                      <p className="text-amber-200 text-sm leading-relaxed">
-                        These companies are not an exact match but share
-                        similarities with our register. We recommend verifying
-                        the company number and full legal entity name via
-                        Companies House before making credit decisions. If
-                        unsure, contact our team for manual verification.
-                      </p>
-                    </motion.div>
-                  </div>
-                )}
-
                 {/* Clear Results */}
                 {clearCompanies.length > 0 && (
                   <div className="space-y-4">
