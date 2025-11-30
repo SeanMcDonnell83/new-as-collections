@@ -324,6 +324,17 @@ const WindingUpCheck = () => {
           </div>
         </section>
 
+        {/* Exact name requirement */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center">
+              <p className="text-sm md:text-base text-amber-200 font-mono bg-slate-800/70 inline-block px-4 py-2 rounded-lg border border-amber-500/40">
+                ⚠️ Company name must match the exact legal entity on Companies House or it will not appear in these results.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* The Risk Console */}
         <section className="px-4 sm:px-6 lg:px-8 mb-20">
           <div className="max-w-4xl mx-auto">
@@ -392,12 +403,6 @@ const WindingUpCheck = () => {
                 animate={{ opacity: 1 }}
                 className="mt-12 space-y-8"
               >
-                <div className="text-center mb-8">
-                  <p className="text-sm md:text-base text-amber-200 font-mono bg-slate-800/70 inline-block px-4 py-2 rounded-lg border border-amber-500/40">
-                    ⚠️ Company name must match the exact legal entity on Companies House or it will not appear in these results.
-                  </p>
-                </div>
-
                 {/* High Risk Results */}
                 {exactMatches.length > 0 && (
                   <div className="space-y-4">
