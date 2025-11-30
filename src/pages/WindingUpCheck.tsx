@@ -249,11 +249,8 @@ const WindingUpCheck = () => {
 
   // Separate results by type
   const exactMatches = allResults.filter((r) => r.matchType === "exact");
-  const potentialMatches = allResults.filter(
-    (r) => r.matchType === "potential",
-  );
   const clearCompanies = allResults.filter((r) => r.matchType === "none");
-  const flaggedCompanies = [...exactMatches, ...potentialMatches];
+  const flaggedCompanies = exactMatches;
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-inter">
