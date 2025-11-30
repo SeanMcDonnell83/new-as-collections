@@ -344,6 +344,9 @@ const WindingUpCheck = () => {
                     {userInput.split(/[,\n]+/).filter((l) => l.trim()).length}{" "}
                     ENTRIES DETECTED
                   </p>
+                  <p className="text-xs text-slate-500 mt-1 font-mono text-right">
+                    Note: Large lists may take a little longer to scan.
+                  </p>
                 </div>
 
                 {/* Action Button */}
