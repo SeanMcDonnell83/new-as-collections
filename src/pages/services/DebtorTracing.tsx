@@ -96,7 +96,7 @@ const DebtorTracing = () => {
       </Helmet>
 
       <Header />
-      <main>
+      <main className="pt-24">
         {/* Hero Section with Radar Animation */}
         <motion.section
           initial={{ opacity: 0 }}

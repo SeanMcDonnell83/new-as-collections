@@ -90,7 +90,7 @@ const InternationalDebtRecovery = () => {
       </Helmet>
 
       <Header />
-      <main>
+      <main className="pt-24">
         {/* Hero Section with Globe Animation */}
         <motion.section
           initial={{ opacity: 0 }}

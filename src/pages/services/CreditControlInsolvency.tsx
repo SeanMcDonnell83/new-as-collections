@@ -72,7 +72,7 @@ const CreditControlInsolvency = () => {
       </Helmet>
 
       <Header />
-      <main>
+      <main className="pt-24">
         {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0 }}
