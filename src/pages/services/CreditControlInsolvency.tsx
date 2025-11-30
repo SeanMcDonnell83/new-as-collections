@@ -69,6 +69,32 @@ const CreditControlInsolvency = () => {
           rel="canonical"
           href="https://ascollections.co.uk/services/credit-control-insolvency"
         />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ascollections.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://ascollections.co.uk/services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Credit Control & Insolvency",
+                "item": "https://ascollections.co.uk/services/credit-control-insolvency"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <Header />

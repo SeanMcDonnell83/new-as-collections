@@ -89,6 +89,32 @@ const CommercialDebtRecoveryService = () => {
           rel="canonical"
           href="https://ascollections.co.uk/services/commercial-debt-recovery"
         />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ascollections.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://ascollections.co.uk/services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Commercial Debt Recovery",
+                "item": "https://ascollections.co.uk/services/commercial-debt-recovery"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <Header />
