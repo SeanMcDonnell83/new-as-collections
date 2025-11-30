@@ -93,26 +93,26 @@ const CommercialDebtRecoveryService = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
+            itemListElement: [
               {
                 "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://ascollections.co.uk"
+                position: 1,
+                name: "Home",
+                item: "https://ascollections.co.uk",
               },
               {
                 "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://ascollections.co.uk/services"
+                position: 2,
+                name: "Services",
+                item: "https://ascollections.co.uk/services",
               },
               {
                 "@type": "ListItem",
-                "position": 3,
-                "name": "Commercial Debt Recovery",
-                "item": "https://ascollections.co.uk/services/commercial-debt-recovery"
-              }
-            ]
+                position: 3,
+                name: "Commercial Debt Recovery",
+                item: "https://ascollections.co.uk/services/commercial-debt-recovery",
+              },
+            ],
           })}
         </script>
       </Helmet>

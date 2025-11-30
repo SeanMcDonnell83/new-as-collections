@@ -91,26 +91,26 @@ const InternationalDebtRecovery = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
+            itemListElement: [
               {
                 "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://ascollections.co.uk"
+                position: 1,
+                name: "Home",
+                item: "https://ascollections.co.uk",
               },
               {
                 "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://ascollections.co.uk/services"
+                position: 2,
+                name: "Services",
+                item: "https://ascollections.co.uk/services",
               },
               {
                 "@type": "ListItem",
-                "position": 3,
-                "name": "International Debt Recovery",
-                "item": "https://ascollections.co.uk/services/international-debt-collection"
-              }
-            ]
+                position: 3,
+                name: "International Debt Recovery",
+                item: "https://ascollections.co.uk/services/international-debt-collection",
+              },
+            ],
           })}
         </script>
       </Helmet>
