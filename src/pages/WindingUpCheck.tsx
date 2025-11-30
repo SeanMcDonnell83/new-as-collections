@@ -362,8 +362,8 @@ const WindingUpCheck = () => {
                     {userInput.split(/[,\n]+/).filter((l) => l.trim()).length}{" "}
                     ENTRIES DETECTED
                   </p>
-                  <p className="text-xs text-slate-500 mt-1 font-mono text-right">
-                    Note: Large lists may take a little longer to scan.
+                  <p className="text-sm text-slate-300 mt-1 font-mono text-right">
+                    Note: Large lists may take a little longer to scan – please be patient while we check every company.
                   </p>
                 </div>
 
@@ -393,8 +393,8 @@ const WindingUpCheck = () => {
                 className="mt-12 space-y-8"
               >
                 <div className="text-center mb-8">
-                  <p className="text-sm text-slate-400 font-mono bg-slate-800/50 inline-block px-4 py-2 rounded-lg border border-slate-700">
-                    ⚠️ Matches are indicative. Verify with Companies House.
+                  <p className="text-sm md:text-base text-amber-200 font-mono bg-slate-800/70 inline-block px-4 py-2 rounded-lg border border-amber-500/40">
+                    ⚠️ Company name must match the exact legal entity on Companies House or it will not appear in these results.
                   </p>
                 </div>
 
