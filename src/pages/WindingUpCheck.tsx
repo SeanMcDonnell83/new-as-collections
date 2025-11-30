@@ -923,6 +923,97 @@ const WindingUpCheck = () => {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Full High-Risk List Modal */}
+      <AnimatePresence>
+        {showAllHighRiskModal && (
+          <div className="fixed inset-0 z-40 flex items-center justify-center px-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowAllHighRiskModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative bg-slate-900 border border-red-500/40 rounded-2xl p-6 max-w-xl w-full max-h-[80vh] shadow-2xl shadow-red-900/30 flex flex-col"
+            >
+              <button
+                onClick={() => setShowAllHighRiskModal(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <h3 className="text-lg font-bold text-white font-manrope mb-4 flex items-center gap-2 pr-8">
+                <AlertTriangle className="w-5 h-5 text-red-400" />
+                All High-Risk Companies Detected ({exactMatches.length})
+              </h3>
+              <div className="flex-1 overflow-y-auto border border-red-500/30 rounded-lg p-4 bg-red-950/20">
+                <ul className="space-y-1">
+                  {exactMatches.map((match, idx) => (
+                    <li
+                      key={idx}
+                      className="text-sm text-red-100 font-mono flex justify-between gap-3"
+                    >
+                      <span>• {match.name}</span>
+                      <span className="text-red-300 text-[11px] uppercase tracking-wide">
+                        {match.dateListed}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Full Clear List Modal */}
+      <AnimatePresence>
+        {showAllClearModal && (
+          <div className="fixed inset-0 z-40 flex items-center justify-center px-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowAllClearModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative bg-slate-900 border border-green-500/40 rounded-2xl p-6 max-w-xl w-full max-h-[80vh] shadow-2xl shadow-emerald-900/30 flex flex-col"
+            >
+              <button
+                onClick={() => setShowAllClearModal(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <h3 className="text-lg font-bold text-white font-manrope mb-4 flex items-center gap-2 pr-8">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                All Clear Companies ({clearCompanies.length})
+              </h3>
+              <div className="flex-1 overflow-y-auto border border-green-500/30 rounded-lg p-4 bg-green-950/20">
+                <ul className="space-y-1">
+                  {clearCompanies.map((match, idx) => (
+                    <li
+                      key={idx}
+                      className="text-sm text-green-100 font-mono"
+                    >
+                      • {match.userInput}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
