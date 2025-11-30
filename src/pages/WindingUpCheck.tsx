@@ -737,7 +737,7 @@ const WindingUpCheck = () => {
                   <p className="text-xs font-mono text-red-300 uppercase tracking-wider mb-2">
                     Companies Flagged:
                   </p>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1 max-h-40 overflow-y-auto pr-1">
                     {flaggedCompanies.map((match, idx) => (
                       <li key={idx} className="text-sm text-red-200 font-mono">
                         • {match.name}
