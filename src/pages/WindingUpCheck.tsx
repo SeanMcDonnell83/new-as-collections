@@ -432,8 +432,7 @@ const WindingUpCheck = () => {
                     {exactRemainingCount > 0 && (
                       <Button
                         onClick={() => setShowAllHighRiskModal(true)}
-                        variant="outline"
-                        className="mt-2 border-red-500/40 text-red-200 hover:bg-red-950/40"
+                        className="mt-2 bg-red-600 hover:bg-red-500 text-white border border-red-500/60 px-4 py-2 rounded-lg"
                       >
                         View full high-risk list
                       </Button>
