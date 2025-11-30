@@ -55,6 +55,8 @@ const WindingUpCheck = () => {
   const [hasAcknowledgedDisclaimer, setHasAcknowledgedDisclaimer] =
     useState(false);
   const [showDisclaimerModal, setShowDisclaimerModal] = useState(false);
+  const [showAllHighRiskModal, setShowAllHighRiskModal] = useState(false);
+  const [showAllClearModal, setShowAllClearModal] = useState(false);
   const { toast } = useToast();
 
   const CSV_URL =
