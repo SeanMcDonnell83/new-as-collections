@@ -329,7 +329,8 @@ const WindingUpCheck = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center">
               <p className="text-sm md:text-base text-amber-200 font-mono bg-slate-800/70 inline-block px-4 py-2 rounded-lg border border-amber-500/40">
-                ⚠️ Company name must match the exact legal entity on Companies House or it will not appear in these results.
+                ⚠️ Company name must match the exact legal entity on Companies
+                House or it will not appear in these results.
               </p>
             </div>
           </div>
@@ -374,7 +375,8 @@ const WindingUpCheck = () => {
                     ENTRIES DETECTED
                   </p>
                   <p className="text-sm text-slate-300 mt-1 font-mono text-right">
-                    Note: Large lists may take a little longer to scan – please be patient while we check every company.
+                    Note: Large lists may take a little longer to scan – please
+                    be patient while we check every company.
                   </p>
                 </div>
 
@@ -430,8 +432,8 @@ const WindingUpCheck = () => {
                     ))}
                     {exactRemainingCount > 0 && (
                       <p className="text-xs text-red-200 font-mono">
-                        Showing first {exactPreview.length} of {exactMatches.length} high-risk
-                        companies.
+                        Showing first {exactPreview.length} of{" "}
+                        {exactMatches.length} high-risk companies.
                       </p>
                     )}
                     {exactRemainingCount > 0 && (
@@ -485,8 +487,8 @@ const WindingUpCheck = () => {
                     </div>
                     {clearRemainingCount > 0 && (
                       <p className="text-xs text-green-200 font-mono">
-                        Showing first {clearPreview.length} of {clearCompanies.length} clear
-                        companies.
+                        Showing first {clearPreview.length} of{" "}
+                        {clearCompanies.length} clear companies.
                       </p>
                     )}
                     {clearRemainingCount > 0 && (
@@ -561,8 +563,9 @@ const WindingUpCheck = () => {
               <ul className="space-y-3 text-sm leading-relaxed font-light">
                 <li>
                   <strong>Exact Name Matching:</strong> This tool matches
-                  company names exactly after normalising common suffixes. Always
-                  verify the exact legal entity name and company number via{" "}
+                  company names exactly after normalising common suffixes.
+                  Always verify the exact legal entity name and company number
+                  via{" "}
                   <a
                     href="https://beta.companieshouse.gov.uk"
                     target="_blank"
@@ -1004,10 +1007,7 @@ const WindingUpCheck = () => {
               <div className="flex-1 overflow-y-auto border border-green-500/30 rounded-lg p-4 bg-green-950/20">
                 <ul className="space-y-1">
                   {clearCompanies.map((match, idx) => (
-                    <li
-                      key={idx}
-                      className="text-sm text-green-100 font-mono"
-                    >
+                    <li key={idx} className="text-sm text-green-100 font-mono">
                       • {match.userInput}
                     </li>
                   ))}
