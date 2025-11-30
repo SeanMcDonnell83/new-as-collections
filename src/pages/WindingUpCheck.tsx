@@ -90,56 +90,20 @@ const WindingUpCheck = () => {
     return (matches / Math.max(s1.length, s2.length)) * 100;
   };
 
-  // 3-tier matching logic
+  // 2-tier matching logic (exact match only after normalisation)
   const classifyMatch = (
     userCompany: string,
     csvCompany: WindingUpCompany,
-  ): "exact" | "potential" | "none" => {
+  ): "exact" | "none" => {
     const normalisedUser = normaliseCompanyName(userCompany);
     const normalisedCSV = normaliseCompanyName(csvCompany["Company Name"]);
 
-    // Check for exact match
+    if (!normalisedUser || !normalisedCSV) {
+      return "none";
+    }
+
     if (normalisedUser === normalisedCSV) {
       return "exact";
-    }
-
-    // Get words for both
-    const userWords = normalisedUser.split(/\s+/).filter((w) => w.length > 0);
-    const csvWords = normalisedCSV.split(/\s+/).filter((w) => w.length > 0);
-
-    // Check if any significant user words appear in CSV name
-    let bestMatchLength = 0;
-    userWords.forEach((uWord) => {
-      csvWords.forEach((cWord) => {
-        if (cWord === uWord) {
-          bestMatchLength = Math.max(bestMatchLength, uWord.length);
-        } else if (cWord.startsWith(uWord)) {
-          bestMatchLength = Math.max(bestMatchLength, uWord.length);
-        } else if (uWord.startsWith(cWord)) {
-          bestMatchLength = Math.max(bestMatchLength, cWord.length);
-        }
-      });
-    });
-
-    // If we found a word match, it's a potential match
-    if (bestMatchLength >= 1) {
-      const similarity = getSimilarityScore(
-        userCompany,
-        csvCompany["Company Name"],
-      );
-      // Lower threshold when we have a word match
-      if (similarity >= 40) {
-        return "potential";
-      }
-    }
-
-    // Or if overall similarity is very high (but not exact)
-    const similarity = getSimilarityScore(
-      userCompany,
-      csvCompany["Company Name"],
-    );
-    if (similarity >= 85) {
-      return "potential";
     }
 
     return "none";
