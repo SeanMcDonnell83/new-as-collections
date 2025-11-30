@@ -120,6 +120,40 @@ const Index = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ascollections.co.uk/" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FinancialService",
+            "name": "A.S. Collections",
+            "alternateName": "AS Collections",
+            "description": "UK's leading commercial debt recovery specialists. No win no fee debt collection services. 98% success rate, 14-day average recovery.",
+            "url": "https://ascollections.co.uk",
+            "logo": "https://ascollections.co.uk/as-collections-logo.png",
+            "image": "https://ascollections.co.uk/as-collections-logo.png",
+            "telephone": "+441513290946",
+            "priceRange": "No Win No Fee",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Liverpool",
+              "addressRegion": "Merseyside",
+              "addressCountry": "GB"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "addressCountry": "GB"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "United Kingdom"
+            },
+            "serviceType": ["Commercial Debt Recovery", "Business Debt Collection", "International Debt Recovery", "Debtor Tracing", "Credit Control", "Insolvency Services"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "ratingCount": "127"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />
