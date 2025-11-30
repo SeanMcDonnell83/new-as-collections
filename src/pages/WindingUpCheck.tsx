@@ -506,9 +506,9 @@ const WindingUpCheck = () => {
               </h3>
               <ul className="space-y-3 text-sm leading-relaxed font-light">
                 <li>
-                  <strong>Indicative Results:</strong> This tool uses 'fuzzy
-                  matching' and provides indicative results only. Always verify
-                  the exact legal entity name and company number via{" "}
+                  <strong>Exact Name Matching:</strong> This tool matches
+                  company names exactly after normalising common suffixes. Always
+                  verify the exact legal entity name and company number via{" "}
                   <a
                     href="https://beta.companieshouse.gov.uk"
                     target="_blank"
