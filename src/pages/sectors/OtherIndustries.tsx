@@ -27,6 +27,19 @@ const OtherIndustries = () => {
           name="description"
           content="Specialist debt recovery for niche sectors including Media, Technology, Automotive, and Manufacturing. Bespoke solutions for complex B2B disputes."
         />
+        <meta
+          property="og:title"
+          content="Bespoke Debt Recovery | Media, Tech, Automotive & More"
+        />
+        <meta
+          property="og:description"
+          content="Specialist debt recovery for niche sectors including Media, Technology, Automotive, and Manufacturing. Bespoke solutions for complex B2B disputes."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/sectors/other-industries"
+        />
+        <link rel="canonical" href="https://ascollections.co.uk/sectors/other-industries" />
       </Helmet>
 
       <Header />

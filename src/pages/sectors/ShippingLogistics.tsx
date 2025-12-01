@@ -18,6 +18,19 @@ const ShippingLogistics = () => {
           name="description"
           content="Global debt recovery for shipping and logistics. We handle demurrage disputes, port liens, and cross-border freight debts."
         />
+        <meta
+          property="og:title"
+          content="Logistics Debt Recovery | Shipping & Freight Specialists"
+        />
+        <meta
+          property="og:description"
+          content="Global debt recovery for shipping and logistics. We handle demurrage disputes, port liens, and cross-border freight debts."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/sectors/shipping-logistics"
+        />
+        <link rel="canonical" href="https://ascollections.co.uk/sectors/shipping-logistics" />
       </Helmet>
 
       <Header />
