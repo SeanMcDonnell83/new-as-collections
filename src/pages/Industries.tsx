@@ -436,6 +436,60 @@ const Industries = () => {
             </Link>
           </div>
         </motion.section>
+
+        {/* Debt Calculator Band */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={`py-20 ${themeClasses.bg.secondary} border-t ${themeClasses.border.primary}`}
+        >
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2
+              className={`text-3xl md:text-4xl font-black mb-6 font-montserrat ${themeClasses.text.primary}`}
+            >
+              CALCULATE YOUR RECOVERY POTENTIAL.
+            </h2>
+            <p
+              className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}
+            >
+              Use our free Debt Recovery Calculator to estimate your potential recovery, including statutory interest and compensation.
+            </p>
+            <Link to="/debt-calculator">
+              <Button className="bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white font-bold text-lg px-10 py-6 rounded-full transition-all shadow-2xl">
+                Open Debt Calculator
+              </Button>
+            </Link>
+          </div>
+        </motion.section>
+
+        {/* Commercial Debt Recovery CTA */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={`py-20 ${themeClasses.bg.primary} border-t ${themeClasses.border.primary}`}
+        >
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2
+              className={`text-3xl md:text-4xl font-black mb-6 font-montserrat ${themeClasses.text.primary}`}
+            >
+              READY TO RECOVER YOUR DEBT?
+            </h2>
+            <p
+              className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}
+            >
+              Explore our comprehensive commercial debt recovery services with no win, no fee guarantee.
+            </p>
+            <Link to="/commercial-debt-recovery">
+              <Button className="bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 text-white font-bold text-lg px-10 py-6 rounded-full transition-all shadow-2xl">
+                View Our Services
+              </Button>
+            </Link>
+          </div>
+        </motion.section>
       </main>
       <Footer />
       <CookieConsent />
