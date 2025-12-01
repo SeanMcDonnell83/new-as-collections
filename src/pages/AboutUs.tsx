@@ -29,6 +29,19 @@ const AboutUs = () => {
           name="description"
           content="Meet Emilie Campbell and the A.S. Collections team. Leading UK debt recovery specialists with 98% success rate, £50M+ recovered. Our mission, values and expertise."
         />
+        <meta
+          property="og:title"
+          content="About Us | Leading UK Debt Collection Agency | A.S. Collections"
+        />
+        <meta
+          property="og:description"
+          content="Meet Emilie Campbell and the A.S. Collections team. Leading UK debt recovery specialists with 98% success rate, £50M+ recovered. Our mission, values and expertise."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/about-us"
+        />
+        <link rel="canonical" href="https://ascollections.co.uk/about-us" />
       </Helmet>
 
       <Header />
