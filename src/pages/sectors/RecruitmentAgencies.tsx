@@ -23,6 +23,19 @@ const RecruitmentAgencies = () => {
           name="description"
           content="Specialist debt recovery for recruitment agencies. We trace backdoor hires, enforce terms of business, and recover unpaid placement fees."
         />
+        <meta
+          property="og:title"
+          content="Recruitment Debt Collection | Backdoor Hire Specialists"
+        />
+        <meta
+          property="og:description"
+          content="Specialist debt recovery for recruitment agencies. We trace backdoor hires, enforce terms of business, and recover unpaid placement fees."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/sectors/recruitment-agencies"
+        />
+        <link rel="canonical" href="https://ascollections.co.uk/sectors/recruitment-agencies" />
       </Helmet>
 
       <Header />

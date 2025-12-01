@@ -25,6 +25,19 @@ const OilGasEnergy = () => {
           name="description"
           content="High-value debt recovery for the Oil, Gas & Energy sectors. We handle complex supply chain disputes, cross-border payments, and operator debts."
         />
+        <meta
+          property="og:title"
+          content="Oil & Gas Debt Recovery | Energy Sector Specialists"
+        />
+        <meta
+          property="og:description"
+          content="High-value debt recovery for the Oil, Gas & Energy sectors. We handle complex supply chain disputes, cross-border payments, and operator debts."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/sectors/oil-gas-energy"
+        />
+        <link rel="canonical" href="https://ascollections.co.uk/sectors/oil-gas-energy" />
       </Helmet>
 
       <Header />

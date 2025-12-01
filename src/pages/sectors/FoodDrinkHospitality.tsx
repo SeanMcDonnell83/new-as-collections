@@ -26,6 +26,19 @@ const FoodDrinkHospitality = () => {
           name="description"
           content="Fast-paced debt recovery for the food, drink, and hospitality sector. We recover debts from restaurants, wholesalers, and caterers before insolvency strikes."
         />
+        <meta
+          property="og:title"
+          content="Hospitality Debt Collection | Food & Drink Specialists"
+        />
+        <meta
+          property="og:description"
+          content="Fast-paced debt recovery for the food, drink, and hospitality sector. We recover debts from restaurants, wholesalers, and caterers before insolvency strikes."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/sectors/food-drink-hospitality"
+        />
+        <link rel="canonical" href="https://ascollections.co.uk/sectors/food-drink-hospitality" />
       </Helmet>
 
       <Header />
