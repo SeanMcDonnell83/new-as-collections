@@ -55,10 +55,7 @@ const ContactPage = () => {
           property="og:description"
           content="Contact A.S. Collections for free no win no fee debt recovery consultation. Call 0151 329 0946. Liverpool-based, serving all UK."
         />
-        <meta
-          property="og:url"
-          content="https://ascollections.co.uk/contact"
-        />
+        <meta property="og:url" content="https://ascollections.co.uk/contact" />
         <link rel="canonical" href="https://ascollections.co.uk/contact" />
         <script type="application/ld+json">
           {JSON.stringify({

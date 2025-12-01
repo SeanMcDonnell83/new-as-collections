@@ -38,7 +38,10 @@ const FoodDrinkHospitality = () => {
           property="og:url"
           content="https://ascollections.co.uk/sectors/food-drink-hospitality"
         />
-        <link rel="canonical" href="https://ascollections.co.uk/sectors/food-drink-hospitality" />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/sectors/food-drink-hospitality"
+        />
       </Helmet>
 
       <Header />

@@ -273,9 +273,7 @@ const WindingUpCheck = () => {
   return (
     <div className="min-h-screen bg-slate-900 text-white font-inter">
       <Helmet>
-        <title>
-          Winding-Up Check | Free Company Check | A.S. Collections
-        </title>
+        <title>Winding-Up Check | Free Company Check | A.S. Collections</title>
         <meta
           name="description"
           content="Free winding-up check. Before you run credit checks on your clients, check our register for winding-up petitions and insolvency risks. Protect your business instantly."
@@ -326,23 +324,30 @@ const WindingUpCheck = () => {
               <div className="mb-6 max-w-2xl mx-auto">
                 <div className="bg-red-900/50 border border-red-500/60 rounded-lg px-4 py-3 mb-4">
                   <p className="text-base md:text-lg font-bold text-red-200 text-center">
-                    🛑 STOP! If you are owed money by one of your clients, please call us immediately on <span className="text-red-100 font-mono">0151 329 0946</span>. We may be able to help.
+                    🛑 STOP! If you are owed money by one of your clients,
+                    please call us immediately on{" "}
+                    <span className="text-red-100 font-mono">
+                      0151 329 0946
+                    </span>
+                    . We may be able to help.
                   </p>
                 </div>
                 <div className="bg-amber-900/40 border border-amber-500/40 rounded-lg px-4 py-3">
                   <p className="text-sm md:text-base text-amber-100 text-center font-mono">
-                    ⚠️ Company name MUST match the exact legal entity on Companies House or it will not appear in these results.
+                    ⚠️ Company name MUST match the exact legal entity on
+                    Companies House or it will not appear in these results.
                   </p>
                 </div>
               </div>
 
               <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light mb-4">
-                Before you run a credit check on a company, check our insolvency register. Instantly identify companies with active or pending winding-up petitions to protect your business from bad debts.
+                Before you run a credit check on a company, check our insolvency
+                register. Instantly identify companies with active or pending
+                winding-up petitions to protect your business from bad debts.
               </p>
             </motion.div>
           </div>
         </section>
-
 
         {/* The Risk Console */}
         <section className="px-4 sm:px-6 lg:px-8 mb-20">
@@ -372,7 +377,9 @@ const WindingUpCheck = () => {
                 {/* Input Area */}
                 <div className="mb-6">
                   <p className="text-sm text-slate-400 mb-3 font-light">
-                    Separate company names with <strong>commas</strong> or <strong>new lines</strong>. One per entry recommended for clarity.
+                    Separate company names with <strong>commas</strong> or{" "}
+                    <strong>new lines</strong>. One per entry recommended for
+                    clarity.
                   </p>
                   <textarea
                     value={userInput}
@@ -617,7 +624,11 @@ const WindingUpCheck = () => {
                     Is this the same as a standard credit check?
                   </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    No. This tool is specifically designed to check companies against our insolvency register for active or pending winding-up petitions. It complements but does not replace standard credit checks. Use this for rapid insolvency risk assessment before extending credit.
+                    No. This tool is specifically designed to check companies
+                    against our insolvency register for active or pending
+                    winding-up petitions. It complements but does not replace
+                    standard credit checks. Use this for rapid insolvency risk
+                    assessment before extending credit.
                   </p>
                 </div>
 
@@ -626,7 +637,12 @@ const WindingUpCheck = () => {
                     Do you hold all historical insolvency data?
                   </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    We maintain a comprehensive, current register of active and recent winding-up petitions. Our data is sufficiently recent for typical business credit assessment purposes, but we don't hold complete historical archives dating back many years. For historical records, cross-reference with Companies House directly.
+                    We maintain a comprehensive, current register of active and
+                    recent winding-up petitions. Our data is sufficiently recent
+                    for typical business credit assessment purposes, but we
+                    don't hold complete historical archives dating back many
+                    years. For historical records, cross-reference with
+                    Companies House directly.
                   </p>
                 </div>
 
@@ -635,16 +651,37 @@ const WindingUpCheck = () => {
                     Is my data and search activity secure and private?
                   </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    Yes. Your data is processed securely and privately. The companies you check are not notified in any way that you've searched for them. We maintain strict confidentiality of all user searches and data. No third parties are informed of your activity.
+                    Yes. Your data is processed securely and privately. The
+                    companies you check are not notified in any way that you've
+                    searched for them. We maintain strict confidentiality of all
+                    user searches and data. No third parties are informed of
+                    your activity.
                   </p>
                 </div>
 
                 <div className="border-l-4 border-blue-500 pl-6 py-2">
                   <h3 className="text-white font-bold mb-2">
-                    What if I want to chase a debt against a company on this list?
+                    What if I want to chase a debt against a company on this
+                    list?
                   </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    If you've identified a company with active insolvency proceedings, don't wait. Contact our team immediately at <a href="tel:+441513290946" className="text-blue-400 hover:text-blue-300 font-semibold">0151 329 0946</a> or <a href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold">get in touch via our contact page</a>. We can advise on your options and help recover the debt through our specialist insolvency services.
+                    If you've identified a company with active insolvency
+                    proceedings, don't wait. Contact our team immediately at{" "}
+                    <a
+                      href="tel:+441513290946"
+                      className="text-blue-400 hover:text-blue-300 font-semibold"
+                    >
+                      0151 329 0946
+                    </a>{" "}
+                    or{" "}
+                    <a
+                      href="/contact"
+                      className="text-blue-400 hover:text-blue-300 font-semibold"
+                    >
+                      get in touch via our contact page
+                    </a>
+                    . We can advise on your options and help recover the debt
+                    through our specialist insolvency services.
                   </p>
                 </div>
 
@@ -653,7 +690,11 @@ const WindingUpCheck = () => {
                     Why must the company name match exactly?
                   </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    Exact name matching ensures you're checking the correct legal entity. Similar names can refer to different companies entirely. Always verify the company number on Companies House to confirm you're reviewing the right business before making credit decisions.
+                    Exact name matching ensures you're checking the correct
+                    legal entity. Similar names can refer to different companies
+                    entirely. Always verify the company number on Companies
+                    House to confirm you're reviewing the right business before
+                    making credit decisions.
                   </p>
                 </div>
               </div>

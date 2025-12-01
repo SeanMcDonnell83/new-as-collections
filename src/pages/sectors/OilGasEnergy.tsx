@@ -37,7 +37,10 @@ const OilGasEnergy = () => {
           property="og:url"
           content="https://ascollections.co.uk/sectors/oil-gas-energy"
         />
-        <link rel="canonical" href="https://ascollections.co.uk/sectors/oil-gas-energy" />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/sectors/oil-gas-energy"
+        />
       </Helmet>
 
       <Header />

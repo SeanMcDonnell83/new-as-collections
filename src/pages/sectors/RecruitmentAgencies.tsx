@@ -35,7 +35,10 @@ const RecruitmentAgencies = () => {
           property="og:url"
           content="https://ascollections.co.uk/sectors/recruitment-agencies"
         />
-        <link rel="canonical" href="https://ascollections.co.uk/sectors/recruitment-agencies" />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/sectors/recruitment-agencies"
+        />
       </Helmet>
 
       <Header />

@@ -30,7 +30,10 @@ const ShippingLogistics = () => {
           property="og:url"
           content="https://ascollections.co.uk/sectors/shipping-logistics"
         />
-        <link rel="canonical" href="https://ascollections.co.uk/sectors/shipping-logistics" />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/sectors/shipping-logistics"
+        />
       </Helmet>
 
       <Header />

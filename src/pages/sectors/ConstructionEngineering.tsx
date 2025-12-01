@@ -38,7 +38,10 @@ const ConstructionEngineering = () => {
           property="og:url"
           content="https://ascollections.co.uk/sectors/construction-engineering"
         />
-        <link rel="canonical" href="https://ascollections.co.uk/sectors/construction-engineering" />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/sectors/construction-engineering"
+        />
       </Helmet>
 
       <Header />

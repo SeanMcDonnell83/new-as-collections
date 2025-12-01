@@ -425,7 +425,8 @@ const Index = () => {
               <p
                 className={`text-lg ${themeClasses.text.secondary} max-w-3xl mx-auto font-inter leading-relaxed`}
               >
-                Use our collection of free tools to assess your debt recovery potential and check for insolvency risks before trading.
+                Use our collection of free tools to assess your debt recovery
+                potential and check for insolvency risks before trading.
               </p>
             </div>
 
@@ -440,11 +441,18 @@ const Index = () => {
                 <div className="w-12 h-12 rounded-full bg-green-600/10 text-green-600 flex items-center justify-center mb-4">
                   <Calculator className="w-6 h-6" />
                 </div>
-                <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat`}>
+                <h3
+                  className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat`}
+                >
                   Debt Recovery Calculator
                 </h3>
-                <p className={`${themeClasses.text.secondary} mb-6 font-inter leading-relaxed`}>
-                  Calculate your potential recovery including statutory interest, late payment compensation, and collection costs. Get instant estimates for statutory, contractual, or basic debt scenarios.
+                <p
+                  className={`${themeClasses.text.secondary} mb-6 font-inter leading-relaxed`}
+                >
+                  Calculate your potential recovery including statutory
+                  interest, late payment compensation, and collection costs. Get
+                  instant estimates for statutory, contractual, or basic debt
+                  scenarios.
                 </p>
                 <Link to="/debt-calculator">
                   <Button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors w-full flex items-center justify-center gap-2">
@@ -464,11 +472,17 @@ const Index = () => {
                 <div className="w-12 h-12 rounded-full bg-red-600/10 text-red-600 flex items-center justify-center mb-4">
                   <AlertTriangle className="w-6 h-6" />
                 </div>
-                <h3 className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat`}>
+                <h3
+                  className={`text-2xl font-bold ${themeClasses.text.primary} mb-3 font-montserrat`}
+                >
                   Insolvency Risk Radar
                 </h3>
-                <p className={`${themeClasses.text.secondary} mb-6 font-inter leading-relaxed`}>
-                  Check your client list against the UK winding-up register. Instantly identify companies at risk of insolvency and protect your cash flow before debts default.
+                <p
+                  className={`${themeClasses.text.secondary} mb-6 font-inter leading-relaxed`}
+                >
+                  Check your client list against the UK winding-up register.
+                  Instantly identify companies at risk of insolvency and protect
+                  your cash flow before debts default.
                 </p>
                 <Link to="/winding-up-check">
                   <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors w-full flex items-center justify-center gap-2">

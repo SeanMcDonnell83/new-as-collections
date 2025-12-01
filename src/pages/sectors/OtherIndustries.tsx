@@ -39,7 +39,10 @@ const OtherIndustries = () => {
           property="og:url"
           content="https://ascollections.co.uk/sectors/other-industries"
         />
-        <link rel="canonical" href="https://ascollections.co.uk/sectors/other-industries" />
+        <link
+          rel="canonical"
+          href="https://ascollections.co.uk/sectors/other-industries"
+        />
       </Helmet>
 
       <Header />

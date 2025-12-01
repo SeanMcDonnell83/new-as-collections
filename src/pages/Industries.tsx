@@ -454,7 +454,8 @@ const Industries = () => {
             <p
               className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}
             >
-              Use our free Debt Recovery Calculator to estimate your potential recovery, including statutory interest and compensation.
+              Use our free Debt Recovery Calculator to estimate your potential
+              recovery, including statutory interest and compensation.
             </p>
             <Link to="/debt-calculator">
               <Button className="bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white font-bold text-lg px-10 py-6 rounded-full transition-all shadow-2xl">
@@ -481,7 +482,8 @@ const Industries = () => {
             <p
               className={`text-lg ${themeClasses.text.secondary} mb-10 font-medium`}
             >
-              Explore our comprehensive commercial debt recovery services with no win, no fee guarantee.
+              Explore our comprehensive commercial debt recovery services with
+              no win, no fee guarantee.
             </p>
             <Link to="/commercial-debt-recovery">
               <Button className="bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 text-white font-bold text-lg px-10 py-6 rounded-full transition-all shadow-2xl">
