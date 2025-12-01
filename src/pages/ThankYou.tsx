@@ -9,6 +9,8 @@ const ThankYou = () => {
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
       <Helmet>
         <title>Thank You | A.S. Collections</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://ascollections.co.uk/thank-you" />
       </Helmet>
 
       <motion.div
