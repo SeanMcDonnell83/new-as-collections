@@ -36,6 +36,7 @@ const DebtCalculatorPage = () => {
 
       <Header />
       <main className="pt-32 pb-16 min-h-screen flex items-center justify-center">
+        <h1 className="sr-only">Debt Recovery Calculator</h1>
         <DebtCalculator isOpen={true} onClose={() => navigate("/")} />
       </main>
       <Footer />
