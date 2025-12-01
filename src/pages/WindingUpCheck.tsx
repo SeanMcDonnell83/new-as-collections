@@ -605,8 +605,111 @@ const WindingUpCheck = () => {
                 </li>
               </ul>
             </div>
+
+            {/* FAQ Section */}
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-8 font-manrope">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-500 pl-6 py-2">
+                  <h3 className="text-white font-bold mb-2">
+                    Is this the same as a standard credit check?
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    No. This tool is specifically designed to check companies against our insolvency register for active or pending winding-up petitions. It complements but does not replace standard credit checks. Use this for rapid insolvency risk assessment before extending credit.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-blue-500 pl-6 py-2">
+                  <h3 className="text-white font-bold mb-2">
+                    Do you hold all historical insolvency data?
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    We maintain a comprehensive, current register of active and recent winding-up petitions. Our data is sufficiently recent for typical business credit assessment purposes, but we don't hold complete historical archives dating back many years. For historical records, cross-reference with Companies House directly.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-blue-500 pl-6 py-2">
+                  <h3 className="text-white font-bold mb-2">
+                    Is my data and search activity secure and private?
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Yes. Your data is processed securely and privately. The companies you check are not notified in any way that you've searched for them. We maintain strict confidentiality of all user searches and data. No third parties are informed of your activity.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-blue-500 pl-6 py-2">
+                  <h3 className="text-white font-bold mb-2">
+                    What if I want to chase a debt against a company on this list?
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    If you've identified a company with active insolvency proceedings, don't wait. Contact our team immediately at <a href="tel:+441513290946" className="text-blue-400 hover:text-blue-300 font-semibold">0151 329 0946</a> or <a href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold">get in touch via our contact page</a>. We can advise on your options and help recover the debt through our specialist insolvency services.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-blue-500 pl-6 py-2">
+                  <h3 className="text-white font-bold mb-2">
+                    Why must the company name match exactly?
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Exact name matching ensures you're checking the correct legal entity. Similar names can refer to different companies entirely. Always verify the company number on Companies House to confirm you're reviewing the right business before making credit decisions.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+
+        {/* FAQ Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Is this the same as a standard credit check?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "No. This tool is specifically designed to check companies against our insolvency register for active or pending winding-up petitions. It complements but does not replace standard credit checks. Use this for rapid insolvency risk assessment before extending credit.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do you hold all historical insolvency data?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We maintain a comprehensive, current register of active and recent winding-up petitions. Our data is sufficiently recent for typical business credit assessment purposes, but we don't hold complete historical archives dating back many years. For historical records, cross-reference with Companies House directly.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is my data and search activity secure and private?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. Your data is processed securely and privately. The companies you check are not notified in any way that you've searched for them. We maintain strict confidentiality of all user searches and data. No third parties are informed of your activity.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What if I want to chase a debt against a company on this list?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "If you've identified a company with active insolvency proceedings, don't wait. Contact our team immediately at 0151 329 0946 or via our contact page. We can advise on your options and help recover the debt through our specialist insolvency services.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Why must the company name match exactly?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Exact name matching ensures you're checking the correct legal entity. Similar names can refer to different companies entirely. Always verify the company number on Companies House to confirm you're reviewing the right business before making credit decisions.",
+                },
+              },
+            ],
+          })}
+        </script>
       </main>
 
       <Footer />
