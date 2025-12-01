@@ -311,6 +311,19 @@ const WindingUpCheck = () => {
                 Insolvency Risk Radar
               </h1>
 
+              <div className="mb-6 max-w-2xl mx-auto">
+                <div className="bg-red-900/50 border border-red-500/60 rounded-lg px-4 py-3 mb-4">
+                  <p className="text-base md:text-lg font-bold text-red-200 text-center">
+                    🛑 STOP! If you are owed money by one of your clients, please call us immediately on <span className="text-red-100 font-mono">0151 329 0946</span>. We may be able to help.
+                  </p>
+                </div>
+                <div className="bg-amber-900/40 border border-amber-500/40 rounded-lg px-4 py-3">
+                  <p className="text-sm md:text-base text-amber-100 text-center font-mono">
+                    ⚠️ Company name must match the exact legal entity on Companies House or it will not appear in these results.
+                  </p>
+                </div>
+              </div>
+
               <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light mb-4">
                 Check your ledger. Paste your client list below to scan for
                 active Winding-Up Petitions.
