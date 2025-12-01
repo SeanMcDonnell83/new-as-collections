@@ -26,6 +26,19 @@ const ConstructionEngineering = () => {
           name="description"
           content="Specialist construction debt recovery. We resolve JCT contract disputes, recover unpaid retentions, and enforce adjudication awards. No Win, No Fee."
         />
+        <meta
+          property="og:title"
+          content="Construction Debt Recovery | JCT & Retention Specialists"
+        />
+        <meta
+          property="og:description"
+          content="Specialist construction debt recovery. We resolve JCT contract disputes, recover unpaid retentions, and enforce adjudication awards. No Win, No Fee."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/sectors/construction-engineering"
+        />
+        <link rel="canonical" href="https://ascollections.co.uk/sectors/construction-engineering" />
       </Helmet>
 
       <Header />
