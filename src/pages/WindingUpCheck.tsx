@@ -274,19 +274,19 @@ const WindingUpCheck = () => {
     <div className="min-h-screen bg-slate-900 text-white font-inter">
       <Helmet>
         <title>
-          Winding-Up Check | Free Company Credit Check Before Trading | A.S. Collections
+          Winding-Up Check | Free Company Check | A.S. Collections
         </title>
         <meta
           name="description"
-          content="Free winding-up check and company credit check tool. Before you run credit checks, check our insolvency register for active winding-up petitions and insolvency risks. Protect your business instantly."
+          content="Free winding-up check. Before you run credit checks on your clients, check our register for winding-up petitions and insolvency risks. Protect your business instantly."
         />
         <meta
           property="og:title"
-          content="Winding-Up Check | Free Company Credit Check Before Trading"
+          content="Winding-Up Check | Free Company Check"
         />
         <meta
           property="og:description"
-          content="Free winding-up check and company credit check tool. Check for active insolvency risks before extending credit to any business."
+          content="Free winding-up check. Before you run credit checks on your clients, check our register for winding-up petitions and insolvency risks. Protect your business instantly."
         />
         <meta
           property="og:url"
@@ -320,7 +320,7 @@ const WindingUpCheck = () => {
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-manrope tracking-tight">
-                Winding-Up Check
+                Free Winding-Up Check Tool
               </h1>
 
               <div className="mb-6 max-w-2xl mx-auto">
