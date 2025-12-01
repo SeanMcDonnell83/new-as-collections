@@ -274,11 +274,23 @@ const WindingUpCheck = () => {
     <div className="min-h-screen bg-slate-900 text-white font-inter">
       <Helmet>
         <title>
-          Winding-Up Search | Insolvency Register Check | A.S. Collections
+          Winding-Up Check | Free Company Credit Check Before Trading | A.S. Collections
         </title>
         <meta
           name="description"
-          content="Free UK Insolvency Risk Checker. Check your client list against the latest winding-up petitions and bad debtor data. Updated weekly."
+          content="Free winding-up check and company credit check tool. Before you run credit checks, check our insolvency register for active winding-up petitions and insolvency risks. Protect your business instantly."
+        />
+        <meta
+          property="og:title"
+          content="Winding-Up Check | Free Company Credit Check Before Trading"
+        />
+        <meta
+          property="og:description"
+          content="Free winding-up check and company credit check tool. Check for active insolvency risks before extending credit to any business."
+        />
+        <meta
+          property="og:url"
+          content="https://ascollections.co.uk/winding-up-check"
         />
         <link
           rel="canonical"
@@ -308,7 +320,7 @@ const WindingUpCheck = () => {
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-manrope tracking-tight">
-                Insolvency Risk Radar
+                Winding-Up Check
               </h1>
 
               <div className="mb-6 max-w-2xl mx-auto">
@@ -319,19 +331,13 @@ const WindingUpCheck = () => {
                 </div>
                 <div className="bg-amber-900/40 border border-amber-500/40 rounded-lg px-4 py-3">
                   <p className="text-sm md:text-base text-amber-100 text-center font-mono">
-                    ⚠️ Company name must match the exact legal entity on Companies House or it will not appear in these results.
+                    ⚠️ Company name MUST match the exact legal entity on Companies House or it will not appear in these results.
                   </p>
                 </div>
               </div>
 
               <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light mb-4">
-                Check your ledger. Paste your client list below to scan for
-                active Winding-Up Petitions.
-              </p>
-              <p className="text-sm text-slate-500 max-w-xl mx-auto font-light">
-                Separate company names with <strong>commas</strong> or{" "}
-                <strong>new lines</strong>. One per entry recommended for
-                clarity.
+                Before you run a credit check on a company, check our insolvency register. Instantly identify companies with active or pending winding-up petitions to protect your business from bad debts.
               </p>
             </motion.div>
           </div>
@@ -365,6 +371,9 @@ const WindingUpCheck = () => {
               <div className="p-6 md:p-8">
                 {/* Input Area */}
                 <div className="mb-6">
+                  <p className="text-sm text-slate-400 mb-3 font-light">
+                    Separate company names with <strong>commas</strong> or <strong>new lines</strong>. One per entry recommended for clarity.
+                  </p>
                   <textarea
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
